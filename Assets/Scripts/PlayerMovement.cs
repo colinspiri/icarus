@@ -31,16 +31,6 @@ public class PlayerMovement : MonoBehaviour {
 
 
     private void MovePlayer(Vector3 movement) {
-        // when moving forwards, move at moveSpeed
-        // when moving backwards, move at backwardsMoveSpeed
-        // if moving sideways, move at speed = halfway between them 
-
-        float dot = Vector3.Dot(movement, transform.right);
-        float f = (dot + 1) / 2.0f;
-        // float speed = Mathf.Lerp(backwardsMoveSpeed, moveSpeed, f);
-        // Debug.Log("dot = " + dot + ", f = " + f + ", speed = " + speed);
-        
-        // Move the player's transform
         transform.position = transform.position + (movement * Time.deltaTime * moveSpeed);
     }
 }

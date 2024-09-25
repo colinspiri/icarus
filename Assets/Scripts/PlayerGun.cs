@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGun : MonoBehaviour
-{
+public class PlayerGun : MonoBehaviour {
+    public Transform bulletSpawnPoint;
+    public GameObject bulletPrefab;
+
+    [SerializeField] private float bulletSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +24,21 @@ public class PlayerGun : MonoBehaviour
         // point the gun towards the mouse
         Vector2 lookPosition = GetLookPosition();
         LookAtPoint(lookPosition);
+
+        // fire bullets
+        if (InputManager.Instance.firePressed) {
+            FireBullet();
+        }
     }
     
-    public Vector2 GetLookPosition()
+    private Vector2 GetLookPosition()
     {
-        Vector2 result = transform.up;
+        Vector2 result = transform.right;
         
         result = new Vector2(InputManager.Instance.horizontalLookAxis, InputManager.Instance.verticalLookAxis);
         
         return result;
     }
-    
     private void LookAtPoint(Vector3 point)
     {
         if (Time.timeScale > 0)
@@ -39,7 +47,13 @@ public class PlayerGun : MonoBehaviour
             var screenToWorldPoint = Camera.main.ScreenToWorldPoint(point);
             Vector2 lookDirection = screenToWorldPoint - transform.position;
 
-            transform.up = lookDirection;
+            transform.right = lookDirection;
         }
+    }
+
+    private void FireBullet() {
+        Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
+        // bullet.transform.rotation = transform.rotation;
+        bullet.MoveSpeed = bulletSpeed;
     }
 }

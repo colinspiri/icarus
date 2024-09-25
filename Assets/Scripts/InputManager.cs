@@ -74,7 +74,6 @@ public class InputManager : MonoBehaviour
     
     public bool firePressed;
     public bool fireHeld;
-
     public void OnFire(InputAction.CallbackContext context)
     {
         firePressed = !context.canceled;
