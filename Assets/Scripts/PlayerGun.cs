@@ -1,19 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjectArchitecture;
 using UnityEngine;
 
 public class PlayerGun : MonoBehaviour {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private GameObject bulletOriginObject;
-
+    [Space]
     [SerializeField] private float bulletSpeed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private FloatVariable heat;
+    [SerializeField] private float heatDecreasePerShot;
 
     // Update is called once per frame
     void Update()
@@ -27,8 +24,9 @@ public class PlayerGun : MonoBehaviour {
         LookAtPoint(lookPosition);
 
         // fire bullets
-        if (InputManager.Instance.firePressed) {
+        if (InputManager.Instance.firePressed && heat.Value >= heatDecreasePerShot) {
             FireBullet();
+            heat.Value -= heatDecreasePerShot;
         }
     }
     
