@@ -6,6 +6,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
     public float LifeTime { get; set; } = 60f;
     public float MoveSpeed { get; set; } = 1f;
+    public float Damage { get; set; } = 1f;
+
+    public GameObject originObject;
 
     private Vector2 _spawnPoint;
     private float _lifeTimer;
@@ -28,15 +31,16 @@ public class Bullet : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
-        if (col.CompareTag("Player")) {
-            
-        }
-        else if (col.CompareTag("Enemy")) {
-            
-        }
-        else if (col.CompareTag("Bullet")) {
+        if (col.gameObject == null) return;
+        if (col.gameObject == originObject) return;
+
+        if (col.CompareTag("Bullet")) {
             Destroy(col.gameObject);
             Destroy(gameObject);
+        }
+        else if (col.CompareTag("Player") || col.CompareTag("Enemy")) {
+            var health = col.GetComponent<Health>();
+            health.TakeDamage(Damage);
         }
     }
 }

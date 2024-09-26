@@ -8,6 +8,7 @@ public class EnemyGun : MonoBehaviour {
     [SerializeField] private float firingCooldown;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawnPoint;
+    [SerializeField] private GameObject bulletOriginObject;
     [SerializeField] private float bulletSpeed;
 
     private float _currentFiringCooldown;
@@ -44,6 +45,8 @@ public class EnemyGun : MonoBehaviour {
     
     private void FireBullet() {
         Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
+        bullet.originObject = bulletOriginObject;
+        
         bullet.MoveSpeed = bulletSpeed;
     }
 }

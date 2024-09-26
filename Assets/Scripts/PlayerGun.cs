@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerGun : MonoBehaviour {
-    public Transform bulletSpawnPoint;
-    public GameObject bulletPrefab;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform bulletSpawnPoint;
+    [SerializeField] private GameObject bulletOriginObject;
 
     [SerializeField] private float bulletSpeed;
 
@@ -53,7 +54,8 @@ public class PlayerGun : MonoBehaviour {
 
     private void FireBullet() {
         Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
-        // bullet.transform.rotation = transform.rotation;
+        bullet.originObject = bulletOriginObject;
+        
         bullet.MoveSpeed = bulletSpeed;
     }
 }
