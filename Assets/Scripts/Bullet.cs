@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour {
 
     public GameObject originObject;
 
+    [SerializeField] private GameObject explosionEffectPrefab;
+
     private Vector2 _spawnPoint;
     private float _lifeTimer;
 
@@ -35,13 +37,18 @@ public class Bullet : MonoBehaviour {
         if (col.gameObject == originObject) return;
 
         if (col.CompareTag("Bullet")) {
-            Destroy(col.gameObject);
-            Destroy(gameObject);
+            col.GetComponent<Bullet>().Die();
+            Die();
         }
         else if (col.CompareTag("Player") || col.CompareTag("Enemy")) {
             var health = col.GetComponent<Health>();
             health.TakeDamage(Damage);
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die() {
+        Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
