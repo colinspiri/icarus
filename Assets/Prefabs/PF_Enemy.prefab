@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  explosionEffectPrefab: {fileID: 1316842982558945754, guid: 6536080a9b5db6d478590da575ed075b, type: 3}
 --- !u!1 &5357128261321233417
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,8 +382,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 30
-  firingCooldown: 1
+  firingCooldown: 0.8
   bulletPrefab: {fileID: 5171989861562838039, guid: 26b93c82901eb614889511444b092410, type: 3}
   bulletSpawnPoint: {fileID: 8600596406338030873}
   bulletOriginObject: {fileID: 3485121856887170019}
-  bulletSpeed: 10
+  bulletSpeed: 8

@@ -41,6 +41,7 @@ public class Bullet : MonoBehaviour {
         else if (col.CompareTag("Player") || col.CompareTag("Enemy")) {
             var health = col.GetComponent<Health>();
             health.TakeDamage(Damage);
+            Destroy(gameObject);
         }
     }
 }
