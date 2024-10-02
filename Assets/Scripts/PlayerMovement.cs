@@ -6,7 +6,9 @@ using UnityEngine;
 // Script is based from Coursera Game Design and Development 1: 2D Shooter project from MSU
 public class PlayerMovement : MonoBehaviour {
     public static PlayerMovement Instance;
-
+    // components
+    [SerializeField] private TurnCar turnCar;
+    [Space]
     [SerializeField] private float moveSpeed;
     [SerializeField] private Vector2 speedInnerRadius;
     [SerializeField] private Vector2 speedOuterRadius;
@@ -28,7 +30,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update()
     {
         HandleInput();
-        MoveAnchorPoint();
+        // MoveAnchorPoint();
 
         heat.Value += Time.deltaTime * heatIncreaseSpeed;
         if (heat.Value > 1) heat.Value = 1;
@@ -36,8 +38,14 @@ public class PlayerMovement : MonoBehaviour {
 
     private void HandleInput()
     {
+        // move player
         Vector3 movementVector = new Vector3(InputManager.Instance.horizontalMoveAxis, InputManager.Instance.verticalMoveAxis, 0);
         MovePlayer(movementVector);
+
+        // set turn direction
+        int turnDirection = (movementVector.x == 0) ? 0 : (int)(movementVector.x / Mathf.Abs(movementVector.x));
+        Debug.Log("turnDirection = " + turnDirection);
+        turnCar.TurnDirection = turnDirection;
     }
 
     private void MovePlayer(Vector3 movement) {
