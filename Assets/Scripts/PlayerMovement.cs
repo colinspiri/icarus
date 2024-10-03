@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour {
 
         // set turn direction
         int turnDirection = (movementVector.x == 0) ? 0 : (int)(movementVector.x / Mathf.Abs(movementVector.x));
-        Debug.Log("turnDirection = " + turnDirection);
         turnCar.TurnDirection = turnDirection;
     }
 
@@ -64,7 +63,7 @@ public class PlayerMovement : MonoBehaviour {
         float f = (dot + 1) / 2.0f; // 1 when moving to center, 0 when moving away
         float speed = Mathf.Lerp(reducedSpeed, moveSpeed, f);
         
-        Debug.Log("distanceFromCenter = " + distanceFromAnchor + ", " + "dot f = " + f + ", speed = " + speed);
+        // Debug.Log("distanceFromCenter = " + distanceFromAnchor + ", " + "dot f = " + f + ", speed = " + speed);
 
         transform.Translate(movement * (Time.deltaTime * speed));
     }

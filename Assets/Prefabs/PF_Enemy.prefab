@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 6151139964773279585}
   - component: {fileID: 5033449283383577430}
   - component: {fileID: 5679227482235792981}
+  - component: {fileID: 1170865997944462194}
   m_Layer: 0
   m_Name: PF_Enemy
   m_TagString: Enemy
@@ -251,6 +252,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   explosionEffectPrefab: {fileID: 1316842982558945754, guid: 6536080a9b5db6d478590da575ed075b, type: 3}
+--- !u!114 &1170865997944462194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485121856887170019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2782cae78a714a6bb6a333d116d968a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectCollection: {fileID: 11400000, guid: 3ac989e83f02792459fe4ff843bd5bbf, type: 2}
 --- !u!1 &5357128261321233417
 GameObject:
   m_ObjectHideFlags: 0
