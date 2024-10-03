@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float spawnDistanceFromZero;
+    [SerializeField] private float originDistanceFromZero;
 
     [SerializeField] private GameObjectCollection enemyCollection;
     [SerializeField] private int maxEnemyCount;
@@ -62,12 +63,15 @@ public class EnemySpawner : MonoBehaviour {
     private void SpawnEnemy() {
         // pick random position that's offscreen 
         var randomUnitSphere = Random.onUnitSphere;
-        Vector2 randomPosition = new Vector2(randomUnitSphere.x, randomUnitSphere.y);
-        randomPosition.Normalize();
-        randomPosition *= spawnDistanceFromZero;
+        Vector2 randomDirection = new Vector2(randomUnitSphere.x, randomUnitSphere.y);
+        randomDirection.Normalize();
+
+        var originPosition = randomDirection * originDistanceFromZero;
+        var randomPosition = randomDirection * spawnDistanceFromZero;
 
         // instantiate prefab at position
-        Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+        var enemyMovement = Instantiate(enemyPrefab, randomPosition, Quaternion.identity).GetComponent<EnemyMovement>();
+        enemyMovement.SetOrigin(originPosition);
         
         Debug.Log("spawned enemy");
     }

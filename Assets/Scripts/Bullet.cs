@@ -12,11 +12,9 @@ public class Bullet : MonoBehaviour {
 
     [SerializeField] private GameObject explosionEffectPrefab;
 
-    private Vector2 _spawnPoint;
     private float _lifeTimer;
 
     private void Start() {
-        _spawnPoint = transform.position;
         _lifeTimer = 0;
     }
 
