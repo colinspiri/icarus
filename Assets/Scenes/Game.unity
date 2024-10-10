@@ -576,13 +576,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732617008}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.18, y: 1.18, z: 1.18}
+  m_LocalScale: {x: 1.8199999, y: 1.8199999, z: 1.8199999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1639042383}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -660,7 +660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1457542362
 Transform:
   m_ObjectHideFlags: 0
@@ -968,6 +968,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: maxMoveSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: minMoveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: speedInnerRadius.x
+      value: 5.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: speedInnerRadius.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3822225912379449825, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

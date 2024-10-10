@@ -73,6 +73,6 @@ public class EnemySpawner : MonoBehaviour {
         var enemyMovement = Instantiate(enemyPrefab, randomPosition, Quaternion.identity).GetComponent<EnemyMovement>();
         enemyMovement.SetOrigin(originPosition);
         
-        Debug.Log("spawned enemy");
+        //Debug.Log("spawned enemy");
     }
 }

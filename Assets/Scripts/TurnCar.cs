@@ -27,7 +27,7 @@ public class TurnCar : MonoBehaviour {
             SetRotation();
         }
         else {
-            var targetAngle = -TurnDirection * maxAngle;
+            var targetAngle = TurnDirection * maxAngle;
             _currentAngle = Mathf.Lerp(_currentAngle, targetAngle, turnSpeed * Time.deltaTime);
             SetRotation();
             //RotateInDirection(-TurnDirection);

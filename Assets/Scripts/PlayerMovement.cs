@@ -9,7 +9,10 @@ public class PlayerMovement : MonoBehaviour {
     // components
     [SerializeField] private TurnCar turnCar;
     [Space]
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float minMoveSpeed;
+    [SerializeField] private float maxMoveSpeed;
+    private float moveSpeed => Mathf.Lerp(minMoveSpeed, maxMoveSpeed, heat.Value);
+    
     [SerializeField] private Vector2 speedInnerRadius;
     [SerializeField] private Vector2 speedOuterRadius;
     [SerializeField] private float anchorPointSpeed;
@@ -43,29 +46,30 @@ public class PlayerMovement : MonoBehaviour {
         MovePlayer(movementVector);
 
         // set turn direction
-        int turnDirection = (movementVector.x == 0) ? 0 : (int)(movementVector.x / Mathf.Abs(movementVector.x));
+        int turnDirection = (movementVector.y == 0) ? 0 : (int)(movementVector.y / Mathf.Abs(movementVector.y));
         turnCar.TurnDirection = turnDirection;
     }
 
     private void MovePlayer(Vector3 movement) {
         if (movement == Vector3.zero) return;
         
-        float innerRadius = Mathf.Lerp(speedInnerRadius.x, speedInnerRadius.y, heat);
-        float outerRadius = Mathf.Lerp(speedOuterRadius.x, speedOuterRadius.y, heat);
+        Vector2 speed = new Vector2(moveSpeed, moveSpeed);
+
+        float distanceValueX = Mathf.InverseLerp(speedInnerRadius.x, speedOuterRadius.x, Mathf.Abs(transform.position.x));
+        float reducedSpeedX = Mathf.Lerp(moveSpeed, 0, distanceValueX);
+        bool movingTowardsCenterX =
+            (transform.position.x < 0 && movement.x > 0) || (transform.position.x > 0 && movement.x < 0);
+        speed.x = movingTowardsCenterX ? moveSpeed : reducedSpeedX;
         
-        Vector3 playerToAnchor = _anchorPoint - transform.position;
-        float distanceFromAnchor = playerToAnchor.magnitude;
-
-        float distanceValue = Mathf.InverseLerp(innerRadius, outerRadius, distanceFromAnchor);
-        float reducedSpeed = Mathf.Lerp(moveSpeed, 0, distanceValue);
-
-        float dot = Vector3.Dot(movement.normalized, playerToAnchor.normalized);
-        float f = (dot + 1) / 2.0f; // 1 when moving to center, 0 when moving away
-        float speed = Mathf.Lerp(reducedSpeed, moveSpeed, f);
+        float distanceValueY = Mathf.InverseLerp(speedInnerRadius.y, speedOuterRadius.y, Mathf.Abs(transform.position.y));
+        float reducedSpeedY = Mathf.Lerp(moveSpeed, 0, distanceValueY);
+        bool movingTowardsCenterY =
+            (transform.position.y < 0 && movement.y > 0) || (transform.position.y > 0 && movement.y < 0);
+        speed.y = movingTowardsCenterY ? moveSpeed : reducedSpeedY;
         
-        // Debug.Log("distanceFromCenter = " + distanceFromAnchor + ", " + "dot f = " + f + ", speed = " + speed);
+        // Debug.Log("speed = " + speed.x + ", " + speed.y);
 
-        transform.Translate(movement * (Time.deltaTime * speed));
+        transform.Translate(new Vector3(movement.x * speed.x, movement.y * speed.y, 0) * Time.deltaTime);
     }
 
     private void MoveAnchorPoint() {

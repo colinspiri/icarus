@@ -38,7 +38,8 @@ public class EnemyMovement : MonoBehaviour {
     }
 
     private void UpdateMoveRandomly() {
-        
+        // try having enemies accelerate forwards/backwards but move sharply left/right
+        // to look like theyre racing
     }
 
     public void SetOrigin(Vector3 position) {
