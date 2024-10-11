@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyGun : MonoBehaviour {
     [SerializeField] private float rotationSpeed;
     
-    [SerializeField] private float firingCooldown;
+    [SerializeField] private float firingCooldownMin;
+    [SerializeField] private float firingCooldownMax;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private GameObject bulletOriginObject;
@@ -26,7 +27,7 @@ public class EnemyGun : MonoBehaviour {
 
         if (_currentFiringCooldown <= 0) {
             FireBullet();
-            _currentFiringCooldown = firingCooldown;
+            _currentFiringCooldown = Random.Range(firingCooldownMin, firingCooldownMax);
         }
         else _currentFiringCooldown -= Time.deltaTime;
     }
