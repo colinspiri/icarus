@@ -345,7 +345,7 @@ MonoBehaviour:
   bulletOriginObject: {fileID: 5946350306395452477}
   bulletSpeed: 25
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  heatDecreasePerShot: 0.15
+  heatDecreasePerShot: 0.2
 --- !u!1 &3422646787315346273
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,12 +628,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnCar: {fileID: 5182175881664270476}
-  moveSpeed: 5
-  speedInnerRadius: {x: 6.5, y: 3}
+  minMoveSpeed: 4
+  maxMoveSpeed: 8
+  speedInnerRadius: {x: 5.75, y: 2.5}
   speedOuterRadius: {x: 8, y: 4.5}
   anchorPointSpeed: 0.25
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  heatIncreaseSpeed: 0.1
+  heatIncreaseSpeed: 0.05
 --- !u!50 &5146788179341024205
 Rigidbody2D:
   serializedVersion: 4

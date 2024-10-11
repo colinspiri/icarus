@@ -660,7 +660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1457542362
 Transform:
   m_ObjectHideFlags: 0
@@ -689,11 +689,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3485121856887170019, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
-  spawnDistanceFromZero: 8
-  originDistanceFromZero: 3
+  originRange: {x: 9, y: 5}
   enemyCollection: {fileID: 11400000, guid: 3ac989e83f02792459fe4ff843bd5bbf, type: 2}
-  maxEnemyCount: 3
-  timeBetweenSpawns: 2
+  maxEnemyCount: 4
+  timeBetweenSpawns: 3
   waves: 
   timeBetweenWaves: 1
 --- !u!1 &1639042379
@@ -856,7 +855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3485121856887170019, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8946067707627199320, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -968,22 +967,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
-      propertyPath: maxMoveSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
-      propertyPath: minMoveSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
-      propertyPath: speedInnerRadius.x
-      value: 5.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
-      propertyPath: speedInnerRadius.y
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3822225912379449825, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

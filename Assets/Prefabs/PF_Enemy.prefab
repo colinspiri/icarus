@@ -124,7 +124,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8946067707627199320}
-  - component: {fileID: 1579721457237993781}
   - component: {fileID: 6151139964773279585}
   - component: {fileID: 5033449283383577430}
   - component: {fileID: 5679227482235792981}
@@ -154,29 +153,6 @@ Transform:
   - {fileID: 4606312264975070415}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1579721457237993781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3485121856887170019}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 543ddbe12367a4899b011d43ef41f357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positionAmount:
-    x: 2
-    y: 1.5
-    z: 0
-  rotationAmount:
-    x: 0
-    y: 0
-    z: 0
-  frequency: 0.3
-  octaves: 3
-  seed: 0
 --- !u!50 &6151139964773279585
 Rigidbody2D:
   serializedVersion: 4
@@ -278,7 +254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44a6b87340da514381221c404d370a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 2
+  randomMoveRadius: 3
+  changeDirectionTime: 1
 --- !u!1 &5357128261321233417
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,4 +392,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5171989861562838039, guid: 26b93c82901eb614889511444b092410, type: 3}
   bulletSpawnPoint: {fileID: 8600596406338030873}
   bulletOriginObject: {fileID: 3485121856887170019}
-  bulletSpeed: 8
+  bulletSpeed: 6

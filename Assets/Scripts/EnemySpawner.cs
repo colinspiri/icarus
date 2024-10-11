@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private float spawnDistanceFromZero;
-    [SerializeField] private float originDistanceFromZero;
+    [SerializeField] private Vector2 originRange;
 
     [SerializeField] private GameObjectCollection enemyCollection;
     [SerializeField] private int maxEnemyCount;
@@ -61,17 +60,13 @@ public class EnemySpawner : MonoBehaviour {
     }
 
     private void SpawnEnemy() {
-        // pick random position that's offscreen 
-        var randomUnitSphere = Random.onUnitSphere;
-        Vector2 randomDirection = new Vector2(randomUnitSphere.x, randomUnitSphere.y);
-        randomDirection.Normalize();
-
-        var originPosition = randomDirection * originDistanceFromZero;
-        var randomPosition = randomDirection * spawnDistanceFromZero;
+        // pick origin position that's onscreen
+        var originPosition = new Vector3(Random.Range(-originRange.x, originRange.x), Random.Range(-originRange.y, originRange.y), 0);
+        var spawnPosition = Random.onUnitSphere * (originRange.x * 1.5f);
 
         // instantiate prefab at position
-        var enemyMovement = Instantiate(enemyPrefab, randomPosition, Quaternion.identity).GetComponent<EnemyMovement>();
-        enemyMovement.SetOrigin(originPosition);
+        var enemyMovement = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity).GetComponent<EnemyMovement>();
+        enemyMovement.SetAnchor(originPosition);
         
         //Debug.Log("spawned enemy");
     }
