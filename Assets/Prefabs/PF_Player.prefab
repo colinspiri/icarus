@@ -343,7 +343,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5171989861562838039, guid: 26b93c82901eb614889511444b092410, type: 3}
   bulletSpawnPoint: {fileID: 7865857574172824808}
   bulletOriginObject: {fileID: 5946350306395452477}
-  bulletSpeed: 25
+  bulletSpeed: 30
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatDecreasePerShot: 0.2
 --- !u!1 &3422646787315346273
