@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cf0bf2674545719959dd2678ce08d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 2
   explosionEffectPrefab: {fileID: 1316842982558945754, guid: 6536080a9b5db6d478590da575ed075b, type: 3}
 --- !u!114 &1170865997944462194
 MonoBehaviour:
@@ -387,10 +387,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730be5d05fad056468296ce2fb240e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 30
+  rotationSpeed: 40
   firingCooldownMin: 0.4
   firingCooldownMax: 1.2
   bulletPrefab: {fileID: 5171989861562838039, guid: 26b93c82901eb614889511444b092410, type: 3}
   bulletSpawnPoint: {fileID: 8600596406338030873}
   bulletOriginObject: {fileID: 3485121856887170019}
-  bulletSpeed: 6
+  staticBulletSpeed: 6
+  useRandomBulletSpeed: 1
+  randomBulletSpeed:
+    min: 5.5
+    max: 7.5

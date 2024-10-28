@@ -417,7 +417,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -641,7 +641,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  minHeatSpeed: 1
+  minHeatSpeed: 0.6
   maxHeatSpeed: 1.5
   defaultScrollSpeed: 1
 --- !u!1 &1457542361
@@ -689,7 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3485121856887170019, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
-  originRange: {x: 9, y: 5}
+  originRange: {x: 8, y: 4}
   enemyCollection: {fileID: 11400000, guid: 3ac989e83f02792459fe4ff843bd5bbf, type: 2}
   maxEnemyCount: 4
   timeBetweenRandomSpawn: 3

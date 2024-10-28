@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour {
     public float Damage { get; set; } = 1f;
 
     public GameObject originObject;
+    public bool fromPlayer;
 
     [SerializeField] private GameObject explosionEffectPrefab;
 
@@ -35,8 +36,11 @@ public class Bullet : MonoBehaviour {
         if (col.gameObject == originObject) return;
 
         if (col.CompareTag("Bullet")) {
-            col.GetComponent<Bullet>().Die();
-            Die();
+            var otherBullet = col.GetComponent<Bullet>();
+            if (this.fromPlayer != otherBullet.fromPlayer) {
+                otherBullet.Die();
+                Die();
+            }
         }
         else if (col.CompareTag("Player") || col.CompareTag("Enemy")) {
             var health = col.GetComponent<Health>();

@@ -8,10 +8,8 @@ public class PlayerMovement : MonoBehaviour {
     public static PlayerMovement Instance;
     // components
     [SerializeField] private TurnCar turnCar;
-    [Space]
-    [SerializeField] private float minMoveSpeed;
-    [SerializeField] private float maxMoveSpeed;
-    private float moveSpeed => Mathf.Lerp(minMoveSpeed, maxMoveSpeed, heat.Value);
+    [Space] 
+    [SerializeField] private float moveSpeed;
     
     [SerializeField] private Vector2 speedInnerRadius;
     [SerializeField] private Vector2 speedOuterRadius;
@@ -28,6 +26,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Start() {
         _anchorPoint = transform.position;
+        heat.Value = 0;
     }
 
     void Update()

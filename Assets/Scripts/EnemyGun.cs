@@ -10,7 +10,11 @@ public class EnemyGun : MonoBehaviour {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private GameObject bulletOriginObject;
-    [SerializeField] private float bulletSpeed;
+    [Space] 
+    [SerializeField] private float staticBulletSpeed;
+    [SerializeField] private bool useRandomBulletSpeed;
+    [MinMaxRange(0, 15)]
+    [SerializeField] private MinMaxFloat randomBulletSpeed;
 
     private float _currentFiringCooldown;
     
@@ -48,6 +52,6 @@ public class EnemyGun : MonoBehaviour {
         Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
         bullet.originObject = bulletOriginObject;
         
-        bullet.MoveSpeed = bulletSpeed;
+        bullet.MoveSpeed = useRandomBulletSpeed ? randomBulletSpeed.RandomValue : staticBulletSpeed;
     }
 }

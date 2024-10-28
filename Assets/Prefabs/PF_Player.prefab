@@ -340,10 +340,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28297f18531ab4749b2d75767626900e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5171989861562838039, guid: 26b93c82901eb614889511444b092410, type: 3}
+  bulletPrefab: {fileID: 5241542432670263003, guid: f2024bdb33a097f4ca6ac2e0cee1a40c, type: 3}
   bulletSpawnPoint: {fileID: 7865857574172824808}
   bulletOriginObject: {fileID: 5946350306395452477}
-  bulletSpeed: 30
+  bulletSpeed: 40
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatDecreasePerShot: 0.2
 --- !u!1 &3422646787315346273
@@ -628,13 +628,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnCar: {fileID: 5182175881664270476}
-  minMoveSpeed: 4
-  maxMoveSpeed: 8
+  moveSpeed: 6.5
   speedInnerRadius: {x: 5.75, y: 2.5}
   speedOuterRadius: {x: 8, y: 4.5}
   anchorPointSpeed: 0.25
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  heatIncreaseSpeed: 0.05
+  heatIncreaseSpeed: 0.075
 --- !u!50 &5146788179341024205
 Rigidbody2D:
   serializedVersion: 4
