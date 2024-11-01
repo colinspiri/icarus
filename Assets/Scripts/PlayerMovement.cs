@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float startingSpeed;
     [SerializeField] private float topSpeed;
     [SerializeField] private float accelerationTime;
+    [Tooltip("Acceleration curve, determines speed (y) at given time spent accelerating (x)")]
     [SerializeField] private AnimationCurve accelerationCurve;
     
     [Space]
