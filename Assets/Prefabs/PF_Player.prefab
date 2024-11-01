@@ -628,10 +628,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnCar: {fileID: 5182175881664270476}
-  moveSpeed: 6.5
+  movementMode: 0
   speedInnerRadius: {x: 5.75, y: 2.5}
   speedOuterRadius: {x: 8, y: 4.5}
-  anchorPointSpeed: 0.25
+  linearSpeed: 6.5
+  startingSpeed: 0
+  topSpeed: 0
+  accelerationTime: 0
+  accelerationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatIncreaseSpeed: 0.075
 --- !u!50 &5146788179341024205
