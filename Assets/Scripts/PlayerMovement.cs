@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Vector2 speedOuterRadius;
     
     [Header("Linear Movement Mode")]
-    [SerializeField] private float linearSpeed; // 6.5
+    [SerializeField] private float linearSpeed;
 
     [Header("Acceleration Movement Mode")] 
     [SerializeField] private float startingSpeed;
@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float heatIncreaseSpeed;
     
     // state
+    private Vector2 _timeAccelerating;
     
     private void Awake() {
         Instance = this;
@@ -74,7 +75,77 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void MovePlayerAccelerationMode(Vector3 movement) {
+        Vector2 speed = Vector2.zero;
         
+        // update time accelerating x
+        if (movement.x == 0) {
+            _timeAccelerating.x = 0;
+        } 
+        else if (movement.x > 0) {
+            if (_timeAccelerating.x < accelerationTime) {
+                if (_timeAccelerating.x < 0) {
+                    _timeAccelerating.x = 0;
+                }
+                _timeAccelerating.x += Time.deltaTime;
+            }
+        }
+        else if (movement.x < 0) {
+            if (Mathf.Abs(_timeAccelerating.x) < accelerationTime) {
+                if (_timeAccelerating.x > 0) {
+                    _timeAccelerating.x = 0;
+                }
+                _timeAccelerating.x -= Time.deltaTime;
+            }
+        }
+        // y 
+        if (movement.y == 0) {
+            _timeAccelerating.y = 0;
+        } 
+        else if (movement.y > 0) {
+            if (_timeAccelerating.y < accelerationTime) {
+                if (_timeAccelerating.y < 0) {
+                    _timeAccelerating.y = 0;
+                }
+                _timeAccelerating.y += Time.deltaTime;
+            }
+        }
+        else if (movement.y < 0) {
+            if (Mathf.Abs(_timeAccelerating.y) < accelerationTime) {
+                if (_timeAccelerating.y > 0) {
+                    _timeAccelerating.y = 0;
+                }
+                _timeAccelerating.y -= Time.deltaTime;
+            }
+        }
+        
+        // determine speed based on time accelerating 
+        Vector2 absoluteTimeAccelerating = new Vector2(Mathf.Abs(_timeAccelerating.x), MathF.Abs(_timeAccelerating.y));
+        if (movement.x != 0) {
+            if (absoluteTimeAccelerating.x > accelerationTime) {
+                speed.x = topSpeed;
+            }
+            else {
+                var curveInput = absoluteTimeAccelerating.x / accelerationTime;
+                var curveValue = accelerationCurve.Evaluate(curveInput);
+                speed.x = Mathf.Lerp(startingSpeed, topSpeed, curveValue);
+            }
+        }
+        if (movement.y != 0) {
+            if (absoluteTimeAccelerating.y > accelerationTime) {
+                speed.y = topSpeed;
+            }
+            else {
+                var curveInput = absoluteTimeAccelerating.y / accelerationTime;
+                var curveValue = accelerationCurve.Evaluate(curveInput);
+                speed.y = Mathf.Lerp(startingSpeed, topSpeed, curveValue);
+            }
+        }
+
+        // limit speed 
+        speed = LimitSpeedNearBoundaries(movement, speed);
+
+        // translate 
+        transform.Translate(new Vector3(movement.x * speed.x, movement.y * speed.y, 0) * Time.deltaTime);
     }
 
     // returns limited speed

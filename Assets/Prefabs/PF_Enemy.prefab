@@ -391,13 +391,11 @@ MonoBehaviour:
   randomFiringCooldown:
     min: 0.4
     max: 1.2
-  firingCooldownMin: 0.4
-  firingCooldownMax: 1.2
   bulletPrefab: {fileID: 5171989861562838039, guid: 26b93c82901eb614889511444b092410, type: 3}
   bulletSpawnPoint: {fileID: 8600596406338030873}
   bulletOriginObject: {fileID: 3485121856887170019}
   staticBulletSpeed: 6
   useRandomBulletSpeed: 1
   randomBulletSpeed:
-    min: 5.5
-    max: 7.5
+    min: 4
+    max: 6.5
