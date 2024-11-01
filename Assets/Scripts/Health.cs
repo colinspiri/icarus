@@ -14,7 +14,7 @@ public abstract class Health : MonoBehaviour {
         _currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float damage) {
+    public virtual void TakeDamage(float damage) {
         _currentHealth -= damage;
 
         if (_currentHealth <= 0) {
