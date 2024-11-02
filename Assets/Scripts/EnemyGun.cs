@@ -51,5 +51,6 @@ public class EnemyGun : MonoBehaviour {
         bullet.originObject = bulletOriginObject;
         
         bullet.MoveSpeed = useRandomBulletSpeed ? randomBulletSpeed.RandomValue : staticBulletSpeed;
+        GetComponent<AudioSource>().Play();
     }
 }

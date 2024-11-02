@@ -38,6 +38,7 @@ public class Bullet : MonoBehaviour {
         if (col.CompareTag("Bullet")) {
             var otherBullet = col.GetComponent<Bullet>();
             if (this.fromPlayer != otherBullet.fromPlayer) {
+                GetComponent<AudioSource>().Play();
                 otherBullet.Die();
                 Die();
             }

@@ -55,5 +55,6 @@ public class PlayerGun : MonoBehaviour {
         bullet.originObject = bulletOriginObject;
         
         bullet.MoveSpeed = bulletSpeed;
+        GetComponent<AudioSource>().Play();   
     }
 }
