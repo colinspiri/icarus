@@ -11,6 +11,7 @@ public class PlayerGun : MonoBehaviour {
     [SerializeField] private float bulletSpeed;
     [SerializeField] private FloatVariable heat;
     [SerializeField] private float heatDecreasePerShot;
+    [SerializeField] private AudioClip fireSound;
 
     // Update is called once per frame
     void Update()
@@ -55,6 +56,6 @@ public class PlayerGun : MonoBehaviour {
         bullet.originObject = bulletOriginObject;
         
         bullet.MoveSpeed = bulletSpeed;
-        GetComponent<AudioSource>().Play();   
+        AudioManager.Instance.Play(fireSound, .5f);  
     }
 }

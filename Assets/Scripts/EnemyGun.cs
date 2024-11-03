@@ -13,6 +13,7 @@ public class EnemyGun : MonoBehaviour {
     [SerializeField] private float staticBulletSpeed;
     [SerializeField] private bool useRandomBulletSpeed;
     [SerializeField] private MinMaxFloat randomBulletSpeed;
+    [SerializeField] private AudioClip enemyShoot;
 
     private float _currentFiringCooldown;
     
@@ -51,6 +52,6 @@ public class EnemyGun : MonoBehaviour {
         bullet.originObject = bulletOriginObject;
         
         bullet.MoveSpeed = useRandomBulletSpeed ? randomBulletSpeed.RandomValue : staticBulletSpeed;
-        GetComponent<AudioSource>().Play();
+        AudioManager.Instance.Play(enemyShoot, 0.1f);
     }
 }

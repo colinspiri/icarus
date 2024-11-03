@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour {
     public bool fromPlayer;
 
     [SerializeField] private GameObject explosionEffectPrefab;
+    [SerializeField] private AudioClip collideSFX;
+    [SerializeField] private AudioClip enemyDamage;
 
     private float _lifeTimer;
 
@@ -38,12 +40,16 @@ public class Bullet : MonoBehaviour {
         if (col.CompareTag("Bullet")) {
             var otherBullet = col.GetComponent<Bullet>();
             if (this.fromPlayer != otherBullet.fromPlayer) {
-                GetComponent<AudioSource>().Play();
+                AudioManager.Instance.Play(collideSFX, 0.5f);
                 otherBullet.Die();
                 Die();
             }
         }
         else if (col.CompareTag("Player") || col.CompareTag("Enemy")) {
+            if (col.CompareTag("Enemy"))
+            {
+                AudioManager.Instance.Play(enemyDamage, 1.0f);
+            }
             var health = col.GetComponent<Health>();
             health.TakeDamage(Damage);
             Die();
