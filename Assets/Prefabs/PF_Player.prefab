@@ -340,13 +340,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28297f18531ab4749b2d75767626900e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5241542432670263003, guid: f2024bdb33a097f4ca6ac2e0cee1a40c, type: 3}
   bulletSpawnPoint: {fileID: 7865857574172824808}
   bulletOriginObject: {fileID: 5946350306395452477}
-  bulletSpeed: 40
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatDecreasePerShot: 0.2
   fireSound: {fileID: 8300000, guid: 8472c70be3b760d42a963a937647ff7c, type: 3}
+  bulletPrefabLowHeat: {fileID: 5241542432670263003, guid: f2024bdb33a097f4ca6ac2e0cee1a40c, type: 3}
+  mediumHeatValue: 0.5
+  bulletPrefabMediumHeat: {fileID: 6411648383677073412, guid: 50c2983edd6f14e108ca0fd605a297ff, type: 3}
+  highHeatValue: 1
+  bulletPrefabHighHeat: {fileID: 2542478685991887735, guid: 7b272b297d8ef4cd2bbee922306fea49, type: 3}
 --- !u!1 &3422646787315346273
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +664,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  heatIncreaseSpeed: 0.075
+  heatIncreaseSpeed: 0.2
 --- !u!50 &5146788179341024205
 Rigidbody2D:
   serializedVersion: 4
@@ -738,6 +741,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   hitSound: {fileID: 8300000, guid: 4736b2226d9ba2d47b80f514211cb279, type: 3}
+  playerTookDamage: {fileID: 0}
+  playerInfo: {fileID: 0}
 --- !u!1 &6385184380768459587
 GameObject:
   m_ObjectHideFlags: 0

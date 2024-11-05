@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
 using ScriptableObjectArchitecture;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerGun : MonoBehaviour {
-    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private GameObject bulletOriginObject;
     [Space]
-    [SerializeField] private float bulletSpeed;
     [SerializeField] private FloatVariable heat;
     [SerializeField] private float heatDecreasePerShot;
     [SerializeField] private AudioClip fireSound;
+
+    [Header("Bullet Prefabs")] 
+    [SerializeField] private GameObject bulletPrefabLowHeat;
+    [SerializeField] private float mediumHeatValue;
+    [SerializeField] private GameObject bulletPrefabMediumHeat;
+    [SerializeField] private float highHeatValue;
+    [SerializeField] private GameObject bulletPrefabHighHeat;
 
     // Update is called once per frame
     void Update()
@@ -52,10 +59,14 @@ public class PlayerGun : MonoBehaviour {
     }
 
     private void FireBullet() {
-        Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
+        GameObject chosenBulletPrefab;
+        if (heat.Value >= highHeatValue) chosenBulletPrefab = bulletPrefabHighHeat;
+        else if (heat.Value >= mediumHeatValue) chosenBulletPrefab = bulletPrefabMediumHeat;
+        else chosenBulletPrefab = bulletPrefabLowHeat;
+        
+        Bullet bullet = Instantiate(chosenBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
         bullet.originObject = bulletOriginObject;
         
-        bullet.MoveSpeed = bulletSpeed;
         AudioManager.Instance.Play(fireSound, .5f);  
     }
 }

@@ -4,18 +4,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
-    public float LifeTime { get; set; } = 60f;
-    public float MoveSpeed { get; set; } = 1f;
-    public float Damage { get; set; } = 1f;
-
+    // components
+    [Header("Components")]
     public GameObject originObject;
-    public bool fromPlayer;
-
     [SerializeField] private GameObject explosionEffectPrefab;
     [SerializeField] private AudioClip collideSFX;
     [SerializeField] private AudioClip enemyDamage;
+    
+    // serialized constants
+    [Header("Constants")]
+    public bool fromPlayer;
+    [Space]
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float damage = 1f;
+    [Tooltip("Number of bullets to pierce through. -1 for infinite.")]
+    [SerializeField] private int bulletPierceMax;
+    [Tooltip("Number of entities to pierce through. -1 for infinite.")] 
+    [SerializeField] private int entityPierceMax;
 
+    // private state
+    private const float LIFE_TIME = 60f;
     private float _lifeTimer;
+    private int _bulletPierceCount;
+    private int _entityPierceCount;
 
     private void Start() {
         _lifeTimer = 0;
@@ -24,13 +35,32 @@ public class Bullet : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if(_lifeTimer > LifeTime) Destroy(gameObject);
+        if(_lifeTimer > LIFE_TIME) Destroy(gameObject);
+        
         _lifeTimer += Time.deltaTime;
         Move();
     }
 
     private void Move() {
-        transform.Translate(transform.right * (Time.deltaTime * MoveSpeed), Space.World);
+        transform.Translate(transform.right * (Time.deltaTime * bulletSpeed), Space.World);
+    }
+
+    public void SetBulletSpeed(float value) {
+        bulletSpeed = value;
+    }
+
+    private void HitBullet() {
+        _bulletPierceCount++;
+        if (bulletPierceMax != -1 && _bulletPierceCount > bulletPierceMax) {
+            Die();
+        }
+    }
+
+    private void HitEntity() {
+        _entityPierceCount++;
+        if (entityPierceMax != -1 && _entityPierceCount > entityPierceMax) {
+            Die();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
@@ -41,8 +71,8 @@ public class Bullet : MonoBehaviour {
             var otherBullet = col.GetComponent<Bullet>();
             if (this.fromPlayer != otherBullet.fromPlayer) {
                 AudioManager.Instance.Play(collideSFX, 0.5f);
-                otherBullet.Die();
-                Die();
+                otherBullet.HitBullet();
+                HitBullet();
             }
         }
         else if (col.CompareTag("Player") || col.CompareTag("Enemy")) {
@@ -51,8 +81,8 @@ public class Bullet : MonoBehaviour {
                 AudioManager.Instance.Play(enemyDamage, 1.0f);
             }
             var health = col.GetComponent<Health>();
-            health.TakeDamage(Damage);
-            Die();
+            health.TakeDamage(damage);
+            HitEntity();
         }
     }
 

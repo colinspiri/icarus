@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cf0bf2674545719959dd2678ce08d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 3
   explosionEffectPrefab: {fileID: 1316842982558945754, guid: 6536080a9b5db6d478590da575ed075b, type: 3}
   enemyDie: {fileID: 8300000, guid: d8b0bc26fedb5724a8f838f8af69e85a, type: 3}
 --- !u!114 &1170865997944462194
