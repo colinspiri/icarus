@@ -691,7 +691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266f3fad9d01a3e429c2661ce2533aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 5599163154520719880}
+  source:
+  - {fileID: 0}
 --- !u!82 &5599163154520719880
 AudioSource:
   m_ObjectHideFlags: 0
@@ -848,6 +849,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6429396860041541112, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: playerInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
+    - target: {fileID: 6429396860041541112, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: playerTookDamage
+      value: 
+      objectReference: {fileID: 11400000, guid: f5e4b489ef976c54e98389201231b4a0, type: 2}
     - target: {fileID: 9177090303106889407, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
