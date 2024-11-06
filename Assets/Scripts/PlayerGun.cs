@@ -10,7 +10,7 @@ public class PlayerGun : MonoBehaviour {
     [SerializeField] private GameObject bulletOriginObject;
     [Space]
     [SerializeField] private FloatVariable heat;
-    // [SerializeField] private float heatDecreasePerShot;
+    [SerializeField] private float heatDecreasePerShot;
     [SerializeField] private AudioClip fireSound;
 
     [Header("Bullet Prefabs")] 
@@ -34,6 +34,7 @@ public class PlayerGun : MonoBehaviour {
         // fire bullets
         if (InputManager.Instance.firePressed) {
             FireBullet();
+            heat.Value -= heatDecreasePerShot;
         }
     }
     
