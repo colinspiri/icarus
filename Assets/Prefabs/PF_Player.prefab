@@ -343,7 +343,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 7865857574172824808}
   bulletOriginObject: {fileID: 5946350306395452477}
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  heatDecreasePerShot: 0.2
+  heatDecreasePerShot: 0.05
   fireSound: {fileID: 8300000, guid: 8472c70be3b760d42a963a937647ff7c, type: 3}
   bulletPrefabLowHeat: {fileID: 5241542432670263003, guid: f2024bdb33a097f4ca6ac2e0cee1a40c, type: 3}
   mediumHeatValue: 0.5
@@ -664,7 +664,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  heatIncreaseSpeed: 0.2
+  heatIncreaseSpeed: -0.2
 --- !u!50 &5146788179341024205
 Rigidbody2D:
   serializedVersion: 4
