@@ -45,7 +45,12 @@ public class PlayerMovement : MonoBehaviour {
         HandleInput();
 
         heat.Value += Time.deltaTime * heatIncreaseSpeed;
-        if (heat.Value > 1) heat.Value = 1;
+        if (heat.Value < 0) {
+            heat.Value = 0;
+        }
+        else if (heat.Value > 1) {
+            heat.Value = 1;
+        } 
     }
 
     private void HandleInput()
