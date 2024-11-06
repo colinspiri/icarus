@@ -401,5 +401,5 @@ MonoBehaviour:
   useRandomBulletSpeed: 1
   randomBulletSpeed:
     min: 4
-    max: 6.5
+    max: 5.5
   enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
