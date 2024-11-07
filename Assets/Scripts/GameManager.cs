@@ -6,15 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
+    
+    private bool _paused;
+    public bool GamePaused => _paused;
 
     private void Awake() {
         Instance = this;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -31,5 +28,28 @@ public class GameManager : MonoBehaviour {
 
     public void Reload() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    public void Pause(bool pauseAudio = true) {
+        _paused = true;
+
+        TimeManager.Instance.PauseTime();
+
+        if (pauseAudio)
+        {
+            AudioListener.pause = true;
+        }
+
+    }
+
+    public void Resume(bool resumeAudio = true) {
+        _paused = false;
+        
+        TimeManager.Instance.ResumeTime();
+
+        if (resumeAudio)
+        {
+            AudioListener.pause = false;
+        }
     }
 }

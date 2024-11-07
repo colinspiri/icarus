@@ -75,11 +75,13 @@ public class Bullet : MonoBehaviour {
                 HitBullet();
             }
         }
-        else if (col.CompareTag("Player") || col.CompareTag("Enemy")) {
-            if (col.CompareTag("Enemy"))
-            {
-                AudioManager.Instance.Play(enemyDamage, 1.0f);
-            }
+        else if (col.CompareTag("Player") && !fromPlayer) {
+            var health = col.GetComponent<Health>();
+            health.TakeDamage(damage);
+            HitEntity();
+        }
+        else if (col.CompareTag("Enemy") && fromPlayer) {
+            AudioManager.Instance.Play(enemyDamage, 1.0f);
             var health = col.GetComponent<Health>();
             health.TakeDamage(damage);
             HitEntity();

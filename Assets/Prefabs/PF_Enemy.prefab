@@ -265,6 +265,10 @@ MonoBehaviour:
   enemyDie: {fileID: 8300000, guid: d8b0bc26fedb5724a8f838f8af69e85a, type: 3}
   heatGain: 0.4
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
+  hitstopOnDamage: 1
+  hitstopTimeOnDamage: 0.1
+  hitstopOnDeath: 1
+  hitstopTimeOnDeath: 0.6
 --- !u!114 &1170865997944462194
 MonoBehaviour:
   m_ObjectHideFlags: 0

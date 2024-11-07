@@ -6,7 +6,8 @@ public class CameraShake : MonoBehaviour {
     public static CameraShake Instance;
 
     public KeyCode cameraShakeTestKey;
-    
+
+    [SerializeField] private float defaultMagnitude = 0.4f;
     private float duration = 0.15f;
 
     private void Awake() {
@@ -21,11 +22,17 @@ public class CameraShake : MonoBehaviour {
         }
     }
 
-    public void Shake(float magnitude = 0.4f) {
+    public void Shake(float magnitude = 0f) {
+        if (magnitude == 0f) {
+            magnitude = defaultMagnitude;
+        }
         StartCoroutine(ShakeCoroutine(magnitude));
     }
 
-    public IEnumerator ShakeCoroutine(float magnitude = 0.4f) {
+    public IEnumerator ShakeCoroutine(float magnitude = 0f) {
+        if (magnitude == 0f) {
+            magnitude = defaultMagnitude;
+        }
         Vector3 originalPos = transform.localPosition;
 
         float elapsed = 0.0f;

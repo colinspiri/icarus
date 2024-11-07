@@ -274,7 +274,7 @@ MonoBehaviour:
   spriteRenderers:
   - {fileID: 6707606737457608348}
   - {fileID: 4056933184019769211}
-  flashColor: {r: 1, g: 0.039154753, b: 0, a: 1}
+  flashColor: {r: 1, g: 0.2901961, b: 0, a: 0.7294118}
   flashTime: 0.1
 --- !u!1 &2658441760430513599
 GameObject:

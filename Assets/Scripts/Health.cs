@@ -19,6 +19,7 @@ public abstract class Health : MonoBehaviour {
 
     public virtual void TakeDamage(float damage) {
         _currentHealth -= damage;
+        if (_currentHealth < 0) _currentHealth = 0;
         
         onTakeDamage?.Invoke();
 
