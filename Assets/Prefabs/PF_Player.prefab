@@ -733,9 +733,12 @@ MonoBehaviour:
   speedInnerRadius: {x: 5.75, y: 2.5}
   speedOuterRadius: {x: 8, y: 4.5}
   linearSpeed: 6.5
+  linearSpeedScalesWithHeat: 0
+  linearSpeedByHeat:
+    min: 4
+    max: 9
   startingSpeed: 4
   topSpeed: 9
-  accelerationTime: 1
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -760,6 +763,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  accelerationTime: 1
+  accelerationTimeScalesWithHeat: 1
+  accelerationTimeByHeat:
+    min: 1.2
+    max: 0.5
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatIncreaseSpeed: -0.05
 --- !u!50 &5146788179341024205

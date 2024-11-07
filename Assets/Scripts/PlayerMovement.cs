@@ -16,13 +16,21 @@ public class PlayerMovement : MonoBehaviour {
     
     [Header("Linear Movement Mode")]
     [SerializeField] private float linearSpeed;
+    [Space]
+    [SerializeField] private bool linearSpeedScalesWithHeat;
+    [SerializeField] private MinMaxFloat linearSpeedByHeat;
 
+    [Space]
     [Header("Acceleration Movement Mode")] 
     [SerializeField] private float startingSpeed;
     [SerializeField] private float topSpeed;
-    [SerializeField] private float accelerationTime;
     [Tooltip("Acceleration curve, determines speed (y) at given time spent accelerating (x)")]
     [SerializeField] private AnimationCurve accelerationCurve;
+    [SerializeField] private float accelerationTime;
+    [Space]
+    [SerializeField] private bool accelerationTimeScalesWithHeat;
+    [SerializeField] private MinMaxFloat accelerationTimeByHeat;
+    
     
     [Space]
     [Header("Heat")]
@@ -71,8 +79,10 @@ public class PlayerMovement : MonoBehaviour {
 
     private void MovePlayerLinearMode(Vector3 movement) {
         if (movement == Vector3.zero) return;
-        
-        Vector2 speed = new Vector2(linearSpeed, linearSpeed);
+
+        var chosenSpeed = linearSpeedScalesWithHeat ? linearSpeedByHeat.LerpValue(heat.Value) : linearSpeed;
+
+        Vector2 speed = new Vector2(chosenSpeed, chosenSpeed);
         speed = LimitSpeedNearBoundaries(movement, speed);
         
         // Debug.Log("speed = " + speed.x + ", " + speed.y);
@@ -83,12 +93,14 @@ public class PlayerMovement : MonoBehaviour {
     private void MovePlayerAccelerationMode(Vector3 movement) {
         Vector2 speed = Vector2.zero;
         
+        var chosenAccelerationTime = accelerationTimeScalesWithHeat ? accelerationTimeByHeat.LerpValue(heat.Value) : accelerationTime;
+
         // update time accelerating x
         if (movement.x == 0) {
             _timeAccelerating.x = 0;
         } 
         else if (movement.x > 0) {
-            if (_timeAccelerating.x < accelerationTime) {
+            if (_timeAccelerating.x < chosenAccelerationTime) {
                 if (_timeAccelerating.x < 0) {
                     _timeAccelerating.x = 0;
                 }
@@ -96,7 +108,7 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
         else if (movement.x < 0) {
-            if (Mathf.Abs(_timeAccelerating.x) < accelerationTime) {
+            if (Mathf.Abs(_timeAccelerating.x) < chosenAccelerationTime) {
                 if (_timeAccelerating.x > 0) {
                     _timeAccelerating.x = 0;
                 }
@@ -108,7 +120,7 @@ public class PlayerMovement : MonoBehaviour {
             _timeAccelerating.y = 0;
         } 
         else if (movement.y > 0) {
-            if (_timeAccelerating.y < accelerationTime) {
+            if (_timeAccelerating.y < chosenAccelerationTime) {
                 if (_timeAccelerating.y < 0) {
                     _timeAccelerating.y = 0;
                 }
@@ -116,7 +128,7 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
         else if (movement.y < 0) {
-            if (Mathf.Abs(_timeAccelerating.y) < accelerationTime) {
+            if (Mathf.Abs(_timeAccelerating.y) < chosenAccelerationTime) {
                 if (_timeAccelerating.y > 0) {
                     _timeAccelerating.y = 0;
                 }
@@ -127,21 +139,21 @@ public class PlayerMovement : MonoBehaviour {
         // determine speed based on time accelerating 
         Vector2 absoluteTimeAccelerating = new Vector2(Mathf.Abs(_timeAccelerating.x), MathF.Abs(_timeAccelerating.y));
         if (movement.x != 0) {
-            if (absoluteTimeAccelerating.x > accelerationTime) {
+            if (absoluteTimeAccelerating.x > chosenAccelerationTime) {
                 speed.x = topSpeed;
             }
             else {
-                var curveInput = absoluteTimeAccelerating.x / accelerationTime;
+                var curveInput = absoluteTimeAccelerating.x / chosenAccelerationTime;
                 var curveValue = accelerationCurve.Evaluate(curveInput);
                 speed.x = Mathf.Lerp(startingSpeed, topSpeed, curveValue);
             }
         }
         if (movement.y != 0) {
-            if (absoluteTimeAccelerating.y > accelerationTime) {
+            if (absoluteTimeAccelerating.y > chosenAccelerationTime) {
                 speed.y = topSpeed;
             }
             else {
-                var curveInput = absoluteTimeAccelerating.y / accelerationTime;
+                var curveInput = absoluteTimeAccelerating.y / chosenAccelerationTime;
                 var curveValue = accelerationCurve.Evaluate(curveInput);
                 speed.y = Mathf.Lerp(startingSpeed, topSpeed, curveValue);
             }

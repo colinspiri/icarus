@@ -14,6 +14,9 @@ public class MinMaxFloat
             return Random.Range(min, max);
         }
     }
+    public float LerpValue(float t) {
+        return Mathf.Lerp(min, max, t);
+    }
 }
  
 [System.AttributeUsage(System.AttributeTargets.Field)]
