@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SceneLoader
   m_EditorClassIdentifier: 
   mainMenuScene:
-    sceneAsset: {fileID: 0}
-    scenePath: 
+    sceneAsset: {fileID: 102900000, guid: 8535fbf521f2940d29d4b583007489ed, type: 3}
+    scenePath: Assets/Scenes/MainMenu.unity
   gameScene:
     sceneAsset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
     scenePath: Assets/Scenes/Game.unity
