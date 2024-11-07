@@ -4,19 +4,31 @@ using ScriptableObjectArchitecture;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
+    [Header("Components")]
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private Vector2 originRange;
-
     [SerializeField] private GameObjectCollection enemyCollection;
-    [SerializeField] private int maxEnemyCount;
-    [SerializeField] private float timeBetweenRandomSpawn;
+    
+    [Header("Spawning")]
+    [SerializeField] private Vector2 originRange;
+    private enum SpawningMode {
+        Wave,
+        Random,
+    };
+    [SerializeField] private SpawningMode spawningMode;
+    [SerializeField] private bool spawnRandomAfterLastWave;
 
+    [Header("Wave Spawning")]
     [SerializeField] private List<int> waves;
     [SerializeField] private float timeBetweenWaves;
 
+    [Header("Random Spawning")]
+    [SerializeField] private int maxEnemyCount;
+    [SerializeField] private float timeBetweenRandomSpawn;
+    
+
     // state
-    private enum SpawningState { Random, ReadyForWave, ActiveWave, DelayWave }
-    private SpawningState _spawningState;
+    private enum WaveState { ReadyForWave, ActiveWave, DelayWave }
+    private WaveState _waveState;
     private float _waveDelayTimer;
     private int _currentWave;
     private float _randomSpawnTimer;
@@ -24,40 +36,58 @@ public class EnemySpawner : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         _currentWave = 0;
-        
-        // if there are waves, start in wave spawning mode. otherwise start in random spawning
-        if (waves.Count >= 1) {
-            _spawningState = SpawningState.ReadyForWave;
-        }
-        else _spawningState = SpawningState.Random;
     }
 
     // Update is called once per frame
     void Update() {
-        // if state is random spawning, do that
-        if (_spawningState == SpawningState.Random) {
+        if (spawningMode == SpawningMode.Random) {
             UpdateRandomSpawning();
         }
+        else if (spawningMode == SpawningMode.Wave) {
+            UpdateWaveSpawning();
+        }
+    }
+    
+    private void UpdateRandomSpawning() {
+        if (_randomSpawnTimer > 0) _randomSpawnTimer -= Time.deltaTime;
+        else if(enemyCollection.Count < maxEnemyCount) {
+            SpawnEnemy();
+            _randomSpawnTimer = timeBetweenRandomSpawn;
+        }
+    }
+
+    private void UpdateWaveSpawning() {
         // if ready, spawn enemies from currentwave and set state to active wave
-        else if (_spawningState == SpawningState.ReadyForWave) {
+        if (_waveState == WaveState.ReadyForWave) {
             SpawnWave(_currentWave);
-            _spawningState = SpawningState.ActiveWave;
+            _waveState = WaveState.ActiveWave;
         }
         // if active wave, wait for all enemies to die, then set state to delay 
-        else if (_spawningState == SpawningState.ActiveWave) {
+        else if (_waveState == WaveState.ActiveWave) {
             if (enemyCollection.Count == 0) {
-                _spawningState = SpawningState.DelayWave;
+                _waveState = WaveState.DelayWave;
                 _waveDelayTimer = timeBetweenWaves;
             }
         }
         // if delay, wait for time, then currentwave++. if valid, then set state to ready
-        else if (_spawningState == SpawningState.DelayWave) {
+        else if (_waveState == WaveState.DelayWave) {
             if (_waveDelayTimer <= 0) {
-                _currentWave++;
-                if (_currentWave < waves.Count) {
-                    _spawningState = SpawningState.ReadyForWave;
+                // if there is no next wave 
+                if (_currentWave + 1 >= waves.Count) {
+                    // either transition to random spawning
+                    if (spawnRandomAfterLastWave) {
+                        spawningMode = SpawningMode.Random;
+                    }
+                    // or replay the last wave
+                    else {
+                        _waveState = WaveState.ReadyForWave;
+                    }
                 }
-                else _spawningState = SpawningState.Random;
+                // advance to next wave
+                else {
+                    _currentWave++;
+                    _waveState = WaveState.ReadyForWave;
+                }
             }
             else _waveDelayTimer -= Time.deltaTime;
         }
@@ -66,14 +96,6 @@ public class EnemySpawner : MonoBehaviour {
     private void SpawnWave(int waveIndex) {
         for (int i = 0; i < waves[waveIndex]; i++) {
             SpawnEnemy();
-        }
-    }
-
-    private void UpdateRandomSpawning() {
-        if (_randomSpawnTimer > 0) _randomSpawnTimer -= Time.deltaTime;
-        else if(enemyCollection.Count < maxEnemyCount) {
-            SpawnEnemy();
-            _randomSpawnTimer = timeBetweenRandomSpawn;
         }
     }
 
