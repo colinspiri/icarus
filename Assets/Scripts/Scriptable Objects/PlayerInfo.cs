@@ -7,4 +7,5 @@ public class PlayerInfo : ScriptableObject
 {
     public float maxHealth;
     public float currentHealthPercentage;
+    public Vector2 gunFacingDirection;
 }

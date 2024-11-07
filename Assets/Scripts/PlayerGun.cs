@@ -12,6 +12,7 @@ public class PlayerGun : MonoBehaviour {
     [SerializeField] private FloatVariable heat;
     [SerializeField] private float heatDecreasePerShot;
     [SerializeField] private AudioClip fireSound;
+    [SerializeField] private PlayerInfo playerInfo;
 
     [Header("Bullet Prefabs")] 
     [SerializeField] private GameObject bulletPrefabLowHeat;
@@ -41,9 +42,10 @@ public class PlayerGun : MonoBehaviour {
     private Vector2 GetLookPosition()
     {
         Vector2 result = transform.right;
+        playerInfo.gunFacingDirection = result;
         
         result = new Vector2(InputManager.Instance.horizontalLookAxis, InputManager.Instance.verticalLookAxis);
-        
+
         return result;
     }
     private void LookAtPoint(Vector3 point)

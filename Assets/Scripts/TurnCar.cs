@@ -44,4 +44,7 @@ public class TurnCar : MonoBehaviour {
     private void SetRotation() {
         transform.rotation = Quaternion.Euler(0, 0, _currentAngle);
     }
+
+    public void TurnOnTrailRenderer() => GetComponent<TrailRenderer>().emitting = true;
+    public void TurnOffTrailRenderer() => GetComponent<TrailRenderer>().emitting = false;
 }

@@ -772,6 +772,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3545455743848155591}
     m_Modifications:
+    - target: {fileID: 129515090020142754, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: playerInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
+    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: dashPower
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: playerInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
+    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: dashEndedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: e031cf320d2e63b46bca088133250fb3, type: 2}
+    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: dashStartedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c5391003f9d31247b24342e5571b106, type: 2}
     - target: {fileID: 3822225912379449825, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -820,6 +840,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5182175881664270476, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: playerInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
     - target: {fileID: 5946350306395452477, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
       propertyPath: m_Name
       value: Player

@@ -2,6 +2,9 @@ using System;
 using ScriptableObjectArchitecture;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using System.Collections;
+using Unity.VisualScripting;
+using System.Runtime.CompilerServices;
 
 public class PlayerMovement : MonoBehaviour {
     public static PlayerMovement Instance;
@@ -13,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private MovementMode movementMode;
     [SerializeField] private Vector2 speedInnerRadius;
     [SerializeField] private Vector2 speedOuterRadius;
+    [SerializeField] private PlayerInfo playerInfo;
     
     [Header("Linear Movement Mode")]
     [SerializeField] private float linearSpeed;
@@ -36,6 +40,16 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Heat")]
     [SerializeField] private FloatVariable heat;
     [SerializeField] private float heatIncreaseSpeed;
+
+    [Space]
+    [Header("Dash")]
+    [SerializeField] private float dashPower;
+    [SerializeField] private float dashCooldown;
+    [SerializeField] private float dashDuration;
+    [SerializeField] private GameEvent dashStartedEvent;
+    [SerializeField] private GameEvent dashEndedEvent;
+    private bool _isDashing;
+    private bool _canDash = true;
     
     // state
     private Vector2 _timeAccelerating;
@@ -50,6 +64,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update()
     {
+        if (_isDashing) return;
+
         HandleInput();
 
         heat.Value += Time.deltaTime * heatIncreaseSpeed;
@@ -59,6 +75,11 @@ public class PlayerMovement : MonoBehaviour {
         else if (heat.Value > 1) {
             heat.Value = 1;
         } 
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            StartCoroutine(DashCoroutine());
+        }
     }
 
     private void HandleInput()
@@ -181,5 +202,33 @@ public class PlayerMovement : MonoBehaviour {
         speed.y = movingTowardsCenterY ? speed.y : reducedSpeedY;
 
         return speed;
+    }
+
+    private IEnumerator DashCoroutine() 
+    {
+        _canDash = false;
+        _isDashing = true;
+        Vector2 dashDirection = new Vector2(0f, 0f);
+        Vector2 originalVelocity = transform.GetComponent<Rigidbody2D>().velocity;
+        Vector2 movementInput = new Vector2(InputManager.Instance.horizontalMoveAxis, InputManager.Instance.verticalMoveAxis);
+
+        if (movementInput != Vector2.zero) 
+        {
+            dashDirection = movementInput.normalized;
+        }
+        else
+        {
+            dashDirection = playerInfo.gunFacingDirection;
+        }
+
+        dashStartedEvent.Raise();
+        transform.GetComponent<Rigidbody2D>().velocity = dashDirection * dashPower;
+        yield return new WaitForSeconds(dashDuration);
+        transform.GetComponent<Rigidbody2D>().velocity = originalVelocity;
+        dashEndedEvent.Raise();
+
+        _isDashing = false;
+        yield return new WaitForSeconds(dashCooldown);
+        _canDash = true;
     }
 }
