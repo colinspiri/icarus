@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Health : MonoBehaviour {
     [SerializeField] private float maxHealth = 1;
@@ -9,6 +10,8 @@ public abstract class Health : MonoBehaviour {
 
     public float HealthPercentage => _currentHealth / maxHealth;
     
+    [SerializeField] protected UnityEvent onTakeDamage;
+
     // Start is called before the first frame update
     protected virtual void Start() {
         _currentHealth = maxHealth;
@@ -16,6 +19,8 @@ public abstract class Health : MonoBehaviour {
 
     public virtual void TakeDamage(float damage) {
         _currentHealth -= damage;
+        
+        onTakeDamage?.Invoke();
 
         if (_currentHealth <= 0) {
             DeathEffect();

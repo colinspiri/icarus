@@ -10,6 +10,7 @@ public class PlayerHealth : Health {
     
     public override void TakeDamage(float damage) {
         base.TakeDamage(damage);
+        
         CameraShake.Instance.Shake();
         AudioManager.Instance.Play(hitSound, 1.0f);
         playerInfo.currentHealthPercentage = HealthPercentage;

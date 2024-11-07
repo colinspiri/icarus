@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 4121367321956785429}
   - component: {fileID: 6707606737457608348}
   - component: {fileID: 5182175881664270476}
+  - component: {fileID: 5710371698764082583}
   m_Layer: 0
   m_Name: Player Car
   m_TagString: Untagged
@@ -258,6 +259,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 10
   maxAngle: 45
+--- !u!114 &5710371698764082583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2618542042463043796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23a9110ef554205a28e1c5879829976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers:
+  - {fileID: 6707606737457608348}
+  - {fileID: 4056933184019769211}
+  flashColor: {r: 1, g: 0.039154753, b: 0, a: 1}
+  flashTime: 0.1
 --- !u!1 &2658441760430513599
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +863,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5710371698764082583}
+        m_TargetAssemblyTypeName: FlashSprite, Assembly-CSharp
+        m_MethodName: Flash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   hitSound: {fileID: 8300000, guid: 4736b2226d9ba2d47b80f514211cb279, type: 3}
   playerTookDamage: {fileID: 11400000, guid: f5e4b489ef976c54e98389201231b4a0, type: 2}
   playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
