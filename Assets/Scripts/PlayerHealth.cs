@@ -8,12 +8,17 @@ public class PlayerHealth : Health {
     [SerializeField] private GameEvent playerTookDamage;
     [SerializeField] private PlayerInfo playerInfo;
     
+    protected override void Start() {
+        base.Start();
+        playerInfo.currentHealth = playerInfo.maxHealth;
+    }
     public override void TakeDamage(float damage) {
         base.TakeDamage(damage);
         
         CameraShake.Instance.Shake();
         AudioManager.Instance.Play(hitSound, 1.0f);
         playerInfo.currentHealthPercentage = HealthPercentage;
+        playerInfo.currentHealth--;
         playerTookDamage.Raise();
     }
 
