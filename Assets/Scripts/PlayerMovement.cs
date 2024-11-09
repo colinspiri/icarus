@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float dashPower;
     [SerializeField] private float dashCooldown;
     [SerializeField] private float dashDuration;
+    [SerializeField] private float heatCostPerDash;
     [SerializeField] private GameEvent dashStartedEvent;
     [SerializeField] private GameEvent dashEndedEvent;
     private bool _isDashing;
@@ -206,6 +207,8 @@ public class PlayerMovement : MonoBehaviour {
 
     private IEnumerator DashCoroutine() 
     {
+        if (heat.Value < heatCostPerDash) yield break;
+
         _canDash = false;
         _isDashing = true;
         Vector2 dashDirection = new Vector2(0f, 0f);
@@ -223,6 +226,7 @@ public class PlayerMovement : MonoBehaviour {
 
         dashStartedEvent.Raise();
         transform.GetComponent<Rigidbody2D>().velocity = dashDirection * dashPower;
+        heat.Value -= heatCostPerDash;
         yield return new WaitForSeconds(dashDuration);
         transform.GetComponent<Rigidbody2D>().velocity = originalVelocity;
         dashEndedEvent.Raise();

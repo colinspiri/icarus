@@ -789,6 +789,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e031cf320d2e63b46bca088133250fb3, type: 2}
     - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: heatCostPerDash
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
       propertyPath: dashStartedEvent
       value: 
       objectReference: {fileID: 11400000, guid: 9c5391003f9d31247b24342e5571b106, type: 2}
