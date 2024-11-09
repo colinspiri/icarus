@@ -76,6 +76,7 @@ public class Bullet : MonoBehaviour {
             }
         }
         else if (col.CompareTag("Player") && !fromPlayer) {
+            if (PlayerMovement.Instance.isDashing) return;
             var health = col.GetComponent<Health>();
             health.TakeDamage(damage);
             HitEntity();
