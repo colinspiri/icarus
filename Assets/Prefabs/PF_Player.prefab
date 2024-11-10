@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7924528, g: 0.0037379938, b: 0.06020844, a: 1}
+  m_Color: {r: 0.7924528, g: 0.0037379938, b: 0.06020844, a: 0.9019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -238,7 +238,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.96257865, g: 1, b: 0.43867922, a: 1}
+  m_Color: {r: 1, g: 0.9876839, b: 0.43921566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -277,7 +277,8 @@ MonoBehaviour:
   spriteRenderers:
   - {fileID: 6707606737457608348}
   - {fileID: 4056933184019769211}
-  flashColor: {r: 1, g: 0.2901961, b: 0, a: 0.7294118}
+  damageFlashColor: {r: 1, g: 0.30884862, b: 0, a: 1}
+  invulnerableFlashColor: {r: 1, g: 1, b: 1, a: 1}
   flashTime: 0.1
 --- !u!96 &1152492618713594093
 TrailRenderer:
@@ -541,14 +542,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 7865857574172824808}
   bulletOriginObject: {fileID: 5946350306395452477}
-  heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  heatDecreasePerShot: 0.1
   fireSound: {fileID: 8300000, guid: 8472c70be3b760d42a963a937647ff7c, type: 3}
-  playerInfo: {fileID: 0}
+  playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
+  heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
+  mediumHeatThreshold: 0.33
+  highHeatThreshold: 0.7
+  heatDecreasePerShotLowHeat: 0.03
+  heatDecreasePerShotMediumHeat: 0.15
+  heatDecreasePerShotHighHeat: 0.4
   bulletPrefabLowHeat: {fileID: 5241542432670263003, guid: f2024bdb33a097f4ca6ac2e0cee1a40c, type: 3}
-  mediumHeatValue: 0.33
   bulletPrefabMediumHeat: {fileID: 6411648383677073412, guid: 50c2983edd6f14e108ca0fd605a297ff, type: 3}
-  highHeatValue: 0.66
   bulletPrefabHighHeat: {fileID: 2542478685991887735, guid: 7b272b297d8ef4cd2bbee922306fea49, type: 3}
 --- !u!82 &6778555904172027266
 AudioSource:
@@ -786,7 +789,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 89.5, y: -5.2}
-  m_SizeDelta: {x: 50, y: 80}
+  m_SizeDelta: {x: 40, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269516117418448362
 MonoBehaviour:
@@ -928,10 +931,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnCar: {fileID: 5182175881664270476}
+  flashSprite: {fileID: 5710371698764082583}
   movementMode: 1
   speedInnerRadius: {x: 5.75, y: 2.5}
   speedOuterRadius: {x: 8, y: 4.5}
-  playerInfo: {fileID: 0}
+  playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
   linearSpeed: 6.5
   linearSpeedScalesWithHeat: 0
   linearSpeedByHeat:
@@ -969,12 +973,13 @@ MonoBehaviour:
     min: 1.2
     max: 0.5
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  heatIncreaseSpeed: -0.05
-  dashPower: 0
-  dashCooldown: 1
+  heatIncreaseSpeed: -0.03
+  dashDistance: 3
   dashDuration: 0.2
-  dashStartedEvent: {fileID: 0}
-  dashEndedEvent: {fileID: 0}
+  heatCostPerDash: 0.075
+  dashStartedEvent: {fileID: 11400000, guid: 9c5391003f9d31247b24342e5571b106, type: 2}
+  dashEndedEvent: {fileID: 11400000, guid: e031cf320d2e63b46bca088133250fb3, type: 2}
+  isDashing: 0
 --- !u!50 &5146788179341024205
 Rigidbody2D:
   serializedVersion: 4
@@ -1055,7 +1060,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5710371698764082583}
         m_TargetAssemblyTypeName: FlashSprite, Assembly-CSharp
-        m_MethodName: Flash
+        m_MethodName: DamageFlash
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1126,7 +1131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.24705882}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

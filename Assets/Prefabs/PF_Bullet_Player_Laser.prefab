@@ -78,15 +78,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: bulletSpeed
-      value: 60
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: bulletPierceMax
-      value: -1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: entityPierceMax
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8866159761276176753, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: m_Sprite

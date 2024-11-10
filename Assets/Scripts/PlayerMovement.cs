@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     public static PlayerMovement Instance;
     // components
     [SerializeField] private TurnCar turnCar;
+    [SerializeField] private FlashSprite flashSprite;
     
     // public constants
     private enum MovementMode { Linear, Acceleration }
@@ -228,5 +229,7 @@ public class PlayerMovement : MonoBehaviour {
         });
 
         heat.Value -= heatCostPerDash;
+        
+        flashSprite.InvulnerableFlash(dashDuration);
     }
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class FlashSprite : MonoBehaviour {
     // constants
     [SerializeField] private List<SpriteRenderer> spriteRenderers;
-    [SerializeField] private Color flashColor = Color.white;
+    [SerializeField] private Color damageFlashColor = Color.white;
+    [SerializeField] private Color invulnerableFlashColor = Color.white;
     [SerializeField] private float flashTime;
 
     // state
@@ -36,11 +37,21 @@ public class FlashSprite : MonoBehaviour {
         }
     }
 
-    public void Flash() {
+    public void DamageFlash() {
         foreach (var spriteRenderer in spriteRenderers) {
-            spriteRenderer.color = flashColor;
+            spriteRenderer.color = damageFlashColor;
         }
         _flashing = true;
         _flashTimer = flashTime;
+    }
+
+    public void InvulnerableFlash(float time = 0) {
+        if (time == 0) time = flashTime;
+
+        foreach (var spriteRenderer in spriteRenderers) {
+            spriteRenderer.color = invulnerableFlashColor;
+        }
+        _flashing = true;
+        _flashTimer = time;
     }
 }

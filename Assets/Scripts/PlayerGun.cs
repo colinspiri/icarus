@@ -6,19 +6,24 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class PlayerGun : MonoBehaviour {
+    [Header("Components")]
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private GameObject bulletOriginObject;
-    [Space]
-    [SerializeField] private FloatVariable heat;
-    [SerializeField] private float heatDecreasePerShot;
     [SerializeField] private AudioClip fireSound;
     [SerializeField] private PlayerInfo playerInfo;
 
+    [Header("Heat")]
+    [SerializeField] private FloatVariable heat;
+    [SerializeField] private float mediumHeatThreshold; // 0.33
+    [SerializeField] private float highHeatThreshold; // 0.66
+    [Space]
+    [SerializeField] private float heatDecreasePerShotLowHeat; 
+    [SerializeField] private float heatDecreasePerShotMediumHeat; 
+    [SerializeField] private float heatDecreasePerShotHighHeat;
+
     [Header("Bullet Prefabs")] 
     [SerializeField] private GameObject bulletPrefabLowHeat;
-    [SerializeField] private float mediumHeatValue;
     [SerializeField] private GameObject bulletPrefabMediumHeat;
-    [SerializeField] private float highHeatValue;
     [SerializeField] private GameObject bulletPrefabHighHeat;
 
     // Update is called once per frame
@@ -35,7 +40,12 @@ public class PlayerGun : MonoBehaviour {
         // fire bullets
         if (InputManager.Instance.firePressed) {
             FireBullet();
-            heat.Value -= heatDecreasePerShot;
+            
+            var heatDecrease = heatDecreasePerShotLowHeat;
+            if (heat.Value >= highHeatThreshold) heatDecrease = heatDecreasePerShotHighHeat;
+            else if (heat.Value >= mediumHeatThreshold) heatDecrease = heatDecreasePerShotMediumHeat;
+            
+            heat.Value -= heatDecrease;
         }
     }
     
@@ -62,8 +72,8 @@ public class PlayerGun : MonoBehaviour {
 
     private void FireBullet() {
         GameObject chosenBulletPrefab;
-        if (heat.Value >= highHeatValue) chosenBulletPrefab = bulletPrefabHighHeat;
-        else if (heat.Value >= mediumHeatValue) chosenBulletPrefab = bulletPrefabMediumHeat;
+        if (heat.Value >= highHeatThreshold) chosenBulletPrefab = bulletPrefabHighHeat;
+        else if (heat.Value >= mediumHeatThreshold) chosenBulletPrefab = bulletPrefabMediumHeat;
         else chosenBulletPrefab = bulletPrefabLowHeat;
         
         Bullet bullet = Instantiate(chosenBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();

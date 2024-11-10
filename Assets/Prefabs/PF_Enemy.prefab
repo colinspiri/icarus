@@ -131,7 +131,8 @@ MonoBehaviour:
   spriteRenderers:
   - {fileID: 6711502183425177634}
   - {fileID: 7474827226340481376}
-  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  damageFlashColor: {r: 1, g: 1, b: 1, a: 1}
+  invulnerableFlashColor: {r: 1, g: 1, b: 1, a: 1}
   flashTime: 0.1
 --- !u!1 &3485121856887170019
 GameObject:
@@ -251,7 +252,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7952876252202825046}
         m_TargetAssemblyTypeName: FlashSprite, Assembly-CSharp
-        m_MethodName: Flash
+        m_MethodName: DamageFlash
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -268,7 +269,7 @@ MonoBehaviour:
   hitstopOnDamage: 1
   hitstopTimeOnDamage: 0.1
   hitstopOnDeath: 1
-  hitstopTimeOnDeath: 0.6
+  hitstopTimeOnDeath: 0.5
 --- !u!114 &1170865997944462194
 MonoBehaviour:
   m_ObjectHideFlags: 0
