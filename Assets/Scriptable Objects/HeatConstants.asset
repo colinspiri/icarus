@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7d01c2f816401f8fd87d238b297c04, type: 3}
+  m_Name: HeatConstants
+  m_EditorClassIdentifier: 
+  currentHeat:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
+  passiveHeatDelta: -0.03
+  mediumHeatThreshold: 0.33
+  highHeatThreshold: 0.7
+  heatCostPerShotLow: 0.03
+  heatCostPerShotMedium: 0.15
+  heatCostPerShotHigh: 0.4
+  heatCostPerDash: 0.075

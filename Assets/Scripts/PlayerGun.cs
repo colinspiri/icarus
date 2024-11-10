@@ -6,16 +6,16 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class PlayerGun : MonoBehaviour {
-    [Header("Components")]
+    [Header("Components")] 
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private GameObject bulletOriginObject;
     [SerializeField] private AudioClip fireSound;
     [SerializeField] private PlayerInfo playerInfo;
 
-    [Header("Heat")]
+    [Header("Heat")] 
     [SerializeField] private FloatVariable heat;
-    [SerializeField] private float mediumHeatThreshold; // 0.33
-    [SerializeField] private float highHeatThreshold; // 0.66
+    [SerializeField] private float mediumHeatThreshold; 
+    [SerializeField] private float highHeatThreshold; 
     [Space]
     [SerializeField] private float heatDecreasePerShotLowHeat; 
     [SerializeField] private float heatDecreasePerShotMediumHeat; 
