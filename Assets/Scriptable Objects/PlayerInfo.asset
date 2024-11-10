@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3229bbabaaa9045a006f8c4ad0e432, type: 3}
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 3
+  currentHealth: 3
+  currentHealthPercentage: 0
+  gunFacingDirection: {x: -0.62487745, y: -0.78072286}

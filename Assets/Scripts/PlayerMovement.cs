@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
+using DG.Tweening;
 using System.Runtime.CompilerServices;
 
 public class PlayerMovement : MonoBehaviour {
@@ -43,8 +44,7 @@ public class PlayerMovement : MonoBehaviour {
 
     [Space]
     [Header("Dash")]
-    [SerializeField] private float dashPower;
-    [SerializeField] private float dashCooldown;
+    [SerializeField] private float dashDistance;
     [SerializeField] private float dashDuration;
     [SerializeField] private float heatCostPerDash;
     [SerializeField] private GameEvent dashStartedEvent;
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            StartCoroutine(DashCoroutine());
+            Dash();
         }
     }
 
@@ -205,34 +205,28 @@ public class PlayerMovement : MonoBehaviour {
         return speed;
     }
 
-    private IEnumerator DashCoroutine() 
+    private void Dash() 
     {
-        if (heat.Value < heatCostPerDash) yield break;
+        if (heat.Value < heatCostPerDash) return;
 
         _canDash = false;
         isDashing = true;
-        Vector2 dashDirection = new Vector2(0f, 0f);
-        Vector2 originalVelocity = transform.GetComponent<Rigidbody2D>().velocity;
+        Vector2 dashDirection;
         Vector2 movementInput = new Vector2(InputManager.Instance.horizontalMoveAxis, InputManager.Instance.verticalMoveAxis);
 
-        if (movementInput != Vector2.zero) 
-        {
-            dashDirection = movementInput.normalized;
-        }
-        else
-        {
-            dashDirection = playerInfo.gunFacingDirection;
-        }
+        if (movementInput != Vector2.zero) dashDirection = movementInput.normalized;
+        else dashDirection = playerInfo.gunFacingDirection;
 
         dashStartedEvent.Raise();
-        transform.GetComponent<Rigidbody2D>().velocity = dashDirection * dashPower;
-        heat.Value -= heatCostPerDash;
-        yield return new WaitForSeconds(dashDuration);
-        transform.GetComponent<Rigidbody2D>().velocity = originalVelocity;
-        dashEndedEvent.Raise();
 
-        isDashing = false;
-        yield return new WaitForSeconds(dashCooldown);
-        _canDash = true;
+        Vector3 targetPosition = transform.position + (Vector3)dashDirection * dashDistance;
+
+        transform.DOMove(targetPosition, dashDuration).OnComplete(() => {
+            isDashing = false;
+            _canDash = true;
+            dashEndedEvent.Raise();
+        });
+
+        heat.Value -= heatCostPerDash;
     }
 }
