@@ -8,17 +8,20 @@ using DG.Tweening;
 using System.Runtime.CompilerServices;
 
 public class PlayerMovement : MonoBehaviour {
+    [Header("References")]
     public static PlayerMovement Instance;
-    // components
     [SerializeField] private TurnCar turnCar;
     [SerializeField] private FlashSprite flashSprite;
-    
+    [SerializeField] private PlayerInfo playerInfo;
+    [SerializeField] private FloatVariable heat;
+    [SerializeField] private HeatConstants heatConstants;
+
     // public constants
-    private enum MovementMode { Linear, Acceleration }
+    [Header("Movement")]
     [SerializeField] private MovementMode movementMode;
+    private enum MovementMode { Linear, Acceleration }
     [SerializeField] private Vector2 speedInnerRadius;
     [SerializeField] private Vector2 speedOuterRadius;
-    [SerializeField] private PlayerInfo playerInfo;
     
     [Header("Linear Movement Mode")]
     [SerializeField] private float linearSpeed;
@@ -36,56 +39,33 @@ public class PlayerMovement : MonoBehaviour {
     [Space]
     [SerializeField] private bool accelerationTimeScalesWithHeat;
     [SerializeField] private MinMaxFloat accelerationTimeByHeat;
-    
-    
-    [Space]
-    [Header("Heat")]
-    [SerializeField] private FloatVariable heat;
-    [SerializeField] private float heatIncreaseSpeed;
 
     [Space]
     [Header("Dash")]
     [SerializeField] private float dashDistance;
     [SerializeField] private float dashDuration;
-    [SerializeField] private float heatCostPerDash;
+    [SerializeField] private bool dashRequiresHeat;
     [SerializeField] private GameEvent dashStartedEvent;
     [SerializeField] private GameEvent dashEndedEvent;
-    [HideInInspector] public bool isDashing;
-    private bool _canDash = true;
     
     // state
     private Vector2 _timeAccelerating;
-    
+    private bool _canDash = true;
+    [HideInInspector] public bool isDashing;
+
     private void Awake() {
         Instance = this;
     }
 
-    private void Start() {
-        heat.Value = 0;
-    }
-
     void Update()
     {
-        if (isDashing) return;
-
         HandleInput();
-
-        heat.Value += Time.deltaTime * heatIncreaseSpeed;
-        if (heat.Value < 0) {
-            heat.Value = 0;
-        }
-        else if (heat.Value > 1) {
-            heat.Value = 1;
-        } 
-
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            Dash();
-        }
     }
 
     private void HandleInput()
     {
+        if (isDashing) return;
+
         // move player
         Vector3 movementVector = new Vector3(InputManager.Instance.horizontalMoveAxis, InputManager.Instance.verticalMoveAxis, 0);
         if (movementMode == MovementMode.Linear) {
@@ -98,6 +78,12 @@ public class PlayerMovement : MonoBehaviour {
         // set turn direction
         int turnDirection = (movementVector.y == 0) ? 0 : (int)(movementVector.y / Mathf.Abs(movementVector.y));
         turnCar.TurnDirection = turnDirection;
+        
+        // dash
+        if (Input.GetKeyDown(KeyCode.Mouse1) && (!dashRequiresHeat || heat.Value >= heatConstants.heatCostPerDash)) {
+            Dash();
+            heat.Value -= heatConstants.heatCostPerDash;
+        }
     }
 
     private void MovePlayerLinearMode(Vector3 movement) {
@@ -208,8 +194,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Dash() 
     {
-        if (heat.Value < heatCostPerDash) return;
-
         _canDash = false;
         isDashing = true;
         Vector2 dashDirection;
@@ -227,8 +211,6 @@ public class PlayerMovement : MonoBehaviour {
             _canDash = true;
             dashEndedEvent.Raise();
         });
-
-        heat.Value -= heatCostPerDash;
         
         flashSprite.InvulnerableFlash(dashDuration);
     }

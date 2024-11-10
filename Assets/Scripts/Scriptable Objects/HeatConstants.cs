@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
@@ -7,20 +8,32 @@ using UnityEngine;
 public class HeatConstants : ScriptableObject {
     public FloatReference currentHeat;
     
-    [Tooltip("How fast heat increases/decreases over time")]
-    public float passiveHeatDelta; // -0.03
-    [Space]
-    public float mediumHeatThreshold; // 0.33
-    public float highHeatThreshold; // 0.7
-    [Space] 
-    public float heatCostPerShotLow; // 0.40
-    public float heatCostPerShotMedium; // 0.15
-    public float heatCostPerShotHigh; // 0.03
-    [Space] 
-    public float heatCostPerDash;
+    [Header("Heat Thresholds")]
+    public float mediumHeatThreshold; 
+    public float highHeatThreshold; 
+    public HeatValue CurrentHeatValue => 
+        (currentHeat.Value >= highHeatThreshold)
+            ? HeatValue.High : 
+            (currentHeat.Value >= mediumHeatThreshold) 
+                ? HeatValue.Medium : HeatValue.Low;
     
-    public HeatValue CurrentHeatValue => currentHeat.Value >= highHeatThreshold
-        ? HeatValue.High
-        : (currentHeat.Value >= mediumHeatThreshold ? HeatValue.Medium : HeatValue.Low);
+    
+    [Tooltip("How fast heat increases/decreases over time")]
+    [Space]
+    public float passiveHeatDelta; 
+
+    [Header("Heat Cost Per Shot")] 
+    public float heatCostPerShotLow; 
+    public float heatCostPerShotMedium; 
+    public float heatCostPerShotHigh; 
+    public float CurrentHeatCostPerShot => CurrentHeatValue switch {
+        HeatValue.Low => heatCostPerShotLow,
+        HeatValue.Medium => heatCostPerShotMedium,
+        HeatValue.High => heatCostPerShotHigh,
+        _ => heatCostPerShotLow,
+    };
+
+    [Space] 
+    public float heatCostPerDash; 
 }
 public enum HeatValue { Low, Medium, High }

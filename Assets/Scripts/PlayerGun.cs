@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Resources;
@@ -6,25 +7,26 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class PlayerGun : MonoBehaviour {
-    [Header("Components")] 
+    [Header("References")] 
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private GameObject bulletOriginObject;
-    [SerializeField] private AudioClip fireSound;
     [SerializeField] private PlayerInfo playerInfo;
-
-    [Header("Heat")] 
     [SerializeField] private FloatVariable heat;
-    [SerializeField] private float mediumHeatThreshold; 
+    [SerializeField] private HeatConstants heatConstants;
+    /*[SerializeField] private float mediumHeatThreshold; 
     [SerializeField] private float highHeatThreshold; 
     [Space]
     [SerializeField] private float heatDecreasePerShotLowHeat; 
     [SerializeField] private float heatDecreasePerShotMediumHeat; 
-    [SerializeField] private float heatDecreasePerShotHighHeat;
+    [SerializeField] private float heatDecreasePerShotHighHeat;*/
 
     [Header("Bullet Prefabs")] 
     [SerializeField] private GameObject bulletPrefabLowHeat;
     [SerializeField] private GameObject bulletPrefabMediumHeat;
     [SerializeField] private GameObject bulletPrefabHighHeat;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioClip fireSound;
 
     // Update is called once per frame
     void Update()
@@ -40,15 +42,11 @@ public class PlayerGun : MonoBehaviour {
         // fire bullets
         if (InputManager.Instance.firePressed) {
             FireBullet();
-            
-            var heatDecrease = heatDecreasePerShotLowHeat;
-            if (heat.Value >= highHeatThreshold) heatDecrease = heatDecreasePerShotHighHeat;
-            else if (heat.Value >= mediumHeatThreshold) heatDecrease = heatDecreasePerShotMediumHeat;
-            
-            heat.Value -= heatDecrease;
+
+            heat.Value -= heatConstants.CurrentHeatCostPerShot;
         }
     }
-    
+
     private Vector2 GetLookPosition()
     {
         Vector2 result = transform.right;
@@ -71,12 +69,14 @@ public class PlayerGun : MonoBehaviour {
     }
 
     private void FireBullet() {
-        GameObject chosenBulletPrefab;
-        if (heat.Value >= highHeatThreshold) chosenBulletPrefab = bulletPrefabHighHeat;
-        else if (heat.Value >= mediumHeatThreshold) chosenBulletPrefab = bulletPrefabMediumHeat;
-        else chosenBulletPrefab = bulletPrefabLowHeat;
+        GameObject bulletPrefab = heatConstants.CurrentHeatValue switch {
+            HeatValue.Low => bulletPrefabLowHeat,
+            HeatValue.Medium => bulletPrefabMediumHeat,
+            HeatValue.High => bulletPrefabHighHeat,
+            _ => bulletPrefabLowHeat
+        };
         
-        Bullet bullet = Instantiate(chosenBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
+        Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
         bullet.originObject = bulletOriginObject;
         
         AudioManager.Instance.Play(fireSound, .5f);  

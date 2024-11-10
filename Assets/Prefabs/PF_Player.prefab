@@ -15200,17 +15200,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 7865857574172824808}
   bulletOriginObject: {fileID: 5946350306395452477}
-  fireSound: {fileID: 8300000, guid: 8472c70be3b760d42a963a937647ff7c, type: 3}
   playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  mediumHeatThreshold: 0.33
-  highHeatThreshold: 0.7
-  heatDecreasePerShotLowHeat: 0.03
-  heatDecreasePerShotMediumHeat: 0.15
-  heatDecreasePerShotHighHeat: 0.4
+  heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
   bulletPrefabLowHeat: {fileID: 5241542432670263003, guid: f2024bdb33a097f4ca6ac2e0cee1a40c, type: 3}
   bulletPrefabMediumHeat: {fileID: 6411648383677073412, guid: 50c2983edd6f14e108ca0fd605a297ff, type: 3}
   bulletPrefabHighHeat: {fileID: 2542478685991887735, guid: 7b272b297d8ef4cd2bbee922306fea49, type: 3}
+  fireSound: {fileID: 8300000, guid: 8472c70be3b760d42a963a937647ff7c, type: 3}
 --- !u!82 &6778555904172027266
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15602,6 +15598,7 @@ GameObject:
   - component: {fileID: 5146788179341024205}
   - component: {fileID: 7831291228887947658}
   - component: {fileID: 6429396860041541112}
+  - component: {fileID: 3346273301397692489}
   m_Layer: 0
   m_Name: PF_Player
   m_TagString: Player
@@ -15642,10 +15639,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnCar: {fileID: 5182175881664270476}
   flashSprite: {fileID: 5710371698764082583}
+  playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
+  heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
+  heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
   movementMode: 1
   speedInnerRadius: {x: 5.75, y: 2.5}
   speedOuterRadius: {x: 8, y: 4.5}
-  playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
   linearSpeed: 6.5
   linearSpeedScalesWithHeat: 0
   linearSpeedByHeat:
@@ -15682,11 +15681,8 @@ MonoBehaviour:
   accelerationTimeByHeat:
     min: 1.2
     max: 0.5
-  heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  heatIncreaseSpeed: -0.03
   dashDistance: 3
   dashDuration: 0.2
-  heatCostPerDash: 0.075
   dashStartedEvent: {fileID: 11400000, guid: 9c5391003f9d31247b24342e5571b106, type: 2}
   dashEndedEvent: {fileID: 11400000, guid: e031cf320d2e63b46bca088133250fb3, type: 2}
   isDashing: 0
@@ -15783,6 +15779,20 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: 4736b2226d9ba2d47b80f514211cb279, type: 3}
   playerTookDamage: {fileID: 11400000, guid: f5e4b489ef976c54e98389201231b4a0, type: 2}
   playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
+--- !u!114 &3346273301397692489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946350306395452477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad54c19b2994b40b3d5d54d264d8a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
+  heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
 --- !u!1 &6385184380768459587
 GameObject:
   m_ObjectHideFlags: 0
