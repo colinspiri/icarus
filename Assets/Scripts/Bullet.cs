@@ -27,6 +27,7 @@ public class Bullet : MonoBehaviour {
     private float _lifeTimer;
     private int _bulletPierceCount;
     private int _entityPierceCount;
+    private List<GameObject> _ignoreCollisionsWithObjects = new List<GameObject>();
 
     private void Start() {
         _lifeTimer = 0;
@@ -64,15 +65,20 @@ public class Bullet : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
+        // ignore collisions
         if (col.gameObject == null) return;
         if (col.gameObject == originObject) return;
+        if (_ignoreCollisionsWithObjects.Contains(col.gameObject)) return;
+        
 
         if (col.CompareTag("Bullet")) {
             var otherBullet = col.GetComponent<Bullet>();
             if (this.fromPlayer != otherBullet.fromPlayer) {
                 AudioManager.Instance.Play(collideSFX, 0.5f);
-                otherBullet.HitBullet();
                 HitBullet();
+                _ignoreCollisionsWithObjects.Add(otherBullet.gameObject);
+                otherBullet.HitBullet();
+                otherBullet._ignoreCollisionsWithObjects.Add(this.gameObject);
             }
         }
         else if (col.CompareTag("Player") && !fromPlayer) {
@@ -80,12 +86,14 @@ public class Bullet : MonoBehaviour {
             var health = col.GetComponent<Health>();
             health.TakeDamage(damage);
             HitEntity();
+            _ignoreCollisionsWithObjects.Add(col.gameObject);
         }
         else if (col.CompareTag("Enemy") && fromPlayer) {
             AudioManager.Instance.Play(enemyDamage, 1.0f);
             var health = col.GetComponent<Health>();
             health.TakeDamage(damage);
             HitEntity();
+            _ignoreCollisionsWithObjects.Add(col.gameObject);
         }
     }
 
