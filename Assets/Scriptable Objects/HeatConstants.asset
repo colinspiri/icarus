@@ -16,10 +16,10 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  mediumHeatThreshold: 0.33
-  highHeatThreshold: 0.7
+  mediumHeatThreshold: 0.25
+  highHeatThreshold: 0.6
   passiveHeatDelta: -0.03
   heatCostPerShotLow: 0.03
   heatCostPerShotMedium: 0.15
-  heatCostPerShotHigh: 0.4
+  heatCostPerShotHigh: 0.3
   heatCostPerDash: 0.2
