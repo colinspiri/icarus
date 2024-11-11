@@ -22,6 +22,8 @@ public class Bullet : MonoBehaviour {
     [Tooltip("Number of entities to pierce through. -1 for infinite.")] 
     [SerializeField] private int entityPierceMax;
 
+    public bool reflected;
+
     // private state
     private const float LIFE_TIME = 60f;
     private float _lifeTimer;
@@ -31,6 +33,7 @@ public class Bullet : MonoBehaviour {
 
     private void Start() {
         _lifeTimer = 0;
+        reflected = false;
     }
 
     // Update is called once per frame
@@ -67,9 +70,8 @@ public class Bullet : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D col) {
         // ignore collisions
         if (col.gameObject == null) return;
-        if (col.gameObject == originObject) return;
+        if (col.gameObject == originObject && !reflected) return;
         if (_ignoreCollisionsWithObjects.Contains(col.gameObject)) return;
-        
 
         if (col.CompareTag("Bullet")) {
             var otherBullet = col.GetComponent<Bullet>();
@@ -90,7 +92,7 @@ public class Bullet : MonoBehaviour {
             // ignore future collisions with player even after dash is over
             _ignoreCollisionsWithObjects.Add(col.gameObject); 
         }
-        else if (col.CompareTag("Enemy") && fromPlayer) {
+        else if (col.CompareTag("Enemy") && (fromPlayer || reflected)) {
             AudioManager.Instance.Play(enemyDamage, 1.0f);
             var health = col.GetComponent<Health>();
             health.TakeDamage(damage);

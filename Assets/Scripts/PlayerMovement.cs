@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Dash")]
     [SerializeField] private float dashDistance;
     [SerializeField] private float dashDuration;
+    [SerializeField] private float bulletReflectRadius;
     [SerializeField] private bool dashRequiresHeat;
     [SerializeField] private GameEvent dashStartedEvent;
     [SerializeField] private GameEvent dashEndedEvent;
@@ -213,5 +214,22 @@ public class PlayerMovement : MonoBehaviour {
         });
         
         flashSprite.InvulnerableFlash(dashDuration);
+
+        ReflectBullets();
+    }
+
+    private void ReflectBullets()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, bulletReflectRadius);
+        foreach (var collider in colliders)
+        {
+            if (collider.CompareTag("Bullet"))
+            {
+                Bullet bullet = collider.GetComponent<Bullet>();
+                if (bullet.fromPlayer || bullet.reflected) continue;
+                bullet.transform.right = -bullet.transform.right;
+                bullet.reflected = true;
+            }
+        }
     }
 }
