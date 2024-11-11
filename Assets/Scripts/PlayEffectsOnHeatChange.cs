@@ -7,9 +7,10 @@ public class PlayEffectsOnHeatChange : MonoBehaviour {
     [SerializeField] private HeatConstants heatConstants;
     
     [Header("Particle Effects")]
-    [SerializeField] private ParticleSystem lowHeatEffect;
-    [SerializeField] private ParticleSystem mediumHeatEffect;
-    [SerializeField] private ParticleSystem highHeatEffect;
+    [SerializeField] private ParticleSystem lowToMediumHeat;
+    [SerializeField] private ParticleSystem mediumToHighHeat;
+    [SerializeField] private ParticleSystem highToMediumHeat;
+    [SerializeField] private ParticleSystem mediumToLowHeat;
 
     private HeatValue _currentHeatValue = HeatValue.Low;
 
@@ -28,15 +29,27 @@ public class PlayEffectsOnHeatChange : MonoBehaviour {
     private void UpdateHeatValue(HeatValue newHeatValue) {
         if (_currentHeatValue == newHeatValue) return;
 
+        StopAllEffects();
+        if (_currentHeatValue == HeatValue.Low && newHeatValue == HeatValue.Medium) {
+            lowToMediumHeat.Play();
+        }
+        else if (_currentHeatValue == HeatValue.Medium && newHeatValue == HeatValue.High) {
+            mediumToHighHeat.Play();
+        }
+        else if (_currentHeatValue == HeatValue.High && newHeatValue == HeatValue.Medium) {
+            highToMediumHeat.Play();
+        }
+        else if (_currentHeatValue == HeatValue.Medium && newHeatValue == HeatValue.Low) {
+            mediumToLowHeat.Play();
+        }
+
         _currentHeatValue = newHeatValue;
-        if (_currentHeatValue == HeatValue.High) {
-            if(highHeatEffect != null) highHeatEffect.Play();
-        }
-        else if (_currentHeatValue == HeatValue.Medium) {
-            if(mediumHeatEffect != null) mediumHeatEffect.Play();
-        }
-        else if (_currentHeatValue == HeatValue.Low) {
-            if(lowHeatEffect != null) lowHeatEffect.Play();
-        }
+    }
+
+    private void StopAllEffects() {
+        lowToMediumHeat.Stop();
+        mediumToHighHeat.Stop();
+        highToMediumHeat.Stop();
+        mediumToLowHeat.Stop();
     }
 }

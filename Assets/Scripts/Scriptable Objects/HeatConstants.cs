@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "HeatConstants", menuName = "Scriptable Objects/Heat Constants")]
 public class HeatConstants : ScriptableObject {
@@ -16,8 +17,7 @@ public class HeatConstants : ScriptableObject {
             ? HeatValue.High : 
             (currentHeat.Value >= mediumHeatThreshold) 
                 ? HeatValue.Medium : HeatValue.Low;
-    
-    
+
     [Tooltip("How fast heat increases/decreases over time")]
     [Space]
     public float passiveHeatDelta; 
