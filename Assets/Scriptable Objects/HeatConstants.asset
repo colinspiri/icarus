@@ -21,5 +21,5 @@ MonoBehaviour:
   passiveHeatDelta: -0.03
   heatCostPerShotLow: 0.03
   heatCostPerShotMedium: 0.15
-  heatCostPerShotHigh: 0.3
+  heatCostPerShotHigh: 0.4
   heatCostPerDash: 0.2
