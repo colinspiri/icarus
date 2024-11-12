@@ -5389,7 +5389,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2034028219136957806}
   - component: {fileID: 129515090020142754}
-  - component: {fileID: 6778555904172027266}
   m_Layer: 0
   m_Name: Player Gun
   m_TagString: Untagged
@@ -5435,102 +5434,6 @@ MonoBehaviour:
   bulletPrefabMediumHeat: {fileID: 6411648383677073412, guid: 50c2983edd6f14e108ca0fd605a297ff, type: 3}
   bulletPrefabHighHeat: {fileID: 2542478685991887735, guid: 7b272b297d8ef4cd2bbee922306fea49, type: 3}
   fireSound: {fileID: 8300000, guid: 8472c70be3b760d42a963a937647ff7c, type: 3}
---- !u!82 &6778555904172027266
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2809104045219158849}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 3280190429164091755, guid: 928424b963164b3499c5387e026a0a7a, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8472c70be3b760d42a963a937647ff7c, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.558
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &3422646787315346273
 GameObject:
   m_ObjectHideFlags: 0
@@ -5686,6 +5589,8 @@ MonoBehaviour:
   mediumToHighHeat: {fileID: 6775379668424813676}
   highToMediumHeat: {fileID: 5160500202895310563}
   mediumToLowHeat: {fileID: 8381774785994813674}
+  powerUp: {fileID: 8300000, guid: 1ae354e9356381641a5567e29a454e61, type: 3}
+  powerDown: {fileID: 8300000, guid: bd0a990172c451245b6fb502644e1a74, type: 3}
 --- !u!1 &5080380026951060478
 GameObject:
   m_ObjectHideFlags: 0
@@ -15743,6 +15648,7 @@ MonoBehaviour:
     max: 0.5
   dashDistance: 3
   dashDuration: 0.2
+  bulletReflectRadius: 0
   dashRequiresHeat: 0
   dashStartedEvent: {fileID: 11400000, guid: 9c5391003f9d31247b24342e5571b106, type: 2}
   dashEndedEvent: {fileID: 11400000, guid: e031cf320d2e63b46bca088133250fb3, type: 2}
