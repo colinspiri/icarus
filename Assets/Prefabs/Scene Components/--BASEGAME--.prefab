@@ -462,12 +462,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc5e7e5970e99343ac9cc073f6308ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3485121856887170019, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
   enemyCollection: {fileID: 11400000, guid: 3ac989e83f02792459fe4ff843bd5bbf, type: 2}
+  prototypeEnemyPrefab: {fileID: 3485121856887170019, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+  fighter1Prefab: {fileID: 0}
+  fighter2Prefab: {fileID: 0}
+  fighter3Prefab: {fileID: 0}
+  bomberPrefab: {fileID: 0}
+  homingMissilePrefab: {fileID: 0}
   originRange: {x: 8, y: 4}
   spawningMode: 0
   spawnRandomAfterLastWave: 1
-  waves: 010000000200000003000000050000000700000003000000050000000700000009000000
+  waveSet: {fileID: 11400000, guid: 49c570f2edb9d4fd6bb648f3668235ff, type: 2}
   timeBetweenWaves: 1
   maxEnemyCount: 8
   timeBetweenRandomSpawn: 1
