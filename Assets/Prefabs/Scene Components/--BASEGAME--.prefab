@@ -245,6 +245,8 @@ MonoBehaviour:
   hitstopTimeScale: 0.1
   defaultHitstopTime: 0.5
   hitstopShakeStrength: 0.2
+  hitstopTimeOnEnemyDamage: 0.1
+  hitstopTimeOnEnemyDeath: 0.5
 --- !u!1 &6009719444300265571
 GameObject:
   m_ObjectHideFlags: 0

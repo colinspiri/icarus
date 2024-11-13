@@ -8,21 +8,14 @@ public class EnemyHealth : Health {
     [SerializeField] private AudioClip enemyDie;
     [SerializeField] private float heatGain;
     [SerializeField] private FloatVariable heat;
-    [Space] 
-    [SerializeField] private bool hitstopOnDamage;
-    [SerializeField] private float hitstopTimeOnDamage;
-    [SerializeField] private bool hitstopOnDeath;
-    [SerializeField] private float hitstopTimeOnDeath;
-
     public override void TakeDamage(float damage) {
         base.TakeDamage(damage);
 
-        if ((HealthPercentage <= 0 && hitstopOnDeath)) {
-            Hitstop.Instance.DoHitstop(hitstopTimeOnDeath);
+        // check for hitstop
+        if (HealthPercentage <= 0) {
+            Hitstop.Instance.NotifyEnemyDeath();
         }
-        else if (hitstopOnDamage) {
-            Hitstop.Instance.DoHitstop(hitstopTimeOnDamage);
-        }
+        else Hitstop.Instance.NotifyEnemyTakeDamage();
     }
 
     protected override void DeathEffect() {

@@ -8,6 +8,9 @@ public class Hitstop : MonoBehaviour
     [SerializeField] private float hitstopTimeScale = 0f;
     [SerializeField] private float defaultHitstopTime = 1f;
     [SerializeField] private float hitstopShakeStrength;
+    [Space]
+    [SerializeField] private float hitstopTimeOnEnemyDamage; // 0.1
+    [SerializeField] private float hitstopTimeOnEnemyDeath; // 0.5
 
     private void Awake()
     {
@@ -33,5 +36,12 @@ public class Hitstop : MonoBehaviour
         }
         
         TimeManager.Instance.SetTimeScale(1);
+    }
+
+    public void NotifyEnemyTakeDamage() {
+        DoHitstop(hitstopTimeOnEnemyDamage);
+    }
+    public void NotifyEnemyDeath() {
+        DoHitstop(hitstopTimeOnEnemyDeath);
     }
 }
