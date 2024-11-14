@@ -15648,7 +15648,7 @@ MonoBehaviour:
     max: 0.5
   dashDistance: 3
   dashDuration: 0.2
-  bulletReflectRadius: 0
+  bulletReflectRadius: 1.2
   dashRequiresHeat: 0
   dashStartedEvent: {fileID: 11400000, guid: 9c5391003f9d31247b24342e5571b106, type: 2}
   dashEndedEvent: {fileID: 11400000, guid: e031cf320d2e63b46bca088133250fb3, type: 2}

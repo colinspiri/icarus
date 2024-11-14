@@ -469,12 +469,12 @@ MonoBehaviour:
   fighter1Prefab: {fileID: 0}
   fighter2Prefab: {fileID: 0}
   fighter3Prefab: {fileID: 0}
-  bomberPrefab: {fileID: 0}
+  bomberPrefab: {fileID: 1198880009985885195, guid: 996e5a088135c4a7f8dbef4ad5c5d594, type: 3}
   homingMissilePrefab: {fileID: 0}
   originRange: {x: 8, y: 4}
   spawningMode: 0
-  spawnRandomAfterLastWave: 1
-  waveSet: {fileID: 11400000, guid: 49c570f2edb9d4fd6bb648f3668235ff, type: 2}
+  spawnRandomAfterLastWave: 0
+  waveSet: {fileID: 11400000, guid: 19406940e6047402daab08b32a37c4fa, type: 2}
   timeBetweenWaves: 1
   maxEnemyCount: 8
   timeBetweenRandomSpawn: 1
@@ -782,10 +782,6 @@ PrefabInstance:
     - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
       propertyPath: dashPower
       value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
-      propertyPath: bulletReflectRadius
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3822225912379449825, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
       propertyPath: m_AnchorMax.x
