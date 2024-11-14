@@ -8,21 +8,26 @@ public class Bullet : MonoBehaviour {
     [Header("Components")]
     public GameObject originObject;
     [SerializeField] private GameObject explosionEffectPrefab;
-    [SerializeField] private AudioClip collideSFX;
-    [SerializeField] private AudioClip enemyDamage;
-    
+
     // serialized constants
     [Header("Constants")]
     public bool fromPlayer;
     [Space]
-    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float staticBulletSpeed;
+    [SerializeField] private bool useRandomBulletSpeed;
+    [SerializeField] private MinMaxFloat randomBulletSpeed;
     [SerializeField] private float damage = 1f;
     [Tooltip("Number of bullets to pierce through. -1 for infinite.")]
     [SerializeField] private int bulletPierceMax;
     [Tooltip("Number of entities to pierce through. -1 for infinite.")] 
     [SerializeField] private int entityPierceMax;
 
-    public bool reflected;
+    // state
+    [HideInInspector] public bool reflected;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioClip collideSFX;
+    [SerializeField] private AudioClip enemyDamage;
 
     // private state
     private const float LIFE_TIME = 60f;
@@ -46,11 +51,8 @@ public class Bullet : MonoBehaviour {
     }
 
     private void Move() {
+        var bulletSpeed = useRandomBulletSpeed ? randomBulletSpeed.RandomValue : staticBulletSpeed;
         transform.Translate(transform.right * (Time.deltaTime * bulletSpeed), Space.World);
-    }
-
-    public void SetBulletSpeed(float value) {
-        bulletSpeed = value;
     }
 
     private void HitBullet() {

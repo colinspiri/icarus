@@ -9,8 +9,8 @@ public class Hitstop : MonoBehaviour
     [SerializeField] private float defaultHitstopTime = 1f;
     [SerializeField] private float hitstopShakeStrength;
     [Space]
-    [SerializeField] private float hitstopTimeOnEnemyDamage; // 0.1
-    [SerializeField] private float hitstopTimeOnEnemyDeath; // 0.5
+    [SerializeField] private float hitstopTimeOnEnemyDamage; 
+    [SerializeField] private float hitstopTimeOnEnemyDeath; 
 
     private void Awake()
     {
