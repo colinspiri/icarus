@@ -426,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 8600596406338030873}
   bulletOriginObject: {fileID: 3485121856887170019}
-  shootingMode: 1
+  shootingMode: 0
   staticFiringCooldown: 0.6
   useRandomFiringCooldown: 1
   randomFiringCooldown:
