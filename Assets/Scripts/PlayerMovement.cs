@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private FloatVariable heat;
     [SerializeField] private HeatConstants heatConstants;
+    [SerializeField] private AudioClip dashSFX;
 
     // public constants
     [Header("Movement")]
@@ -216,6 +217,7 @@ public class PlayerMovement : MonoBehaviour {
         flashSprite.InvulnerableFlash(dashDuration);
 
         ReflectBullets();
+        AudioManager.Instance.Play(dashSFX, 1.0f);
     }
 
     private void ReflectBullets()
