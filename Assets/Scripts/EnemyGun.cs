@@ -36,7 +36,7 @@ public class EnemyGun : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartFiringCooldown();
     }
 
     // Update is called once per frame
@@ -46,9 +46,13 @@ public class EnemyGun : MonoBehaviour {
 
         if (_currentFiringCooldown <= 0) {
             Fire();
-            _currentFiringCooldown = useRandomFiringCooldown ? randomFiringCooldown.RandomValue : staticFiringCooldown;
+            StartFiringCooldown();
         }
         else _currentFiringCooldown -= Time.deltaTime;
+    }
+
+    private void StartFiringCooldown() {
+        _currentFiringCooldown = useRandomFiringCooldown ? randomFiringCooldown.RandomValue : staticFiringCooldown;
     }
 
     private void LookAtPoint(Vector3 point)

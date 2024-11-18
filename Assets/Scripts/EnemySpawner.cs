@@ -40,7 +40,9 @@ public class EnemySpawner : MonoBehaviour {
     
     // Start is called before the first frame update
     void Start() {
-        _currentWave = 0;
+        _currentWave = -1;
+        _waveState = WaveState.DelayWave;
+        _waveDelayTimer = timeBetweenWaves;
     }
 
     // Update is called once per frame
