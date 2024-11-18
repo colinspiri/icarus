@@ -17,13 +17,14 @@ public class EnemyMovement : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        _currentState = State.MoveRandomly;
+        _currentState = State.MoveToOrigin;
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateMoveRandomly();
+        if (_currentState == State.MoveToOrigin) UpdateMoveToOrigin();
+        else UpdateMoveRandomly();
     }
 
     private void UpdateMoveToOrigin() {
