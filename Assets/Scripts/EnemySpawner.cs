@@ -37,12 +37,15 @@ public class EnemySpawner : MonoBehaviour {
     private float _waveDelayTimer;
     private int _currentWave;
     private float _randomSpawnTimer;
+
+    private Camera _mainCamera;
     
     // Start is called before the first frame update
     void Start() {
         _currentWave = -1;
         _waveState = WaveState.DelayWave;
         _waveDelayTimer = timeBetweenWaves;
+        _mainCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -117,7 +120,8 @@ public class EnemySpawner : MonoBehaviour {
         
         // pick origin position that's onscreen
         var originPosition = new Vector3(Random.Range(-originRange.x, originRange.x), Random.Range(-originRange.y, originRange.y), 0);
-        var spawnPosition = Random.onUnitSphere * (originRange.x * 1.5f);
+        //var spawnPosition = Random.onUnitSphere * (originRange.x * 1.5f);
+        var spawnPosition = GetSpawnPosition();
 
         // instantiate prefab at position
         var enemyMovement = Instantiate(enemyPF, spawnPosition, Quaternion.identity).GetComponent<EnemyMovement>();
@@ -125,7 +129,16 @@ public class EnemySpawner : MonoBehaviour {
         
         //Debug.Log("spawned enemy");
     }
-    
+
+    private Vector3 GetSpawnPosition()
+    {
+        Vector3 direction = Random.onUnitSphere;
+        direction.z = 0f;
+
+        float spawnDistance = Mathf.Max(_mainCamera.orthographicSize, _mainCamera.aspect * _mainCamera.orthographicSize) * 1.3f;
+        return _mainCamera.transform.position + direction.normalized * spawnDistance;
+    }
+
     private GameObject GetEnemyPrefab(EnemyType type) {
         return type switch {
             EnemyType.PrototypeEnemy => prototypeEnemyPrefab,
