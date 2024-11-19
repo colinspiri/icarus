@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  originMoveSpeed: 4
   randomMoveRadius: 3
   changeDirectionTime: 1
 --- !u!1 &5357128261321233417

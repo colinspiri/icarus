@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float originMoveSpeed;
     
     private enum State { MoveToOrigin, MoveRandomly }
     private State _currentState;
@@ -31,7 +32,7 @@ public class EnemyMovement : MonoBehaviour {
         Vector3 directionToOrigin = _anchorPosition - transform.position;
         float distanceToOrigin = directionToOrigin.magnitude;
         directionToOrigin.Normalize();
-        transform.Translate(directionToOrigin * (Time.deltaTime * moveSpeed));
+        transform.Translate(directionToOrigin * (Time.deltaTime * originMoveSpeed));
 
         if (distanceToOrigin < 1) {
             _currentState = State.MoveRandomly;
