@@ -21,6 +21,6 @@ MonoBehaviour:
   passiveHeatDelta: 0
   heatCostPerShotLow: 0
   heatCostPerShotMedium: 0.1
-  heatCostPerShotHigh: 0.2
+  heatCostPerShotHigh: 0.3
   heatCostPerDash: 0.2
-  heatGainOnEnemyKill: 0.2
+  heatGainOnEnemyKill: 0.3

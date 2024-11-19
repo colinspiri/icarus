@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour {
     // components
     [Header("Components")]
     public GameObject originObject;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject explosionEffectPrefab;
 
     // serialized constants
@@ -22,6 +23,7 @@ public class Bullet : MonoBehaviour {
     [SerializeField] private int bulletPierceMax;
     [Tooltip("Number of entities to pierce through. -1 for infinite.")] 
     [SerializeField] private int entityPierceMax;
+    [SerializeField] private Color reflectedColor;
 
     // state
     [HideInInspector] public bool reflected;
@@ -103,6 +105,12 @@ public class Bullet : MonoBehaviour {
             HitEntity();
             _ignoreCollisionsWithObjects.Add(col.gameObject);
         }
+    }
+
+    public void Reflect() {
+        reflected = true;
+        spriteRenderer.color = reflectedColor;
+        transform.right = -transform.right;
     }
 
     private void Die() {
