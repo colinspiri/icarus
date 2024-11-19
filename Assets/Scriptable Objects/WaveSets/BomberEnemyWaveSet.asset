@@ -39,3 +39,24 @@ MonoBehaviour:
       count: 2
     - enemyType: 0
       count: 3
+  - enemies:
+    - enemyType: 4
+      count: 2
+    - enemyType: 0
+      count: 5
+  - enemies:
+    - enemyType: 4
+      count: 4
+  - enemies:
+    - enemyType: 0
+      count: 6
+  - enemies:
+    - enemyType: 4
+      count: 3
+    - enemyType: 0
+      count: 4
+  - enemies:
+    - enemyType: 4
+      count: 4
+    - enemyType: 0
+      count: 4

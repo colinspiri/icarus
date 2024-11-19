@@ -13,13 +13,13 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] private GameObject bomberPrefab;
     [SerializeField] private GameObject homingMissilePrefab;
 
-    [Header("Spawning")]
+    [Header("Anchor Points")] 
+    [SerializeField] private List<Transform> anchorPoints;
     [SerializeField] private Vector2 originRange;
-    private enum SpawningMode {
-        Wave,
-        Random,
-    };
+
+    [Header("Spawning Mode")]
     [SerializeField] private SpawningMode spawningMode;
+    private enum SpawningMode { Wave, Random, };
     [SerializeField] private bool spawnRandomAfterLastWave;
 
     [Header("Wave Spawning")] 
@@ -118,16 +118,18 @@ public class EnemySpawner : MonoBehaviour {
         // get prefab from enemy type
         var enemyPF = GetEnemyPrefab(enemyType);
         
-        // pick origin position that's onscreen
-        var originPosition = new Vector3(Random.Range(-originRange.x, originRange.x), Random.Range(-originRange.y, originRange.y), 0);
-        //var spawnPosition = Random.onUnitSphere * (originRange.x * 1.5f);
-        var spawnPosition = GetSpawnPosition();
-
-        // instantiate prefab at position
-        var enemyMovement = Instantiate(enemyPF, spawnPosition, Quaternion.identity).GetComponent<EnemyMovement>();
-        enemyMovement.SetAnchor(originPosition);
+        // pick an anchor point 
+        int randomIndex = Random.Range(0, anchorPoints.Count);
+        Vector3 anchorPoint = anchorPoints[randomIndex].position;
         
-        //Debug.Log("spawned enemy");
+        // pick a spawn position 
+        Vector3 directionOutsideAnchor = anchorPoint.normalized;
+        directionOutsideAnchor.z = 0;
+        var spawnPosition = anchorPoint + 3 * directionOutsideAnchor;
+        
+        // instantiate
+        var enemyMovement = Instantiate(enemyPF, spawnPosition, Quaternion.identity).GetComponent<EnemyMovement>();
+        enemyMovement.SetAnchor(anchorPoint);
     }
 
     private Vector3 GetSpawnPosition()

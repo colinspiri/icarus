@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: randomFiringCooldown.min
-      value: 2
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 6711502183425177634, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_Sprite

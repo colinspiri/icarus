@@ -294,7 +294,7 @@ MonoBehaviour:
   movedToOrigin: {fileID: 11400000, guid: 92169c753be7c3741b42b6fd90211fae, type: 2}
   moveSpeed: 2
   originMoveSpeed: 3
-  randomMoveRadius: 3
+  randomMoveRadius: 2
   changeDirectionTime: 1
 --- !u!1 &5357128261321233417
 GameObject:
