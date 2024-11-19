@@ -18,3 +18,9 @@ MonoBehaviour:
   gameScene:
     sceneAsset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
     scenePath: Assets/Scenes/Game.unity
+  bomberScene:
+    sceneAsset: {fileID: 102900000, guid: 7727c79dc0e5644df9390d8d93f6df5f, type: 3}
+    scenePath: Assets/Scenes/Bomber WaveSet.unity
+  prototypeEnemyScene:
+    sceneAsset: {fileID: 102900000, guid: ba5135798038f428b97670a7462ba92a, type: 3}
+    scenePath: Assets/Scenes/PrototypeEnemy WaveSet.unity

@@ -680,10 +680,10 @@ MonoBehaviour:
   - {fileID: 5575946622792428909}
   originRange: {x: 8, y: 4}
   spawningMode: 0
-  spawnRandomAfterLastWave: 0
+  spawnRandomAfterLastWave: 1
   waveSet: {fileID: 11400000, guid: 19406940e6047402daab08b32a37c4fa, type: 2}
   timeBetweenWaves: 1
-  maxEnemyCount: 8
+  maxEnemyCount: 10
   timeBetweenRandomSpawn: 1
 --- !u!1 &7203011727130706784
 GameObject:

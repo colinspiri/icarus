@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Bomber WaveSet.unity
+    guid: 7727c79dc0e5644df9390d8d93f6df5f
+  - enabled: 1
+    path: Assets/Scenes/PrototypeEnemy WaveSet.unity
+    guid: ba5135798038f428b97670a7462ba92a
   m_configObjects: {}
