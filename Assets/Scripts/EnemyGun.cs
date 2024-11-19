@@ -38,7 +38,7 @@ public class EnemyGun : MonoBehaviour {
     void Start()
     {
         StartFiringCooldown();
-        _canFire = false;
+        _canFire = true;
     }
 
     // Update is called once per frame
