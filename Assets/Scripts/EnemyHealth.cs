@@ -16,7 +16,10 @@ public class EnemyHealth : Health {
         if (HealthPercentage <= 0) {
             Hitstop.Instance.NotifyEnemyDeath();
         }
-        else Hitstop.Instance.NotifyEnemyTakeDamage();
+        else {
+            // Hitstop.Instance.NotifyEnemyTakeDamage();
+            CameraShake.Instance.NotifyEnemyTakeDamage();
+        }
     }
 
     protected override void DeathEffect() {

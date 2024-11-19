@@ -10,6 +10,8 @@ public class CameraShake : MonoBehaviour {
     [SerializeField] private float defaultMagnitude = 0.4f;
     private float duration = 0.15f;
 
+    [SerializeField] private float shakeMagnitudeOnEnemyDamage;
+
     private void Awake() {
         if (Instance == null) Instance = this;
     }
@@ -49,5 +51,9 @@ public class CameraShake : MonoBehaviour {
         }
 
         transform.localPosition = originalPos;
+    }
+
+    public void NotifyEnemyTakeDamage() {
+        Shake(shakeMagnitudeOnEnemyDamage);
     }
 }

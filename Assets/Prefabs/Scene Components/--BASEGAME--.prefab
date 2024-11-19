@@ -399,8 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitstopTimeScale: 0.1
   defaultHitstopTime: 0.5
-  hitstopShakeStrength: 0.2
-  hitstopTimeOnEnemyDamage: 0.1
+  hitstopShakeStrength: 0.3
   hitstopTimeOnEnemyDeath: 0.5
 --- !u!1 &6009719444300265571
 GameObject:
@@ -575,6 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraShakeTestKey: 32
   defaultMagnitude: 0.3
+  shakeMagnitudeOnEnemyDamage: 0.1
 --- !u!1 &6463919253507295484
 GameObject:
   m_ObjectHideFlags: 0
