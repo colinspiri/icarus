@@ -291,8 +291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44a6b87340da514381221c404d370a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movedToOrigin: {fileID: 11400000, guid: 92169c753be7c3741b42b6fd90211fae, type: 2}
   moveSpeed: 2
-  originMoveSpeed: 4
+  originMoveSpeed: 6
   randomMoveRadius: 3
   changeDirectionTime: 1
 --- !u!1 &5357128261321233417
@@ -390,6 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4606312264975070415}
   - component: {fileID: 6425445922052804732}
+  - component: {fileID: 6462237218253476042}
   m_Layer: 0
   m_Name: Enemy Gun
   m_TagString: Untagged
@@ -438,3 +440,35 @@ MonoBehaviour:
   patternPrefab: {fileID: 3614729877128121977, guid: 5d727974c7653460ea874bc9accc3775, type: 3}
   relativeToEnemyRotation: 1
   enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
+--- !u!114 &6462237218253476042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8209167041421940874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 92169c753be7c3741b42b6fd90211fae, type: 2}
+  _event: {fileID: 11400000, guid: 92169c753be7c3741b42b6fd90211fae, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6425445922052804732}
+        m_TargetAssemblyTypeName: EnemyGun, Assembly-CSharp
+        m_MethodName: SetCanFire
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2

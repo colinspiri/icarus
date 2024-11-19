@@ -32,11 +32,13 @@ public class EnemyGun : MonoBehaviour {
 
     // state
     private float _currentFiringCooldown;
+    private bool _canFire;
     
     // Start is called before the first frame update
     void Start()
     {
         StartFiringCooldown();
+        _canFire = false;
     }
 
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class EnemyGun : MonoBehaviour {
     {
         LookAtPoint(PlayerMovement.Instance.transform.position);
 
-        if (_currentFiringCooldown <= 0) {
+        if (_currentFiringCooldown <= 0 && _canFire) {
             Fire();
             StartFiringCooldown();
         }
@@ -88,4 +90,6 @@ public class EnemyGun : MonoBehaviour {
 
         AudioManager.Instance.Play(enemyShoot, 0.1f);
     }
+
+    public void SetCanFire(bool canFire) => _canFire = canFire;
 }

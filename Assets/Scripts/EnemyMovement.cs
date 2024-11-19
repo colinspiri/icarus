@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ScriptableObjectArchitecture;
 
 public class EnemyMovement : MonoBehaviour {
+    [SerializeField] private GameEvent movedToOrigin;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float originMoveSpeed;
     
@@ -36,6 +38,7 @@ public class EnemyMovement : MonoBehaviour {
 
         if (distanceToOrigin < 1) {
             _currentState = State.MoveRandomly;
+            movedToOrigin.Raise();
         }
     }
 
