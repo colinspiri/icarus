@@ -678,12 +678,47 @@ MonoBehaviour:
   - {fileID: 3202865961216646479}
   - {fileID: 4532350274739768408}
   - {fileID: 5575946622792428909}
-  originRange: {x: 8, y: 4}
   spawningMode: 0
   spawnRandomAfterLastWave: 1
   waveSet: {fileID: 11400000, guid: 19406940e6047402daab08b32a37c4fa, type: 2}
   timeBetweenWaves: 1
-  maxEnemyCount: 10
+  maxEnemyCount: 8
+  randomSpawnTimeMinMax:
+    min: 0.25
+    max: 3
+  randomSpawnTimeByEnemyPercent:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.18893331
+      value: 0.56139064
+      inSlope: 1.8197337
+      outSlope: 1.8197337
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.27056482
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   timeBetweenRandomSpawn: 1
 --- !u!1 &7203011727130706784
 GameObject:

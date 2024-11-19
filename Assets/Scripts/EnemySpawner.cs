@@ -15,7 +15,6 @@ public class EnemySpawner : MonoBehaviour {
 
     [Header("Anchor Points")] 
     [SerializeField] private List<Transform> anchorPoints;
-    [SerializeField] private Vector2 originRange;
 
     [Header("Spawning Mode")]
     [SerializeField] private SpawningMode spawningMode;
@@ -28,8 +27,8 @@ public class EnemySpawner : MonoBehaviour {
 
     [Header("Random Spawning")]
     [SerializeField] private int maxEnemyCount;
-    [SerializeField] private float timeBetweenRandomSpawn;
-    
+    [SerializeField] private MinMaxFloat randomSpawnTimeMinMax;
+    [SerializeField] private AnimationCurve randomSpawnTimeByEnemyPercent;
 
     // state
     private enum WaveState { ReadyForWave, ActiveWave, DelayWave }
@@ -59,10 +58,23 @@ public class EnemySpawner : MonoBehaviour {
     }
     
     private void UpdateRandomSpawning() {
-        if (_randomSpawnTimer > 0) _randomSpawnTimer -= Time.deltaTime;
-        else if(enemyCollection.Count < maxEnemyCount) {
-            SpawnEnemy(EnemyType.PrototypeEnemy);
-            _randomSpawnTimer = timeBetweenRandomSpawn;
+        if (enemyCollection.Count >= maxEnemyCount) return;
+        
+        _randomSpawnTimer += Time.deltaTime;
+
+        var enemyAlivePercent = (float)enemyCollection.Count / maxEnemyCount;
+        var t = randomSpawnTimeByEnemyPercent.Evaluate(enemyAlivePercent);
+        var randomSpawnTime = randomSpawnTimeMinMax.LerpValue(t);
+
+        if (_randomSpawnTimer >= randomSpawnTime) {
+            var randomFloat = Random.Range(0.0f, 1.0f);
+            EnemyType enemyType;
+            if (randomFloat <= 0.5f) enemyType = EnemyType.PrototypeEnemy;
+            else enemyType = EnemyType.Bomber;
+            
+            SpawnEnemy(enemyType);
+
+            _randomSpawnTimer = 0;
         }
     }
 
@@ -130,15 +142,6 @@ public class EnemySpawner : MonoBehaviour {
         // instantiate
         var enemyMovement = Instantiate(enemyPF, spawnPosition, Quaternion.identity).GetComponent<EnemyMovement>();
         enemyMovement.SetAnchor(anchorPoint);
-    }
-
-    private Vector3 GetSpawnPosition()
-    {
-        Vector3 direction = Random.onUnitSphere;
-        direction.z = 0f;
-
-        float spawnDistance = Mathf.Max(_mainCamera.orthographicSize, _mainCamera.aspect * _mainCamera.orthographicSize) * 1.3f;
-        return _mainCamera.transform.position + direction.normalized * spawnDistance;
     }
 
     private GameObject GetEnemyPrefab(EnemyType type) {
