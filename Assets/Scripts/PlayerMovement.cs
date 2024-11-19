@@ -230,6 +230,7 @@ public class PlayerMovement : MonoBehaviour {
                 Bullet bullet = collider.GetComponent<Bullet>();
                 if (bullet.fromPlayer || bullet.reflected) continue;
                 bullet.transform.right = -bullet.transform.right;
+                bullet.GetComponent<SpriteRenderer>().color = Color.blue;
                 bullet.reflected = true;
             }
         }
