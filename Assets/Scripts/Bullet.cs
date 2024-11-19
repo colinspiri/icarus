@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour {
     [SerializeField] private float staticBulletSpeed;
     [SerializeField] private bool useRandomBulletSpeed;
     [SerializeField] private MinMaxFloat randomBulletSpeed;
+    [SerializeField] private float bulletSpeedMultiplier;
     [SerializeField] private float damage = 1f;
     [Tooltip("Number of bullets to pierce through. -1 for infinite.")]
     [SerializeField] private int bulletPierceMax;
@@ -52,6 +53,7 @@ public class Bullet : MonoBehaviour {
 
     private void Move() {
         var bulletSpeed = useRandomBulletSpeed ? randomBulletSpeed.RandomValue : staticBulletSpeed;
+        if (reflected) bulletSpeed *= bulletSpeedMultiplier;
         transform.Translate(transform.right * (Time.deltaTime * bulletSpeed), Space.World);
     }
 
