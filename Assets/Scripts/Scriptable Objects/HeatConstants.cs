@@ -34,6 +34,9 @@ public class HeatConstants : ScriptableObject {
     };
 
     [Space] 
-    public float heatCostPerDash; 
+    public float heatCostPerDash;
+
+    [Header("Heat on Enemy Kill")] 
+    public float heatGainOnEnemyKill;
 }
 public enum HeatValue { Low, Medium, High }

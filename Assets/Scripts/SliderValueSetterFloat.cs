@@ -1,4 +1,5 @@
-﻿using ScriptableObjectArchitecture;
+﻿using DG.Tweening;
+using ScriptableObjectArchitecture;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,28 +13,38 @@ public class SliderValueSetterFloat : MonoBehaviour
     public FloatReference minValue;
 
     // constants
-    // public float sliderLerpTime;
+    public float sliderLerpTime;
+    public float disappearTime;
     
     // state
-    private float previousValue = -1;
+    private float _previousValue = -1;
+    private float _disappearTimer;
 
     private void OnEnable() {
         slider.value = GetSliderValue();
     }
 
     private void Update() {
-        if (previousValue != currentValue.Value) {
+        if (_previousValue != currentValue.Value) {
             LerpSliderValue();
-            previousValue = currentValue.Value;
+            _previousValue = currentValue.Value;
+            _disappearTimer = 0;
         }
-        else Disappear();
+        else if (currentValue.Value == minValue.Value) {
+            if (_disappearTimer > disappearTime) {
+                Disappear();
+            }
+            else {
+                _disappearTimer += Time.deltaTime;
+            }
+        }
     }
 
     private void LerpSliderValue() {
         canvasGroup.alpha = 1;
         
         float targetValue = GetSliderValue();
-        // if (sliderLerpTime > 0) slider.DOValue(targetValue, sliderLerpTime);
+        if (sliderLerpTime > 0) slider.DOValue(targetValue, sliderLerpTime);
         slider.value = targetValue;
     }
 

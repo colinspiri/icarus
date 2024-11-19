@@ -15538,6 +15538,8 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 0
     _variable: {fileID: 0}
+  sliderLerpTime: 0.3
+  disappearTime: 1
 --- !u!225 &3066230895490721598
 CanvasGroup:
   m_ObjectHideFlags: 0
