@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582e79136c524d3f932c3e43d31e1f65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraShakeTestKey: 32
+  cameraShakeTestKey: 9
   defaultMagnitude: 0.3
   shakeMagnitudeOnEnemyDamage: 0.1
 --- !u!1 &6463919253507295484
@@ -719,7 +719,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  timeBetweenRandomSpawn: 1
 --- !u!1 &7203011727130706784
 GameObject:
   m_ObjectHideFlags: 0

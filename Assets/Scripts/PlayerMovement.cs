@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour {
         turnCar.TurnDirection = turnDirection;
         
         // dash
-        if (Input.GetKeyDown(KeyCode.Mouse1) && (!dashRequiresHeat || heat.Value >= heatConstants.heatCostPerDash)) {
+        if ((Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Space)) && (!dashRequiresHeat || heat.Value >= heatConstants.heatCostPerDash)) {
             Dash();
             heat.Value -= heatConstants.heatCostPerDash;
         }
