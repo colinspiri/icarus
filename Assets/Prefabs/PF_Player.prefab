@@ -5164,7 +5164,7 @@ MonoBehaviour:
   - {fileID: 6707606737457608348}
   - {fileID: 4056933184019769211}
   damageFlashColor: {r: 1, g: 0.30884862, b: 0, a: 1}
-  invulnerableFlashColor: {r: 1, g: 1, b: 1, a: 1}
+  invulnerableFlashColor: {r: 1, g: 1, b: 1, a: 0.29803923}
   flashTime: 0.1
 --- !u!96 &1152492618713594093
 TrailRenderer:
