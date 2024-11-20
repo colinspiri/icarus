@@ -8,6 +8,9 @@ public class EnemyHealth : Health {
     [SerializeField] private AudioClip enemyDie;
     [SerializeField] private FloatVariable heat;
     [SerializeField] private HeatConstants heatConstants;
+    [Space]
+    [SerializeField] private ParticleSystem damagedParticles;
+    [SerializeField] private ParticleSystem severelyDamagedParticles;
     
     public override void TakeDamage(float damage) {
         base.TakeDamage(damage);
@@ -20,6 +23,17 @@ public class EnemyHealth : Health {
             // Hitstop.Instance.NotifyEnemyTakeDamage();
             CameraShake.Instance.NotifyEnemyTakeDamage();
         }
+        
+        // play particles
+        if(HealthPercentage <= 0.5) {
+            if(!damagedParticles.isPlaying) damagedParticles.Play();
+        }
+        else damagedParticles.Stop();
+        
+        if (HitsLeft <= 1) {
+            if(!severelyDamagedParticles.isPlaying) severelyDamagedParticles.Play();
+        }
+        else severelyDamagedParticles.Stop();
     }
 
     protected override void DeathEffect() {

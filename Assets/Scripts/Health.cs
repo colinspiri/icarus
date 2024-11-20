@@ -9,6 +9,7 @@ public abstract class Health : MonoBehaviour {
     private float _currentHealth;
 
     public float HealthPercentage => _currentHealth / maxHealth;
+    public int HitsLeft => (int)Mathf.Ceil(_currentHealth);
     
     [SerializeField] protected UnityEvent onTakeDamage;
 
