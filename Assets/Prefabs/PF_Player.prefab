@@ -5165,7 +5165,7 @@ MonoBehaviour:
   - {fileID: 4056933184019769211}
   damageFlashColor: {r: 1, g: 0.30884862, b: 0, a: 1}
   invulnerableFlashColor: {r: 1, g: 1, b: 1, a: 0.29803923}
-  flashTime: 0.1
+  flashTime: 0.2
 --- !u!96 &1152492618713594093
 TrailRenderer:
   serializedVersion: 3
@@ -15746,9 +15746,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damageInvulnerableTime: 1
+  flashSprite: {fileID: 5710371698764082583}
   hitSound: {fileID: 8300000, guid: 4736b2226d9ba2d47b80f514211cb279, type: 3}
-  playerTookDamage: {fileID: 11400000, guid: f5e4b489ef976c54e98389201231b4a0, type: 2}
   playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
+  playerTookDamage: {fileID: 11400000, guid: f5e4b489ef976c54e98389201231b4a0, type: 2}
 --- !u!114 &3346273301397692489
 MonoBehaviour:
   m_ObjectHideFlags: 0

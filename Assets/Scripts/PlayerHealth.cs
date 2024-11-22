@@ -1,25 +1,51 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using ScriptableObjectArchitecture;
 using UnityEngine;
 public class PlayerHealth : Health {
+    [SerializeField] private float damageInvulnerableTime;
+
+    [Header("Components")] 
+    [SerializeField] private FlashSprite flashSprite;
     [SerializeField] AudioClip hitSound;
-    [SerializeField] private GameEvent playerTookDamage;
     [SerializeField] private PlayerInfo playerInfo;
+    [SerializeField] private GameEvent playerTookDamage;
     
+    // state 
+    private float _damageInvulnerableTimer;
+    public bool Invulnerable => _damageInvulnerableTimer > 0;
+
     protected override void Start() {
         base.Start();
         playerInfo.currentHealth = playerInfo.maxHealth;
     }
+
+    private void Update() {
+        if (Invulnerable) {
+            _damageInvulnerableTimer -= Time.deltaTime;
+        }
+    }
+
     public override void TakeDamage(float damage) {
+        if (Invulnerable) return;
+        
         base.TakeDamage(damage);
+        playerInfo.currentHealthPercentage = HealthPercentage;
+        playerInfo.currentHealth--;
+
+        SetInvulnerable();
         
         CameraShake.Instance.Shake();
         AudioManager.Instance.Play(hitSound, 1.0f);
-        playerInfo.currentHealthPercentage = HealthPercentage;
-        playerInfo.currentHealth--;
+        
         playerTookDamage.Raise();
+    }
+
+    private void SetInvulnerable() {
+        _damageInvulnerableTimer = damageInvulnerableTime;
+        // flashSprite.InvulnerableFlash(damageInvulnerableTime);
     }
 
     protected override void DeathEffect() {
