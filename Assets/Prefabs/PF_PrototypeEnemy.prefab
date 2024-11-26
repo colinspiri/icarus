@@ -300,6 +300,9 @@ MonoBehaviour:
   originMoveSpeed: 3
   randomMoveRadius: 2
   changeDirectionTime: 1
+  onscreenSize: {x: 8.5, y: 4.5}
+  towardsAnchorAlignmentFactor: 0.6
+  currentDirectionAlignmentFactor: 0.4
 --- !u!1 &5357128261321233417
 GameObject:
   m_ObjectHideFlags: 0

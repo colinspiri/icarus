@@ -15,6 +15,15 @@ public class EnemyMovement : MonoBehaviour {
     // move randomly 
     [SerializeField] private float randomMoveRadius;
     [SerializeField] private float changeDirectionTime;
+    [SerializeField] private Vector2 onscreenSize;
+    [Tooltip("1 when aligned, 0 when opposite")]
+    [Range(0.0f, 1.0f)]
+    [SerializeField] private float towardsAnchorAlignmentFactor = 0.5f;
+    [Tooltip("1 when aligned, 0 when opposite")]
+    [Range(0.0f, 1.0f)]
+    [SerializeField] private float currentDirectionAlignmentFactor = 0.5f;
+    
+    // private state 
     private Vector3 _currentMoveDirection;
     private float _changeDirectionTimer;
 
@@ -44,46 +53,11 @@ public class EnemyMovement : MonoBehaviour {
 
     private void UpdateMoveRandomly() {
         // maybe try having enemies accelerate forwards/backwards but move sharply left/right
-        // to look like theyre racing
+        // to look like theyre racing 
         
         // pick a new direction
         if (_changeDirectionTimer <= 0) {
-            Vector3 toAnchor = _anchorPosition - transform.position;
-            // var distanceToAnchor = toAnchor.magnitude; 
-            // todo: new direction has to be somewhat aligned to current direction, then decrease time
-            
-            Vector3 newDirection;
-            bool newDirectionAccepted;
-            do {
-                newDirection = Random.onUnitSphere;
-                var towardsAnchorAlignmentFactor = 0.6f;
-                var currentDirectionAlignmentFactor = 0.4f;
-                
-                // Debug.Log("distance to anchor = " + toAnchor.magnitude + "/" + moveRadius);
-
-                // if too far from anchor point, must be in direction of anchor point
-                if (toAnchor != Vector3.zero && toAnchor.magnitude >= randomMoveRadius) {
-                    if (toAnchor == Vector3.zero) newDirectionAccepted = true;
-                    else {
-                        var dot = Vector3.Dot(newDirection.normalized, toAnchor.normalized);
-                        var f = (dot + 1) / 2.0f; // 1 when aligned, 0 when opposite 
-                        newDirectionAccepted = (f >= towardsAnchorAlignmentFactor);
-                    }
-                }
-                // otherwise, must be similar to current direction
-                else {
-                    if (_currentMoveDirection == Vector3.zero) newDirectionAccepted = true;
-                    else {
-                        var dot = Vector3.Dot(newDirection.normalized, _currentMoveDirection.normalized);
-                        var f = (dot + 1) / 2.0f; // 1 when aligned, 0 when opposite 
-                        newDirectionAccepted = (f >= currentDirectionAlignmentFactor);
-                    }
-                }
-            } while (!newDirectionAccepted);
-            
-            // Debug.Log("newDirection = " + newDirection + " with f = " + f);
-
-            _currentMoveDirection = newDirection;
+            ChooseNewRandomMoveDirection();
             _changeDirectionTimer = changeDirectionTime;
         }
         // move in direction
@@ -94,7 +68,44 @@ public class EnemyMovement : MonoBehaviour {
 
     }
 
+    private void ChooseNewRandomMoveDirection() {
+        Vector3 toAnchor = _anchorPosition - transform.position;
+        
+        Vector3 newDirection;
+        bool newDirectionAccepted = true;
+        do {
+            newDirection = Random.onUnitSphere;
+            
+            // if too far from anchor point, must be in direction of anchor point 
+            bool farFromAnchor = toAnchor != Vector3.zero && toAnchor.magnitude >= randomMoveRadius;
+            if (farFromAnchor || IsOffscreen()) {
+                var dot = Vector3.Dot(newDirection.normalized, toAnchor.normalized);
+                var f = (dot + 1) / 2.0f; // 1 when aligned, 0 when opposite 
+                newDirectionAccepted = f >= towardsAnchorAlignmentFactor;
+            }
+            
+            // must be similar to current direction
+            else if (_currentMoveDirection != Vector3.zero) {
+                var dot = Vector3.Dot(newDirection.normalized, _currentMoveDirection.normalized);
+                var f = (dot + 1) / 2.0f; // 1 when aligned, 0 when opposite 
+                newDirectionAccepted = f >= currentDirectionAlignmentFactor;
+            }
+        } while (!newDirectionAccepted);
+        
+        _currentMoveDirection = newDirection;
+    }
+
     public void SetAnchor(Vector3 position) {
         _anchorPosition = position;
+    }
+
+    private bool IsOffscreen() {
+        var pos = transform.position;
+        bool offscreen = pos.x < -onscreenSize.x || pos.x > onscreenSize.x || pos.y < -onscreenSize.y ||
+                         pos.y > onscreenSize.y;
+        // if (offscreen) {
+        //     Debug.Log(name + " is offscreen");
+        // }
+        return offscreen;
     }
 }
