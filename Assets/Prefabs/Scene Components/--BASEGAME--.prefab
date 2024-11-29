@@ -666,7 +666,7 @@ MonoBehaviour:
   fighter2Prefab: {fileID: 1199248016663217928, guid: 87328a480cadb9e4b94cabc3a42bb25c, type: 3}
   fighter3Prefab: {fileID: 7231345477014764312, guid: 18de7dbca5ae6c846a2436d6613db537, type: 3}
   bomberPrefab: {fileID: 1198880009985885195, guid: 996e5a088135c4a7f8dbef4ad5c5d594, type: 3}
-  homingMissilePrefab: {fileID: 0}
+  homingMissilePrefab: {fileID: 7766535680179231159, guid: dd107f7d25434664a9cf8f50b995f931, type: 3}
   anchorPoints:
   - {fileID: 1491648838608015218}
   - {fileID: 2177019574203670009}
@@ -680,7 +680,7 @@ MonoBehaviour:
   - {fileID: 5575946622792428909}
   spawningMode: 0
   spawnRandomAfterLastWave: 1
-  waveSet: {fileID: 11400000, guid: 19406940e6047402daab08b32a37c4fa, type: 2}
+  waveSet: {fileID: 11400000, guid: 36523fa113f84cb4d8f6b3eda0b4a159, type: 2}
   timeBetweenWaves: 1
   maxEnemyCount: 8
   randomSpawnTimeMinMax:

@@ -20,6 +20,7 @@ public class PlayerHealth : Health {
     protected override void Start() {
         base.Start();
         playerInfo.currentHealth = playerInfo.maxHealth;
+        playerInfo.playerInvulnerableTime = damageInvulnerableTime;
     }
 
     private void Update() {

@@ -138,10 +138,17 @@ public class EnemySpawner : MonoBehaviour {
         Vector3 directionOutsideAnchor = anchorPoint.normalized;
         directionOutsideAnchor.z = 0;
         var spawnPosition = anchorPoint + 3 * directionOutsideAnchor;
-        
+
         // instantiate
-        var enemyMovement = Instantiate(enemyPF, spawnPosition, Quaternion.identity).GetComponent<EnemyMovement>();
-        enemyMovement.SetAnchor(anchorPoint);
+        if (enemyPF.GetComponent<EnemyMovement>() != null)
+        {
+            var enemyMovement = Instantiate(enemyPF, spawnPosition, Quaternion.identity).GetComponent<EnemyMovement>();
+            enemyMovement.SetAnchor(anchorPoint);
+        }
+        else
+        {
+            Instantiate(enemyPF, spawnPosition, Quaternion.identity);
+        }
     }
 
     private GameObject GetEnemyPrefab(EnemyType type) {

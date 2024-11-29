@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 5679227482235792981}
   - component: {fileID: 1170865997944462194}
   - component: {fileID: 8812528195059362350}
+  - component: {fileID: 4272521664432393045}
   m_Layer: 0
   m_Name: PF_PrototypeEnemy
   m_TagString: Enemy
@@ -230,7 +231,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -303,6 +304,21 @@ MonoBehaviour:
   onscreenSize: {x: 8.5, y: 4.5}
   towardsAnchorAlignmentFactor: 0.6
   currentDirectionAlignmentFactor: 0.4
+--- !u!114 &4272521664432393045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485121856887170019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b081165222ac5245984edf505706aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDamage: 1
+  missileDamage: 1
+  playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
 --- !u!1 &5357128261321233417
 GameObject:
   m_ObjectHideFlags: 0
