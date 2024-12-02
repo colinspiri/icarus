@@ -78,13 +78,26 @@ public class InputManager : MonoBehaviour
     {
         firePressed = !context.canceled;
         fireHeld = !context.canceled;
-        if(gameObject.activeInHierarchy) StartCoroutine("ResetFireStart");
+        if(gameObject.activeInHierarchy) StartCoroutine(nameof(ResetFireStart));
     }
-
+ 
     private IEnumerator ResetFireStart()
     {
         yield return new WaitForEndOfFrame();
         firePressed = false;
+    }
+    
+    public bool reloadPressed;
+    public void OnReload(InputAction.CallbackContext context)
+    {
+        reloadPressed = !context.canceled;
+        if(gameObject.activeInHierarchy) StartCoroutine(nameof(ResetReloadStart));
+    }
+
+    private IEnumerator ResetReloadStart()
+    {
+        yield return new WaitForEndOfFrame();
+        reloadPressed = false;
     }
 
     [Header("Pause Input")]

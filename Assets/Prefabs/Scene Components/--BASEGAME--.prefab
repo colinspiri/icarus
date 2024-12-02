@@ -749,6 +749,7 @@ MonoBehaviour:
   verticalLookAxis: 0
   firePressed: 0
   fireHeld: 0
+  reloadPressed: 0
   pausePressed: 0
   restartKey: 0
 --- !u!114 &8032270070275374261
@@ -880,6 +881,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: eb7a88c4-62bf-4180-8d40-ab981c13fffa
     m_ActionName: Player/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7721470837518033047}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnReload
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 40a1cf24-2925-4ac1-a95c-42c0b1bafb30
+    m_ActionName: Player/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bef6a757-36c9-4380-9d48-8dd2eee64614
+    m_ActionName: Player/Dash[/Mouse/rightButton,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

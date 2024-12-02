@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
             Reload();
         }
         
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
             Reload();
         }
     }

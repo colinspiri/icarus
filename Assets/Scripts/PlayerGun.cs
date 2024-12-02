@@ -13,12 +13,22 @@ public class PlayerGun : MonoBehaviour {
     [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private FloatVariable heat;
     [SerializeField] private HeatConstants heatConstants;
-    /*[SerializeField] private float mediumHeatThreshold; 
-    [SerializeField] private float highHeatThreshold; 
+
+    [Header("Ammo")] 
+    [SerializeField] private IntVariable currentAmmo;
+    [SerializeField] private IntReference maxAmmo;
+    [SerializeField] private IntReference ammoCostLowHeat;
+    [SerializeField] private IntReference ammoCostMediumHeat;
+    [SerializeField] private IntReference ammoCostHighHeat;
     [Space]
-    [SerializeField] private float heatDecreasePerShotLowHeat; 
-    [SerializeField] private float heatDecreasePerShotMediumHeat; 
-    [SerializeField] private float heatDecreasePerShotHighHeat;*/
+    [SerializeField] private FloatReference reloadTime;
+    [SerializeField] private FloatVariable reloadProgress;
+    private int CurrentAmmoCost => heatConstants.CurrentHeatValue switch {
+        HeatValue.Low => ammoCostLowHeat.Value,
+        HeatValue.Medium => ammoCostMediumHeat.Value,
+        HeatValue.High => ammoCostHighHeat.Value,
+        _ => ammoCostLowHeat.Value,
+    };
 
     [Header("Bullet Prefabs")] 
     [SerializeField] private GameObject bulletPrefabLowHeat;
@@ -27,11 +37,20 @@ public class PlayerGun : MonoBehaviour {
     
     [Header("Audio")]
     [SerializeField] private AudioClip fireSound;
+    
+    // state
+    private bool _reloading;
+
+    private void Start() {
+        currentAmmo.Value = maxAmmo.Value;
+        reloadProgress.Value = 0;
+    }
 
     // Update is called once per frame
     void Update()
     {
         HandleInput();
+        UpdateReload();
     }
 
     private void HandleInput() {
@@ -40,11 +59,41 @@ public class PlayerGun : MonoBehaviour {
         LookAtPoint(lookPosition);
 
         // fire bullets
-        if (InputManager.Instance.firePressed) {
+        if (InputManager.Instance.firePressed && currentAmmo.Value > 0) {
             FireBullet();
 
+            currentAmmo.Value -= CurrentAmmoCost;
+            if (currentAmmo.Value < 0) currentAmmo.Value = 0;
+            
             heat.Value -= heatConstants.CurrentHeatCostPerShot;
         }
+
+        if (InputManager.Instance.reloadPressed) {
+            StartReload();
+        }
+    }
+
+    private void UpdateReload() {
+        // if already reloading, add to progress
+        if (_reloading) {
+            reloadProgress.Value += Time.deltaTime;
+            
+            // finish reload
+            if (reloadProgress >= reloadTime.Value) {
+                _reloading = false;
+                currentAmmo.Value = maxAmmo.Value;
+            }
+        }
+        // check to start reload 
+        else if (currentAmmo.Value <= 0) {
+            StartReload();
+        }
+    }
+
+    private void StartReload() {
+        currentAmmo.Value = 0;
+        _reloading = true;
+        reloadProgress.Value = 0;
     }
 
     private Vector2 GetLookPosition()

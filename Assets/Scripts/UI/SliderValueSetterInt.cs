@@ -3,21 +3,21 @@ using ScriptableObjectArchitecture;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderValueSetterFloat : MonoBehaviour
+public class SliderValueSetterInt : MonoBehaviour
 {
     // components
     public Slider slider;
     public CanvasGroup canvasGroup;
-    public FloatReference currentValue;
-    public FloatReference maxValue;
-    public FloatReference minValue;
+    public IntReference currentValue;
+    public IntReference maxValue;
+    public IntReference minValue;
 
     // constants
     public float sliderLerpTime;
     public float disappearTime = -1;
     
     // state
-    private float _previousValue = -1;
+    private int _previousValue = -1;
     private float _disappearTimer;
 
     private void OnEnable() {
