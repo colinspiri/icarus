@@ -94,6 +94,8 @@ public class PlayerGun : MonoBehaviour {
         currentAmmo.Value = 0;
         _reloading = true;
         reloadProgress.Value = 0;
+        
+        heat.Value -= heatConstants.heatCostPerReload;
     }
 
     private Vector2 GetLookPosition()

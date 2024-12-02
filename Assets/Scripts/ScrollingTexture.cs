@@ -31,7 +31,6 @@ public class ScrollingTexture : MonoBehaviour {
         if (useHeatForSpeed) {
             speed = Mathf.Lerp(minHeatSpeed, maxHeatSpeed, heat.Value);
         }
-        Debug.Log("ScrollBackground()");
         
         Vector2 position = rawImage.uvRect.position + new Vector2(0, -speed * Time.deltaTime);
         rawImage.uvRect = new Rect(position, rawImage.uvRect.size);

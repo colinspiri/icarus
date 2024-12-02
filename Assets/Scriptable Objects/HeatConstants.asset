@@ -18,9 +18,12 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   mediumHeatThreshold: 0.3
   highHeatThreshold: 0.75
-  passiveHeatDelta: 0
+  passiveHeatDeltaLow: -0.01
+  passiveHeatDeltaMedium: -0.03
+  passiveHeatDeltaHigh: -0.05
   heatCostPerShotLow: 0
-  heatCostPerShotMedium: 0.1
-  heatCostPerShotHigh: 0.3
-  heatCostPerDash: 0.2
-  heatGainOnEnemyKill: 0.3
+  heatCostPerShotMedium: 0
+  heatCostPerShotHigh: 0
+  heatCostPerDash: 0.1
+  heatCostPerReload: 0.02
+  heatGainOnEnemyKill: 0.1

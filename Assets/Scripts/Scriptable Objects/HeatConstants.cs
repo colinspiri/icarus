@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
 using UnityEngine;
-using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "HeatConstants", menuName = "Scriptable Objects/Heat Constants")]
 public class HeatConstants : ScriptableObject {
@@ -20,7 +19,15 @@ public class HeatConstants : ScriptableObject {
 
     [Tooltip("How fast heat increases/decreases over time")]
     [Space]
-    public float passiveHeatDelta; 
+    public float passiveHeatDeltaLow;
+    public float passiveHeatDeltaMedium;
+    public float passiveHeatDeltaHigh;
+    public float CurrentPassiveHeatDelta => CurrentHeatValue switch {
+        HeatValue.Low => passiveHeatDeltaLow,
+        HeatValue.Medium => passiveHeatDeltaMedium,
+        HeatValue.High => passiveHeatDeltaHigh,
+        _ => passiveHeatDeltaLow,
+    };
 
     [Header("Heat Cost Per Shot")] 
     public float heatCostPerShotLow; 
@@ -35,8 +42,10 @@ public class HeatConstants : ScriptableObject {
 
     [Space] 
     public float heatCostPerDash;
+    public float heatCostPerReload;
 
     [Header("Heat on Enemy Kill")] 
     public float heatGainOnEnemyKill;
+    
 }
 public enum HeatValue { Low, Medium, High }

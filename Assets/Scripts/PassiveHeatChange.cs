@@ -11,7 +11,7 @@ public class PassiveHeatChange : MonoBehaviour {
     }
 
     private void Update() {
-        heat.Value += Time.deltaTime * heatConstants.passiveHeatDelta;
+        heat.Value += Time.deltaTime * heatConstants.CurrentPassiveHeatDelta;
         if (heat.Value < 0) {
             heat.Value = 0;
         }
