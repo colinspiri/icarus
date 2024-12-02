@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
@@ -8,6 +9,8 @@ using Vector2 = UnityEngine.Vector2;
 
 public class ScrollingTexture : MonoBehaviour {
     [SerializeField] private RawImage rawImage;
+    [Space] 
+    [SerializeField] private BoolReference movingBackgroundOn;
     [Space]
     [SerializeField] private bool useHeatForSpeed;
     [SerializeField] private FloatReference heat;
@@ -18,11 +21,17 @@ public class ScrollingTexture : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (movingBackgroundOn.Value) {
+            ScrollBackground();
+        }
+    }
+
+    private void ScrollBackground() {
         float speed = defaultScrollSpeed;
-        
         if (useHeatForSpeed) {
             speed = Mathf.Lerp(minHeatSpeed, maxHeatSpeed, heat.Value);
         }
+        Debug.Log("ScrollBackground()");
         
         Vector2 position = rawImage.uvRect.position + new Vector2(0, -speed * Time.deltaTime);
         rawImage.uvRect = new Rect(position, rawImage.uvRect.size);

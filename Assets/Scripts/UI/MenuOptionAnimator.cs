@@ -8,6 +8,8 @@ using UnityEngine.EventSystems;
 public class MenuOptionAnimator : MonoBehaviour {
     // components
     private Selectable _selectable;
+    public UIConstants uiConstants;
+    [Space]
     public GameObject selectionBox;
     public TextMeshProUGUI text;
 
@@ -15,10 +17,7 @@ public class MenuOptionAnimator : MonoBehaviour {
     public Toggle toggle;
     public GameObject whenOn;
     public GameObject whenOff;
-    
-    // constants
-    public UIConstants uiConstants;
-    
+
     // state
     private Color _normalTextColor;
 
@@ -40,8 +39,8 @@ public class MenuOptionAnimator : MonoBehaviour {
 
     public void UpdateToggle() {
         bool on = toggle.isOn;
-        whenOn.SetActive(on);
-        whenOff.SetActive(!on);   
+        if(whenOn != null) whenOn.SetActive(on);
+        if(whenOff != null) whenOff.SetActive(!on);   
     }
 
     public void Submit() {
