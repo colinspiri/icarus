@@ -93,13 +93,15 @@ public class Bullet : MonoBehaviour {
             }
         }
         else if (col.CompareTag("Player") && !fromPlayer) {
-            if (!PlayerMovement.Instance.isDashing) {
+            if (!PlayerMovement.Instance.isDashing)
+            {
                 var health = col.GetComponent<Health>();
                 health.TakeDamage(damage);
                 HitEntity();
+                // ignore future collisions with player even after dash is over
+                _ignoreCollisionsWithObjects.Add(col.gameObject); 
             }
-            // ignore future collisions with player even after dash is over
-            _ignoreCollisionsWithObjects.Add(col.gameObject); 
+            else Destroy(gameObject);
         }
         else if (col.CompareTag("Enemy") && (fromPlayer || reflected)) {
             AudioManager.Instance.Play(enemyDamage, 1.0f);
