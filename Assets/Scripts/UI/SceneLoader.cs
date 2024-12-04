@@ -6,9 +6,11 @@ public class SceneLoader : ScriptableObject {
     public SceneReference mainMenuScene;
     public SceneReference gameScene;
 
-    [Space] 
+    [Header("Wave Set Scenes")] 
     public SceneReference bomberScene;
     public SceneReference prototypeEnemyScene;
+    public SceneReference homingMissileScene;
+    public SceneReference fighterScene;
     
     public void DebugTest(string testString) {
         Debug.Log("test " + testString + " at " + Time.time);
@@ -27,6 +29,16 @@ public class SceneLoader : ScriptableObject {
     public void LoadPrototypeEnemyScene() {
         ResetTime();
         SceneManager.LoadScene(prototypeEnemyScene.ScenePath);
+    }
+
+    public void LoadHomingMissileScene() {
+        ResetTime();
+        SceneManager.LoadScene(homingMissileScene.ScenePath);
+    }
+
+    public void LoadFighterScene() {
+        ResetTime();
+        SceneManager.LoadScene(fighterScene.ScenePath);
     }
 
     public void Restart()

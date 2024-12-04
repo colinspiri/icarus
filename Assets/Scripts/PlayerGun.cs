@@ -68,7 +68,7 @@ public class PlayerGun : MonoBehaviour {
             heat.Value -= heatConstants.CurrentHeatCostPerShot;
         }
 
-        if (InputManager.Instance.reloadPressed) {
+        if (InputManager.Instance.reloadPressed && !_reloading) {
             StartReload();
         }
     }

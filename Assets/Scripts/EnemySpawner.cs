@@ -83,7 +83,7 @@ public class EnemySpawner : MonoBehaviour {
         if (_waveState == WaveState.ReadyForWave) {
             SpawnWave(_currentWave);
             _waveState = WaveState.ActiveWave;
-            ToastUI.Instance.QueueToast("Wave " + _currentWave);
+            ToastUI.Instance.QueueToast("Wave " + (_currentWave + 1) + "/" + waveSet.NumWaves);
         }
         // if active wave, wait for all enemies to die, then set state to delay 
         else if (_waveState == WaveState.ActiveWave) {
