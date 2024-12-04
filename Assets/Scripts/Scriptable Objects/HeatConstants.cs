@@ -29,7 +29,7 @@ public class HeatConstants : ScriptableObject {
         _ => passiveHeatDeltaLow,
     };
 
-    [Header("Heat Cost Per Shot")] 
+    [Header("Heat Cost")] 
     public float heatCostPerShotLow; 
     public float heatCostPerShotMedium; 
     public float heatCostPerShotHigh; 
@@ -42,13 +42,14 @@ public class HeatConstants : ScriptableObject {
 
     [Space] 
     public float heatCostPerDash;
+    [Space]
     public float heatCostPerReloadClipEmpty; // 0.15
     public float heatCostPerReloadClipFull; // 0.05
 
-    [Header("Heat on Enemy Kill")] 
+    [Header("Heat Gain")] 
     public float heatGainOnEnemyKill;
 
-    [Header("Heat Gain")] 
+    [Space]
     public float heatGainPerDamage;
 }
 public enum HeatValue { Low, Medium, High }

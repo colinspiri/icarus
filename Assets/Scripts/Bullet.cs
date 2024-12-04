@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour {
     [SerializeField] private MinMaxFloat randomBulletSpeed;
     [SerializeField] private float bulletSpeedMultiplier;
     [SerializeField] private float damage = 1f;
+    [SerializeField] private float reflectedDamage = 1f;
     [Tooltip("Number of bullets to pierce through. -1 for infinite.")]
     [SerializeField] private int bulletPierceMax;
     [Tooltip("Number of entities to pierce through. -1 for infinite.")] 
@@ -105,10 +106,11 @@ public class Bullet : MonoBehaviour {
         }
         else if (col.CompareTag("Enemy") && (fromPlayer || reflected)) {
             AudioManager.Instance.Play(enemyDamage, 1.0f);
-            
+
+            var chosenDamage = reflected ? reflectedDamage : damage;
             var health = col.GetComponent<Health>();
-            health.TakeDamage(damage);
-            heat.Value += heatConstants.heatGainPerDamage * damage;
+            health.TakeDamage(chosenDamage);
+            heat.Value += heatConstants.heatGainPerDamage * chosenDamage;
             
             HitEntity();
             _ignoreCollisionsWithObjects.Add(col.gameObject);
