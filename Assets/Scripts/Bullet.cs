@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjectArchitecture;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
@@ -9,6 +10,8 @@ public class Bullet : MonoBehaviour {
     public GameObject originObject;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject explosionEffectPrefab;
+    [SerializeField] private FloatVariable heat;
+    [SerializeField] private HeatConstants heatConstants;
 
     // serialized constants
     [Header("Constants")]
@@ -100,8 +103,11 @@ public class Bullet : MonoBehaviour {
         }
         else if (col.CompareTag("Enemy") && (fromPlayer || reflected)) {
             AudioManager.Instance.Play(enemyDamage, 1.0f);
+            
             var health = col.GetComponent<Health>();
             health.TakeDamage(damage);
+            heat.Value += heatConstants.heatGainPerDamage * damage;
+            
             HitEntity();
             _ignoreCollisionsWithObjects.Add(col.gameObject);
         }

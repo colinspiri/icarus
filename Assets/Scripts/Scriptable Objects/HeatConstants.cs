@@ -42,10 +42,13 @@ public class HeatConstants : ScriptableObject {
 
     [Space] 
     public float heatCostPerDash;
-    public float heatCostPerReload;
+    public float heatCostPerReloadClipEmpty; // 0.15
+    public float heatCostPerReloadClipFull; // 0.05
 
     [Header("Heat on Enemy Kill")] 
     public float heatGainOnEnemyKill;
-    
+
+    [Header("Heat Gain")] 
+    public float heatGainPerDamage;
 }
 public enum HeatValue { Low, Medium, High }

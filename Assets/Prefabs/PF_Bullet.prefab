@@ -102,6 +102,8 @@ MonoBehaviour:
   originObject: {fileID: 0}
   spriteRenderer: {fileID: 8866159761276176753}
   explosionEffectPrefab: {fileID: 5510226227686775581, guid: b03cda6f49fb42343ab0f998caee1f1d, type: 3}
+  heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
+  heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
   fromPlayer: 0
   staticBulletSpeed: 0
   useRandomBulletSpeed: 0

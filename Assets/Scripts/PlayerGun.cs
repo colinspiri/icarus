@@ -91,11 +91,14 @@ public class PlayerGun : MonoBehaviour {
     }
 
     private void StartReload() {
+        float missingPercent = (float)(maxAmmo.Value - currentAmmo.Value) / maxAmmo.Value;
+        float heatCost = Mathf.Lerp(heatConstants.heatCostPerReloadClipFull, heatConstants.heatCostPerReloadClipEmpty,
+            missingPercent);
+        heat.Value -= heatCost;
+
         currentAmmo.Value = 0;
         _reloading = true;
         reloadProgress.Value = 0;
-        
-        heat.Value -= heatConstants.heatCostPerReload;
     }
 
     private Vector2 GetLookPosition()

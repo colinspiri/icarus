@@ -16373,7 +16373,7 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 0
     _variable: {fileID: 0}
-  sliderLerpTime: 0.4
+  sliderLerpTime: 0
   disappearTime: -1
 --- !u!225 &5756952232334341463
 CanvasGroup:
