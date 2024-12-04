@@ -5706,7 +5706,7 @@ MonoBehaviour:
     _variable: {fileID: 0}
   ammoCostHighHeat:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 4
     _variable: {fileID: 0}
   reloadTime:
     _useConstant: 0
