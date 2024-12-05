@@ -660,7 +660,7 @@ MonoBehaviour:
   spawningMode: 0
   spawnRandomAfterLastWave: 1
   waveSet: {fileID: 11400000, guid: 36523fa113f84cb4d8f6b3eda0b4a159, type: 2}
-  timeBetweenWaves: 1.5
+  timeBetweenWaves: 2
   maxEnemyCount: 8
   randomSpawnTimeMinMax:
     min: 0.25

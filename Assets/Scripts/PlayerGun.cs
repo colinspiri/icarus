@@ -13,22 +13,11 @@ public class PlayerGun : MonoBehaviour {
     [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private FloatVariable heat;
     [SerializeField] private HeatConstants heatConstants;
+    [SerializeField] private GunConstants gunConstants;
 
-    [Header("Ammo")] 
+    [Header("Variables")] 
     [SerializeField] private IntVariable currentAmmo;
-    [SerializeField] private IntReference maxAmmo;
-    [SerializeField] private IntReference ammoCostLowHeat;
-    [SerializeField] private IntReference ammoCostMediumHeat;
-    [SerializeField] private IntReference ammoCostHighHeat;
-    [Space]
-    [SerializeField] private FloatReference reloadTime;
     [SerializeField] private FloatVariable reloadProgress;
-    private int CurrentAmmoCost => heatConstants.CurrentHeatValue switch {
-        HeatValue.Low => ammoCostLowHeat.Value,
-        HeatValue.Medium => ammoCostMediumHeat.Value,
-        HeatValue.High => ammoCostHighHeat.Value,
-        _ => ammoCostLowHeat.Value,
-    };
 
     [Header("Bullet Prefabs")] 
     [SerializeField] private GameObject bulletPrefabLowHeat;
@@ -40,9 +29,10 @@ public class PlayerGun : MonoBehaviour {
     
     // state
     private bool _reloading;
+    private float _fireCooldownProgress;
 
     private void Start() {
-        currentAmmo.Value = maxAmmo.Value;
+        currentAmmo.Value = gunConstants.maxAmmo;
         reloadProgress.Value = 0;
     }
 
@@ -51,6 +41,7 @@ public class PlayerGun : MonoBehaviour {
     {
         HandleInput();
         UpdateReload();
+        UpdateFireCooldown();
     }
 
     private void HandleInput() {
@@ -59,10 +50,13 @@ public class PlayerGun : MonoBehaviour {
         LookAtPoint(lookPosition);
 
         // fire bullets
-        if (InputManager.Instance.firePressed && currentAmmo.Value > 0) {
+        float fireCooldown = 1.0f / gunConstants.CurrentFiringRate;
+        if (InputManager.Instance.fireHeld && currentAmmo.Value > 0 && _fireCooldownProgress >= fireCooldown) {
             FireBullet();
 
-            currentAmmo.Value -= CurrentAmmoCost;
+            _fireCooldownProgress = 0;
+
+            currentAmmo.Value -= gunConstants.CurrentAmmoCost;
             if (currentAmmo.Value < 0) currentAmmo.Value = 0;
             
             heat.Value -= heatConstants.CurrentHeatCostPerShot;
@@ -79,9 +73,9 @@ public class PlayerGun : MonoBehaviour {
             reloadProgress.Value += Time.deltaTime;
             
             // finish reload
-            if (reloadProgress >= reloadTime.Value) {
+            if (reloadProgress >= gunConstants.reloadTime) {
                 _reloading = false;
-                currentAmmo.Value = maxAmmo.Value;
+                currentAmmo.Value = gunConstants.maxAmmo;
             }
         }
         // check to start reload 
@@ -90,8 +84,15 @@ public class PlayerGun : MonoBehaviour {
         }
     }
 
+    private void UpdateFireCooldown() {
+        float fireCooldownTimeTier3 = 1.0f / gunConstants.firingRateTier3;
+        if (_fireCooldownProgress < fireCooldownTimeTier3) {
+            _fireCooldownProgress += Time.deltaTime;
+        }
+    }
+    
     private void StartReload() {
-        float missingPercent = (float)(maxAmmo.Value - currentAmmo.Value) / maxAmmo.Value;
+        float missingPercent = (float)(gunConstants.maxAmmo - currentAmmo.Value) / gunConstants.maxAmmo;
         float heatCost = Mathf.Lerp(heatConstants.heatCostPerReloadClipFull, heatConstants.heatCostPerReloadClipEmpty,
             missingPercent);
         heat.Value -= heatCost;

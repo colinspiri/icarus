@@ -430,7 +430,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
-  minHeatSpeed: 0.6
+  minHeatSpeed: 0.4
   maxHeatSpeed: 1.5
   defaultScrollSpeed: 1
 --- !u!1 &1737801350941591527
