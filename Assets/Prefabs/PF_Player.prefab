@@ -5698,6 +5698,7 @@ MonoBehaviour:
   bulletPrefabMediumHeat: {fileID: 6411648383677073412, guid: 50c2983edd6f14e108ca0fd605a297ff, type: 3}
   bulletPrefabHighHeat: {fileID: 2542478685991887735, guid: 7b272b297d8ef4cd2bbee922306fea49, type: 3}
   fireSound: {fileID: 8300000, guid: 8472c70be3b760d42a963a937647ff7c, type: 3}
+  reloadSound: {fileID: 8300000, guid: 48133f0f31c6ad94e9dd01d81633d6ba, type: 3}
 --- !u!1 &3334942913361520829
 GameObject:
   m_ObjectHideFlags: 0

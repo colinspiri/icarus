@@ -26,6 +26,7 @@ public class PlayerGun : MonoBehaviour {
     
     [Header("Audio")]
     [SerializeField] private AudioClip fireSound;
+    [SerializeField] private AudioClip reloadSound;
     
     // state
     private bool _reloading;
@@ -100,6 +101,7 @@ public class PlayerGun : MonoBehaviour {
         currentAmmo.Value = 0;
         _reloading = true;
         reloadProgress.Value = 0;
+        AudioManager.Instance.Play(reloadSound, 1.0f);
     }
 
     private Vector2 GetLookPosition()

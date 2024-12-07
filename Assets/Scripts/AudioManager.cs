@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource[] source;
-    private int channel = -1;
+    private int channel = 0;
 
     public static AudioManager Instance = null;
 
@@ -25,10 +25,18 @@ public class AudioManager : MonoBehaviour
 
     public void Play(AudioClip clip, float volume)
     {
-        channel++;
-        if (channel == source.Length)
+        int prev = channel;
+        while (source[channel].isPlaying)
         {
-            channel = 0;
+            channel++;
+            if (channel == source.Length)
+            {
+                channel = 0;
+            }
+            if (channel == prev)
+            {
+                break;
+            }
         }
         source[channel].clip = clip;
         source[channel].volume = volume;
