@@ -10,7 +10,6 @@ public class EnemyHealth : Health {
     [SerializeField] private HeatConstants heatConstants;
     [Space]
     [SerializeField] private ParticleSystem damagedParticles;
-    [SerializeField] private ParticleSystem severelyDamagedParticles;
     
     public override void TakeDamage(float damage) {
         base.TakeDamage(damage);
@@ -29,11 +28,6 @@ public class EnemyHealth : Health {
             if(!damagedParticles.isPlaying) damagedParticles.Play();
         }
         else damagedParticles.Stop();
-        
-        if (HitsLeft <= 1) {
-            if(!severelyDamagedParticles.isPlaying) severelyDamagedParticles.Play();
-        }
-        else severelyDamagedParticles.Stop();
     }
 
     protected override void DeathEffect() {

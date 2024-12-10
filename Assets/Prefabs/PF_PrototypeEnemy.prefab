@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530893659995154202}
   - component: {fileID: 6711502183425177634}
-  - component: {fileID: 7952876252202825046}
+  - component: {fileID: 7810885906083337209}
   m_Layer: 0
   m_Name: Enemy Car
   m_TagString: Untagged
@@ -116,7 +116,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7952876252202825046
+--- !u!114 &7810885906083337209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,15 +125,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2537991869751644458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c23a9110ef554205a28e1c5879829976, type: 3}
+  m_Script: {fileID: 11500000, guid: a16c7133c2064aeb8493abe806e270f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderers:
   - {fileID: 6711502183425177634}
   - {fileID: 7474827226340481376}
-  damageFlashColor: {r: 1, g: 1, b: 1, a: 1}
-  invulnerableFlashColor: {r: 1, g: 1, b: 1, a: 1}
-  flashTime: 0.1
+  enemyHealth: {fileID: 5679227482235792981}
+  damagedColor: {r: 1, g: 0, b: 0, a: 1}
+  damagedTime: 0.1
+  lowHealthColor: {r: 1, g: 0.36883092, b: 0.2971698, a: 1}
+  lowHealthFlashPeriod: 0.5
 --- !u!1 &3485121856887170019
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +174,6 @@ Transform:
   - {fileID: 1530893659995154202}
   - {fileID: 4606312264975070415}
   - {fileID: 9193833376533625161}
-  - {fileID: 9021655420855337566}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6151139964773279585
@@ -252,25 +253,13 @@ MonoBehaviour:
   maxHealth: 3
   onTakeDamage:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7952876252202825046}
-        m_TargetAssemblyTypeName: FlashSprite, Assembly-CSharp
-        m_MethodName: DamageFlash
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   explosionEffectPrefab: {fileID: 1316842982558945754, guid: 6536080a9b5db6d478590da575ed075b, type: 3}
   enemyDie: {fileID: 8300000, guid: d8b0bc26fedb5724a8f838f8af69e85a, type: 3}
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
   damagedParticles: {fileID: 7742890669421488505}
-  severelyDamagedParticles: {fileID: 7624615586259538542}
+  severelyDamagedParticles: {fileID: 0}
 --- !u!114 &1170865997944462194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,8 +306,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDamage: 1
-  missileDamage: 1
-  playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
 --- !u!1 &5357128261321233417
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,73 +449,6 @@ MonoBehaviour:
   patternPrefab: {fileID: 3614729877128121977, guid: 5d727974c7653460ea874bc9accc3775, type: 3}
   relativeToEnemyRotation: 1
   enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
---- !u!1001 &997367026446275084
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 8946067707627199320}
-    m_Modifications:
-    - target: {fileID: 1538676967381466370, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-      propertyPath: m_Name
-      value: Particles - Enemy Severely Damaged
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
---- !u!198 &7624615586259538542 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7207817123528999010, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-  m_PrefabInstance: {fileID: 997367026446275084}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9021655420855337566 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-  m_PrefabInstance: {fileID: 997367026446275084}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4740957569025864475
 PrefabInstance:
   m_ObjectHideFlags: 0

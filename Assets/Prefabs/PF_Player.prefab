@@ -5317,7 +5317,7 @@ GameObject:
   - component: {fileID: 4121367321956785429}
   - component: {fileID: 6707606737457608348}
   - component: {fileID: 5182175881664270476}
-  - component: {fileID: 5710371698764082583}
+  - component: {fileID: 8603263507664978512}
   - component: {fileID: 1152492618713594093}
   - component: {fileID: 553169564955698524}
   - component: {fileID: 2841989946096892767}
@@ -5409,7 +5409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 10
   maxAngle: 45
---- !u!114 &5710371698764082583
+--- !u!114 &8603263507664978512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5418,15 +5418,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2618542042463043796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c23a9110ef554205a28e1c5879829976, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e7056ef179f419499369fbe3cba5f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderers:
   - {fileID: 6707606737457608348}
   - {fileID: 4056933184019769211}
-  damageFlashColor: {r: 1, g: 0.30884862, b: 0, a: 1}
-  invulnerableFlashColor: {r: 1, g: 1, b: 1, a: 0.29803923}
-  flashTime: 0.2
+  playerHealth: {fileID: 6429396860041541112}
+  damagedColor: {r: 1, g: 0.3, b: 0, a: 1}
+  damagedTime: 0.1
+  invulnerableFlashColor: {r: 1, g: 1, b: 1, a: 0.8}
+  invulnerableFlashPeriod: 0.25
+  dashColor: {r: 1, g: 0.99475527, b: 0.75, a: 1}
 --- !u!96 &1152492618713594093
 TrailRenderer:
   serializedVersion: 3
@@ -16079,7 +16082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnCar: {fileID: 5182175881664270476}
-  flashSprite: {fileID: 5710371698764082583}
+  colorController: {fileID: 8603263507664978512}
   playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
@@ -16207,21 +16210,8 @@ MonoBehaviour:
   maxHealth: 3
   onTakeDamage:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5710371698764082583}
-        m_TargetAssemblyTypeName: FlashSprite, Assembly-CSharp
-        m_MethodName: DamageFlash
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  damageInvulnerableTime: 1
-  flashSprite: {fileID: 5710371698764082583}
+      m_Calls: []
+  damageInvulnerableTime: 1.5
   hitSound: {fileID: 8300000, guid: 4736b2226d9ba2d47b80f514211cb279, type: 3}
   playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
   playerTookDamage: {fileID: 11400000, guid: f5e4b489ef976c54e98389201231b4a0, type: 2}

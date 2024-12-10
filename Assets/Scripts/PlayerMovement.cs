@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     [Header("References")]
     public static PlayerMovement Instance;
     [SerializeField] private TurnCar turnCar;
-    [SerializeField] private FlashSprite flashSprite;
+    [SerializeField] private PlayerColorController colorController;
     [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private FloatVariable heat;
     [SerializeField] private HeatConstants heatConstants;
@@ -214,7 +214,7 @@ public class PlayerMovement : MonoBehaviour {
             dashEndedEvent.Raise();
         });
         
-        flashSprite.InvulnerableFlash(dashDuration);
+        colorController.Dash(dashDuration);
 
         ReflectBullets();
         AudioManager.Instance.Play(dashSFX, 1.0f);

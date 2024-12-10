@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,10 @@ public abstract class Health : MonoBehaviour {
     private float _currentHealth;
 
     public float HealthPercentage => _currentHealth / maxHealth;
-    public int HitsLeft => (int)Mathf.Ceil(_currentHealth);
+    public int HealthLeft => (int)Mathf.Ceil(_currentHealth);
     
     [SerializeField] protected UnityEvent onTakeDamage;
+    public event Action OnTakeDamageAction;
 
     // Start is called before the first frame update
     protected virtual void Start() {
@@ -23,6 +25,7 @@ public abstract class Health : MonoBehaviour {
         if (_currentHealth < 0) _currentHealth = 0;
         
         onTakeDamage?.Invoke();
+        OnTakeDamageAction?.Invoke();
 
         if (_currentHealth <= 0) {
             DeathEffect();

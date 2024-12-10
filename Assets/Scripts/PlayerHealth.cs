@@ -5,10 +5,9 @@ using System.Runtime.CompilerServices;
 using ScriptableObjectArchitecture;
 using UnityEngine;
 public class PlayerHealth : Health {
-    [SerializeField] private float damageInvulnerableTime;
+    [SerializeField] public float damageInvulnerableTime;
 
     [Header("Components")] 
-    [SerializeField] private FlashSprite flashSprite;
     [SerializeField] AudioClip hitSound;
     [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private GameEvent playerTookDamage;
@@ -46,7 +45,6 @@ public class PlayerHealth : Health {
 
     private void SetInvulnerable() {
         _damageInvulnerableTimer = damageInvulnerableTime;
-        // flashSprite.InvulnerableFlash(damageInvulnerableTime);
     }
 
     protected override void DeathEffect() {
