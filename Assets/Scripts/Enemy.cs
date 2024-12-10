@@ -10,12 +10,18 @@ public class Enemy : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Player")) DamagePlayer(col);
+        if (col.gameObject.CompareTag("Player") && !PlayerMovement.Instance.isDashing)
+        {
+            DamagePlayer(col);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Player")) DamagePlayer(col);
+        if (col.gameObject.CompareTag("Player") && !PlayerMovement.Instance.isDashing)
+        {
+            DamagePlayer(col);
+        }
     }
 
     private void DamagePlayer(Collider2D col)
