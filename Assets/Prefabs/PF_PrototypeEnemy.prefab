@@ -132,7 +132,7 @@ MonoBehaviour:
   - {fileID: 6711502183425177634}
   - {fileID: 7474827226340481376}
   enemyHealth: {fileID: 5679227482235792981}
-  damagedColor: {r: 1, g: 0, b: 0, a: 1}
+  damagedColor: {r: 1, g: 0.2980392, b: 0.48273423, a: 1}
   damagedTime: 0.1
   lowHealthColor: {r: 1, g: 0.36883092, b: 0.2971698, a: 1}
   lowHealthFlashPeriod: 0.5
@@ -259,7 +259,6 @@ MonoBehaviour:
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
   damagedParticles: {fileID: 7742890669421488505}
-  severelyDamagedParticles: {fileID: 0}
 --- !u!114 &1170865997944462194
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ MonoBehaviour:
   heatCostPerShotLow: 0
   heatCostPerShotMedium: 0
   heatCostPerShotHigh: 0
-  heatCostPerDash: 0.15
+  heatCostPerDash: 0.25
   heatCostPerReloadClipEmpty: 0
   heatCostPerReloadClipFull: 0
   heatGainOnEnemyKill: 0
