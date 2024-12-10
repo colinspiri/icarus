@@ -651,6 +651,7 @@ MonoBehaviour:
   fighter3Prefab: {fileID: 7231345477014764312, guid: 18de7dbca5ae6c846a2436d6613db537, type: 3}
   bomberPrefab: {fileID: 1198880009985885195, guid: 996e5a088135c4a7f8dbef4ad5c5d594, type: 3}
   homingMissilePrefab: {fileID: 7766535680179231159, guid: dd107f7d25434664a9cf8f50b995f931, type: 3}
+  eliteEnemyPrefab: {fileID: 7386768616324706235, guid: 140b162ba0faeda4d978afcff2f6b220, type: 3}
   anchorPoints:
   - {fileID: 1491648838608015218}
   - {fileID: 2177019574203670009}
