@@ -16,7 +16,7 @@ public class EnemyHealth : Health {
 
         // check for hitstop
         if (HealthPercentage <= 0) {
-            Hitstop.Instance.NotifyEnemyDeath();
+            Hitstop.Instance.NotifyEnemyDeath(maxHealth);
         }
         else {
             // Hitstop.Instance.NotifyEnemyTakeDamage();

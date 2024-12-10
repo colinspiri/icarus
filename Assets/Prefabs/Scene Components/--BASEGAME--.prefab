@@ -400,7 +400,12 @@ MonoBehaviour:
   hitstopTimeScale: 0.1
   defaultHitstopTime: 0.5
   hitstopShakeStrength: 0.3
-  hitstopTimeOnEnemyDeath: 0.5
+  enemyHealthForHitstopOnDeath:
+    min: 2
+    max: 5
+  hitstopTimeOnEnemyDeathByHealth:
+    min: 0.2
+    max: 0.6
 --- !u!1 &6009719444300265571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,6 +1152,14 @@ PrefabInstance:
     - target: {fileID: 458288602818329188, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
       propertyPath: dashPower
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437626072261957794, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437626072261957794, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3822225912379449825, guid: e992420bf28ae8948ad6858b0bc606b5, type: 3}
       propertyPath: m_AnchorMax.x

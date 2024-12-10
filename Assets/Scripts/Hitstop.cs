@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.U2D;
 using UnityEngine;
 
 public class Hitstop : MonoBehaviour
@@ -9,8 +10,8 @@ public class Hitstop : MonoBehaviour
     [SerializeField] private float defaultHitstopTime = 1f;
     [SerializeField] private float hitstopShakeStrength;
     [Space]
-    // [SerializeField] private float hitstopTimeOnEnemyDamage; 
-    [SerializeField] private float hitstopTimeOnEnemyDeath; 
+    [SerializeField] private MinMaxFloat enemyHealthForHitstopOnDeath;
+    [SerializeField] private MinMaxFloat hitstopTimeOnEnemyDeathByHealth;
 
     private void Awake()
     {
@@ -38,10 +39,14 @@ public class Hitstop : MonoBehaviour
         TimeManager.Instance.SetTimeScale(1);
     }
 
-    /*public void NotifyEnemyTakeDamage() {
-        DoHitstop(hitstopTimeOnEnemyDamage);
-    }*/
-    public void NotifyEnemyDeath() {
-        DoHitstop(hitstopTimeOnEnemyDeath);
+    public void NotifyEnemyDeath(float enemyHealth) {
+        if (enemyHealth < enemyHealthForHitstopOnDeath.min || enemyHealth > enemyHealthForHitstopOnDeath.max) {
+            CameraShake.Instance.Shake(hitstopShakeStrength);
+            return;
+        }
+
+        float f = Mathf.InverseLerp(enemyHealthForHitstopOnDeath.min, enemyHealthForHitstopOnDeath.max, enemyHealth);
+        float time = hitstopTimeOnEnemyDeathByHealth.LerpValue(f);
+        DoHitstop(time);
     }
 }
