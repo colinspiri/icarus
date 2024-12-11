@@ -285,13 +285,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movedToOrigin: {fileID: 11400000, guid: 92169c753be7c3741b42b6fd90211fae, type: 2}
-  moveSpeed: 2
+  randomMoveSpeed:
+    min: 0.5
+    max: 3
   originMoveSpeed: 3
-  randomMoveRadius: 2
-  changeDirectionTime: 1
-  onscreenSize: {x: 8.5, y: 4.5}
-  towardsAnchorAlignmentFactor: 0.6
-  currentDirectionAlignmentFactor: 0.4
+  randomMoveArea: {x: 5.5, y: 3.5}
+  onscreenSize: {x: 9, y: 5}
 --- !u!114 &4272521664432393045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +447,7 @@ MonoBehaviour:
   patternPrefab: {fileID: 3614729877128121977, guid: 5d727974c7653460ea874bc9accc3775, type: 3}
   homingMissilePrefab: {fileID: 7766535680179231159, guid: dd107f7d25434664a9cf8f50b995f931, type: 3}
   hasHomingMissileAbility: 0
+  homingMissileMinDistance: 8
   relativeToEnemyRotation: 1
   enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
 --- !u!1001 &4740957569025864475

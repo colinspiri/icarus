@@ -135,7 +135,6 @@ MonoBehaviour:
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
   damagedParticles: {fileID: 7698753078607653775}
-  severelyDamagedParticles: {fileID: 71807261546223707}
 --- !u!114 &7797855957089763241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,13 +161,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movedToOrigin: {fileID: 11400000, guid: 92169c753be7c3741b42b6fd90211fae, type: 2}
-  moveSpeed: 5
-  originMoveSpeed: 3
-  randomMoveRadius: 2
-  changeDirectionTime: 1
+  randomMoveSpeed:
+    min: 1
+    max: 5
+  originMoveSpeed: 4
+  randomMoveArea: {x: 5, y: 3}
   onscreenSize: {x: 8.5, y: 4.5}
-  towardsAnchorAlignmentFactor: 0.6
-  currentDirectionAlignmentFactor: 0.4
 --- !u!1 &3330418490692256626
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +254,9 @@ MonoBehaviour:
   rotationSpeed: 40
   bulletPrefab: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
   patternPrefab: {fileID: 3614729877128121977, guid: 5d727974c7653460ea874bc9accc3775, type: 3}
+  homingMissilePrefab: {fileID: 0}
+  hasHomingMissileAbility: 0
+  homingMissileMinDistance: 8
   relativeToEnemyRotation: 1
   enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
 --- !u!1 &8072238235451040438
@@ -358,9 +359,6 @@ MonoBehaviour:
   spriteRenderers:
   - {fileID: 4622446525393553215}
   - {fileID: 7551747793447870272}
-  damageFlashColor: {r: 1, g: 1, b: 1, a: 1}
-  invulnerableFlashColor: {r: 1, g: 1, b: 1, a: 1}
-  flashTime: 0.1
 --- !u!1 &8368159833936436398
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,11 +572,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
---- !u!198 &71807261546223707 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7207817123528999010, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
-  m_PrefabInstance: {fileID: 7275656658694248505}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1449126527280531563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8134635385936138322, guid: 58eda65e5b8eb1248bb572ebff405ab5, type: 3}
