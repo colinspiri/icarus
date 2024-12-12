@@ -246,10 +246,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movedToOrigin: {fileID: 11400000, guid: 92169c753be7c3741b42b6fd90211fae, type: 2}
+  originMoveSpeed: 3
   randomMoveSpeed:
     min: 0.5
-    max: 3
-  originMoveSpeed: 3
+    max: 2
   randomMoveArea: {x: 5, y: 3}
   onscreenSize: {x: 8.5, y: 4.5}
 --- !u!1 &3278412974823220635
