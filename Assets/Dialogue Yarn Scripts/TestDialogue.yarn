@@ -1,11 +1,22 @@
 ﻿title: TestDialogue
 tags:
 ---
+// <<expression CHARACTER happy/sad/angry>> TODO: maybe also add in-line commands for this, so it can happen during a line of dialogue
+<<enter Silvia left>>
+<<enter Bellini right>>
 Silvia: Hello, this is a test.
 Chief Bellini: Another line of dialogue.
 -> Silvia: I agree, I'll do that.
     Chief Bellini: Great, glad we're on the same page.
 -> Silvia: I definitely disagree. F off.
+    <<wait 0.5>>
     Chief Bellini: You're wading into deep waters, Silvia.
 Silvia: Bye.
+<<exit Bellini>>
+<<wait 1>>
+<<enter Le right>>
+Dr. Karina Le: Nice to see you.
+<<wait 0.25>>
+Silvia: Yeah.
+<<exit Silvia>>
 ===
