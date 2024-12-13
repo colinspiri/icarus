@@ -3,53 +3,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
-    
-    private bool _paused;
-    public bool GamePaused => _paused;
 
+    public bool GamePaused { get; private set; }
+    
     private void Awake() {
         Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (PlayerMovement.Instance == null) {
-            Reload();
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            Reload();
-        }
-    }
-
-    public void Reload() {
+    public void ReloadScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
-    public void Pause(bool pauseAudio = true) {
-        _paused = true;
+    public void Pause(bool pauseTime = true) {
+        GamePaused = true;
 
-        TimeManager.Instance.PauseTime();
-
-        if (pauseAudio)
-        {
+        if (pauseTime) {
+            TimeManager.Instance.PauseTime();
             AudioListener.pause = true;
         }
-
     }
 
-    public void Resume(bool resumeAudio = true) {
-        _paused = false;
-        
-        TimeManager.Instance.ResumeTime();
+    public void Resume(bool resumeTime = true) {
+        GamePaused = false;
 
-        if (resumeAudio)
-        {
+        if (resumeTime) {
+            TimeManager.Instance.ResumeTime();
             AudioListener.pause = false;
         }
+    }
+
+    public void ResumeTimeOnly() {
+        TimeManager.Instance.ResumeTime();
+        AudioListener.pause = false;
     }
 }

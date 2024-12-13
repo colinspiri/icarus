@@ -50,26 +50,38 @@ public class DialogueSpeakerPortraits : MonoBehaviour {
             "speaker",
             SetSpeaker
         );
+
+        speakerText.text = "";
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Start() {
+        HideAllPortraits();
+        dialogueRunner.onDialogueComplete.AddListener(ResetSpeakerAndPortraits);
+    }
+
+    // Update is called once per frame
+    void Update()
     {
+        if (dialogueRunner.IsDialogueRunning && speakerText.text != _currentSpeakerText) {
+            SetSpeaker(speakerText.text);
+            _currentSpeakerText = speakerText.text;
+        }
+    }
+
+    private void ResetSpeakerAndPortraits() {
+        speakerText.text = "";
+        _currentSpeakerText = "";
+        HideAllPortraits();
+    }
+
+    private void HideAllPortraits() {
         silviaLeft.gameObject.SetActive(false);
         silviaRight.gameObject.SetActive(false);
         belliniLeft.gameObject.SetActive(false);
         belliniRight.gameObject.SetActive(false);
         leLeft.gameObject.SetActive(false);
         leRight.gameObject.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (speakerText.text != _currentSpeakerText) {
-            SetSpeaker(speakerText.text);
-            _currentSpeakerText = speakerText.text;
-        }
     }
 
     private void EnterCharacter(string characterName, string positionName) {

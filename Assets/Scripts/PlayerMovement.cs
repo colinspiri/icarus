@@ -59,8 +59,8 @@ public class PlayerMovement : MonoBehaviour {
         Instance = this;
     }
 
-    void Update()
-    {
+    void Update() {
+        if (GameManager.Instance.GamePaused) return;
         HandleInput();
     }
 

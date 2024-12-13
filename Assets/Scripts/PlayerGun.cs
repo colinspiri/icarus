@@ -38,8 +38,8 @@ public class PlayerGun : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
+        if (GameManager.Instance.GamePaused) return;
         HandleInput();
         UpdateReload();
         UpdateFireCooldown();

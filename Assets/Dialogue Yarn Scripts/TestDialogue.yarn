@@ -1,4 +1,4 @@
-﻿title: TestDialogue
+﻿title: Test
 tags:
 ---
 // <<expression CHARACTER happy/sad/angry>> TODO: maybe also add in-line commands for this, so it can happen during a line of dialogue
@@ -19,4 +19,22 @@ Dr. Karina Le: Nice to see you.
 <<wait 0.25>>
 Silvia: Yeah.
 <<exit Silvia>>
+===
+
+title: TestBeforeWaves
+tags:
+---
+<<enter Silvia left>>
+Silvia: Let's do this.
+<<enter Engel right>>
+Chief Engel Bellini: Good luck.
+===
+
+title: TestAfterWaves
+tags: 
+---
+<<enter Silvia left>>
+<<enter Le right>>
+Silvia: Who was that?
+Dr. Karina Le: I don't know...
 ===

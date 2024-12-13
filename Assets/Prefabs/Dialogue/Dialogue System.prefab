@@ -1431,7 +1431,7 @@ GameObject:
   - component: {fileID: 2133344490640278667}
   - component: {fileID: 3481060342492904294}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas - Dialogue System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2472,7 +2472,7 @@ MonoBehaviour:
   - {fileID: 4604701337396423946}
   - {fileID: 3567968665939066484}
   startNode: TestDialogue
-  startAutomatically: 1
+  startAutomatically: 0
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 0}
   verboseLogging: 1

@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour {
+    public static EnemySpawner Instance;
+    
     [Header("Components")]
     [SerializeField] private GameObjectCollection enemyCollection;
     [SerializeField] private GameObject prototypeEnemyPrefab;
@@ -37,19 +41,25 @@ public class EnemySpawner : MonoBehaviour {
     private float _waveDelayTimer;
     private int _currentWave;
     private float _randomSpawnTimer;
-
-    private Camera _mainCamera;
     
+    // events 
+    public event Action OnCompleteWaves;
+
+    private void Awake() {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start() {
         _currentWave = -1;
         _waveState = WaveState.DelayWave;
         _waveDelayTimer = timeBetweenWaves;
-        _mainCamera = Camera.main;
     }
 
     // Update is called once per frame
     void Update() {
+        if (GameManager.Instance.GamePaused) return;
+        
         if (spawningMode == SpawningMode.Random) {
             UpdateRandomSpawning();
         }
@@ -98,6 +108,8 @@ public class EnemySpawner : MonoBehaviour {
             if (_waveDelayTimer <= 0) {
                 // if there is no next wave 
                 if (_currentWave + 1 >= waveSet.NumWaves) {
+                    OnCompleteWaves?.Invoke();
+                    
                     // either transition to random spawning
                     if (spawnRandomAfterLastWave) {
                         spawningMode = SpawningMode.Random;

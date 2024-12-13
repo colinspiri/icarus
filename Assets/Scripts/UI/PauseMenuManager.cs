@@ -12,6 +12,8 @@ public class PauseMenuManager : MonoBehaviour {
     
     private PlayerInputActions _inputActions;
 
+    private bool _gamePausedBeforePause;
+
     private void Awake() {
         if (Instance)
         {
@@ -29,17 +31,14 @@ public class PauseMenuManager : MonoBehaviour {
         foreach (var t in objectsToDisableOnPause) {
             _wereObjectsActiveBeforePause.Add(t.activeSelf);
         }
-        ClosePauseMenu();
+        pauseMenu.SetActive(false);
     }
     
     private void Update()
     {
-        if (GameManager.Instance.GamePaused) return;
-        
-        if (_inputActions.UI.Cancel.triggered)
+        if (_inputActions.UI.Cancel.triggered && !pauseMenu.activeSelf)
         {
-            if (pauseMenu.activeSelf) ClosePauseMenu();
-            else OpenPauseMenu();
+            OpenPauseMenu();
         }
     }
 
@@ -52,6 +51,7 @@ public class PauseMenuManager : MonoBehaviour {
             objectsToDisableOnPause[i].SetActive(false);
         }
 
+        _gamePausedBeforePause = GameManager.Instance.GamePaused;
         GameManager.Instance.Pause();
     }
 
@@ -63,6 +63,11 @@ public class PauseMenuManager : MonoBehaviour {
             objectsToDisableOnPause[i].SetActive(_wereObjectsActiveBeforePause[i]);
         }
 
-        GameManager.Instance.Resume();
+        if (_gamePausedBeforePause) {
+            GameManager.Instance.ResumeTimeOnly();
+        }
+        else {
+            GameManager.Instance.Resume();
+        }
     }
 }
