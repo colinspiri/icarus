@@ -605,10 +605,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playDialogueBeforeWaves: 0
-  delayOnDialogueBeforeWaves: 1
+  delayOnDialogueBeforeWaves: 3
   dialogueBeforeWaves: TestBeforeWaves
   playDialogueAfterWaves: 1
-  delayOnDialogueAfterWaves: 0
+  delayOnDialogueAfterWaves: 1
   dialogueAfterWaves: TestAfterWaves
 --- !u!1 &6463919253507295484
 GameObject:
@@ -715,7 +715,7 @@ MonoBehaviour:
   - {fileID: 4532350274739768408}
   - {fileID: 5575946622792428909}
   spawningMode: 0
-  spawnRandomAfterLastWave: 1
+  spawnRandomAfterLastWave: 0
   waveSet: {fileID: 11400000, guid: 36523fa113f84cb4d8f6b3eda0b4a159, type: 2}
   timeBetweenWaves: 2
   maxEnemyCount: 8

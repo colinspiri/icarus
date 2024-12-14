@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] private AnimationCurve randomSpawnTimeByEnemyPercent;
 
     // state
-    private enum WaveState { ReadyForWave, ActiveWave, DelayWave }
+    private enum WaveState { WaitingToStart, ReadyForWave, ActiveWave, DelayWave, End }
     private WaveState _waveState;
     private float _waveDelayTimer;
     private int _currentWave;
@@ -52,14 +52,12 @@ public class EnemySpawner : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         _currentWave = -1;
-        _waveState = WaveState.DelayWave;
+        _waveState = WaveState.WaitingToStart;
         _waveDelayTimer = timeBetweenWaves;
     }
 
     // Update is called once per frame
     void Update() {
-        if (GameManager.Instance.GamePaused) return;
-        
         if (spawningMode == SpawningMode.Random) {
             UpdateRandomSpawning();
         }
@@ -90,6 +88,8 @@ public class EnemySpawner : MonoBehaviour {
     }
 
     private void UpdateWaveSpawning() {
+        if (_waveState is WaveState.WaitingToStart or WaveState.End) return;
+        
         // if ready, spawn enemies from currentwave and set state to active wave
         if (_waveState == WaveState.ReadyForWave) {
             SpawnWave(_currentWave);
@@ -114,9 +114,9 @@ public class EnemySpawner : MonoBehaviour {
                     if (spawnRandomAfterLastWave) {
                         spawningMode = SpawningMode.Random;
                     }
-                    // or replay the last wave
+                    // or do nothing
                     else {
-                        _waveState = WaveState.ReadyForWave;
+                        _waveState = WaveState.End;
                     }
                 }
                 // advance to next wave
@@ -126,6 +126,12 @@ public class EnemySpawner : MonoBehaviour {
                 }
             }
             else _waveDelayTimer -= Time.deltaTime;
+        }
+    }
+
+    public void StartWaveSpawning() {
+        if (_waveState == WaveState.WaitingToStart) {
+            _waveState = WaveState.DelayWave;
         }
     }
     

@@ -4,24 +4,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PauseMenuManager : MonoBehaviour {
-    public static PauseMenuManager Instance;
-
-    [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private List<GameObject> objectsToDisableOnPause;
-    private List<bool> _wereObjectsActiveBeforePause = new List<bool>();
-    
     private PlayerInputActions _inputActions;
 
-    private bool _gamePausedBeforePause;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private HUDManager hud;
+    [SerializeField] private List<GameObject> objectsToDisableOnPause;
+    private List<bool> _wereObjectsActiveBeforePause = new List<bool>();
 
-    private void Awake() {
-        if (Instance)
-        {
-            Destroy(this);
-            return;
-        }
-        Instance = this;
-    }
+    // state
+    private bool _gamePausedBeforePause;
+    private bool _hudEnabledBeforePause;
 
     private void Start()
     {
@@ -45,6 +37,9 @@ public class PauseMenuManager : MonoBehaviour {
     private void OpenPauseMenu()
     {
         pauseMenu.SetActive(true);
+
+        _hudEnabledBeforePause = hud.HUDEnabled;
+        hud.SetHUDEnabled(false);
         
         for (int i = 0; i < objectsToDisableOnPause.Count; i++) {
             _wereObjectsActiveBeforePause[i] = objectsToDisableOnPause[i].activeSelf;
@@ -59,6 +54,8 @@ public class PauseMenuManager : MonoBehaviour {
     {
         pauseMenu.SetActive(false);
         
+        hud.SetHUDEnabled(_hudEnabledBeforePause);
+
         for (int i = 0; i < objectsToDisableOnPause.Count; i++) {
             objectsToDisableOnPause[i].SetActive(_wereObjectsActiveBeforePause[i]);
         }

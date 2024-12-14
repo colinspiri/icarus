@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3796082925742649983}
   - component: {fileID: 1565071676342715455}
   - component: {fileID: 1023834736280217889}
+  - component: {fileID: 6285148784556910676}
   m_Layer: 5
   m_Name: Canvas - HUD
   m_TagString: Untagged
@@ -120,6 +121,19 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &6285148784556910676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306478732163517342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecce01b31b9e4051b55d8dd62fbcba52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1023834736280217889}
 --- !u!1 &331866920468843139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1381,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &2689282397281035588
 MonoBehaviour:
@@ -1422,6 +1436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 2532131807397969418}
+  hud: {fileID: 6285148784556910676}
   objectsToDisableOnPause:
   - {fileID: 7251977361750495404}
 --- !u!1 &3895124137456312863

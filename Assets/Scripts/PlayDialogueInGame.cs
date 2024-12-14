@@ -19,21 +19,40 @@ public class PlayDialogueInGame : MonoBehaviour {
         if (_dialogueRunner == null) {
             Debug.LogError("No Dialogue Runner found in scene.");
         }
-        else {
-            _dialogueRunner.onDialogueComplete.AddListener(() => GameManager.Instance.Resume(false));
-        }
     }
     
     private void Start() {
-        if (playDialogueBeforeWaves) {
-            GameManager.Instance.Pause(false);
-            StartCoroutine(StartDialogueAfterDelay(dialogueBeforeWaves, delayOnDialogueBeforeWaves));
+        // set up callbacks on dialogue start & complete
+        if (_dialogueRunner) {
+            _dialogueRunner.onDialogueStart.AddListener(() => {
+                HUDManager.Instance.SetHUDEnabled(false);
+                GameManager.Instance.Pause(false);
+            });
+            _dialogueRunner.onDialogueComplete.AddListener(() => {
+                HUDManager.Instance.SetHUDEnabled(true);
+                GameManager.Instance.Resume(false);
+            });
         }
 
-        EnemySpawner.Instance.OnCompleteWaves += OnWavesCompleted;
+        // either play dialogue before waves or activate enemy spawner
+        if (playDialogueBeforeWaves) {
+            HUDManager.Instance.SetHUDEnabled(false);
+            StartCoroutine(StartDialogueAfterDelay(dialogueBeforeWaves, delayOnDialogueBeforeWaves, EnemySpawner.Instance.StartWaveSpawning));
+        }
+        else {
+            EnemySpawner.Instance.StartWaveSpawning();
+        }
+
+        // set up callback for dialogue after waves
+        if (playDialogueAfterWaves) {
+            EnemySpawner.Instance.OnCompleteWaves += () => {
+                HUDManager.Instance.SetHUDEnabled(false);
+                StartCoroutine(StartDialogueAfterDelay(dialogueAfterWaves, delayOnDialogueAfterWaves));
+            };
+        }
     }
     
-    private IEnumerator StartDialogueAfterDelay(string yarnNode, float delay) {
+    private IEnumerator StartDialogueAfterDelay(string yarnNode, float delay, Action actionOnDialogueComplete = null) {
         if (_dialogueRunner == null || yarnNode == string.Empty) {
             yield break;
         }
@@ -41,12 +60,11 @@ public class PlayDialogueInGame : MonoBehaviour {
         yield return new WaitForSeconds(delay);
         
         _dialogueRunner.StartDialogue(yarnNode);
-    }
+        _dialogueRunner.onDialogueComplete.AddListener(OnDialogueCompleteWrapper);
 
-    private void OnWavesCompleted() {
-        if (playDialogueAfterWaves) {
-            GameManager.Instance.Pause(false);
-            StartCoroutine(StartDialogueAfterDelay(dialogueAfterWaves, delayOnDialogueAfterWaves));
+        void OnDialogueCompleteWrapper() {
+            actionOnDialogueComplete?.Invoke();
+            _dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueCompleteWrapper);
         }
     }
 }
