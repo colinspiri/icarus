@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour {
 
     // state
     private enum WaveState { WaitingToStart, ReadyForWave, ActiveWave, DelayWave, End }
-    private WaveState _waveState;
+    private WaveState _waveState = WaveState.WaitingToStart;
     private float _waveDelayTimer;
     private int _currentWave;
     private float _randomSpawnTimer;
@@ -52,7 +52,6 @@ public class EnemySpawner : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         _currentWave = -1;
-        _waveState = WaveState.WaitingToStart;
         _waveDelayTimer = timeBetweenWaves;
     }
 
@@ -130,9 +129,7 @@ public class EnemySpawner : MonoBehaviour {
     }
 
     public void StartWaveSpawning() {
-        if (_waveState == WaveState.WaitingToStart) {
-            _waveState = WaveState.DelayWave;
-        }
+        _waveState = WaveState.DelayWave;
     }
     
     private void SpawnWave(int waveIndex) {

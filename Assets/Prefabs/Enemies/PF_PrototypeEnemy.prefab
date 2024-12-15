@@ -285,10 +285,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movedToOrigin: {fileID: 11400000, guid: 92169c753be7c3741b42b6fd90211fae, type: 2}
+  originMoveSpeed: 3
   randomMoveSpeed:
     min: 0.5
     max: 3
-  originMoveSpeed: 3
   randomMoveArea: {x: 5.5, y: 3.5}
   onscreenSize: {x: 9, y: 5}
 --- !u!114 &4272521664432393045
@@ -303,7 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b081165222ac5245984edf505706aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDamage: 1
+  damageToPlayer: 1
+  damageToSelf: 1
 --- !u!1 &5357128261321233417
 GameObject:
   m_ObjectHideFlags: 0

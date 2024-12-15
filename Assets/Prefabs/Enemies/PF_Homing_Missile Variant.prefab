@@ -251,7 +251,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8812528195059362350, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
     - {fileID: 5033449283383577430, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
-    - {fileID: 4272521664432393045, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8209167041421940874, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
     m_AddedGameObjects:
@@ -262,9 +261,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3485121856887170019, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3036570551661951037}
-    - targetCorrespondingSourceObject: {fileID: 3485121856887170019, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7082278808832663419}
     - targetCorrespondingSourceObject: {fileID: 3485121856887170019, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1537728689223472901}
@@ -314,20 +310,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.027729988}
   m_Size: {x: 0.3662567, y: 1.05546}
   m_Direction: 0
---- !u!114 &7082278808832663419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7766535680179231159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6a247a9aab8fa43a0bf69b126028ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerDamage: 1
-  missileDamage: 1
 --- !u!114 &1537728689223472901
 MonoBehaviour:
   m_ObjectHideFlags: 0

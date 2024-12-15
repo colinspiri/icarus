@@ -142,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 1640487094205917266, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
       propertyPath: waveSet
       value: 
-      objectReference: {fileID: 11400000, guid: 1f8397b355bb4964cae71d3e7ee1acbf, type: 2}
+      objectReference: {fileID: 11400000, guid: 36523fa113f84cb4d8f6b3eda0b4a159, type: 2}
     - target: {fileID: 3316929296849622219, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
       propertyPath: m_Name
       value: --BASEGAME--
@@ -205,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5352796460003608535, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
       propertyPath: playDialogueBeforeWaves
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7135828642358338864, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
       propertyPath: m_AnchorMax.x
