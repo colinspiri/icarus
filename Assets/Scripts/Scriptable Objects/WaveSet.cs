@@ -29,5 +29,6 @@ public enum EnemyType
     Fighter3,
     Bomber,
     HomingMissile,
-    EliteEnemy
+    EliteEnemy,
+    LaserEnemy,
 }

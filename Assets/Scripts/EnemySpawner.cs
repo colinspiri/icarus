@@ -17,6 +17,7 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] private GameObject bomberPrefab;
     [SerializeField] private GameObject homingMissilePrefab;
     [SerializeField] private GameObject eliteEnemyPrefab;
+    [SerializeField] private GameObject laserEnemyPrefab;
 
     [Header("Anchor Points")] 
     [SerializeField] private List<Transform> anchorPoints;
@@ -176,6 +177,7 @@ public class EnemySpawner : MonoBehaviour {
             EnemyType.Bomber => bomberPrefab,
             EnemyType.HomingMissile => homingMissilePrefab,
             EnemyType.EliteEnemy => eliteEnemyPrefab,
+            EnemyType.LaserEnemy => laserEnemyPrefab,
             _ => null
         };
     }
