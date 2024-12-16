@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemies:
-    - enemyType: 7
+    - enemyType: 8
       count: 1
   - enemies:
-    - enemyType: 7
+    - enemyType: 8
       count: 2
     - enemyType: 1
       count: 2
   - enemies:
-    - enemyType: 7
+    - enemyType: 8
       count: 4

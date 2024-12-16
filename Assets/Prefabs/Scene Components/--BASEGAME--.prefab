@@ -704,6 +704,7 @@ MonoBehaviour:
   homingMissilePrefab: {fileID: 7766535680179231159, guid: dd107f7d25434664a9cf8f50b995f931, type: 3}
   eliteEnemyPrefab: {fileID: 7386768616324706235, guid: 140b162ba0faeda4d978afcff2f6b220, type: 3}
   laserEnemyPrefab: {fileID: 2695203614991524818, guid: 931bab9fea37e3746936e95d77f88977, type: 3}
+  shotgunEnemyPrefab: {fileID: 8441244998883790453, guid: bc7c2602db103b8478804822378652c6, type: 3}
   anchorPoints:
   - {fileID: 1491648838608015218}
   - {fileID: 2177019574203670009}
