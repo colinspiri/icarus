@@ -6,6 +6,9 @@ using Yarn.Unity;
 public class PlayDialogueInGame : MonoBehaviour {
     private DialogueRunner _dialogueRunner;
 
+    [SerializeField] private SceneLoader sceneLoader;
+    [Space]
+
     public bool playDialogueBeforeWaves;
     public float delayOnDialogueBeforeWaves = 0.5f;
     public string dialogueBeforeWaves;
@@ -33,25 +36,42 @@ public class PlayDialogueInGame : MonoBehaviour {
                 GameManager.Instance.Resume(false);
             });
         }
-
-        // either play dialogue before waves or activate enemy spawner
-        if (playDialogueBeforeWaves) {
-            HUDManager.Instance.SetHUDEnabled(false);
-            StartCoroutine(StartDialogueAfterDelay(dialogueBeforeWaves, delayOnDialogueBeforeWaves, EnemySpawner.Instance.StartWaveSpawning));
+        
+        // if current scene in mission exists, use its settings
+        if (sceneLoader.currentScene != null && sceneLoader.currentScene is LevelScene levelScene) {
+            SetUpDialogueBeforeWaves(levelScene.dialogueBeforeWaves, levelScene.delayOnDialogueBeforeWaves);
+            SetUpDialogueAfterWaves(levelScene.dialogueAfterWaves, levelScene.delayOnDialogueAfterWaves);
         }
+        // otherwise use settings on the BASEGAME prefab
         else {
+            if (playDialogueBeforeWaves) {
+                SetUpDialogueBeforeWaves(dialogueBeforeWaves, delayOnDialogueBeforeWaves);
+            }
+            if (playDialogueAfterWaves) {
+                SetUpDialogueAfterWaves(dialogueAfterWaves, delayOnDialogueAfterWaves);
+            }
+        }
+    }
+
+    private void SetUpDialogueBeforeWaves(string dialogue, float delay) {
+        if (dialogue == string.Empty) {
             EnemySpawner.Instance.StartWaveSpawning();
         }
+        else {
+            HUDManager.Instance.SetHUDEnabled(false);
+            StartCoroutine(StartDialogueAfterDelay(dialogue, delay, EnemySpawner.Instance.StartWaveSpawning));
+        }
+    }
 
-        // set up callback for dialogue after waves
-        if (playDialogueAfterWaves) {
+    private void SetUpDialogueAfterWaves(string dialogue, float delay) {
+        if (dialogue != string.Empty) {
             EnemySpawner.Instance.OnCompleteWaves += () => {
                 HUDManager.Instance.SetHUDEnabled(false);
-                StartCoroutine(StartDialogueAfterDelay(dialogueAfterWaves, delayOnDialogueAfterWaves));
+                StartCoroutine(StartDialogueAfterDelay(dialogue, delay));
             };
         }
     }
-    
+
     private IEnumerator StartDialogueAfterDelay(string yarnNode, float delay, Action actionOnDialogueComplete = null) {
         if (_dialogueRunner == null || yarnNode == string.Empty) {
             yield break;

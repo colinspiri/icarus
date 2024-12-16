@@ -11,9 +11,20 @@ public class SceneLoader : ScriptableObject {
     public SceneReference prototypeEnemyScene;
     public SceneReference homingMissileScene;
     public SceneReference fighterScene;
-    
+
+    // state
+    public SceneType currentScene;
+
     public void DebugTest(string testString) {
         Debug.Log("test " + testString + " at " + Time.time);
+    }
+
+    public void PlayCurrentSceneInMission(MissionData mission) {
+        currentScene = mission.CurrentScene;
+
+        if (mission.CurrentScene != null) {
+            SceneManager.LoadScene(currentScene.unityScene.ScenePath);
+        }
     }
 
     public void LoadGameScene() {

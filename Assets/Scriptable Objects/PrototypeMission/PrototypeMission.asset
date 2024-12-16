@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aebfdeed8194b39adfe63e4b783aa98, type: 3}
+  m_Name: PrototypeMission
+  m_EditorClassIdentifier: 
+  scenes:
+  - {fileID: 11400000, guid: 6ac4e6769126a40a38954c8488898982, type: 2}
+  - {fileID: 11400000, guid: afb0a030efc284d4f953e4bcd6a5ced2, type: 2}
+  - {fileID: 11400000, guid: a4bf9afba2b7f45c3aa5ebe512eef36d, type: 2}
