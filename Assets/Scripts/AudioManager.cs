@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class AudioManager : MonoBehaviour
     private int channel = 0;
 
     public static AudioManager Instance = null;
+
+    [SerializeField] private AudioSettings audioSettings;
 
     private void Awake()
     {
@@ -21,6 +24,10 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start() {
+        audioSettings.Initialize();
     }
 
     public void Play(AudioClip clip, float volume)

@@ -16095,7 +16095,7 @@ MonoBehaviour:
   linearSpeedByHeat:
     min: 4
     max: 9
-  startingSpeed: 4
+  startingSpeed: 3.5
   topSpeed: 9
   accelerationCurve:
     serializedVersion: 2
@@ -16121,7 +16121,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  accelerationTime: 1
+  accelerationTime: 0.75
   accelerationTimeScalesWithHeat: 0
   accelerationTimeByHeat:
     min: 1.2

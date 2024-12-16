@@ -62,6 +62,7 @@ MonoBehaviour:
   - {fileID: 3052158317253905734}
   - {fileID: 3267086230367546159}
   - {fileID: 2750180466770342498}
+  audioSettings: {fileID: 11400000, guid: 64c64a1be1583224580f8c2f7cdeb937, type: 2}
 --- !u!82 &1294720564833869960
 AudioSource:
   m_ObjectHideFlags: 0
