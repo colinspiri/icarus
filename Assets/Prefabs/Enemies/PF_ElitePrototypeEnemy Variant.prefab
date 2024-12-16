@@ -32,17 +32,25 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.45
       objectReference: {fileID: 0}
+    - target: {fileID: 5679227482235792981, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
+      propertyPath: firingRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+      propertyPath: rotationSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: randomCooldownVariance
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: hasHomingMissileAbility
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: homingMissileMinDistance
@@ -52,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
+    - target: {fileID: 8812528195059362350, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+      propertyPath: randomMoveSpeed.max
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8812528195059362350, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: randomMoveSpeed.min
       value: 1
@@ -99,5 +111,45 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8209167041421940874, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8541227918584453688}
   m_SourcePrefab: {fileID: 100100000, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+--- !u!4 &2415554389486567745 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8600596406338030873, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+  m_PrefabInstance: {fileID: 6259635378932419672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2824426398443148498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8209167041421940874, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+  m_PrefabInstance: {fileID: 6259635378932419672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8541227918584453688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2824426398443148498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730be5d05fad056468296ce2fb240e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 2415554389486567745}
+  bulletOriginObject: {fileID: 7386768616324706235}
+  shootingMode: 0
+  firingRate: 0.33
+  randomCooldownVariance: 0.5
+  rotationSpeed: 20
+  bulletPrefab: {fileID: 0}
+  patternPrefab: {fileID: 53253934313598715, guid: a7697530da9ea994ebed2bba0a81c7da, type: 3}
+  relativeToEnemyRotation: 1
+  enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
+--- !u!1 &7386768616324706235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3485121856887170019, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+  m_PrefabInstance: {fileID: 6259635378932419672}
+  m_PrefabAsset: {fileID: 0}

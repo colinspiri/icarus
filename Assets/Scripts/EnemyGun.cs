@@ -14,7 +14,7 @@ public class EnemyGun : MonoBehaviour
     {
         SingleBullet,
         Pattern,
-        HomingMissile
+        // HomingMissile
     };
     [SerializeField] private float firingRate;
     [SerializeField] private float randomCooldownVariance = 0.3f;
@@ -26,14 +26,13 @@ public class EnemyGun : MonoBehaviour
 
     [Header("Pattern")]
     [SerializeField] private GameObject patternPrefab;
-
-    [Header("Homing Missile")]
-    [SerializeField] private GameObject homingMissilePrefab;
-    [SerializeField] private bool hasHomingMissileAbility = false;
-    [SerializeField] private float homingMissileMinDistance = 8f;
-
     [Tooltip("If relative to enemy rotation, right direction of pattern will be aligned to right direction (forward) of enemy.")]
     [SerializeField] private bool relativeToEnemyRotation;
+
+    /*[Header("Homing Missile")]
+    [SerializeField] private GameObject homingMissilePrefab;
+    [SerializeField] private bool hasHomingMissileAbility = false;
+    [SerializeField] private float homingMissileMinDistance = 8f;*/
 
     [Header("Audio")]
     [SerializeField] private AudioClip enemyShoot;
@@ -61,7 +60,7 @@ public class EnemyGun : MonoBehaviour
         }
         else _currentFiringCooldown -= Time.deltaTime;
 
-        if (hasHomingMissileAbility && shootingMode == ShootingMode.SingleBullet && 
+        /*if (hasHomingMissileAbility && shootingMode == ShootingMode.SingleBullet && 
             Vector2.Distance(transform.position, PlayerMovement.Instance.transform.position) >= homingMissileMinDistance){
             shootingMode = ShootingMode.HomingMissile;
         }
@@ -69,12 +68,12 @@ public class EnemyGun : MonoBehaviour
         if (hasHomingMissileAbility && shootingMode == ShootingMode.HomingMissile && 
             Vector2.Distance(transform.position, PlayerMovement.Instance.transform.position) < homingMissileMinDistance){
             shootingMode = ShootingMode.SingleBullet;
-        }
+        }*/
     }
 
     private void StartFiringCooldown() {
         float firingCooldown = 1.0f / firingRate;
-        float variance = Random.Range(-randomCooldownVariance, randomCooldownVariance);
+        float variance = Random.Range(-randomCooldownVariance*0.5f, 0.5f*randomCooldownVariance);
         _currentFiringCooldown = firingCooldown + variance;
     }
 
@@ -99,10 +98,10 @@ public class EnemyGun : MonoBehaviour
         {
             FirePattern();
         }
-        else if (shootingMode == ShootingMode.HomingMissile)
+        /*else if (shootingMode == ShootingMode.HomingMissile)
         {
             FireHomingMissile();
-        }
+        }*/
     }
 
     private void FireBullet()
@@ -121,13 +120,13 @@ public class EnemyGun : MonoBehaviour
         AudioManager.Instance.Play(enemyShoot, 0.1f);
     }
 
-    private void FireHomingMissile()
+    /*private void FireHomingMissile()
     {
         Instantiate(homingMissilePrefab, bulletSpawnPoint.position,
             relativeToEnemyRotation ? bulletSpawnPoint.rotation : Quaternion.identity);
 
         AudioManager.Instance.Play(enemyShoot, 0.1f);
-    }
+    }*/
 
     public void SetCanFire(bool canFire) => _canFire = canFire;
 }

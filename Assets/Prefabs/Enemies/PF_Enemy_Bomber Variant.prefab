@@ -38,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5679227482235792981, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: maxHealth
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: firingRate
