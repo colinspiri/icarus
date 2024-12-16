@@ -16,9 +16,8 @@ public class EnemyGun : MonoBehaviour
         Pattern,
         HomingMissile
     };
-    [SerializeField] private float staticFiringCooldown;
-    [SerializeField] private bool useRandomFiringCooldown;
-    [SerializeField] private MinMaxFloat randomFiringCooldown;
+    [SerializeField] private float firingRate;
+    [SerializeField] private float randomCooldownVariance = 0.3f;
     [Tooltip("Speed at which it rotates to face the player")]
     [SerializeField] private float rotationSpeed;
 
@@ -73,9 +72,10 @@ public class EnemyGun : MonoBehaviour
         }
     }
 
-    private void StartFiringCooldown()
-    {
-        _currentFiringCooldown = useRandomFiringCooldown ? randomFiringCooldown.RandomValue : staticFiringCooldown;
+    private void StartFiringCooldown() {
+        float firingCooldown = 1.0f / firingRate;
+        float variance = Random.Range(-randomCooldownVariance, randomCooldownVariance);
+        _currentFiringCooldown = firingCooldown + variance;
     }
 
     private void LookAtPoint(Vector3 point)

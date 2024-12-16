@@ -33,8 +33,20 @@ PrefabInstance:
       value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
+    - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+      propertyPath: randomCooldownVariance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: hasHomingMissileAbility
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+      propertyPath: homingMissileMinDistance
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6711502183425177634, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_Sprite
