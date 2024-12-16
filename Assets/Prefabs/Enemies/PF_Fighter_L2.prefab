@@ -237,8 +237,8 @@ MonoBehaviour:
   movedToOrigin: {fileID: 11400000, guid: 92169c753be7c3741b42b6fd90211fae, type: 2}
   originMoveSpeed: 3
   randomMoveSpeed:
-    min: 0.5
-    max: 2
+    min: 1
+    max: 3
   randomMoveArea: {x: 5, y: 3}
   onscreenSize: {x: 8.5, y: 4.5}
 --- !u!114 &818766348174766613
@@ -408,7 +408,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1240871598941218713}
   bulletOriginObject: {fileID: 1199248016663217928}
   shootingMode: 0
-  staticFiringCooldown: 0.6
+  staticFiringCooldown: 0.8
   useRandomFiringCooldown: 0
   randomFiringCooldown:
     min: 0.4

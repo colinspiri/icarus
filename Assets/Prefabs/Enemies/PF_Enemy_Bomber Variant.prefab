@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: randomFiringCooldown.max
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: randomFiringCooldown.min
@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8812528195059362350, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: randomMoveSpeed.min
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8946067707627199320, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_LocalPosition.x
