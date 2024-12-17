@@ -4,6 +4,8 @@ using UnityEngine;
 using Yarn.Unity;
 
 public class PlayDialogueInGame : MonoBehaviour {
+    public static PlayDialogueInGame Instance;
+    
     private DialogueRunner _dialogueRunner;
 
     [SerializeField] private SceneLoader sceneLoader;
@@ -16,8 +18,13 @@ public class PlayDialogueInGame : MonoBehaviour {
     public bool playDialogueAfterWaves;
     public float delayOnDialogueAfterWaves = 0.5f;
     public string dialogueAfterWaves;
+    
+    // events 
+    public event Action OnCompleteDialogueAfterWaves;
 
     private void Awake() {
+        Instance = this;
+        
         _dialogueRunner = FindObjectOfType<DialogueRunner>();
         if (_dialogueRunner == null) {
             Debug.LogError("No Dialogue Runner found in scene.");
@@ -67,7 +74,12 @@ public class PlayDialogueInGame : MonoBehaviour {
         if (dialogue != string.Empty) {
             EnemySpawner.Instance.OnCompleteWaves += () => {
                 HUDManager.Instance.SetHUDEnabled(false);
-                StartCoroutine(StartDialogueAfterDelay(dialogue, delay));
+                StartCoroutine(StartDialogueAfterDelay(dialogue, delay, OnCompleteDialogueAfterWaves));
+            };
+        }
+        else {
+            EnemySpawner.Instance.OnCompleteWaves += () => {
+                OnCompleteDialogueAfterWaves?.Invoke();
             };
         }
     }

@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 2415554389486567745}
   bulletOriginObject: {fileID: 7386768616324706235}
-  shootingMode: 0
+  shootingMode: 1
   firingRate: 0.33
   randomCooldownVariance: 0.5
   rotationSpeed: 20

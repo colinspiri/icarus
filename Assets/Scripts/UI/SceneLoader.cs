@@ -14,16 +14,26 @@ public class SceneLoader : ScriptableObject {
 
     // state
     public SceneType currentScene;
+    public MissionData currentMission;
 
     public void DebugTest(string testString) {
         Debug.Log("test " + testString + " at " + Time.time);
     }
 
-    public void PlayCurrentSceneInMission(MissionData mission) {
+    public void LoadCurrentSceneInMission(MissionData mission) {
+        currentMission = mission;
         currentScene = mission.CurrentScene;
 
-        if (mission.CurrentScene != null) {
+        if (currentScene != null) {
             SceneManager.LoadScene(currentScene.unityScene.ScenePath);
+        }
+    }
+    public void LoadNextSceneInMission() {
+        if (currentMission.NextScene()) {
+            LoadCurrentSceneInMission(currentMission);
+        }
+        else {
+            MainMenu();
         }
     }
 

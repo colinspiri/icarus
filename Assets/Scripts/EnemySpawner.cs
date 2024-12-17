@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] private MinMaxFloat randomSpawnTimeMinMax;
     [SerializeField] private AnimationCurve randomSpawnTimeByEnemyPercent;
 
-    // state
+    // state 
     private enum WaveState { WaitingToStart, ReadyForWave, ActiveWave, DelayWave, End }
     private WaveState _waveState = WaveState.WaitingToStart;
     private float _waveDelayTimer;

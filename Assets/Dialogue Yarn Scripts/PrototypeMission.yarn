@@ -1,0 +1,64 @@
+﻿title: PrototypeMission_Level1_Before
+tags:
+---
+<<enter Silvia left>>
+<<enter Bellini right>>
+Silvia: This is level 1.
+Chief Bellini: Good luck.
+<<exit Bellini>>
+<<exit Silvia>>
+===
+
+title: PrototypeMission_Level1_After
+tags:
+---
+<<enter Silvia left>>
+<<enter Bellini right>>
+Chief Bellini: Well done.
+<<exit Bellini>>
+<<exit Silvia>>
+===
+
+title: PrototypeMission_Level2_Before
+tags:
+---
+<<enter Silvia left>>
+<<enter Bellini right>>
+Chief Bellini: Now you're on level 2.
+Chief Bellini: Let's see what you're made of.
+<<exit Bellini>>
+<<exit Silvia>>
+===
+
+title: PrototypeMission_Level2_After
+tags:
+---
+<<enter Silvia left>>
+<<enter Bellini right>>
+Chief Bellini: I underestimated you.
+Silvia: Hmph.
+<<exit Bellini>>
+<<exit Silvia>>
+===
+
+title: PrototypeMission_Level3_Before
+tags:
+---
+<<enter Silvia left>>
+<<enter Bellini right>>
+Silvia: Level 3. Let's do this.
+Chief Bellini: Last one.
+<<exit Bellini>>
+<<exit Silvia>>
+===
+
+title: PrototypeMission_Level3_After
+tags:
+---
+<<enter Silvia left>>
+<<enter Bellini right>>
+Silvia: It's done. 
+Chief Bellini: Good work, Silvia. Come to my office when you're back.
+<<exit Bellini>>
+<<exit Silvia>>
+===

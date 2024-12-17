@@ -3,15 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Yarn.Unity;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
+
+    [SerializeField] private SceneLoader sceneLoader;
 
     public bool GamePaused { get; private set; }
     
     private void Awake() {
         Instance = this;
+    }
+
+    private void Start() {
+        PlayDialogueInGame.Instance.OnCompleteDialogueAfterWaves += LevelComplete;
     }
 
     public void ReloadScene() {
@@ -39,5 +44,9 @@ public class GameManager : MonoBehaviour {
     public void ResumeTimeOnly() {
         TimeManager.Instance.ResumeTime();
         AudioListener.pause = false;
+    }
+
+    private void LevelComplete() {
+        sceneLoader.LoadNextSceneInMission();
     }
 }

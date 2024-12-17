@@ -7,17 +7,20 @@ using UnityEngine.SceneManagement;
 public class MissionData : ScriptableObject {
     public List<SceneType> scenes;
 
-    // references
-    public SceneType CurrentScene => (CurrentSceneIndex < scenes.Count) ? scenes[CurrentSceneIndex] : null;
-    
     // state
     [ShowInInspector] public int CurrentSceneIndex { get; private set; }
+    
+    // references
+    public SceneType CurrentScene => (CurrentSceneIndex < scenes.Count) ? scenes[CurrentSceneIndex] : null;
 
-    public void PlayNextScene() {
+    // returns true if there is a next scene. if current scene was the last, it resets and returns false
+    public bool NextScene() {
         CurrentSceneIndex++;
-    }
 
-    public void ResetMission() {
-        CurrentSceneIndex = 0;
+        if (CurrentSceneIndex >= scenes.Count) {
+            CurrentSceneIndex = 0;
+            return false;
+        }
+        return true;
     }
 }
