@@ -15,7 +15,7 @@ MonoBehaviour:
   unityScene:
     sceneAsset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
     scenePath: Assets/Scenes/Game.unity
-  waveSet: {fileID: 11400000, guid: a27b1d8ee01c23c41a3f1f48260e0a54, type: 2}
+  waveSet: {fileID: 11400000, guid: a9a56ea0a85d3442f93d1d93f710120b, type: 2}
   dialogueBeforeWaves: PrototypeMission_Level2_Before
   delayOnDialogueBeforeWaves: 0
   dialogueAfterWaves: PrototypeMission_Level2_After
