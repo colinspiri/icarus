@@ -606,9 +606,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionState: {fileID: 11400000, guid: acd815a19d3acaf4883fa1a86ebb8b11, type: 2}
-  dialogueBeforeWaves: TestBeforeWaves
+  dialogueBeforeWaves: 
   delayOnDialogueBeforeWaves: 1
-  dialogueAfterWaves: TestAfterWaves
+  dialogueAfterWaves: 
   delayOnDialogueAfterWaves: 1
 --- !u!1 &6463919253507295484
 GameObject:

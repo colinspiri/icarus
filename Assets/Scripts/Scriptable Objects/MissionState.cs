@@ -13,6 +13,10 @@ public class MissionState : ScriptableObject {
     public void SetCurrentMission(MissionData mission) {
         currentMission = mission;
     }
+    public void UnbindCurrentMission() {
+        currentMission = null;
+        currentScene = null;
+    }
 
     public void LoadCurrentScene() {
         currentScene = currentMission.GetCurrentScene();

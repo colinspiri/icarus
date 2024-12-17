@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test Scenes/Fighter WaveSet.unity
     guid: 656fb88098179e44c83197f286e4f4c1
+  - enabled: 1
+    path: Assets/Scenes/Test Scenes/EliteEnemy WaveSet.unity
+    guid: 1ca139dfe13d910459e7f95514b81299
   m_configObjects: {}

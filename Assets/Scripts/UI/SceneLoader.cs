@@ -12,6 +12,7 @@ public class SceneLoader : ScriptableObject {
     public SceneReference prototypeEnemyScene;
     public SceneReference homingMissileScene;
     public SceneReference fighterScene;
+    public SceneReference eliteEnemyScene;
 
     public void DebugTest(string testString) {
         Debug.Log("test " + testString + " at " + Time.time);
@@ -20,26 +21,6 @@ public class SceneLoader : ScriptableObject {
     public void LoadGameScene() {
         ResetTime();
         SceneManager.LoadScene(gameScene.ScenePath);
-    }
-    
-    public void LoadBomberScene() {
-        ResetTime();
-        SceneManager.LoadScene(bomberScene.ScenePath);
-    }
-
-    public void LoadPrototypeEnemyScene() {
-        ResetTime();
-        SceneManager.LoadScene(prototypeEnemyScene.ScenePath);
-    }
-
-    public void LoadHomingMissileScene() {
-        ResetTime();
-        SceneManager.LoadScene(homingMissileScene.ScenePath);
-    }
-
-    public void LoadFighterScene() {
-        ResetTime();
-        SceneManager.LoadScene(fighterScene.ScenePath);
     }
 
     public void Restart()
@@ -64,5 +45,26 @@ public class SceneLoader : ScriptableObject {
     private void ResetTime() {
         Time.timeScale = 1;
         AudioListener.pause = false;
+    }
+    
+    public void LoadBomberScene() {
+        ResetTime();
+        SceneManager.LoadScene(bomberScene.ScenePath);
+    }
+    public void LoadPrototypeEnemyScene() {
+        ResetTime();
+        SceneManager.LoadScene(prototypeEnemyScene.ScenePath);
+    }
+    public void LoadHomingMissileScene() {
+        ResetTime();
+        SceneManager.LoadScene(homingMissileScene.ScenePath);
+    }
+    public void LoadFighterScene() {
+        ResetTime();
+        SceneManager.LoadScene(fighterScene.ScenePath);
+    }
+    public void LoadEliteEnemyScene() {
+        ResetTime();
+        SceneManager.LoadScene(eliteEnemyScene.ScenePath);
     }
 }

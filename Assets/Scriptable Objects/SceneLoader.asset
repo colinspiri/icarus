@@ -30,5 +30,6 @@ MonoBehaviour:
   fighterScene:
     sceneAsset: {fileID: 102900000, guid: 656fb88098179e44c83197f286e4f4c1, type: 3}
     scenePath: Assets/Scenes/Test Scenes/Fighter WaveSet.unity
-  currentScene: {fileID: 11400000, guid: a4bf9afba2b7f45c3aa5ebe512eef36d, type: 2}
-  currentMission: {fileID: 11400000, guid: f5c9ec8e9499a4bb7b2ec97bb1400618, type: 2}
+  eliteEnemyScene:
+    sceneAsset: {fileID: 102900000, guid: 1ca139dfe13d910459e7f95514b81299, type: 3}
+    scenePath: Assets/Scenes/Test Scenes/EliteEnemy WaveSet.unity
