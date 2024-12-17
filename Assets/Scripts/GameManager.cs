@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
     
-    [SerializeField] private CurrentMission currentMission;
+    [SerializeField] private MissionState missionState;
     
     public bool GamePaused { get; private set; }
     
@@ -47,6 +47,6 @@ public class GameManager : MonoBehaviour {
     }
 
     private void LevelComplete() {
-        currentMission.LoadNextScene();
+        missionState.LoadNextScene();
     }
 }

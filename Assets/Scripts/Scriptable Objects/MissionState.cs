@@ -2,8 +2,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(fileName = "CurrentMission", menuName = "CurrentMission", order = 0)]
-public class CurrentMission : ScriptableObject {
+[CreateAssetMenu(fileName = "MissionState", menuName = "MissionState", order = 0)]
+public class MissionState : ScriptableObject {
     [SerializeField] private SceneLoader sceneLoader;
     
     [Space]
@@ -15,17 +15,18 @@ public class CurrentMission : ScriptableObject {
     }
 
     public void LoadCurrentScene() {
-        currentScene = currentMission.CurrentScene;
+        currentScene = currentMission.GetCurrentScene();
+        
         if (currentScene != null) {
             SceneManager.LoadScene(currentScene.unityScene.ScenePath);
         }
         else {
-            currentMission.currentSceneIndex = 0;
+            currentMission.ResetState();
             sceneLoader.LoadMainMenu();
         }
     }
     public void CompleteCurrentScene() {
-        currentMission.currentSceneIndex++;
+        currentMission.NextScene();
     }
     public void LoadNextScene() {
         CompleteCurrentScene();

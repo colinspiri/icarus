@@ -8,7 +8,7 @@ public class PlayDialogueInGame : MonoBehaviour {
     
     private DialogueRunner _dialogueRunner;
 
-    [SerializeField] private CurrentMission currentMission;
+    [SerializeField] private MissionState missionState;
     [Space]
 
     public string dialogueBeforeWaves;
@@ -44,7 +44,7 @@ public class PlayDialogueInGame : MonoBehaviour {
         }
         
         // if current scene in mission exists, use its settings
-        if (currentMission.currentScene != null && currentMission.currentScene is LevelScene levelScene) {
+        if (missionState.currentScene != null && missionState.currentScene is LevelScene levelScene) {
             SetUpDialogueBeforeWaves(levelScene.dialogueBeforeWaves, levelScene.delayOnDialogueBeforeWaves);
             SetUpDialogueAfterWaves(levelScene.dialogueAfterWaves, levelScene.delayOnDialogueAfterWaves);
         }
