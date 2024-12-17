@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953e591d1333ae947989fb4daef34c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneLoader: {fileID: 11400000, guid: c5da5d15dbf8e44329166ec6e64a3d0c, type: 2}
+  currentMission: {fileID: 11400000, guid: acd815a19d3acaf4883fa1a86ebb8b11, type: 2}
 --- !u!1 &5845054358657955379
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037a9f0566854f0d97ae8481e404d5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneLoader: {fileID: 11400000, guid: c5da5d15dbf8e44329166ec6e64a3d0c, type: 2}
+  currentMission: {fileID: 11400000, guid: acd815a19d3acaf4883fa1a86ebb8b11, type: 2}
   dialogueBeforeWaves: TestBeforeWaves
   delayOnDialogueBeforeWaves: 1
   dialogueAfterWaves: TestAfterWaves
@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc5e7e5970e99343ac9cc073f6308ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneLoader: {fileID: 11400000, guid: c5da5d15dbf8e44329166ec6e64a3d0c, type: 2}
+  currentMission: {fileID: 11400000, guid: acd815a19d3acaf4883fa1a86ebb8b11, type: 2}
   enemyCollection: {fileID: 11400000, guid: 3ac989e83f02792459fe4ff843bd5bbf, type: 2}
   prototypeEnemyPrefab: {fileID: 3485121856887170019, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
   fighter1Prefab: {fileID: 1525726167093952100, guid: 9a6aec27e20c1c44f83f9135c77487f6, type: 3}

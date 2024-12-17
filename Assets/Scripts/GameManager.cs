@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
-
-    [SerializeField] private SceneLoader sceneLoader;
-
+    
+    [SerializeField] private CurrentMission currentMission;
+    
     public bool GamePaused { get; private set; }
     
     private void Awake() {
@@ -47,6 +47,6 @@ public class GameManager : MonoBehaviour {
     }
 
     private void LevelComplete() {
-        sceneLoader.LoadNextSceneInMission();
+        currentMission.LoadNextScene();
     }
 }

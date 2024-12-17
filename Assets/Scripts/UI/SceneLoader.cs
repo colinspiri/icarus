@@ -13,29 +13,8 @@ public class SceneLoader : ScriptableObject {
     public SceneReference homingMissileScene;
     public SceneReference fighterScene;
 
-    // state
-    [ShowInInspector] public SceneType currentScene;
-    [ShowInInspector] public MissionData currentMission;
-
     public void DebugTest(string testString) {
         Debug.Log("test " + testString + " at " + Time.time);
-    }
-
-    public void LoadCurrentSceneInMission(MissionData mission) {
-        currentMission = mission;
-        currentScene = mission.CurrentScene;
-
-        if (currentScene != null) {
-            SceneManager.LoadScene(currentScene.unityScene.ScenePath);
-        }
-    }
-    public void LoadNextSceneInMission() {
-        if (currentMission.NextScene()) {
-            LoadCurrentSceneInMission(currentMission);
-        }
-        else {
-            MainMenu();
-        }
     }
 
     public void LoadGameScene() {
@@ -69,7 +48,7 @@ public class SceneLoader : ScriptableObject {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void MainMenu() {
+    public void LoadMainMenu() {
         ResetTime();
         SceneManager.LoadScene(mainMenuScene.ScenePath);
     }

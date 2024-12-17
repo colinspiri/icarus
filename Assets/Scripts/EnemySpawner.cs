@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour {
     public static EnemySpawner Instance;
 
     [Header("Components")] 
-    [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] private CurrentMission currentMission;
     [SerializeField] private GameObjectCollection enemyCollection;
     [SerializeField] private GameObject prototypeEnemyPrefab;
     [SerializeField] private GameObject fighter1Prefab;
@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour {
     void Start() {
         _currentWave = -1;
         _waveDelayTimer = timeBetweenWaves;
-        if (sceneLoader.currentScene != null && sceneLoader.currentScene is LevelScene levelScene) {
+        if (currentMission.currentScene != null && currentMission.currentScene is LevelScene levelScene) {
             waveSet = levelScene.waveSet;
         }
     }
