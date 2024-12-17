@@ -207,6 +207,7 @@ public class PlayerMovement : MonoBehaviour {
         dashStartedEvent.Raise();
 
         Vector3 targetPosition = transform.position + (Vector3)dashDirection * dashDistance;
+        targetPosition = ClampDashPosition(targetPosition);
 
         transform.DOMove(targetPosition, dashDuration).OnComplete(() => {
             isDashing = false;
@@ -218,6 +219,14 @@ public class PlayerMovement : MonoBehaviour {
 
         ReflectBullets();
         AudioManager.Instance.Play(dashSFX, 1.0f);
+    }
+
+    private Vector3 ClampDashPosition(Vector3 position)
+    {
+        Vector3 viewportPoint = Camera.main.WorldToViewportPoint(position);
+        viewportPoint.x = Mathf.Clamp(viewportPoint.x, 0.05f, 0.95f);
+        viewportPoint.y = Mathf.Clamp(viewportPoint.y, 0.05f, 0.95f);
+        return Camera.main.ViewportToWorldPoint(viewportPoint);
     }
 
     private void ReflectBullets()
