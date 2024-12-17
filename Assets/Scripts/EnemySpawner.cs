@@ -81,12 +81,13 @@ public class EnemySpawner : MonoBehaviour {
         var randomSpawnTime = randomSpawnTimeMinMax.LerpValue(t);
 
         if (_randomSpawnTimer >= randomSpawnTime) {
-            var randomFloat = Random.Range(0.0f, 1.0f);
-            EnemyType enemyType;
-            if (randomFloat <= 0.5f) enemyType = EnemyType.PrototypeEnemy;
-            else enemyType = EnemyType.Bomber;
+            List<EnemyType> allEnemyTypes = new List<EnemyType>() { EnemyType.Fighter1 , EnemyType.Fighter2, EnemyType.Fighter3, EnemyType.Bomber, EnemyType.HomingMissile, EnemyType.EliteEnemy, EnemyType.LaserEnemy, EnemyType.ShotgunEnemy};
+            var enemyType = allEnemyTypes[Random.Range(0, allEnemyTypes.Count)];
             
-            SpawnEnemy(enemyType);
+            int randomIndex = Random.Range(0, anchorPoints.Count);
+            Vector3 anchorPoint = anchorPoints[randomIndex].position;
+            
+            SpawnEnemy(enemyType, anchorPoint);
 
             _randomSpawnTimer = 0;
         }
@@ -141,20 +142,32 @@ public class EnemySpawner : MonoBehaviour {
     private void SpawnWave(int waveIndex) {
         Wave wave = waveSet.waves[waveIndex];
 
+        List<int> availableAnchorPoints = new List<int>();
+
         foreach (var numEnemies in wave.enemies) {
             for (int i = 0; i < numEnemies.count; i++) {
-                SpawnEnemy(numEnemies.enemyType);
+
+                // when all anchor points are used up, fill it back up again
+                if (availableAnchorPoints.Count == 0) {
+                    for (var index = 0; index < anchorPoints.Count; index++) {
+                        availableAnchorPoints.Add(index);
+                    }
+                }
+                
+                // pick a random anchor point 
+                int randomIndex = Random.Range(0, availableAnchorPoints.Count);
+                Vector3 anchorPoint = anchorPoints[availableAnchorPoints[randomIndex]].position;
+                availableAnchorPoints.RemoveAt(randomIndex);
+
+                // spawn enemy
+                SpawnEnemy(numEnemies.enemyType, anchorPoint);
             }
         }
     }
 
-    private void SpawnEnemy(EnemyType enemyType) {
+    private void SpawnEnemy(EnemyType enemyType, Vector3 anchorPoint) {
         // get prefab from enemy type
         var enemyPF = GetEnemyPrefab(enemyType);
-        
-        // pick an anchor point 
-        int randomIndex = Random.Range(0, anchorPoints.Count);
-        Vector3 anchorPoint = anchorPoints[randomIndex].position;
         
         // pick a spawn position 
         Vector3 directionOutsideAnchor = anchorPoint.normalized;

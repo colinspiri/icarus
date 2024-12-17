@@ -11,13 +11,12 @@ public class PlayDialogueInGame : MonoBehaviour {
     [SerializeField] private SceneLoader sceneLoader;
     [Space]
 
-    public bool playDialogueBeforeWaves;
-    public float delayOnDialogueBeforeWaves = 0.5f;
     public string dialogueBeforeWaves;
+    public float delayOnDialogueBeforeWaves = 0.5f;
     [Space] 
-    public bool playDialogueAfterWaves;
-    public float delayOnDialogueAfterWaves = 0.5f;
     public string dialogueAfterWaves;
+    public float delayOnDialogueAfterWaves = 0.5f;
+
     
     // events 
     public event Action OnCompleteDialogueAfterWaves;
@@ -51,12 +50,8 @@ public class PlayDialogueInGame : MonoBehaviour {
         }
         // otherwise use settings on the BASEGAME prefab
         else {
-            if (playDialogueBeforeWaves) {
-                SetUpDialogueBeforeWaves(dialogueBeforeWaves, delayOnDialogueBeforeWaves);
-            }
-            if (playDialogueAfterWaves) {
-                SetUpDialogueAfterWaves(dialogueAfterWaves, delayOnDialogueAfterWaves);
-            }
+            SetUpDialogueBeforeWaves(dialogueBeforeWaves, delayOnDialogueBeforeWaves);
+            SetUpDialogueAfterWaves(dialogueAfterWaves, delayOnDialogueAfterWaves);
         }
     }
 

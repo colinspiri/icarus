@@ -20,13 +20,15 @@ MonoBehaviour:
     scenePath: Assets/Scenes/Game.unity
   bomberScene:
     sceneAsset: {fileID: 102900000, guid: 7727c79dc0e5644df9390d8d93f6df5f, type: 3}
-    scenePath: Assets/Scenes/Bomber WaveSet.unity
+    scenePath: Assets/Scenes/Test Scenes/Bomber WaveSet.unity
   prototypeEnemyScene:
     sceneAsset: {fileID: 102900000, guid: ba5135798038f428b97670a7462ba92a, type: 3}
-    scenePath: Assets/Scenes/PrototypeEnemy WaveSet.unity
+    scenePath: Assets/Scenes/Test Scenes/PrototypeEnemy WaveSet.unity
   homingMissileScene:
     sceneAsset: {fileID: 102900000, guid: 7f8afd23bd51d004d80b52da00e1e808, type: 3}
-    scenePath: Assets/Scenes/HomingMissile WaveSet.unity
+    scenePath: Assets/Scenes/Test Scenes/HomingMissile WaveSet.unity
   fighterScene:
     sceneAsset: {fileID: 102900000, guid: 656fb88098179e44c83197f286e4f4c1, type: 3}
-    scenePath: Assets/Scenes/Fighter WaveSet.unity
+    scenePath: Assets/Scenes/Test Scenes/Fighter WaveSet.unity
+  currentScene: {fileID: 11400000, guid: a4bf9afba2b7f45c3aa5ebe512eef36d, type: 2}
+  currentMission: {fileID: 11400000, guid: f5c9ec8e9499a4bb7b2ec97bb1400618, type: 2}

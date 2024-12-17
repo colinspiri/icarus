@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,8 +14,8 @@ public class SceneLoader : ScriptableObject {
     public SceneReference fighterScene;
 
     // state
-    public SceneType currentScene;
-    public MissionData currentMission;
+    [ShowInInspector] public SceneType currentScene;
+    [ShowInInspector] public MissionData currentMission;
 
     public void DebugTest(string testString) {
         Debug.Log("test " + testString + " at " + Time.time);

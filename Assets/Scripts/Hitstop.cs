@@ -39,13 +39,13 @@ public class Hitstop : MonoBehaviour
         TimeManager.Instance.SetTimeScale(1);
     }
 
-    public void NotifyEnemyDeath(float enemyHealth) {
-        if (enemyHealth < enemyHealthForHitstopOnDeath.min || enemyHealth > enemyHealthForHitstopOnDeath.max) {
+    public void NotifyEnemyDeath(float enemyMaxHealth) {
+        if (enemyMaxHealth < enemyHealthForHitstopOnDeath.min) {
             CameraShake.Instance.Shake(hitstopShakeStrength);
             return;
         }
 
-        float f = Mathf.InverseLerp(enemyHealthForHitstopOnDeath.min, enemyHealthForHitstopOnDeath.max, enemyHealth);
+        float f = Mathf.InverseLerp(enemyHealthForHitstopOnDeath.min, enemyHealthForHitstopOnDeath.max, enemyMaxHealth);
         float time = hitstopTimeOnEnemyDeathByHealth.LerpValue(f);
         DoHitstop(time);
     }

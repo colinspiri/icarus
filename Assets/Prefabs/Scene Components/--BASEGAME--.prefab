@@ -606,12 +606,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 11400000, guid: c5da5d15dbf8e44329166ec6e64a3d0c, type: 2}
-  playDialogueBeforeWaves: 0
-  delayOnDialogueBeforeWaves: 3
   dialogueBeforeWaves: TestBeforeWaves
-  playDialogueAfterWaves: 0
-  delayOnDialogueAfterWaves: 1
+  delayOnDialogueBeforeWaves: 1
   dialogueAfterWaves: TestAfterWaves
+  delayOnDialogueAfterWaves: 1
 --- !u!1 &6463919253507295484
 GameObject:
   m_ObjectHideFlags: 0
