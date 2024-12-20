@@ -46,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: firingRate
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: shootingMode
@@ -130,5 +130,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d4b6e6eb6f40847806a88d1f116306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   rotateSpeed: 100

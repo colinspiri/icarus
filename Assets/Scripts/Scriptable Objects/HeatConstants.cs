@@ -42,6 +42,8 @@ public class HeatConstants : ScriptableObject {
 
     [Space] 
     public float heatCostPerDash;
+    [Space] 
+    public float heatCostOnPlayerDamaged;
     [Space]
     public float heatCostPerReloadClipEmpty; // 0.15
     public float heatCostPerReloadClipFull; // 0.05

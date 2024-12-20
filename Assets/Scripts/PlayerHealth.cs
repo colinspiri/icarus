@@ -11,6 +11,8 @@ public class PlayerHealth : Health {
     [SerializeField] AudioClip hitSound;
     [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private GameEvent playerTookDamage;
+    [SerializeField] private HeatConstants heatConstants;
+    [SerializeField] private FloatVariable heat;
     
     // state 
     private float _damageInvulnerableTimer;
@@ -39,6 +41,9 @@ public class PlayerHealth : Health {
         
         CameraShake.Instance.Shake();
         AudioManager.Instance.Play(hitSound, 1.0f);
+
+        heat.Value -= heatConstants.heatCostOnPlayerDamaged;
+        if (heat.Value < 0) heat.Value = 0;
         
         playerTookDamage.Raise();
     }

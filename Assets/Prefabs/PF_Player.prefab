@@ -16215,6 +16215,8 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: 4736b2226d9ba2d47b80f514211cb279, type: 3}
   playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
   playerTookDamage: {fileID: 11400000, guid: f5e4b489ef976c54e98389201231b4a0, type: 2}
+  heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
+  heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
 --- !u!114 &3346273301397692489
 MonoBehaviour:
   m_ObjectHideFlags: 0
