@@ -38,8 +38,12 @@ public class EnemyGun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartFiringCooldown();
         _canFire = true;
+
+        float minStartingCooldownPercent = 0.25f;
+        float maxStartingCooldownPercent = 0.75f;
+        float firingCooldown = 1.0f / firingRate;
+        _currentFiringCooldown = Random.Range(minStartingCooldownPercent * firingCooldown, maxStartingCooldownPercent * firingCooldown);
     }
 
     // Update is called once per frame
