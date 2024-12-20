@@ -7,6 +7,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GunConstants", menuName = "Scriptable Objects/Gun Constants")]
 public class GunConstants : ScriptableObject {
     public HeatConstants heatConstants;
+
+    [Header("Damage (WARNING: ACTUAL DAMAGE VALUES ARE IN THE BULLET PREFABS!)")]
+    public float damageTier1;
+    public float damageTier2;
+    public float damageTier3;
+    public float CurrentDamage => heatConstants.CurrentHeatValue switch {
+        HeatValue.Low => damageTier1,
+        HeatValue.Medium => damageTier2,
+        HeatValue.High => damageTier3,
+        _ => throw new ArgumentOutOfRangeException()
+    };
     
     [Header("Fire Rate")]
     [Tooltip("Firing rate is 1 / the fire cooldown (in seconds)")]

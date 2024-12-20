@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5679227482235792981, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: maxHealth
-      value: 6
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 6425445922052804732, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: firingRate
@@ -141,8 +141,8 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 2415554389486567745}
   bulletOriginObject: {fileID: 7386768616324706235}
   shootingMode: 1
-  firingRate: 0.33
-  randomCooldownVariance: 0.5
+  firingRate: 0.5
+  randomCooldownVariance: 0.3
   rotationSpeed: 20
   bulletPrefab: {fileID: 0}
   patternPrefab: {fileID: 53253934313598715, guid: a7697530da9ea994ebed2bba0a81c7da, type: 3}

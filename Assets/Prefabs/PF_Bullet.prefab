@@ -112,7 +112,7 @@ MonoBehaviour:
     max: 0
   bulletSpeedMultiplier: 3
   damage: 1
-  reflectedDamage: 3
+  reflectedDamage: 9
   bulletPierceMax: 0
   entityPierceMax: 0
   reflectedColor: {r: 0.49411765, g: 0.99215686, b: 1, a: 1}

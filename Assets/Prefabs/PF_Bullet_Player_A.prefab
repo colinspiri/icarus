@@ -65,6 +65,10 @@ PrefabInstance:
       value: PF_Bullet_Player_A
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: fromPlayer
       value: 1
       objectReference: {fileID: 0}

@@ -101,6 +101,7 @@ MonoBehaviour:
   - {fileID: 1699297376845639286}
   - {fileID: 5692020450096533567}
   enemyHealth: {fileID: 9020037959223640044}
+  gunConstants: {fileID: 11400000, guid: 5bc19424000f2a74c8706fbde9149b9a, type: 2}
   damagedColor: {r: 1, g: 0.29803923, b: 0.48235294, a: 1}
   damagedTime: 0.1
   lowHealthColor: {r: 1, g: 0.009995077, b: 0, a: 1}
@@ -158,9 +159,6 @@ MonoBehaviour:
   rotationSpeed: 40
   bulletPrefab: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
   patternPrefab: {fileID: 3614729877128121977, guid: 5d727974c7653460ea874bc9accc3775, type: 3}
-  homingMissilePrefab: {fileID: 0}
-  hasHomingMissileAbility: 0
-  homingMissileMinDistance: 8
   relativeToEnemyRotation: 1
   enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
 --- !u!1 &4008088199188767887
@@ -394,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cf0bf2674545719959dd2678ce08d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 16
   onTakeDamage:
     m_PersistentCalls:
       m_Calls: []

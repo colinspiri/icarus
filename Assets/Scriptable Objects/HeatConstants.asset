@@ -20,12 +20,13 @@ MonoBehaviour:
   highHeatThreshold: 0.75
   passiveHeatDeltaLow: -0.01
   passiveHeatDeltaMedium: -0.04
-  passiveHeatDeltaHigh: -0.1
+  passiveHeatDeltaHigh: -0.13
   heatCostPerShotLow: 0
   heatCostPerShotMedium: 0
   heatCostPerShotHigh: 0
   heatCostPerDash: 0.25
+  heatCostOnPlayerDamaged: 1
   heatCostPerReloadClipEmpty: 0
   heatCostPerReloadClipFull: 0
   heatGainOnEnemyKill: 0
-  heatGainPerDamage: 0.05
+  heatGainPerDamage: 0.02

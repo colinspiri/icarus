@@ -403,8 +403,8 @@ MonoBehaviour:
   defaultHitstopTime: 0.5
   hitstopShakeStrength: 0.3
   enemyHealthForHitstopOnDeath:
-    min: 2
-    max: 5
+    min: 4
+    max: 16
   hitstopTimeOnEnemyDeathByHealth:
     min: 0.2
     max: 0.6

@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: GunConstants
   m_EditorClassIdentifier: 
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
-  firingRateTier1: 6
+  damageTier1: 3
+  damageTier2: 5
+  damageTier3: 9
+  firingRateTier1: 5
   firingRateTier2: 4
   firingRateTier3: 2
   maxAmmo: 12

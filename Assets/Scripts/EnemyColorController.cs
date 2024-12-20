@@ -3,6 +3,7 @@
 public class EnemyColorController : ColorController {
     // components
     [SerializeField] private EnemyHealth enemyHealth;
+    [SerializeField] private GunConstants gunConstants;
     [Space]
     
     // params 
@@ -12,14 +13,29 @@ public class EnemyColorController : ColorController {
     [SerializeField] private Color lowHealthColor;
     [SerializeField] private float lowHealthFlashPeriod;
     
+    // state
+    private bool _takenDamage;
+    
     protected override void Start() {
         base.Start();
         enemyHealth.OnTakeDamageAction += () => {
             base.SetTemporaryColor(damagedColor, damagedTime);
-            
-            if (enemyHealth.HealthLeft <= 1) {
+
+            _takenDamage = true;
+        };
+    }
+
+    protected override void Update() {
+        if (_takenDamage) {
+            var hitsToKillWithCurrentGun = Mathf.Ceil(enemyHealth.CurrentHealth / gunConstants.CurrentDamage);
+            if (hitsToKillWithCurrentGun <= 1) {
                 base.SetFlashing(lowHealthColor, lowHealthFlashPeriod, -1);
             }
-        };
+            else {
+                base.StopFlashing();
+            }
+        }
+
+        base.Update();
     }
 }
