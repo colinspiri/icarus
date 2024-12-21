@@ -42,6 +42,10 @@ public class SceneLoader : ScriptableObject {
 #endif
     }
 
+    public void ClearPlayerPrefs() {
+        PlayerPrefs.DeleteAll();
+    }
+
     private void ResetTime() {
         Time.timeScale = 1;
         AudioListener.pause = false;
