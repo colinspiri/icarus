@@ -16,7 +16,7 @@ public class GunConstants : ScriptableObject {
         _ => throw new ArgumentOutOfRangeException()
     };
 
-    [Header("Damage (WARNING: ACTUAL DAMAGE VALUES ARE IN THE BULLET PREFABS!)")]
+    [Header("Damage")]
     public float damageTier1;
     public float damageTier2;
     public float damageTier3;
@@ -26,6 +26,14 @@ public class GunConstants : ScriptableObject {
         HeatValue.High => damageTier3,
         _ => throw new ArgumentOutOfRangeException()
     };
+    public float DamageFromTier(HeatValue tier) {
+        return tier switch {
+            HeatValue.Low => damageTier1,
+            HeatValue.Medium => damageTier2,
+            HeatValue.High => damageTier3,
+            _ => throw new ArgumentOutOfRangeException(nameof(tier), tier, null)
+        };
+    }
     
     [Header("Fire Rate")]
     [Tooltip("Firing rate is 1 / the fire cooldown (in seconds)")]

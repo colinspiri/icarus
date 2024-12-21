@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Bullet : MonoBehaviour {
     // components
@@ -16,18 +17,29 @@ public class Bullet : MonoBehaviour {
     // serialized constants
     [Header("Constants")]
     public bool fromPlayer;
-    [Space]
+    
+    [Header("Speed")]
     [SerializeField] private float staticBulletSpeed;
     [SerializeField] private bool useRandomBulletSpeed;
     [SerializeField] private MinMaxFloat randomBulletSpeed;
-    [SerializeField] private float bulletSpeedMultiplier;
+    
+    [Header("Damage")]
     [SerializeField] private float damage = 1f;
-    [SerializeField] private float reflectedDamage = 1f;
+    [SerializeField] private bool useValueFromGunConstants;
+    [SerializeField] private GunConstants gunConstants;
+    [SerializeField] private HeatValue tier;
+    private float Damage => (useValueFromGunConstants ? gunConstants.DamageFromTier(tier) : damage);
+
+    [Header("Piercing")]
     [Tooltip("Number of bullets to pierce through. -1 for infinite.")]
     [SerializeField] private int bulletPierceMax;
     [Tooltip("Number of entities to pierce through. -1 for infinite.")] 
     [SerializeField] private int entityPierceMax;
+    
+    [Header("When Reflected")]
     [SerializeField] private Color reflectedColor;
+    [FormerlySerializedAs("bulletSpeedMultiplier")] [SerializeField] private float reflectedSpeedMultiplier;
+    [SerializeField] private float reflectedDamage = 1f;
 
     // state
     [HideInInspector] public bool reflected;
@@ -59,7 +71,7 @@ public class Bullet : MonoBehaviour {
 
     private void Move() {
         var bulletSpeed = useRandomBulletSpeed ? randomBulletSpeed.RandomValue : staticBulletSpeed;
-        if (reflected) bulletSpeed *= bulletSpeedMultiplier;
+        if (reflected) bulletSpeed *= reflectedSpeedMultiplier;
         transform.Translate(transform.right * (Time.deltaTime * bulletSpeed), Space.World);
     }
 
@@ -97,7 +109,7 @@ public class Bullet : MonoBehaviour {
             if (!PlayerMovement.Instance.isDashing)
             {
                 var health = col.GetComponent<Health>();
-                health.TakeDamage(damage);
+                health.TakeDamage(Damage);
                 HitEntity();
                 // ignore future collisions with player even after dash is over
                 _ignoreCollisionsWithObjects.Add(col.gameObject); 
@@ -107,7 +119,7 @@ public class Bullet : MonoBehaviour {
         else if (col.CompareTag("Enemy") && (fromPlayer || reflected)) {
             AudioManager.Instance.Play(enemyDamage, 1.0f);
 
-            var chosenDamage = reflected ? reflectedDamage : damage;
+            var chosenDamage = reflected ? reflectedDamage : Damage;
             var health = col.GetComponent<Health>();
             health.TakeDamage(chosenDamage);
             heat.Value += heatConstants.heatGainPerDamage * chosenDamage;

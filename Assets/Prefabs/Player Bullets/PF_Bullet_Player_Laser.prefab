@@ -69,8 +69,8 @@ PrefabInstance:
       value: PF_Bullet_Player_Laser
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
-      propertyPath: damage
-      value: 9
+      propertyPath: tier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: fromPlayer
@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: bulletSpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
+      propertyPath: gunConstants
+      value: 
+      objectReference: {fileID: 11400000, guid: 5bc19424000f2a74c8706fbde9149b9a, type: 2}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: bulletPierceMax
       value: 2
@@ -91,6 +95,10 @@ PrefabInstance:
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: staticBulletSpeed
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
+      propertyPath: useValueFromGunConstants
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8866159761276176753, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: m_Sprite
