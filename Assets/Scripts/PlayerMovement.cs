@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private bool dashRequiresHeat;
     [SerializeField] private GameEvent dashStartedEvent;
     [SerializeField] private GameEvent dashEndedEvent;
+    public event Action OnDashEnded;
     
     // state
     private Vector2 _timeAccelerating;
@@ -61,13 +62,14 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() {
         if (GameManager.Instance.GamePaused) return;
-        HandleInput();
+
+        if (!isDashing) {
+            HandleInput();
+        }
     }
 
     private void HandleInput()
     {
-        if (isDashing) return;
-
         // move player
         Vector3 movementVector = new Vector3(InputManager.Instance.horizontalMoveAxis, InputManager.Instance.verticalMoveAxis, 0);
         if (movementMode == MovementMode.Linear) {
@@ -213,6 +215,7 @@ public class PlayerMovement : MonoBehaviour {
             isDashing = false;
             _canDash = true;
             dashEndedEvent.Raise();
+            OnDashEnded?.Invoke();
         });
         
         colorController.Dash(dashDuration);

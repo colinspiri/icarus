@@ -15,11 +15,13 @@ public class PlayerColorController : ColorController {
     [Space]
     [SerializeField] private Color dashColor;
 
-    protected override void Start() {
+    protected override void Start() { 
         base.Start();
         playerHealth.OnTakeDamageAction += () => {
             base.SetTemporaryColor(damagedColor, damagedTime);
-            base.SetFlashing(invulnerableFlashColor, invulnerableFlashPeriod, playerHealth.damageInvulnerableTime);
+        };
+        playerHealth.OnStartInvulnerable += invulnerableTime => {
+            base.SetFlashing(invulnerableFlashColor, invulnerableFlashPeriod, invulnerableTime);
         };
     }
 

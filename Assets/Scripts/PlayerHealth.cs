@@ -5,7 +5,8 @@ using System.Runtime.CompilerServices;
 using ScriptableObjectArchitecture;
 using UnityEngine;
 public class PlayerHealth : Health {
-    [SerializeField] public float damageInvulnerableTime;
+    [SerializeField] private float damageInvulnerableTime;
+    [SerializeField] private float afterDashInvulnerableTime;
 
     [Header("Components")] 
     [SerializeField] AudioClip hitSound;
@@ -18,10 +19,17 @@ public class PlayerHealth : Health {
     private float _damageInvulnerableTimer;
     public bool Invulnerable => _damageInvulnerableTimer > 0;
 
+    public event Action<float> OnStartInvulnerable;
+
     protected override void Start() {
         base.Start();
+        
         playerInfo.currentHealth = playerInfo.maxHealth;
         playerInfo.playerInvulnerableTime = damageInvulnerableTime;
+
+        PlayerMovement.Instance.OnDashEnded += () => {
+            SetInvulnerable(afterDashInvulnerableTime);
+        };
     }
 
     private void Update() {
@@ -37,7 +45,7 @@ public class PlayerHealth : Health {
         playerInfo.currentHealthPercentage = HealthPercentage;
         playerInfo.currentHealth--;
 
-        SetInvulnerable();
+        SetInvulnerable(damageInvulnerableTime);
         
         CameraShake.Instance.Shake();
         AudioManager.Instance.Play(hitSound, 1.0f);
@@ -48,8 +56,9 @@ public class PlayerHealth : Health {
         playerTookDamage.Raise();
     }
 
-    private void SetInvulnerable() {
-        _damageInvulnerableTimer = damageInvulnerableTime;
+    private void SetInvulnerable(float time) {
+        _damageInvulnerableTimer = time;
+        OnStartInvulnerable?.Invoke(time);
     }
 
     protected override void DeathEffect() {

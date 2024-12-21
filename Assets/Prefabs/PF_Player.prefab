@@ -16212,6 +16212,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   damageInvulnerableTime: 1.5
+  afterDashInvulnerableTime: 0.3
   hitSound: {fileID: 8300000, guid: 4736b2226d9ba2d47b80f514211cb279, type: 3}
   playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
   playerTookDamage: {fileID: 11400000, guid: f5e4b489ef976c54e98389201231b4a0, type: 2}
