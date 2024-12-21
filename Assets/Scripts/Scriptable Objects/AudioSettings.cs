@@ -2,7 +2,7 @@
 using UnityEngine.Audio;
 using Yarn.Unity;
 
-[CreateAssetMenu(fileName = "AudioSettings", menuName = "AudioSettings")]
+[CreateAssetMenu(fileName = "AudioSettings", menuName = "Scriptable Objects/AudioSettings")]
 public class AudioSettings : ScriptableObject {
     // components
     public AudioMixer mixer;

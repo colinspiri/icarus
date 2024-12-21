@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(fileName = "SceneLoader", menuName = "SceneLoader")]
+[CreateAssetMenu(fileName = "SceneLoader", menuName = "Scriptable Objects/SceneLoader")]
 public class SceneLoader : ScriptableObject {
     public SceneReference mainMenuScene;
     public SceneReference gameScene;

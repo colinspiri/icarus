@@ -19,6 +19,19 @@ Chief Bellini: Well done.
 <<exit Silvia>>
 ===
 
+title: PrototypeMission_Briefing
+tags:
+---
+<<enter Silvia left>>
+<<enter Bellini right>>
+Chief Bellini: This is the scene where I give you the briefing.
+Silvia: It'll set up the narrative stakes of the mission, right.
+Chief Bellini: Exactly.
+Silvia: I'll go now.
+<<exit Bellini>>
+<<exit Silvia>>
+===
+
 title: PrototypeMission_Level2_Before
 tags:
 ---

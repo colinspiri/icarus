@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(fileName = "MissionState", menuName = "MissionState", order = 0)]
+[CreateAssetMenu(fileName = "MissionState", menuName = "Scriptable Objects/MissionState", order = 0)]
 public class MissionState : ScriptableObject {
     [SerializeField] private SceneLoader sceneLoader;
     

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "UIConstants", menuName = "UIConstants")]
+[CreateAssetMenu(fileName = "UIConstants", menuName = "Scriptable Objects/UIConstants")]
 public class UIConstants : ScriptableObject
 {
     [Header("Menu Option Animation")] 

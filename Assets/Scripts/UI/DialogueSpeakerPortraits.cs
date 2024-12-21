@@ -52,12 +52,14 @@ public class DialogueSpeakerPortraits : MonoBehaviour {
         );
 
         speakerText.text = "";
+        
+        HideAllPortraits();
+        dialogueRunner.onDialogueComplete.AddListener(ResetSpeakerAndPortraits);
     }
 
     // Start is called before the first frame update
     void Start() {
-        HideAllPortraits();
-        dialogueRunner.onDialogueComplete.AddListener(ResetSpeakerAndPortraits);
+        
     }
 
     // Update is called once per frame

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LevelScene", menuName = "LevelScene", order = 0)]
+[CreateAssetMenu(fileName = "LevelScene", menuName = "Missions/LevelScene", order = 0)]
 public class LevelScene : SceneType {
     [Header("Level Scene Parameters")]
     public WaveSet waveSet;

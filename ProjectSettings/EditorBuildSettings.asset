@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test Scenes/EliteEnemy WaveSet.unity
     guid: 1ca139dfe13d910459e7f95514b81299
+  - enabled: 1
+    path: Assets/Scenes/Dialogue.unity
+    guid: d239beff4b6c59a4f8726937ce92c43c
   m_configObjects: {}
