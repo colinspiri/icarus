@@ -5,14 +5,12 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "MissionState", menuName = "Scriptable Objects/MissionState", order = 0)]
 public class MissionState : ScriptableObject {
     [SerializeField] private SceneLoader sceneLoader;
-    
-    [Space]
-    [SerializeField] public MissionData currentMission;
-    [SerializeField] public SceneType currentScene;
 
-    public void SetCurrentMission(MissionData mission) {
-        currentMission = mission;
-    }
+    [Space] 
+    [SerializeField] private MissionData currentMission;
+    [SerializeField] private SceneType currentScene;
+    public SceneType CurrentScene => currentScene;
+    
     public void UnbindCurrentMission() {
         currentMission = null;
         currentScene = null;
@@ -21,8 +19,8 @@ public class MissionState : ScriptableObject {
     public void LoadCurrentScene() {
         currentScene = currentMission.GetCurrentScene();
         
-        if (currentScene != null) {
-            SceneManager.LoadScene(currentScene.unityScene.ScenePath);
+        if (CurrentScene != null) {
+            SceneManager.LoadScene(CurrentScene.unityScene.ScenePath);
         }
         else {
             currentMission.ResetState();

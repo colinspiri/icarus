@@ -44,7 +44,7 @@ public class PlayDialogueInGame : MonoBehaviour {
         }
         
         // if current scene in mission exists, use its settings
-        if (missionState.currentScene != null && missionState.currentScene is LevelScene levelScene) {
+        if (missionState.CurrentScene != null && missionState.CurrentScene is LevelScene levelScene) {
             SetUpDialogueBeforeWaves(levelScene.dialogueBeforeWaves, levelScene.delayOnDialogueBeforeWaves);
             SetUpDialogueAfterWaves(levelScene.dialogueAfterWaves, levelScene.delayOnDialogueAfterWaves);
         }

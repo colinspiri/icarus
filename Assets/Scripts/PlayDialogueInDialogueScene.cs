@@ -11,7 +11,7 @@ public class PlayDialogueInDialogueScene : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        if (missionState.currentScene != null && missionState.currentScene is DialogueScene dialogueScene) {
+        if (missionState.CurrentScene != null && missionState.CurrentScene is DialogueScene dialogueScene) {
             if (dialogueScene.yarnNode == String.Empty) {
                 missionState.LoadNextScene();
                 return;

@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour {
     void Start() {
         _currentWave = -1;
         _waveDelayTimer = timeBetweenWaves;
-        if (missionState.currentScene != null && missionState.currentScene is LevelScene levelScene) {
+        if (missionState.CurrentScene != null && missionState.CurrentScene is LevelScene levelScene) {
             waveSet = levelScene.waveSet;
         }
     }

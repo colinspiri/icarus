@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 317c2359414241a4b3a994bbc972755f, type: 3}
-  m_Name: GunConstants
+  m_Name: GunConstants_Stinger
   m_EditorClassIdentifier: 
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
+  bulletPrefabTier1: {fileID: 5241542432670263003, guid: f2024bdb33a097f4ca6ac2e0cee1a40c, type: 3}
+  bulletPrefabTier2: {fileID: 6411648383677073412, guid: 50c2983edd6f14e108ca0fd605a297ff, type: 3}
+  bulletPrefabTier3: {fileID: 2542478685991887735, guid: 7b272b297d8ef4cd2bbee922306fea49, type: 3}
   damageTier1: 3
   damageTier2: 5
   damageTier3: 9
   firingRateTier1: 5
   firingRateTier2: 4
   firingRateTier3: 2
-  maxAmmo: 12
   ammoCostTier1: 1
   ammoCostTier2: 1
   ammoCostTier3: 2
-  reloadTime: 1.5

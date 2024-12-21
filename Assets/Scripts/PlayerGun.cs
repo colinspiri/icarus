@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Resources;
 using ScriptableObjectArchitecture;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class PlayerGun : MonoBehaviour {
     [Header("References")] 
@@ -13,17 +8,17 @@ public class PlayerGun : MonoBehaviour {
     [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private FloatVariable heat;
     [SerializeField] private HeatConstants heatConstants;
-    [SerializeField] private GunConstants gunConstants;
+    [SerializeField] private EquippedGun equippedGun;
+    private GunConstants CurrentGun => equippedGun.CurrentGun;
 
+    [Header("Constants")] 
+    [SerializeField] private IntReference maxAmmo; // 12
+    [SerializeField] private FloatReference reloadTime; // 1.5
+    
     [Header("Variables")] 
     [SerializeField] private IntVariable currentAmmo;
     [SerializeField] private FloatVariable reloadProgress;
 
-    [Header("Bullet Prefabs")] 
-    [SerializeField] private GameObject bulletPrefabLowHeat;
-    [SerializeField] private GameObject bulletPrefabMediumHeat;
-    [SerializeField] private GameObject bulletPrefabHighHeat;
-    
     [Header("Audio")]
     [SerializeField] private AudioClip fireSound;
     [SerializeField] private AudioClip reloadSound;
@@ -33,7 +28,7 @@ public class PlayerGun : MonoBehaviour {
     private float _fireCooldownProgress;
 
     private void Start() {
-        currentAmmo.Value = gunConstants.maxAmmo;
+        currentAmmo.Value = maxAmmo.Value;
         reloadProgress.Value = 0;
     }
 
@@ -51,13 +46,13 @@ public class PlayerGun : MonoBehaviour {
         LookAtPoint(lookPosition);
 
         // fire bullets
-        float fireCooldown = 1.0f / gunConstants.CurrentFiringRate;
+        float fireCooldown = 1.0f / equippedGun.CurrentGun.CurrentFiringRate;
         if (InputManager.Instance.fireHeld && currentAmmo.Value > 0 && _fireCooldownProgress >= fireCooldown) {
             FireBullet();
 
             _fireCooldownProgress = 0;
 
-            currentAmmo.Value -= gunConstants.CurrentAmmoCost;
+            currentAmmo.Value -= CurrentGun.CurrentAmmoCost;
             if (currentAmmo.Value < 0) currentAmmo.Value = 0;
             
             heat.Value -= heatConstants.CurrentHeatCostPerShot;
@@ -74,9 +69,9 @@ public class PlayerGun : MonoBehaviour {
             reloadProgress.Value += Time.deltaTime;
             
             // finish reload
-            if (reloadProgress >= gunConstants.reloadTime) {
+            if (reloadProgress >= reloadTime.Value) {
                 _reloading = false;
-                currentAmmo.Value = gunConstants.maxAmmo;
+                currentAmmo.Value = maxAmmo.Value;
             }
         }
         // check to start reload 
@@ -86,14 +81,14 @@ public class PlayerGun : MonoBehaviour {
     }
 
     private void UpdateFireCooldown() {
-        float fireCooldownTimeTier3 = 1.0f / gunConstants.firingRateTier3;
+        float fireCooldownTimeTier3 = 1.0f / CurrentGun.firingRateTier3;
         if (_fireCooldownProgress < fireCooldownTimeTier3) {
             _fireCooldownProgress += Time.deltaTime;
         }
     }
     
     private void StartReload() {
-        float missingPercent = (float)(gunConstants.maxAmmo - currentAmmo.Value) / gunConstants.maxAmmo;
+        float missingPercent = (float)(maxAmmo.Value - currentAmmo.Value) / maxAmmo.Value;
         float heatCost = Mathf.Lerp(heatConstants.heatCostPerReloadClipFull, heatConstants.heatCostPerReloadClipEmpty,
             missingPercent);
         heat.Value -= heatCost;
@@ -126,12 +121,7 @@ public class PlayerGun : MonoBehaviour {
     }
 
     private void FireBullet() {
-        GameObject bulletPrefab = heatConstants.CurrentHeatValue switch {
-            HeatValue.Low => bulletPrefabLowHeat,
-            HeatValue.Medium => bulletPrefabMediumHeat,
-            HeatValue.High => bulletPrefabHighHeat,
-            _ => bulletPrefabLowHeat
-        };
+        GameObject bulletPrefab = CurrentGun.CurrentBulletPrefab;
         
         Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
         bullet.originObject = bulletOriginObject;

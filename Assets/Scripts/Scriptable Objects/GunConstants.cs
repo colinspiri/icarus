@@ -1,12 +1,20 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using ScriptableObjectArchitecture;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GunConstants", menuName = "Scriptable Objects/Gun Constants")]
 public class GunConstants : ScriptableObject {
     public HeatConstants heatConstants;
+
+    [Header("Bullet Prefabs")] 
+    public GameObject bulletPrefabTier1;
+    public GameObject bulletPrefabTier2;
+    public GameObject bulletPrefabTier3;
+    public GameObject CurrentBulletPrefab => heatConstants.CurrentHeatValue switch {
+        HeatValue.Low => bulletPrefabTier1,
+        HeatValue.Medium => bulletPrefabTier2,
+        HeatValue.High => bulletPrefabTier3,
+        _ => throw new ArgumentOutOfRangeException()
+    };
 
     [Header("Damage (WARNING: ACTUAL DAMAGE VALUES ARE IN THE BULLET PREFABS!)")]
     public float damageTier1;
@@ -32,8 +40,6 @@ public class GunConstants : ScriptableObject {
     };
 
     [Header("Ammo")]
-    public int maxAmmo;
-    [Space]
     public int ammoCostTier1;
     public int ammoCostTier2;
     public int ammoCostTier3;
@@ -43,6 +49,4 @@ public class GunConstants : ScriptableObject {
         HeatValue.High => ammoCostTier3,
         _ => throw new ArgumentOutOfRangeException()
     };
-    [Space] 
-    public float reloadTime;
 }
