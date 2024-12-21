@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 317c2359414241a4b3a994bbc972755f, type: 3}
-  m_Name: GunConstants_Stinger
+  m_Name: GunConstants_Prototype
   m_EditorClassIdentifier: 
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
   bulletPrefabTier1: {fileID: 5241542432670263003, guid: f2024bdb33a097f4ca6ac2e0cee1a40c, type: 3}

@@ -46,7 +46,7 @@ public class PlayerGun : MonoBehaviour {
         LookAtPoint(lookPosition);
 
         // fire bullets
-        float fireCooldown = 1.0f / equippedGun.CurrentGun.CurrentFiringRate;
+        float fireCooldown = 1.0f / CurrentGun.CurrentFiringRate;
         if (InputManager.Instance.fireHeld && currentAmmo.Value > 0 && _fireCooldownProgress >= fireCooldown) {
             FireBullet();
 
@@ -81,8 +81,10 @@ public class PlayerGun : MonoBehaviour {
     }
 
     private void UpdateFireCooldown() {
-        float fireCooldownTimeTier3 = 1.0f / CurrentGun.firingRateTier3;
-        if (_fireCooldownProgress < fireCooldownTimeTier3) {
+        float minFiringRate = Mathf.Min(CurrentGun.firingRateTier1, CurrentGun.firingRateTier2,
+            CurrentGun.firingRateTier3);
+        float maxFireCooldown = 1.0f / minFiringRate;
+        if (_fireCooldownProgress < maxFireCooldown) {
             _fireCooldownProgress += Time.deltaTime;
         }
     }
@@ -124,7 +126,9 @@ public class PlayerGun : MonoBehaviour {
         GameObject bulletPrefab = CurrentGun.CurrentBulletPrefab;
         
         Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
-        bullet.originObject = bulletOriginObject;
+        if (bullet != null) {
+            bullet.originObject = bulletOriginObject;
+        }
         
         AudioManager.Instance.Play(fireSound, .5f);  
     }
