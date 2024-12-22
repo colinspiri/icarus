@@ -110,12 +110,67 @@ MonoBehaviour:
   randomBulletSpeed:
     min: 0
     max: 0
-  bulletSpeedMultiplier: 3
   damage: 1
-  reflectedDamage: 9
+  useValueFromGunConstants: 0
+  gunConstants: {fileID: 0}
+  tier: 0
   bulletPierceMax: 0
   entityPierceMax: 0
+  lifeTime: 30
+  lifeTimeDistance: -1
+  reduceSizeOverLifeTime: 0
+  sizeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.065632455
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -3.3994315
+      outSlope: -3.3994315
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.02983296
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reduceSpeedOverLifeTime: 0
+  speedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.15938869
+      outSlope: -0.15938869
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07398568
+    - serializedVersion: 3
+      time: 1
+      value: 0.3
+      inSlope: -2.6220448
+      outSlope: -2.6220448
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.035799503
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   reflectedColor: {r: 0.49411765, g: 0.99215686, b: 1, a: 1}
+  reflectedSpeedMultiplier: 3
+  reflectedDamage: 9
   reflected: 0
   collideSFX: {fileID: 8300000, guid: da583c4379b6e2b489f5bdd1aeb824cb, type: 3}
   enemyDamage: {fileID: 8300000, guid: 4c284bd7675b3834c8d2d37219ffc7c8, type: 3}

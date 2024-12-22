@@ -28,13 +28,21 @@ public class Bullet : MonoBehaviour {
     [SerializeField] private bool useValueFromGunConstants;
     [SerializeField] private GunConstants gunConstants;
     [SerializeField] private HeatValue tier;
-    private float Damage => (useValueFromGunConstants ? gunConstants.DamageFromTier(tier) : damage);
+    private float Damage => useValueFromGunConstants ? gunConstants.DamageFromTier(tier) : damage;
 
     [Header("Piercing")]
     [Tooltip("Number of bullets to pierce through. -1 for infinite.")]
     [SerializeField] private int bulletPierceMax;
     [Tooltip("Number of entities to pierce through. -1 for infinite.")] 
     [SerializeField] private int entityPierceMax;
+    
+    [Header("Life Time")]
+    [SerializeField] private float lifeTime = 30f;
+    [SerializeField] private float lifeTimeDistance = -1;
+    [SerializeField] private bool reduceSizeOverLifeTime;
+    [SerializeField] private AnimationCurve sizeCurve;
+    [SerializeField] private bool reduceSpeedOverLifeTime;
+    [SerializeField] private AnimationCurve speedCurve;
     
     [Header("When Reflected")]
     [SerializeField] private Color reflectedColor;
@@ -49,30 +57,60 @@ public class Bullet : MonoBehaviour {
     [SerializeField] private AudioClip enemyDamage;
 
     // private state
-    private const float LIFE_TIME = 60f;
-    private float _lifeTimer;
     private int _bulletPierceCount;
     private int _entityPierceCount;
+    private float _elapsedTime;
+    private float _lifeTimePercent;
+    private Vector3 _originalScale;
     private List<GameObject> _ignoreCollisionsWithObjects = new List<GameObject>();
 
     private void Start() {
-        _lifeTimer = 0;
+        _elapsedTime = 0;
+        _originalScale = transform.localScale;
         reflected = false;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(_lifeTimer > LIFE_TIME) Destroy(gameObject);
+    void Update() {
+        UpdateLifeTime();
         
-        _lifeTimer += Time.deltaTime;
         Move();
     }
 
+    private void UpdateLifeTime() {
+        var elapsedDistance = _elapsedTime * GetCurrentSpeed();
+        if (_elapsedTime > lifeTime || (lifeTimeDistance != -1 && elapsedDistance > lifeTimeDistance)) {
+            Destroy(gameObject);
+            return;
+        }
+        _elapsedTime += Time.deltaTime;
+        
+        var timeT = _elapsedTime / lifeTime;
+        var distanceT = elapsedDistance / lifeTimeDistance;
+        _lifeTimePercent = lifeTimeDistance == -1 ? timeT : Mathf.Max(timeT, distanceT);
+
+        if (reduceSizeOverLifeTime) {
+            var scaleFactor = sizeCurve.Evaluate(_lifeTimePercent);
+            transform.localScale = scaleFactor * _originalScale;
+        }
+    }
+
     private void Move() {
-        var bulletSpeed = useRandomBulletSpeed ? randomBulletSpeed.RandomValue : staticBulletSpeed;
-        if (reflected) bulletSpeed *= reflectedSpeedMultiplier;
-        transform.Translate(transform.right * (Time.deltaTime * bulletSpeed), Space.World);
+        transform.Translate(transform.right * (Time.deltaTime * GetCurrentSpeed()), Space.World);
+    }
+
+    private float GetCurrentSpeed() {
+        var speed = useRandomBulletSpeed ? randomBulletSpeed.RandomValue : staticBulletSpeed;
+        if (reflected) {
+            speed *= reflectedSpeedMultiplier;
+        }
+
+        if (reduceSpeedOverLifeTime) {
+            var factor = speedCurve.Evaluate(_lifeTimePercent);
+            speed *= factor;
+        }
+
+        return speed;
     }
 
     private void HitBullet() {

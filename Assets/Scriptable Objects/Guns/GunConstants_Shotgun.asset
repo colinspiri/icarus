@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317c2359414241a4b3a994bbc972755f, type: 3}
+  m_Name: GunConstants_Shotgun
+  m_EditorClassIdentifier: 
+  heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
+  bulletPrefabTier1: {fileID: 53253934313598715, guid: 6a2295aa0f5cc2b4d8436b5e57b9c129, type: 3}
+  bulletPrefabTier2: {fileID: 53253934313598715, guid: 5710a9493150ff640bc839e4723d3f07, type: 3}
+  bulletPrefabTier3: {fileID: 53253934313598715, guid: de5b18d38a4a5ad42898e0f9bdbbb88e, type: 3}
+  damageTier1: 4
+  damageTier2: 5
+  damageTier3: 7
+  firingRateTier1: 1.5
+  firingRateTier2: 1.5
+  firingRateTier3: 1.5
+  ammoCostTier1: 2
+  ammoCostTier2: 2
+  ammoCostTier3: 4

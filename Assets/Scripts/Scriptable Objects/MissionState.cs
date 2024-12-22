@@ -27,10 +27,11 @@ public class MissionState : ScriptableObject {
             sceneLoader.LoadMainMenu();
         }
     }
-    public void CompleteCurrentScene() {
+    private void CompleteCurrentScene() {
         currentMission.NextScene();
     }
     public void LoadNextScene() {
+        if (currentMission == null) return;
         CompleteCurrentScene();
         LoadCurrentScene();
     }
