@@ -142,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 1640487094205917266, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
       propertyPath: waveSet
       value: 
-      objectReference: {fileID: 11400000, guid: 44c3bb52018424ae9af199ec22d5fe0a, type: 2}
+      objectReference: {fileID: 11400000, guid: 25fa7e321cf25f34b972004eb04c05f1, type: 2}
     - target: {fileID: 2011543095127935082, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
       propertyPath: maxHealth
       value: 300

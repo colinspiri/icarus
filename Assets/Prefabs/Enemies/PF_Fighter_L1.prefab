@@ -153,8 +153,8 @@ MonoBehaviour:
   originMoveSpeed: 4
   randomMoveSpeed:
     min: 1
-    max: 5
-  randomMoveArea: {x: 5, y: 3}
+    max: 6
+  randomMoveArea: {x: 6, y: 4}
   onscreenSize: {x: 8.5, y: 4.5}
 --- !u!114 &6892380959915447362
 MonoBehaviour:
@@ -249,7 +249,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 5963445818247055783}
   bulletOriginObject: {fileID: 1525726167093952100}
   shootingMode: 0
-  firingRate: 1
+  firingRate: 1.1
   randomCooldownVariance: 0.3
   rotationSpeed: 40
   bulletPrefab: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}

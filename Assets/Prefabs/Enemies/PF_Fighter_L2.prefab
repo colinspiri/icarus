@@ -409,7 +409,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1240871598941218713}
   bulletOriginObject: {fileID: 1199248016663217928}
   shootingMode: 0
-  firingRate: 1.25
+  firingRate: 1
   randomCooldownVariance: 0.3
   rotationSpeed: 40
   bulletPrefab: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
