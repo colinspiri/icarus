@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1296414503447608500, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
       propertyPath: staticBulletSpeed
-      value: 5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1296414503447608500, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
       propertyPath: useRandomBulletSpeed
