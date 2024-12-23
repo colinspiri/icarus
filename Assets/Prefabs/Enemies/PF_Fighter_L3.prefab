@@ -101,7 +101,7 @@ MonoBehaviour:
   - {fileID: 1699297376845639286}
   - {fileID: 5692020450096533567}
   enemyHealth: {fileID: 9020037959223640044}
-  gunConstants: {fileID: 11400000, guid: 5bc19424000f2a74c8706fbde9149b9a, type: 2}
+  equippedGun: {fileID: 11400000, guid: 0beef16471c9ae14dbcd8a1c50f11078, type: 2}
   damagedColor: {r: 1, g: 0.29803923, b: 0.48235294, a: 1}
   damagedTime: 0.1
   lowHealthColor: {r: 1, g: 0.009995077, b: 0, a: 1}
