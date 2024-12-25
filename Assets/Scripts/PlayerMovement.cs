@@ -234,6 +234,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void ReflectBullets()
     {
+        // reflect nearby bullets
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, bulletReflectRadius);
         foreach (var collider in colliders)
         {

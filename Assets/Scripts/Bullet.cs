@@ -152,7 +152,7 @@ public class Bullet : MonoBehaviour {
                 // ignore future collisions with player even after dash is over
                 _ignoreCollisionsWithObjects.Add(col.gameObject); 
             }
-            else Destroy(gameObject);
+            else Reflect();
         }
         else if (col.CompareTag("Enemy") && (fromPlayer || reflected)) {
             AudioManager.Instance.Play(enemyDamage, 1.0f);
