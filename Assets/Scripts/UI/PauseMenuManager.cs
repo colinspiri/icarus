@@ -48,6 +48,8 @@ public class PauseMenuManager : MonoBehaviour {
 
         _gamePausedBeforePause = GameManager.Instance.GamePaused;
         GameManager.Instance.Pause();
+
+        CustomCursor.Instance.SetMenuCursor();
     }
 
     public void ClosePauseMenu()
@@ -66,5 +68,7 @@ public class PauseMenuManager : MonoBehaviour {
         else {
             GameManager.Instance.Resume();
         }
+
+        CustomCursor.Instance.SetGameCursor();
     }
 }
