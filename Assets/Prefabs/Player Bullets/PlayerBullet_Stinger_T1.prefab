@@ -77,6 +77,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5bc19424000f2a74c8706fbde9149b9a, type: 2}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
+      propertyPath: bulletPierceMax
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: staticBulletSpeed
       value: 20
       objectReference: {fileID: 0}

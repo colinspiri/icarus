@@ -57,4 +57,16 @@ public class GunConstants : ScriptableObject {
         HeatValue.High => ammoCostTier3,
         _ => throw new ArgumentOutOfRangeException()
     };
+    
+    [Header("Spread")]
+    [Tooltip("Diameter of the spread range, an angle in degrees")]
+    public float spreadTier1;
+    public float spreadTier2;
+    public float spreadTier3;
+    public float CurrentSpread => heatConstants.CurrentHeatValue switch {
+        HeatValue.Low => spreadTier1,
+        HeatValue.Medium => spreadTier2,
+        HeatValue.High => spreadTier3,
+        _ => throw new ArgumentOutOfRangeException()
+    };
 }

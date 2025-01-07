@@ -12,8 +12,8 @@ public class PlayerGun : MonoBehaviour {
     private GunConstants CurrentGun => equippedGun.CurrentGun;
 
     [Header("Constants")] 
-    [SerializeField] private IntReference maxAmmo; // 12
-    [SerializeField] private FloatReference reloadTime; // 1.5
+    [SerializeField] private IntReference maxAmmo; 
+    [SerializeField] private FloatReference reloadTime; 
     
     [Header("Variables")] 
     [SerializeField] private IntVariable currentAmmo;
@@ -128,6 +128,12 @@ public class PlayerGun : MonoBehaviour {
         Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
         if (bullet != null) {
             bullet.originObject = bulletOriginObject;
+        }
+        
+        // add spread
+        if (CurrentGun.CurrentSpread > 0) {
+            float randomRotation = Random.Range(-0.5f * CurrentGun.CurrentSpread, 0.5f * CurrentGun.CurrentSpread);
+            bullet.transform.Rotate(0, 0, randomRotation);
         }
         
         AudioManager.Instance.Play(fireSound, .5f);  

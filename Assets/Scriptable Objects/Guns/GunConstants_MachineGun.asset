@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: GunConstants_MachineGun
   m_EditorClassIdentifier: 
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
-  bulletPrefabTier1: {fileID: 5241542432670263003, guid: 326d1185f48cb1a4da1d136b40c803fb, type: 3}
-  bulletPrefabTier2: {fileID: 5241542432670263003, guid: 326d1185f48cb1a4da1d136b40c803fb, type: 3}
-  bulletPrefabTier3: {fileID: 5241542432670263003, guid: 326d1185f48cb1a4da1d136b40c803fb, type: 3}
+  bulletPrefabTier1: {fileID: 5241542432670263003, guid: e7b2666a3135d4bc287d24d8daa84fe6, type: 3}
+  bulletPrefabTier2: {fileID: 794117786579602374, guid: a98606cea95fb4b64a232e0bf1522666, type: 3}
+  bulletPrefabTier3: {fileID: 5054047223545383523, guid: ebd8aaab32f1643a49a8cc24a33b847b, type: 3}
   damageTier1: 2
   damageTier2: 2
   damageTier3: 2.5
-  firingRateTier1: 3.5
-  firingRateTier2: 5
+  firingRateTier1: 4
+  firingRateTier2: 6
   firingRateTier3: 7
   ammoCostTier1: 1
   ammoCostTier2: 1
   ammoCostTier3: 1
+  spreadTier1: 10
+  spreadTier2: 15
+  spreadTier3: 20
