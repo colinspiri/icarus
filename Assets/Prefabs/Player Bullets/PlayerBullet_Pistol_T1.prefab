@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5171989861562838039, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: m_Name
-      value: PlayerBullet_Stinger_T1
+      value: PlayerBullet_Pistol_T1
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: fromPlayer
@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: staticBulletSpeed
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: useValueFromGunConstants

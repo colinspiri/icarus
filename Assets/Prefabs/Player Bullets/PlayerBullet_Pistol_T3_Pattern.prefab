@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8644925437779208846}
   m_Layer: 0
-  m_Name: PlayerBullet_Stinger_T3_Pattern
+  m_Name: PlayerBullet_Pistol_T3_Pattern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

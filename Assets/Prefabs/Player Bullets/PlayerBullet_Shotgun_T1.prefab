@@ -78,11 +78,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 0d022cef5f86ef14f82c8323c54e362c, type: 2}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: bulletPierceMax
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: lifeTimeDistance
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: staticBulletSpeed
@@ -90,15 +90,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: useRandomBulletSpeed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: randomBulletSpeed.max
-      value: 21.5
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: randomBulletSpeed.min
-      value: 18.5
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: reduceSizeOverLifeTime
@@ -146,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: speedCurve.m_Curve.Array.data[1].inSlope
-      value: 0.028506543
+      value: -0.37996307
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: sizeCurve.m_Curve.Array.data[0].outWeight
@@ -158,11 +158,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: speedCurve.m_Curve.Array.data[1].inWeight
-      value: 0.06205249
+      value: 0.06443912
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: speedCurve.m_Curve.Array.data[1].outSlope
-      value: 0.028506543
+      value: -0.37996307
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: speedCurve.m_Curve.Array.data[0].outWeight

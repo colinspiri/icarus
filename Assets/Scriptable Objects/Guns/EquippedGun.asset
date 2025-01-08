@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55b48acdb5245ffbb2a442f6421f70e, type: 3}
   m_Name: EquippedGun
   m_EditorClassIdentifier: 
-  currentGun: {fileID: 11400000, guid: 0c3eeff22af2041b09f675b6f0b1a4d4, type: 2}
+  currentGun: {fileID: 11400000, guid: 0d022cef5f86ef14f82c8323c54e362c, type: 2}
