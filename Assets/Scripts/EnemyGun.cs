@@ -19,6 +19,7 @@ public class EnemyGun : MonoBehaviour
     [SerializeField] private float randomCooldownVariance = 0.3f;
     [Tooltip("Speed at which it rotates to face the player")]
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float maxAngleToFacePlayer = 15f;
 
     [Header("Single Bullet")]
     [SerializeField] private GameObject bulletPrefab;
@@ -32,8 +33,8 @@ public class EnemyGun : MonoBehaviour
     [SerializeField] private AudioClip enemyShoot;
 
     // state
-    private float _currentFiringCooldown;
-    private bool _canFire;
+    protected float _currentFiringCooldown;
+    protected bool _canFire;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,7 @@ public class EnemyGun : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         LookAtPoint(PlayerMovement.Instance.transform.position);
 
@@ -59,13 +60,13 @@ public class EnemyGun : MonoBehaviour
         else _currentFiringCooldown -= Time.deltaTime;
     }
 
-    private void StartFiringCooldown() {
+    protected void StartFiringCooldown() {
         float firingCooldown = 1.0f / firingRate;
         float variance = Random.Range(-randomCooldownVariance*0.5f, 0.5f*randomCooldownVariance);
         _currentFiringCooldown = firingCooldown + variance;
     }
 
-    private void LookAtPoint(Vector3 point)
+    protected void LookAtPoint(Vector3 point)
     {
         if (Time.timeScale > 0)
         {
@@ -76,7 +77,7 @@ public class EnemyGun : MonoBehaviour
         }
     }
 
-    private void Fire()
+    protected void Fire()
     {
         if (shootingMode == ShootingMode.SingleBullet)
         {
@@ -102,5 +103,12 @@ public class EnemyGun : MonoBehaviour
             relativeToEnemyRotation ? bulletSpawnPoint.rotation : Quaternion.identity);
 
         AudioManager.Instance.Play(enemyShoot, 0.1f);
+    }
+
+    protected bool IsFacingPlayer()
+    {
+        Vector3 direction = PlayerMovement.Instance.transform.position - transform.position;
+        float angle = Vector3.Angle(transform.right, direction);
+        return angle < maxAngleToFacePlayer;
     }
 }

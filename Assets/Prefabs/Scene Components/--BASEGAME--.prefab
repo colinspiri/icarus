@@ -110,6 +110,7 @@ MonoBehaviour:
   reticleTexture: {fileID: 2800000, guid: ad39a7bfe969d7a4da0fb32789a723b4, type: 3}
   cursorTexture: {fileID: 2800000, guid: 60969723ac0bb2b4ebce78487fa7ebdc, type: 3}
   cursorHotspot: {x: 16, y: 16}
+  sceneLoader: {fileID: 0}
 --- !u!1 &2615786233821664897
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +404,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionState: {fileID: 11400000, guid: acd815a19d3acaf4883fa1a86ebb8b11, type: 2}
-  sceneLoader: {fileID: 11400000, guid: c5da5d15dbf8e44329166ec6e64a3d0c, type: 2}
 --- !u!1 &5845054358657955379
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +755,7 @@ MonoBehaviour:
   eliteEnemyPrefab: {fileID: 7386768616324706235, guid: 140b162ba0faeda4d978afcff2f6b220, type: 3}
   laserEnemyPrefab: {fileID: 2695203614991524818, guid: 931bab9fea37e3746936e95d77f88977, type: 3}
   shotgunEnemyPrefab: {fileID: 8441244998883790453, guid: bc7c2602db103b8478804822378652c6, type: 3}
+  machineGunEnemyPrefab: {fileID: 8873716114894386867, guid: df9fde000c377174b9aad8382ecf4d34, type: 3}
   anchorPoints:
   - {fileID: 1491648838608015218}
   - {fileID: 2177019574203670009}

@@ -31,5 +31,6 @@ public enum EnemyType
     HomingMissile,
     EliteEnemy,
     LaserEnemy,
-    ShotgunEnemy
+    ShotgunEnemy,
+    MachineGunEnemy
 }

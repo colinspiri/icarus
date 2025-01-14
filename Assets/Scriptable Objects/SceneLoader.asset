@@ -33,3 +33,6 @@ MonoBehaviour:
   eliteEnemyScene:
     sceneAsset: {fileID: 102900000, guid: 1ca139dfe13d910459e7f95514b81299, type: 3}
     scenePath: Assets/Scenes/Test Scenes/EliteEnemy WaveSet.unity
+  machineGunEnemyScene:
+    sceneAsset: {fileID: 102900000, guid: 106d307088f6fee42827143a494059b8, type: 3}
+    scenePath: Assets/Scenes/Test Scenes/MachineGunEnemy WaveSet.unity
