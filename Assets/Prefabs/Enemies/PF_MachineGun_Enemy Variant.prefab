@@ -127,7 +127,7 @@ MonoBehaviour:
   shootingMode: 0
   firingRate: 0.6
   randomCooldownVariance: 0.5
-  rotationSpeed: 40
+  rotationSpeed: 60
   maxAngleToFacePlayer: 15
   bulletPrefab: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
   patternPrefab: {fileID: 0}
