@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyGun : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private Transform bulletSpawnPoint;
-    [SerializeField] private GameObject bulletOriginObject;
+    [SerializeField] protected Transform bulletSpawnPoint;
+    [SerializeField] protected GameObject bulletOriginObject;
 
     [Header("Shooting Mode")]
     [SerializeField] private ShootingMode shootingMode;
@@ -22,7 +22,7 @@ public class EnemyGun : MonoBehaviour
     [SerializeField] private float maxAngleToFacePlayer = 15f;
 
     [Header("Single Bullet")]
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] protected GameObject bulletPrefab;
 
     [Header("Pattern")]
     [SerializeField] private GameObject patternPrefab;
@@ -30,7 +30,7 @@ public class EnemyGun : MonoBehaviour
     [SerializeField] private bool relativeToEnemyRotation;
 
     [Header("Audio")]
-    [SerializeField] private AudioClip enemyShoot;
+    [SerializeField] protected AudioClip enemyShoot;
 
     // state
     protected float _currentFiringCooldown;

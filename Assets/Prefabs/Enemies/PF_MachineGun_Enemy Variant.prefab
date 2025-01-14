@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5679227482235792981, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6711502183425177634, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -124,12 +128,15 @@ MonoBehaviour:
   firingRate: 0.6
   randomCooldownVariance: 0.5
   rotationSpeed: 40
+  maxAngleToFacePlayer: 15
   bulletPrefab: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
   patternPrefab: {fileID: 0}
   relativeToEnemyRotation: 1
   enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
   burstFiringDelay: 0.1
-  burstBulletQuantity: 8
+  burstBulletQuantity: 10
+  burstMode: 1
+  arcAngle: 60
 --- !u!4 &4333327927920973897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8600596406338030873, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
