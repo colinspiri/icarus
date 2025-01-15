@@ -14,50 +14,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemies:
-    - enemyType: 5
+    - enemyType: 6
       count: 1
   - enemies:
-    - enemyType: 5
+    - enemyType: 3
       count: 1
-    - enemyType: 0
+    - enemyType: 2
+      count: 3
+  - enemies:
+    - enemyType: 8
+      count: 1
+    - enemyType: 6
       count: 1
   - enemies:
-    - enemyType: 5
+    - enemyType: 8
       count: 2
-    - enemyType: 0
+    - enemyType: 7
+      count: 1
+    - enemyType: 9
       count: 1
   - enemies:
     - enemyType: 5
+      count: 4
+    - enemyType: 9
       count: 2
-    - enemyType: 0
+    - enemyType: 6
       count: 1
+  - enemies:
+    - enemyType: 9
+      count: 2
+    - enemyType: 8
+      count: 2
+  - enemies:
+    - enemyType: 1
+      count: 3
+    - enemyType: 9
+      count: 2
     - enemyType: 4
       count: 1
   - enemies:
-    - enemyType: 5
-      count: 2
-    - enemyType: 0
-      count: 2
-    - enemyType: 0
-      count: 2
-  - enemies:
-    - enemyType: 5
-      count: 3
-    - enemyType: 0
-      count: 2
-    - enemyType: 4
-      count: 2
-  - enemies:
-    - enemyType: 5
-      count: 3
-    - enemyType: 0
-      count: 3
-    - enemyType: 4
-      count: 2
-  - enemies:
-    - enemyType: 5
-      count: 3
-    - enemyType: 0
-      count: 3
-    - enemyType: 4
-      count: 3
+    - enemyType: 6
+      count: 1
+    - enemyType: 8
+      count: 1
+    - enemyType: 7
+      count: 1
+    - enemyType: 9
+      count: 1
