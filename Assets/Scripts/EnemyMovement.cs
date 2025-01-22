@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour {
     [SerializeField] private float originMoveSpeed;
     [SerializeField] private MinMaxFloat randomMoveSpeed;
     [SerializeField] private Vector2 randomMoveArea;
-    [SerializeField] private Vector2 onscreenSize;
+    private Vector2 _screenBounds; // 8.5, 4.5
     
     // state 
     private enum MoveState { MoveToOrigin, MoveRandomly }
@@ -23,6 +23,8 @@ public class EnemyMovement : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        _screenBounds = Camera.main.ViewportToWorldPoint(new Vector3(1, 1));
+        
         _currentMoveState = MoveState.MoveToOrigin;
         _perlinSamplePoint = new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f));
     }
@@ -131,8 +133,8 @@ public class EnemyMovement : MonoBehaviour {
 
     private bool IsOffscreen() {
         var pos = transform.position;
-        bool offscreen = pos.x < -onscreenSize.x || pos.x > onscreenSize.x || pos.y < -onscreenSize.y ||
-                         pos.y > onscreenSize.y;
+        bool offscreen = pos.x < -_screenBounds.x || pos.x > _screenBounds.x || pos.y < -_screenBounds.y ||
+                         pos.y > _screenBounds.y;
         return offscreen;
     }
 
