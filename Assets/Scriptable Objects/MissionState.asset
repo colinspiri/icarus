@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MissionState
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 11400000, guid: c5da5d15dbf8e44329166ec6e64a3d0c, type: 2}
-  currentMission: {fileID: 11400000, guid: f5c9ec8e9499a4bb7b2ec97bb1400618, type: 2}
-  currentScene: {fileID: 11400000, guid: 8c25e49101c3a4f33a8cc354de66c42e, type: 2}
+  currentMission: {fileID: 0}
+  currentScene: {fileID: 0}

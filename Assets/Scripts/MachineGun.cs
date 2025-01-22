@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class MachineGun : EnemyGun
 {
+    [Header("Machine Gun")]
+    [SerializeField] private BurstMode burstMode = BurstMode.Straight;
     [SerializeField] private float burstFiringDelay;
     [SerializeField] private float burstBulletQuantity;
 
-    [Header("Burst Mode")]
-    [SerializeField] private BurstMode burstMode = BurstMode.Straight;
-
-    [Header("Arc")]
+    [Space]
     [SerializeField] private float arcAngle = 60f;
 
     private enum BurstMode
