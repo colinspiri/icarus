@@ -16093,8 +16093,8 @@ MonoBehaviour:
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
   dashSFX: {fileID: 8300000, guid: 04255a18fe4903043ba048e229f68072, type: 3}
   movementMode: 1
-  speedInnerRadius: {x: 5.75, y: 2.5}
-  speedOuterRadius: {x: 8, y: 4.5}
+  boundsPercent: 0.95
+  boundsBorderDepth: 2
   linearSpeed: 6.5
   linearSpeedScalesWithHeat: 0
   linearSpeedByHeat:

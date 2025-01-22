@@ -20,9 +20,11 @@ public class PlayerMovement : MonoBehaviour {
     // public constants
     [Header("Movement")]
     [SerializeField] private MovementMode movementMode;
-    private enum MovementMode { Linear, Acceleration }
-    [SerializeField] private Vector2 speedInnerRadius;
-    [SerializeField] private Vector2 speedOuterRadius;
+    private enum MovementMode { Linear, Acceleration } 
+    [SerializeField] [Range(0, 1)] private float boundsPercent;
+    [SerializeField] private float boundsBorderDepth;
+    private Vector2 _speedOuterRadius; // 8, 4.5
+    private Vector2 _speedInnerRadius; // 5.75, 2.5
     
     [Header("Linear Movement Mode")]
     [SerializeField] private float linearSpeed;
@@ -58,6 +60,11 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
+    }
+
+    private void Start() {
+        _speedOuterRadius = Camera.main.ViewportToWorldPoint(new Vector3(boundsPercent, boundsPercent));
+        _speedInnerRadius = new Vector2(_speedOuterRadius.x - boundsBorderDepth, _speedOuterRadius.y - boundsBorderDepth);
     }
 
     void Update() {
@@ -181,13 +188,13 @@ public class PlayerMovement : MonoBehaviour {
 
     // returns limited speed
     private Vector2 LimitSpeedNearBoundaries(Vector3 movementDirection, Vector2 speed) {
-        float distanceValueX = Mathf.InverseLerp(speedInnerRadius.x, speedOuterRadius.x, Mathf.Abs(transform.position.x));
+        float distanceValueX = Mathf.InverseLerp(_speedInnerRadius.x, _speedOuterRadius.x, Mathf.Abs(transform.position.x));
         float reducedSpeedX = Mathf.Lerp(speed.x, 0, distanceValueX);
         bool movingTowardsCenterX =
             (transform.position.x < 0 && movementDirection.x > 0) || (transform.position.x > 0 && movementDirection.x < 0);
         speed.x = movingTowardsCenterX ? speed.x : reducedSpeedX;
         
-        float distanceValueY = Mathf.InverseLerp(speedInnerRadius.y, speedOuterRadius.y, Mathf.Abs(transform.position.y));
+        float distanceValueY = Mathf.InverseLerp(_speedInnerRadius.y, _speedOuterRadius.y, Mathf.Abs(transform.position.y));
         float reducedSpeedY = Mathf.Lerp(speed.y, 0, distanceValueY);
         bool movingTowardsCenterY =
             (transform.position.y < 0 && movementDirection.y > 0) || (transform.position.y > 0 && movementDirection.y < 0);
