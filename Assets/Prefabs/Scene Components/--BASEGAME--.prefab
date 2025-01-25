@@ -527,7 +527,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -756,6 +756,7 @@ MonoBehaviour:
   laserEnemyPrefab: {fileID: 2695203614991524818, guid: 931bab9fea37e3746936e95d77f88977, type: 3}
   shotgunEnemyPrefab: {fileID: 8441244998883790453, guid: bc7c2602db103b8478804822378652c6, type: 3}
   machineGunEnemyPrefab: {fileID: 8873716114894386867, guid: df9fde000c377174b9aad8382ecf4d34, type: 3}
+  arcEnemyPrefab: {fileID: 8873716114894386867, guid: 7c68a6926471d46df914bc8009c04c37, type: 3}
   anchorPoints:
   - {fileID: 1491648838608015218}
   - {fileID: 2177019574203670009}

@@ -227,6 +227,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -7.26
       objectReference: {fileID: 0}
+    - target: {fileID: 7135828642358338864, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135828642358338864, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8243799441609601189, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
       propertyPath: orthographic size
       value: 8

@@ -133,9 +133,9 @@ MonoBehaviour:
   patternPrefab: {fileID: 0}
   relativeToEnemyRotation: 1
   enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
-  burstMode: 0
-  burstFiringDelay: 0.1
-  burstBulletQuantity: 10
+  burstMode: 1
+  burstFiringDelay: 0.05
+  burstBulletQuantity: 6
   arcAngle: 90
 --- !u!4 &4333327927920973897 stripped
 Transform:

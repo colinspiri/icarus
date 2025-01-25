@@ -32,5 +32,6 @@ public enum EnemyType
     EliteEnemy,
     LaserEnemy,
     ShotgunEnemy,
-    MachineGunEnemy
+    MachineGunEnemy,
+    ArcEnemy,
 }
