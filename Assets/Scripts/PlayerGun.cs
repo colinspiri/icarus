@@ -55,7 +55,8 @@ public class PlayerGun : MonoBehaviour {
             currentAmmo.Value -= CurrentGun.CurrentAmmoCost;
             if (currentAmmo.Value < 0) currentAmmo.Value = 0;
             
-            heat.Value -= heatConstants.CurrentHeatCostPerShot;
+            heatConstants.CalculateCurrentHeat(-heatConstants.CurrentHeatCostPerShot);
+            //heat.Value -= heatConstants.CurrentHeatCostPerShot;
         }
 
         if (InputManager.Instance.reloadPressed && !_reloading) {
@@ -93,7 +94,8 @@ public class PlayerGun : MonoBehaviour {
         float missingPercent = (float)(maxAmmo.Value - currentAmmo.Value) / maxAmmo.Value;
         float heatCost = Mathf.Lerp(heatConstants.heatCostPerReloadClipFull, heatConstants.heatCostPerReloadClipEmpty,
             missingPercent);
-        heat.Value -= heatCost;
+        heatConstants.CalculateCurrentHeat(-heatCost);
+        //heat.Value -= heatCost;
 
         currentAmmo.Value = 0;
         _reloading = true;

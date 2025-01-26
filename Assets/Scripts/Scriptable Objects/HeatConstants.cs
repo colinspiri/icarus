@@ -7,7 +7,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "HeatConstants", menuName = "Scriptable Objects/Heat Constants")]
 public class HeatConstants : ScriptableObject {
     public FloatReference currentHeat;
-    
+    public FloatReference currentHeatRelativeToTier;
+    public IntReference tier;
+
     [Header("Heat Thresholds")]
     public float mediumHeatThreshold; 
     public float highHeatThreshold; 
@@ -53,5 +55,40 @@ public class HeatConstants : ScriptableObject {
 
     [Space]
     public float heatGainPerDamage;
+
+    /// <summary>
+    /// Calculates the current heat value by adding the specified heat difference to the current heat value.
+    /// </summary>
+    /// <param name="heatDifference">The heat difference to add to the current heat value.</param>
+    public void CalculateCurrentHeat(float heatDifference)
+    {
+        currentHeat.Value += heatDifference;
+        CalculateHeatRelativeToTier();
+    }
+
+    public void SetCurrentHeat(float heat)
+    {
+        currentHeat.Value = heat;
+        CalculateHeatRelativeToTier();
+    }
+
+    private void CalculateHeatRelativeToTier()
+    {
+        currentHeatRelativeToTier.Value = CurrentHeatValue switch
+        {
+            HeatValue.Low => currentHeat.Value / mediumHeatThreshold,
+            HeatValue.Medium => (currentHeat.Value - mediumHeatThreshold) / (highHeatThreshold - mediumHeatThreshold),
+            HeatValue.High => (currentHeat.Value - highHeatThreshold) / (1 - highHeatThreshold),
+            _ => 0,
+        };
+
+        tier.Value = CurrentHeatValue switch
+        {
+            HeatValue.Low => 1,
+            HeatValue.Medium => 2,
+            HeatValue.High => 3,
+            _ => 1,
+        };
+    }
 }
 public enum HeatValue { Low, Medium, High }

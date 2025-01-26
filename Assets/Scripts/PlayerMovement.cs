@@ -93,7 +93,8 @@ public class PlayerMovement : MonoBehaviour {
         // dash
         if (Input.GetKeyDown(KeyCode.Space) && (!dashRequiresHeat || heat.Value >= heatConstants.heatCostPerDash)) {
             Dash();
-            heat.Value -= heatConstants.heatCostPerDash;
+            heatConstants.CalculateCurrentHeat(-heatConstants.heatCostPerDash);
+            //heat.Value -= heatConstants.heatCostPerDash;
         }
     }
 

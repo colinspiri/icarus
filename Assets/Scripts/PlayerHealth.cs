@@ -50,8 +50,9 @@ public class PlayerHealth : Health {
         CameraShake.Instance.Shake();
         AudioManager.Instance.Play(hitSound, 1.0f);
 
-        heat.Value -= heatConstants.heatCostOnPlayerDamaged;
-        if (heat.Value < 0) heat.Value = 0;
+        heatConstants.CalculateCurrentHeat(-heatConstants.heatCostOnPlayerDamaged);
+        //heat.Value -= heatConstants.heatCostOnPlayerDamaged;
+        if (heat.Value < 0) heatConstants.SetCurrentHeat(0); //heat.Value = 0;
         
         playerTookDamage.Raise();
     }

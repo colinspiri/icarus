@@ -160,7 +160,8 @@ public class Bullet : MonoBehaviour {
             var chosenDamage = reflected ? reflectedDamage : Damage;
             var health = col.GetComponent<Health>();
             health.TakeDamage(chosenDamage);
-            heat.Value += heatConstants.heatGainPerDamage * chosenDamage;
+            heatConstants.CalculateCurrentHeat(heatConstants.heatGainPerDamage * chosenDamage);
+            //heat.Value += heatConstants.heatGainPerDamage * chosenDamage;
             
             HitEntity();
             _ignoreCollisionsWithObjects.Add(col.gameObject);

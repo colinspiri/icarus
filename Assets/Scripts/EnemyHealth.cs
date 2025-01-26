@@ -33,7 +33,8 @@ public class EnemyHealth : Health {
     protected override void DeathEffect() {
         AudioManager.Instance.Play(enemyDie, .6f);
         Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
-        heat.Value += heatConstants.heatGainOnEnemyKill;
+        heatConstants.CalculateCurrentHeat(heatConstants.heatGainOnEnemyKill);
+        //heat.Value += heatConstants.heatGainOnEnemyKill;
         Destroy(gameObject);
     }
 }
