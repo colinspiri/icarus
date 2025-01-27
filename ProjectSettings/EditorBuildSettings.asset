@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test Scenes/MachineGunEnemy WaveSet.unity
     guid: 106d307088f6fee42827143a494059b8
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 3a1aa6f6ec61a48de919d23ef7ff267d
   m_configObjects: {}

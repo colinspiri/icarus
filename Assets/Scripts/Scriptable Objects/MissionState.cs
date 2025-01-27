@@ -11,6 +11,10 @@ public class MissionState : ScriptableObject {
     [SerializeField] private SceneType currentScene;
     public SceneType CurrentScene => currentScene;
     
+    public void SetCurrentMission(MissionData mission) {
+        currentMission = mission;
+    }
+    
     public void UnbindCurrentMission() {
         currentMission = null;
         currentScene = null;

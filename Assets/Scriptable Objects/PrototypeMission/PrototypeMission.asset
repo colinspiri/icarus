@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: PrototypeMission
   m_EditorClassIdentifier: 
   scenes:
+  - {fileID: 11400000, guid: 5f6ca47a7c9f64a96ad77198f34a0738, type: 2}
+  - {fileID: 11400000, guid: 8c25e49101c3a4f33a8cc354de66c42e, type: 2}
+  - {fileID: 11400000, guid: 5f6ca47a7c9f64a96ad77198f34a0738, type: 2}
   - {fileID: 11400000, guid: 6ac4e6769126a40a38954c8488898982, type: 2}
   - {fileID: 11400000, guid: afb0a030efc284d4f953e4bcd6a5ced2, type: 2}
   - {fileID: 11400000, guid: a4bf9afba2b7f45c3aa5ebe512eef36d, type: 2}
