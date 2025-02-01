@@ -15,5 +15,5 @@ MonoBehaviour:
   unityScene:
     sceneAsset: {fileID: 102900000, guid: 3a1aa6f6ec61a48de919d23ef7ff267d, type: 3}
     scenePath: Assets/Scenes/Shop.unity
-  dialogueBeforeShop: 
-  dialogueAfterShop: 
+  dialogueBeforeShop: PrototypeMission_Shop_Before
+  dialogueAfterShop: PrototypeMission_Shop_After

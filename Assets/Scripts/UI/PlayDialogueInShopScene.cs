@@ -9,18 +9,24 @@ public class PlayDialogueInShopScene : MonoBehaviour {
     [SerializeField] private DialogueRunner dialogueRunner;
     [SerializeField] private MissionState missionState;
     [Space] 
-    [SerializeField] private Button nextButton;
+    [SerializeField] private List<GameObject> disableDuringDialogue;
 
     private string _dialogueAfterShop;
+    private bool _continueButtonClicked;
         
     // Start is called before the first frame update
     void Start()
     {
         dialogueRunner.onDialogueStart.AddListener(() => {
-            nextButton.gameObject.SetActive(false);
+            foreach (var obj in disableDuringDialogue) {
+                obj.SetActive(false);
+            }
         });
         dialogueRunner.onDialogueComplete.AddListener(() => {
-            nextButton.gameObject.SetActive(true);
+            if (_continueButtonClicked) return; // don't re-enable things if next scene is loading
+            foreach (var obj in disableDuringDialogue) {
+                obj.SetActive(true);
+            }
         });
         
         if (missionState.CurrentScene != null && missionState.CurrentScene is ShopScene shopScene) {
@@ -32,7 +38,7 @@ public class PlayDialogueInShopScene : MonoBehaviour {
         }
     }
 
-    public void NextButton() {
+    public void ContinueButton() {
         if (_dialogueAfterShop == String.Empty) {
             missionState.LoadNextScene();
         }
@@ -40,5 +46,7 @@ public class PlayDialogueInShopScene : MonoBehaviour {
             dialogueRunner.StartDialogue(_dialogueAfterShop);
             dialogueRunner.onDialogueComplete.AddListener(missionState.LoadNextScene);
         }
+
+        _continueButtonClicked = true;
     }
 }

@@ -75,3 +75,25 @@ Chief Bellini: Good work, Silvia. Come to my office when you're back.
 <<exit Bellini>>
 <<exit Silvia>>
 ===
+
+title: PrototypeMission_Shop_Before
+tags:
+---
+<<enter Silvia left>>
+<<enter Le right>>
+Silvia: This is the shop.
+Dr. Le: Welcome, Silvia.
+<<exit Le>>
+<<exit Silvia>>
+===
+
+title: PrototypeMission_Shop_After
+tags:
+---
+<<enter Silvia left>>
+<<enter Le right>>
+Silvia: I'm leaving now.
+Dr. Le: Goodbye.
+<<exit Le>>
+<<exit Silvia>>
+===
