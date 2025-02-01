@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : ScriptableObject {
     public SceneReference mainMenuScene;
     public SceneReference gameScene;
+    public SceneReference shopScene;
 
     [Header("Wave Set Scenes")] 
     public SceneReference bomberScene;
@@ -28,6 +29,11 @@ public class SceneLoader : ScriptableObject {
     {
         ResetTime();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadShopScene() {
+        ResetTime();
+        SceneManager.LoadScene(shopScene.ScenePath);
     }
 
     public void LoadMainMenu() {

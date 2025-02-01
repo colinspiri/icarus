@@ -11,6 +11,7 @@ public class PlayDialogueInShopScene : MonoBehaviour {
     [Space] 
     [SerializeField] private List<GameObject> disableDuringDialogue;
 
+    private bool _genericShop;
     private string _dialogueAfterShop;
     private bool _continueButtonClicked;
         
@@ -28,18 +29,22 @@ public class PlayDialogueInShopScene : MonoBehaviour {
                 obj.SetActive(true);
             }
         });
-        
+
         if (missionState.CurrentScene != null && missionState.CurrentScene is ShopScene shopScene) {
             _dialogueAfterShop = shopScene.dialogueAfterShop;
-            
+
             if (shopScene.dialogueBeforeShop != String.Empty) {
                 dialogueRunner.StartDialogue(shopScene.dialogueBeforeShop);
             }
         }
+        else _genericShop = true;
     }
 
     public void ContinueButton() {
-        if (_dialogueAfterShop == String.Empty) {
+        if (_genericShop) {
+            missionState.LoadCurrentScene();
+        }
+        else if (_dialogueAfterShop == String.Empty) {
             missionState.LoadNextScene();
         }
         else {
