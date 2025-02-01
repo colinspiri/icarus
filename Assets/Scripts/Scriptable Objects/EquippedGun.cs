@@ -8,27 +8,16 @@ public class EquippedGun : ScriptableObject {
     public GunConstants CurrentGun => currentGun;
 
     public GunConstants defaultGun;
-    public SerializedDictionary<string, GunConstants> gunsByPlayerPrefKey;
 
     public void SetCurrentGun(GunConstants newGun) {
+        if (currentGun != null) {
+            currentGun.Unequip();
+        }
+        
         currentGun = newGun;
     }
 
-    public void SaveValue() {
-        foreach (var pair in gunsByPlayerPrefKey) {
-            if (pair.Value == currentGun) {
-                PlayerPrefs.SetString("EquippedGun", pair.Key);
-                return;
-            }
-        }
-    }
-    public void LoadValueFromPlayerPrefs() {
-        var savedGun = PlayerPrefs.GetString("EquippedGun", "");
-        if (savedGun != String.Empty) {
-            currentGun = gunsByPlayerPrefKey[savedGun];
-        }
-        else {
-            currentGun = defaultGun;
-        }
+    public void EquipDefaultGun() {
+        defaultGun.Equip();
     }
 }

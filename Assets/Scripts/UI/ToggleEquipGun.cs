@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ToggleEquipGun : MonoBehaviour {
-    [SerializeField] private EquippedGun equippedGun;
     [SerializeField] private GunConstants gunConstants;
     
     private Toggle _toggle;
@@ -15,7 +14,7 @@ public class ToggleEquipGun : MonoBehaviour {
     }
 
     private void OnEnable() {
-        equippedGun.LoadValueFromPlayerPrefs();
+        gunConstants.LoadEquippedValue();
         UpdateToggleValue();
     }
     
@@ -24,7 +23,7 @@ public class ToggleEquipGun : MonoBehaviour {
     }
 
     private void UpdateToggleValue() {
-        bool toggleEnabled = equippedGun.CurrentGun == gunConstants;
+        bool toggleEnabled = gunConstants.Equipped;
         if (_toggle.isOn != toggleEnabled) {
             _toggle.SetIsOnWithoutNotify(toggleEnabled);
         }
@@ -32,9 +31,7 @@ public class ToggleEquipGun : MonoBehaviour {
     
     public void SetValue(bool newValue) {
         if (newValue) {
-            equippedGun.SetCurrentGun(gunConstants);
+            gunConstants.Equip();
         }
-        
-        equippedGun.SaveValue();
     }
 }

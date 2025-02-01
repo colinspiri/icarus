@@ -22,7 +22,7 @@ public class ToggleBoolVariable : MonoBehaviour {
 
     private void GetVariableFromPlayerPrefs() {
         int defaultValueInt = defaultValue.Value ? 1 : 0;
-        defaultValue.Value = PlayerPrefs.GetInt(playerPrefString, defaultValueInt) switch {
+        boolVariable.Value = PlayerPrefs.GetInt(playerPrefString, defaultValueInt) switch {
             0 => false,
             _ => true
         };

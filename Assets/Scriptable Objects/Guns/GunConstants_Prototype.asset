@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GunConstants_Prototype
   m_EditorClassIdentifier: 
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
+  equippedGun: {fileID: 11400000, guid: 0beef16471c9ae14dbcd8a1c50f11078, type: 2}
   bulletPrefabTier1: {fileID: 5241542432670263003, guid: f2024bdb33a097f4ca6ac2e0cee1a40c, type: 3}
   bulletPrefabTier2: {fileID: 6411648383677073412, guid: 50c2983edd6f14e108ca0fd605a297ff, type: 3}
   bulletPrefabTier3: {fileID: 2542478685991887735, guid: 7b272b297d8ef4cd2bbee922306fea49, type: 3}
@@ -25,3 +26,8 @@ MonoBehaviour:
   ammoCostTier1: 1
   ammoCostTier2: 1
   ammoCostTier3: 2
+  spreadTier1: 0
+  spreadTier2: 0
+  spreadTier3: 0
+  startsUnlocked: 0
+  costToUnlock: 0

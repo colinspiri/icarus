@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GunConstants_Laser
   m_EditorClassIdentifier: 
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
+  equippedGun: {fileID: 11400000, guid: 0beef16471c9ae14dbcd8a1c50f11078, type: 2}
   bulletPrefabTier1: {fileID: 2542478685991887735, guid: 74ae02c0fd1d63343966b77dbbf09d12, type: 3}
   bulletPrefabTier2: {fileID: 7852949372131019317, guid: 40169f337db21904c9710913adacdc59, type: 3}
   bulletPrefabTier3: {fileID: 4928581030416937217, guid: 51d00924543406f4eb9d08a5d607f0bc, type: 3}
@@ -28,3 +29,5 @@ MonoBehaviour:
   spreadTier1: 0
   spreadTier2: 0
   spreadTier3: 0
+  startsUnlocked: 0
+  costToUnlock: 100

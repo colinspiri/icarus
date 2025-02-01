@@ -3,7 +3,10 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "GunConstants", menuName = "Scriptable Objects/Gun Constants")]
 public class GunConstants : ScriptableObject {
+    [Space]
+    [Header("References")]
     public HeatConstants heatConstants;
+    public EquippedGun equippedGun;
 
     [Header("Bullet Prefabs")] 
     public GameObject bulletPrefabTier1;
@@ -69,4 +72,34 @@ public class GunConstants : ScriptableObject {
         HeatValue.High => spreadTier3,
         _ => throw new ArgumentOutOfRangeException()
     };
+
+    [Header("Progression")] 
+    public bool startsUnlocked;
+    public int costToUnlock;
+    
+    public bool Unlocked { get; private set; }
+    
+    public bool Equipped { get; private set; }
+    private string EquippedSaveKey => name + "_Equipped";
+
+    public void Equip() {
+        Equipped = true;
+        equippedGun.SetCurrentGun(this);
+        SaveEquippedValue();
+    }
+    public void Unequip() {
+        Equipped = false;
+        SaveEquippedValue();
+    }
+
+    private void SaveEquippedValue() {
+        int intEquipped = Equipped ? 1 : 0;
+        PlayerPrefs.SetInt(EquippedSaveKey, intEquipped);
+    }
+    public void LoadEquippedValue() {
+        Equipped = PlayerPrefs.GetInt(EquippedSaveKey, 0) switch {
+            0 => false,
+            _ => true
+        };
+    }
 }
