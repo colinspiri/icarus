@@ -29,5 +29,5 @@ MonoBehaviour:
   spreadTier1: 0
   spreadTier2: 0
   spreadTier3: 0
-  startsUnlocked: 1
-  costToUnlock: 0
+  ownedOnStart: 1
+  cost: 0

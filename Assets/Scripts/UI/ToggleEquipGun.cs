@@ -5,16 +5,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ToggleEquipGun : MonoBehaviour {
-    [SerializeField] private GunConstants gunConstants;
-    
     private Toggle _toggle;
 
+    [SerializeField] private GunConstants gunConstants;
+    
     private void Awake() {
         _toggle = GetComponent<Toggle>();
     }
 
     private void OnEnable() {
-        gunConstants.LoadEquippedValue();
         UpdateToggleValue();
     }
     

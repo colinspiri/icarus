@@ -74,10 +74,20 @@ public class GunConstants : ScriptableObject {
     };
 
     [Header("Progression")] 
-    public bool startsUnlocked;
-    public int costToUnlock;
+    public bool ownedOnStart;
+    public int cost;
     
-    public bool Unlocked { get; private set; }
+    public bool Owned { get; private set; }
+    private string OwnedSaveKey => name + "_Owned";
+
+    public void MarkOwned() {
+        Owned = true;
+        SaveOwnedValue();
+    }
+    private void SaveOwnedValue() {
+        int intUnlocked = Owned ? 1 : 0;
+        PlayerPrefs.SetInt(OwnedSaveKey, intUnlocked);
+    }
     
     public bool Equipped { get; private set; }
     private string EquippedSaveKey => name + "_Equipped";
@@ -91,13 +101,18 @@ public class GunConstants : ScriptableObject {
         Equipped = false;
         SaveEquippedValue();
     }
-
     private void SaveEquippedValue() {
         int intEquipped = Equipped ? 1 : 0;
         PlayerPrefs.SetInt(EquippedSaveKey, intEquipped);
     }
-    public void LoadEquippedValue() {
+    public void LoadSaveState() {
         Equipped = PlayerPrefs.GetInt(EquippedSaveKey, 0) switch {
+            0 => false,
+            _ => true
+        };
+        
+        int intStartsOwned = ownedOnStart ? 1 : 0;
+        Owned = PlayerPrefs.GetInt(OwnedSaveKey, intStartsOwned) switch {
             0 => false,
             _ => true
         };
