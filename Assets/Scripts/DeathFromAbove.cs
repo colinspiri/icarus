@@ -11,7 +11,6 @@ public class DeathFromAbove : MonoBehaviour
     [Header("Components")]
     public GameObject originObject;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    public Transform player;
 
     [Header("Speed")]
     [SerializeField] private float speed = 5f;
@@ -41,7 +40,7 @@ public class DeathFromAbove : MonoBehaviour
     {
         if (isMoving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, PlayerMovement.Instance.transform.position, speed * Time.deltaTime);
         }
     }
 
