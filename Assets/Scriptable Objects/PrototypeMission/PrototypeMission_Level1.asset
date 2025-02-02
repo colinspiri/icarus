@@ -15,6 +15,7 @@ MonoBehaviour:
   unityScene:
     sceneAsset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
     scenePath: Assets/Scenes/Game.unity
+  moneyOnComplete: -1
   waveSet: {fileID: 11400000, guid: 44c3bb52018424ae9af199ec22d5fe0a, type: 2}
   dialogueBeforeWaves: PrototypeMission_Level1_Before
   delayOnDialogueBeforeWaves: 0.5

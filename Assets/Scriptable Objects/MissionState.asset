@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: MissionState
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 11400000, guid: c5da5d15dbf8e44329166ec6e64a3d0c, type: 2}
+  moneyConstants: {fileID: 11400000, guid: f162f29906d4948c28da906776dda7ee, type: 2}
+  currentMoney: {fileID: 11400000, guid: 3d3fcf90972df4b299411a2c65bb08b7, type: 2}
   currentMission: {fileID: 11400000, guid: f5c9ec8e9499a4bb7b2ec97bb1400618, type: 2}
   currentScene: {fileID: 0}

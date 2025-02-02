@@ -10,7 +10,7 @@ public class MissionData : ScriptableObject {
     [ShowInInspector] 
     private int _currentSceneIndex;
 
-    private string SaveKey => name + "CurrentSceneIndex";
+    private string SaveKey => name + "_CurrentSceneIndex";
 
     public SceneType GetCurrentScene() {
         LoadData();
