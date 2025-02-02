@@ -36,18 +36,22 @@ public class PlayEffectsOnHeatChange : MonoBehaviour {
         if (_currentHeatValue == HeatValue.Low && newHeatValue == HeatValue.Medium) {
             lowToMediumHeat.Play();
             AudioManager.Instance.Play(powerUp, 1.0f);
+            heatConstants.CalculateCurrentHeat(heatConstants.heatToAddLowToMedium);
         }
         else if (_currentHeatValue == HeatValue.Medium && newHeatValue == HeatValue.High) {
             mediumToHighHeat.Play();
             AudioManager.Instance.Play(powerUp, 1.0f);
+            heatConstants.CalculateCurrentHeat(heatConstants.heatToAddMediumToHigh);
         }
         else if (_currentHeatValue == HeatValue.High && newHeatValue == HeatValue.Medium) {
             highToMediumHeat.Play();
             AudioManager.Instance.Play(powerDown, 1.0f);
+            heatConstants.CalculateCurrentHeat(heatConstants.heatToAddHighToMedium);
         }
         else if (_currentHeatValue == HeatValue.Medium && newHeatValue == HeatValue.Low) {
             mediumToLowHeat.Play();
             AudioManager.Instance.Play(powerDown, 1.0f);
+            heatConstants.CalculateCurrentHeat(heatConstants.heatToAddMediumToLow);
         }
 
         _currentHeatValue = newHeatValue;

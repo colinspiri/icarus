@@ -16,6 +16,14 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
+  currentHeatRelativeToTier:
+    _useConstant: 0
+    _constantValue: 0.12424835
+    _variable: {fileID: 11400000, guid: bad3eb39b3cbb8347b3e10cfa40cf9f6, type: 2}
+  tier:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: bc01a12fd0f697f40802253d883bdf17, type: 2}
   mediumHeatThreshold: 0.3
   highHeatThreshold: 0.75
   passiveHeatDeltaLow: -0.01
@@ -24,6 +32,10 @@ MonoBehaviour:
   heatCostPerShotLow: 0
   heatCostPerShotMedium: 0
   heatCostPerShotHigh: 0
+  heatToAddLowToMedium: 0.15
+  heatToAddMediumToHigh: 0.2
+  heatToAddHighToMedium: 0
+  heatToAddMediumToLow: 0
   heatCostPerDash: 0.25
   heatCostOnPlayerDamaged: 1
   heatCostPerReloadClipEmpty: 0

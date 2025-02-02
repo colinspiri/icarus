@@ -42,6 +42,12 @@ public class HeatConstants : ScriptableObject {
         _ => heatCostPerShotLow,
     };
 
+    [Header("Heat to Add When Passing Thresholds")]
+    public float heatToAddLowToMedium;
+    public float heatToAddMediumToHigh;
+    public float heatToAddHighToMedium;
+    public float heatToAddMediumToLow;
+
     [Space] 
     public float heatCostPerDash;
     [Space] 
