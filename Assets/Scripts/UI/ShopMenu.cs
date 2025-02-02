@@ -10,7 +10,9 @@ public class ShopMenu : MonoBehaviour {
         foreach (var slot in shopSlots) {
             slot.gunConstants.LoadSaveState();
         }
-        equippedGun.EquipDefaultGun();
+        if (equippedGun.CurrentGun == null) {
+            equippedGun.EquipDefaultGun();
+        }
     }
     
     private void OnEnable() {
