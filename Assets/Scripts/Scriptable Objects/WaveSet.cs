@@ -34,4 +34,5 @@ public enum EnemyType
     ShotgunEnemy,
     MachineGunEnemy,
     ArcEnemy,
+    OrbitalLaser,
 }

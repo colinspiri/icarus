@@ -757,6 +757,7 @@ MonoBehaviour:
   shotgunEnemyPrefab: {fileID: 8441244998883790453, guid: bc7c2602db103b8478804822378652c6, type: 3}
   machineGunEnemyPrefab: {fileID: 8873716114894386867, guid: df9fde000c377174b9aad8382ecf4d34, type: 3}
   arcEnemyPrefab: {fileID: 8873716114894386867, guid: 7c68a6926471d46df914bc8009c04c37, type: 3}
+  orbitalLaserPrefab: {fileID: 2935789405224955823, guid: 9dee25bfc38230645b41c22df893a99c, type: 3}
   anchorPoints:
   - {fileID: 1491648838608015218}
   - {fileID: 2177019574203670009}
