@@ -12,8 +12,8 @@ public class PlayEffectsOnHeatChange : MonoBehaviour {
     [SerializeField] private ParticleSystem highToMediumHeat;
     [SerializeField] private ParticleSystem mediumToLowHeat;
 
-    [SerializeField] private AudioClip powerUp;
-    [SerializeField] private AudioClip powerDown;
+    [SerializeField] private SoundProfile powerUp;
+    [SerializeField] private SoundProfile powerDown;
 
     private HeatValue _currentHeatValue = HeatValue.Low;
 
@@ -35,22 +35,22 @@ public class PlayEffectsOnHeatChange : MonoBehaviour {
         StopAllEffects();
         if (_currentHeatValue == HeatValue.Low && newHeatValue == HeatValue.Medium) {
             lowToMediumHeat.Play();
-            AudioManager.Instance.Play(powerUp, 1.0f);
+            powerUp.PlaySFX();
             heatConstants.CalculateCurrentHeat(heatConstants.heatToAddLowToMedium);
         }
         else if (_currentHeatValue == HeatValue.Medium && newHeatValue == HeatValue.High) {
             mediumToHighHeat.Play();
-            AudioManager.Instance.Play(powerUp, 1.0f);
+            powerUp.PlaySFX();
             heatConstants.CalculateCurrentHeat(heatConstants.heatToAddMediumToHigh);
         }
         else if (_currentHeatValue == HeatValue.High && newHeatValue == HeatValue.Medium) {
             highToMediumHeat.Play();
-            AudioManager.Instance.Play(powerDown, 1.0f);
+            powerDown.PlaySFX();
             heatConstants.CalculateCurrentHeat(heatConstants.heatToAddHighToMedium);
         }
         else if (_currentHeatValue == HeatValue.Medium && newHeatValue == HeatValue.Low) {
             mediumToLowHeat.Play();
-            AudioManager.Instance.Play(powerDown, 1.0f);
+            powerDown.PlaySFX();
             heatConstants.CalculateCurrentHeat(heatConstants.heatToAddMediumToLow);
         }
 

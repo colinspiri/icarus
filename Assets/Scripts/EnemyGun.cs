@@ -30,7 +30,7 @@ public class EnemyGun : MonoBehaviour
     [SerializeField] private bool relativeToEnemyRotation;
 
     [Header("Audio")]
-    [SerializeField] protected AudioClip enemyShoot;
+    [SerializeField] protected SoundProfile enemyShoot;
 
     // state
     protected float _currentFiringCooldown;
@@ -94,7 +94,7 @@ public class EnemyGun : MonoBehaviour
         Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
         bullet.originObject = bulletOriginObject;
 
-        AudioManager.Instance.Play(enemyShoot, 0.1f);
+        enemyShoot.PlaySFX();
     }
 
     private void FirePattern()
@@ -102,7 +102,11 @@ public class EnemyGun : MonoBehaviour
         Instantiate(patternPrefab, bulletSpawnPoint.position,
             relativeToEnemyRotation ? bulletSpawnPoint.rotation : Quaternion.identity);
 
-        AudioManager.Instance.Play(enemyShoot, 0.1f);
+        if (enemyShoot)
+        {
+            enemyShoot.PlaySFX();
+        }
+        
     }
 
     protected bool IsFacingPlayer()

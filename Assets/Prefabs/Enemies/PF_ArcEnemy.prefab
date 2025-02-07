@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3485121856887170019, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_Name
-      value: PF_MachineGun_Enemy Variant
+      value: PF_ArcEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 4606312264975070415, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_LocalScale.x
@@ -132,7 +132,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
   patternPrefab: {fileID: 0}
   relativeToEnemyRotation: 1
-  enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
+  enemyShoot: {fileID: 11400000, guid: d32db322b5014ed4495d628feed0435e, type: 2}
   burstMode: 1
   burstFiringDelay: 0.05
   burstBulletQuantity: 6

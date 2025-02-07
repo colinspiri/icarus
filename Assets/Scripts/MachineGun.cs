@@ -70,6 +70,6 @@ public class MachineGun : EnemyGun
         Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, rotation).GetComponent<Bullet>();
         bullet.originObject = bulletOriginObject;
 
-        AudioManager.Instance.Play(enemyShoot, 0.1f);
+        enemyShoot.PlaySFX();
     }
 }

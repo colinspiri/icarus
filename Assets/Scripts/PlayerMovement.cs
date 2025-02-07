@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private FloatVariable heat;
     [SerializeField] private HeatConstants heatConstants;
-    [SerializeField] private AudioClip dashSFX;
+    [SerializeField] private SoundProfile dashSFX;
 
     // public constants
     [Header("Movement")]
@@ -229,7 +229,7 @@ public class PlayerMovement : MonoBehaviour {
         colorController.Dash(dashDuration);
 
         ReflectBullets();
-        AudioManager.Instance.Play(dashSFX, 1.0f);
+        dashSFX.PlaySFX();
     }
 
     private Vector3 ClampDashPosition(Vector3 position)

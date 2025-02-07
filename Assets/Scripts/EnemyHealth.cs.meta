@@ -1,3 +1,16 @@
-﻿fileFormatVersion: 2
+fileFormatVersion: 2
 guid: 85cf0bf2674545719959dd2678ce08d3
-timeCreated: 1727375338
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - explosionEffectPrefab: {instanceID: 0}
+  - enemyDie: {fileID: 8300000, guid: 4e9219ed0c13d714cb53ac28f48c364e, type: 3}
+  - heat: {instanceID: 0}
+  - heatConstants: {instanceID: 0}
+  - damagedParticles: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

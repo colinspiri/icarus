@@ -172,8 +172,8 @@ MonoBehaviour:
   reflectedSpeedMultiplier: 3
   reflectedDamage: 9
   reflected: 0
-  collideSFX: {fileID: 8300000, guid: da583c4379b6e2b489f5bdd1aeb824cb, type: 3}
-  enemyDamage: {fileID: 8300000, guid: 4c284bd7675b3834c8d2d37219ffc7c8, type: 3}
+  collideSFX: {fileID: 11400000, guid: e2e0d906ad8a6314d8af9d284f28f8a2, type: 2}
+  enemyDamage: {fileID: 11400000, guid: 3fa2bbd04688a8f4ba021205014db73a, type: 2}
 --- !u!58 &2138226417194587384
 CircleCollider2D:
   m_ObjectHideFlags: 0

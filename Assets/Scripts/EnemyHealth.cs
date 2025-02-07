@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class EnemyHealth : Health {
     [SerializeField] private GameObject explosionEffectPrefab;
-    [SerializeField] private AudioClip enemyDie;
+    [SerializeField] private SoundProfile enemyDie;
     [SerializeField] private FloatVariable heat;
     [SerializeField] private HeatConstants heatConstants;
     [Space]
@@ -31,7 +31,7 @@ public class EnemyHealth : Health {
     }
 
     protected override void DeathEffect() {
-        AudioManager.Instance.Play(enemyDie, .6f);
+        enemyDie.PlaySFX();
         Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
         heatConstants.CalculateCurrentHeat(heatConstants.heatGainOnEnemyKill);
         //heat.Value += heatConstants.heatGainOnEnemyKill;

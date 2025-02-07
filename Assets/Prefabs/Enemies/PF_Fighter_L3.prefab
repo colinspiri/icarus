@@ -157,10 +157,11 @@ MonoBehaviour:
   firingRate: 0.9
   randomCooldownVariance: 0.3
   rotationSpeed: 40
+  maxAngleToFacePlayer: 15
   bulletPrefab: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
   patternPrefab: {fileID: 3614729877128121977, guid: 5d727974c7653460ea874bc9accc3775, type: 3}
   relativeToEnemyRotation: 1
-  enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
+  enemyShoot: {fileID: 11400000, guid: d32db322b5014ed4495d628feed0435e, type: 2}
 --- !u!1 &4008088199188767887
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +433,6 @@ MonoBehaviour:
     min: 0.5
     max: 1.5
   randomMoveArea: {x: 5, y: 3}
-  onscreenSize: {x: 8.5, y: 4.5}
 --- !u!114 &2848684105627733069
 MonoBehaviour:
   m_ObjectHideFlags: 0

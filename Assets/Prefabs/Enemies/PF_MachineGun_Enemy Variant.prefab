@@ -132,7 +132,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
   patternPrefab: {fileID: 0}
   relativeToEnemyRotation: 1
-  enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
+  enemyShoot: {fileID: 11400000, guid: d32db322b5014ed4495d628feed0435e, type: 2}
   burstMode: 0
   burstFiringDelay: 0.1
   burstBulletQuantity: 10

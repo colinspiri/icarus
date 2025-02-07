@@ -20,8 +20,8 @@ public class PlayerGun : MonoBehaviour {
     [SerializeField] private FloatVariable reloadProgress;
 
     [Header("Audio")]
-    [SerializeField] private AudioClip fireSound;
-    [SerializeField] private AudioClip reloadSound;
+    [SerializeField] private SoundProfile fireSound;
+    [SerializeField] private SoundProfile reloadSound;
     
     // state
     private bool _reloading;
@@ -100,7 +100,7 @@ public class PlayerGun : MonoBehaviour {
         currentAmmo.Value = 0;
         _reloading = true;
         reloadProgress.Value = 0;
-        AudioManager.Instance.Play(reloadSound, 1.0f);
+        reloadSound.PlaySFX();
     }
 
     private Vector2 GetLookPosition()
@@ -137,7 +137,7 @@ public class PlayerGun : MonoBehaviour {
             float randomRotation = Random.Range(-0.5f * CurrentGun.CurrentSpread, 0.5f * CurrentGun.CurrentSpread);
             bullet.transform.Rotate(0, 0, randomRotation);
         }
-        
-        AudioManager.Instance.Play(fireSound, .5f);  
+
+        fireSound.PlaySFX(); 
     }
 }

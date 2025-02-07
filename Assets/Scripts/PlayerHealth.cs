@@ -9,7 +9,7 @@ public class PlayerHealth : Health {
     [SerializeField] private float afterDashInvulnerableTime;
 
     [Header("Components")] 
-    [SerializeField] AudioClip hitSound;
+    [SerializeField] SoundProfile hitSound;
     [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private GameEvent playerTookDamage;
     [SerializeField] private HeatConstants heatConstants;
@@ -48,7 +48,7 @@ public class PlayerHealth : Health {
         SetInvulnerable(damageInvulnerableTime);
         
         CameraShake.Instance.Shake();
-        AudioManager.Instance.Play(hitSound, 1.0f);
+        hitSound.PlaySFX();
 
         heatConstants.CalculateCurrentHeat(-heatConstants.heatCostOnPlayerDamaged);
         //heat.Value -= heatConstants.heatCostOnPlayerDamaged;

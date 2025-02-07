@@ -256,7 +256,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   explosionEffectPrefab: {fileID: 1316842982558945754, guid: 6536080a9b5db6d478590da575ed075b, type: 3}
-  enemyDie: {fileID: 8300000, guid: d8b0bc26fedb5724a8f838f8af69e85a, type: 3}
+  enemyDie: {fileID: 11400000, guid: b4fd9cf71e2ddb444a4c18dd6ef89391, type: 2}
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
   damagedParticles: {fileID: 7742890669421488505}
@@ -291,7 +291,6 @@ MonoBehaviour:
     min: 0.5
     max: 3
   randomMoveArea: {x: 5.5, y: 3.5}
-  onscreenSize: {x: 9, y: 5}
 --- !u!114 &4272521664432393045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,10 +441,11 @@ MonoBehaviour:
   firingRate: 1.25
   randomCooldownVariance: 0.5
   rotationSpeed: 40
+  maxAngleToFacePlayer: 15
   bulletPrefab: {fileID: 3447969452380897390, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
   patternPrefab: {fileID: 0}
   relativeToEnemyRotation: 1
-  enemyShoot: {fileID: 8300000, guid: e9681532b84a69d408cfd91495ec9088, type: 3}
+  enemyShoot: {fileID: 11400000, guid: d32db322b5014ed4495d628feed0435e, type: 2}
 --- !u!1001 &4740957569025864475
 PrefabInstance:
   m_ObjectHideFlags: 0

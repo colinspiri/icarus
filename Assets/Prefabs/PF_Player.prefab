@@ -5705,8 +5705,8 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: 646ed575bd251db41809296ae42a2fbe, type: 2}
   currentAmmo: {fileID: 11400000, guid: c5eb8bae15f5b0a4a87dbe6ab1e6d3e9, type: 2}
   reloadProgress: {fileID: 11400000, guid: 36c36f72136b3af4fb063919e3184a08, type: 2}
-  fireSound: {fileID: 8300000, guid: 8472c70be3b760d42a963a937647ff7c, type: 3}
-  reloadSound: {fileID: 8300000, guid: 48133f0f31c6ad94e9dd01d81633d6ba, type: 3}
+  fireSound: {fileID: 11400000, guid: ca5630b0b54e56746b50c861df7b4a6c, type: 2}
+  reloadSound: {fileID: 11400000, guid: 8e7bef3fe9f20df42a793ec795e827d1, type: 2}
 --- !u!1 &3334942913361520829
 GameObject:
   m_ObjectHideFlags: 0
@@ -5996,8 +5996,8 @@ MonoBehaviour:
   mediumToHighHeat: {fileID: 6775379668424813676}
   highToMediumHeat: {fileID: 5160500202895310563}
   mediumToLowHeat: {fileID: 8381774785994813674}
-  powerUp: {fileID: 8300000, guid: 1ae354e9356381641a5567e29a454e61, type: 3}
-  powerDown: {fileID: 8300000, guid: bd0a990172c451245b6fb502644e1a74, type: 3}
+  powerUp: {fileID: 11400000, guid: 9c0e7d04e9e26484cb327476df297f95, type: 2}
+  powerDown: {fileID: 11400000, guid: f5987b1fda589a746be3875bce130264, type: 2}
 --- !u!1 &5080380026951060478
 GameObject:
   m_ObjectHideFlags: 0
@@ -16091,7 +16091,7 @@ MonoBehaviour:
   playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
-  dashSFX: {fileID: 8300000, guid: 04255a18fe4903043ba048e229f68072, type: 3}
+  dashSFX: {fileID: 11400000, guid: 45e78b8e02173824084d320455a3aa8e, type: 2}
   movementMode: 1
   boundsPercent: 0.95
   boundsBorderDepth: 2
@@ -16218,7 +16218,7 @@ MonoBehaviour:
       m_Calls: []
   damageInvulnerableTime: 1.5
   afterDashInvulnerableTime: 0.3
-  hitSound: {fileID: 8300000, guid: 4736b2226d9ba2d47b80f514211cb279, type: 3}
+  hitSound: {fileID: 11400000, guid: d1786941dd103064f802fefeccde6f2f, type: 2}
   playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
   playerTookDamage: {fileID: 11400000, guid: f5e4b489ef976c54e98389201231b4a0, type: 2}
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}

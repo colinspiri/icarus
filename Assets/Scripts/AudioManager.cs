@@ -1,16 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource[] source;
-    private int channel = 0;
+    private List<AudioSource> source = new List<AudioSource>();
 
     public static AudioManager Instance = null;
 
     [SerializeField] private AudioSettings audioSettings;
+    [SerializeField] private AudioMixer audioMixer;
 
     private void Awake()
     {
@@ -30,23 +32,32 @@ public class AudioManager : MonoBehaviour
         audioSettings.Initialize();
     }
 
-    public void Play(AudioClip clip, float volume)
+    public void Play(AudioClip clip, float volume, float pitch, AudioMixerGroup mixer)
     {
-        int prev = channel;
-        while (source[channel].isPlaying)
+        List<AudioSource> toDelete = new List<AudioSource>();
+        foreach (AudioSource s in source)
         {
-            channel++;
-            if (channel == source.Length)
+            if (!s.isPlaying)
             {
-                channel = 0;
-            }
-            if (channel == prev)
-            {
-                break;
+                toDelete.Add(s);
             }
         }
-        source[channel].clip = clip;
-        source[channel].volume = volume;
-        source[channel].Play();
+        foreach (AudioSource s in toDelete)
+        {
+            source.Remove(s);
+            Destroy(s);
+        }
+        AudioSource audio = this.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+        source.Add(audio);
+        audio.clip = clip;
+        audio.volume = volume;
+        audio.pitch = pitch;
+        audio.outputAudioMixerGroup = mixer;
+        audio.Play();
+    }
+
+    public void Play(AudioClip clip, float volume)
+    {
+        Play(clip, volume, 1.0f, audioMixer.FindMatchingGroups("Master")[0]);
     }
 }

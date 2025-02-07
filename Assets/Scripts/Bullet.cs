@@ -53,8 +53,8 @@ public class Bullet : MonoBehaviour {
     [HideInInspector] public bool reflected;
     
     [Header("Audio")]
-    [SerializeField] private AudioClip collideSFX;
-    [SerializeField] private AudioClip enemyDamage;
+    [SerializeField] private SoundProfile collideSFX;
+    [SerializeField] private SoundProfile enemyDamage;
 
     // private state
     private int _bulletPierceCount;
@@ -136,7 +136,7 @@ public class Bullet : MonoBehaviour {
         if (col.CompareTag("Bullet")) {
             var otherBullet = col.GetComponent<Bullet>();
             if (this.fromPlayer != otherBullet.fromPlayer) {
-                AudioManager.Instance.Play(collideSFX, 0.5f);
+                collideSFX.PlaySFX();
                 HitBullet();
                 _ignoreCollisionsWithObjects.Add(otherBullet.gameObject);
                 otherBullet.HitBullet();
@@ -155,7 +155,7 @@ public class Bullet : MonoBehaviour {
             else Reflect();
         }
         else if (col.CompareTag("Enemy") && (fromPlayer || reflected)) {
-            AudioManager.Instance.Play(enemyDamage, 1.0f);
+            enemyDamage.PlaySFX();
 
             var chosenDamage = reflected ? reflectedDamage : Damage;
             var health = col.GetComponent<Health>();
