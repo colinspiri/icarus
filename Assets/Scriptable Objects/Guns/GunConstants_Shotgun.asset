@@ -18,13 +18,13 @@ MonoBehaviour:
   bulletPrefabTier2: {fileID: 53253934313598715, guid: 5710a9493150ff640bc839e4723d3f07, type: 3}
   bulletPrefabTier3: {fileID: 53253934313598715, guid: de5b18d38a4a5ad42898e0f9bdbbb88e, type: 3}
   damageTier1: 4
-  damageTier2: 5
-  damageTier3: 7
+  damageTier2: 6
+  damageTier3: 8
   firingRateTier1: 1.5
   firingRateTier2: 1.5
   firingRateTier3: 1.5
   ammoCostTier1: 2
-  ammoCostTier2: 2
+  ammoCostTier2: 3
   ammoCostTier3: 4
   spreadTier1: 0
   spreadTier2: 0

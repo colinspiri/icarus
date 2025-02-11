@@ -30,4 +30,4 @@ MonoBehaviour:
   spreadTier2: 0
   spreadTier3: 0
   ownedOnStart: 0
-  cost: 500
+  cost: 75

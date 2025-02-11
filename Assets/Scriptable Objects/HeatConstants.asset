@@ -34,8 +34,8 @@ MonoBehaviour:
   heatCostPerShotHigh: 0
   heatToAddLowToMedium: 0.15
   heatToAddMediumToHigh: 0.2
-  heatToAddHighToMedium: 0
-  heatToAddMediumToLow: 0
+  heatToAddHighToMedium: -0.1
+  heatToAddMediumToLow: -0.1
   heatCostPerDash: 0.25
   heatCostOnPlayerDamaged: 1
   heatCostPerReloadClipEmpty: 0

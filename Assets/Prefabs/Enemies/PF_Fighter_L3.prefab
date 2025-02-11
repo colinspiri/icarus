@@ -398,7 +398,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   explosionEffectPrefab: {fileID: 1316842982558945754, guid: 6536080a9b5db6d478590da575ed075b, type: 3}
-  enemyDie: {fileID: 8300000, guid: d8b0bc26fedb5724a8f838f8af69e85a, type: 3}
+  enemyDie: {fileID: 11400000, guid: b4fd9cf71e2ddb444a4c18dd6ef89391, type: 2}
   heat: {fileID: 11400000, guid: 341448eb7188a49489c8a221dfa540e2, type: 2}
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
   damagedParticles: {fileID: 4264297086837351620}

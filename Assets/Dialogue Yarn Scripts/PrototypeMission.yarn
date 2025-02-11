@@ -83,6 +83,7 @@ tags:
 <<enter Le right>>
 Silvia: This is the shop.
 Dr. Le: Welcome, Silvia.
+Dr. Le: Here, you can swap out your ship's gun and buy new ones.
 <<exit Le>>
 <<exit Silvia>>
 ===

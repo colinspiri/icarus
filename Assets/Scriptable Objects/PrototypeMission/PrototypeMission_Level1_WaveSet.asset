@@ -31,7 +31,7 @@ MonoBehaviour:
     - enemyType: 3
       count: 2
     - enemyType: 1
-      count: 3
+      count: 2
   - enemies:
     - enemyType: 4
       count: 1
@@ -51,9 +51,7 @@ MonoBehaviour:
   - enemies:
     - enemyType: 4
       count: 2
-    - enemyType: 3
-      count: 1
     - enemyType: 2
       count: 2
     - enemyType: 1
-      count: 3
+      count: 2

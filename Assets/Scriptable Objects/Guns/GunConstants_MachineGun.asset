@@ -19,7 +19,7 @@ MonoBehaviour:
   bulletPrefabTier3: {fileID: 5054047223545383523, guid: ebd8aaab32f1643a49a8cc24a33b847b, type: 3}
   damageTier1: 2
   damageTier2: 2
-  damageTier3: 2.5
+  damageTier3: 3
   firingRateTier1: 4
   firingRateTier2: 6
   firingRateTier3: 7
@@ -30,4 +30,4 @@ MonoBehaviour:
   spreadTier2: 15
   spreadTier3: 20
   ownedOnStart: 0
-  cost: 100
+  cost: 75
