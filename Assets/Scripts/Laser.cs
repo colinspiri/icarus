@@ -3,13 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using DG.Tweening;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField] private float laserDuration = 3.0f;
-    [SerializeField] private float laserDamageDuration = 0.5f;
-    [SerializeField] private float laserDamage = 0.3f;
-
+    [SerializeField] private LaserSO laserSO;
     [SerializeField] private GameEvent laserDestroyed;
 
     private bool _canDamagePlayer = false;
@@ -17,35 +15,27 @@ public class Laser : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(FireLaser());
+        //StartCoroutine(FireLaser());
+        FireLaser();
         _canDamagePlayer = false;
     }
 
     private void Update()
     {
         if (_playerIsInLaser && _canDamagePlayer) 
-            PlayerMovement.Instance.gameObject.GetComponent<Health>().TakeDamage(laserDamage);
+            PlayerMovement.Instance.gameObject.GetComponent<Health>().TakeDamage(laserSO.laserDamage);
     }
 
-    private IEnumerator FireLaser()
+    private void FireLaser()
     {
-        float elapsedTime = 0f;
-        float startOpacity = GetComponent<SpriteRenderer>().color.a; // this should be 0
-        Color color = GetComponent<SpriteRenderer>().color;
+        GetComponent<SpriteRenderer>().DOFade(1f, laserSO.laserDuration).SetEase(Ease.InExpo)
+            .OnComplete(() => StartCoroutine(LaserDamage()));
+    }
 
-        while (elapsedTime < laserDuration + laserDamageDuration)
-        {
-            elapsedTime += Time.deltaTime;
-
-            if (elapsedTime > laserDuration && elapsedTime < laserDuration + laserDamageDuration) _canDamagePlayer = true;
-            else _canDamagePlayer = false;
-
-            float newOpacity = Mathf.Lerp(startOpacity, 1f, elapsedTime / laserDuration);
-            Color newColor = new(color.r, color.g, color.b, newOpacity);
-            GetComponent<SpriteRenderer>().color = newColor;
-            yield return null;
-        }
-
+    private IEnumerator LaserDamage()
+    {
+        _canDamagePlayer = true;
+        yield return new WaitForSeconds(laserSO.laserDamageDuration);
         Destroy(gameObject);
     }
 
@@ -53,7 +43,7 @@ public class Laser : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (_canDamagePlayer) collision.GetComponent<Health>().TakeDamage(laserDamage);
+            if (_canDamagePlayer) collision.GetComponent<Health>().TakeDamage(laserSO.laserDamage);
             _playerIsInLaser = true;
         }
     }

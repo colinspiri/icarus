@@ -18,19 +18,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4606312264975070415, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.24
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 4606312264975070415, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.64
+      value: 1.7914286
       objectReference: {fileID: 0}
     - target: {fileID: 4606312264975070415, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.64
+      value: 1.7914286
       objectReference: {fileID: 0}
     - target: {fileID: 4606312264975070415, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5679227482235792981, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: maxHealth
@@ -59,6 +59,18 @@ PrefabInstance:
     - target: {fileID: 8600596406338030873, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.485
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946067707627199320, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946067707627199320, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946067707627199320, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 8946067707627199320, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -131,18 +143,16 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 3973440488145669333}
   bulletOriginObject: {fileID: 8080205478310830639}
   shootingMode: 0
-  firingRate: 0.2
+  firingRate: 0.3
   randomCooldownVariance: 0.5
   rotationSpeed: 40
-  maxAngleToFacePlayer: 15
+  maxAngleToFacePlayer: 7
   bulletPrefab: {fileID: 0}
   patternPrefab: {fileID: 0}
   relativeToEnemyRotation: 1
   enemyShoot: {fileID: 11400000, guid: d32db322b5014ed4495d628feed0435e, type: 2}
   laserPrefab: {fileID: 7361992325912451180, guid: 0b1e31345e3f3744bb48f735832af199, type: 3}
-  laserDuration: 3
-  laserDamageDuration: 0.5
-  laserDamage: 0.3
+  laserSO: {fileID: 11400000, guid: 6b0f2c4fb13c074418a555b2d86a3952, type: 2}
 --- !u!4 &3973440488145669333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8600596406338030873, guid: e1a0e1564f4822d4ba9a05e75d9b8d6e, type: 3}

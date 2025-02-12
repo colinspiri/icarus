@@ -19,7 +19,7 @@ public class EnemyGun : MonoBehaviour
     [SerializeField] private float randomCooldownVariance = 0.3f;
     [Tooltip("Speed at which it rotates to face the player")]
     [SerializeField] private float rotationSpeed;
-    [SerializeField] private float maxAngleToFacePlayer = 15f;
+    [SerializeField] protected float maxAngleToFacePlayer = 15f;
 
     [Header("Single Bullet")]
     [SerializeField] protected GameObject bulletPrefab;

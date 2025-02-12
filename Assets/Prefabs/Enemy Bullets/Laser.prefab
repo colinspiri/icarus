@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.9265, y: 0, z: 0}
-  m_LocalScale: {x: 14.38, y: 0.57, z: 0.5}
+  m_LocalScale: {x: 39.1, y: 0.57, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -143,7 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa03864aa929a514a9f5f4d0877bf630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserDuration: 1
-  laserDamageDuration: 0.5
-  laserDamage: 0.3
+  laserSO: {fileID: 11400000, guid: 6b0f2c4fb13c074418a555b2d86a3952, type: 2}
   laserDestroyed: {fileID: 11400000, guid: a001856d9091afc40b744631e8392c3e, type: 2}

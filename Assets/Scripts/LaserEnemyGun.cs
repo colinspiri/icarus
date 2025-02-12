@@ -6,9 +6,7 @@ using UnityEngine;
 public class LaserEnemyGun : EnemyGun
 {
     [SerializeField] private GameObject laserPrefab;
-    [SerializeField] private float laserDuration = 3.0f;
-    [SerializeField] private float laserDamageDuration = 0.5f;
-    [SerializeField] private float laserDamage = 0.3f;
+    [SerializeField] private LaserSO laserSO;
 
     private Laser laser = null;
 
@@ -25,7 +23,7 @@ public class LaserEnemyGun : EnemyGun
         _canFire = false;
         StartFiringCooldown();
         var enemyMovement = bulletOriginObject.GetComponent<EnemyMovement>();
-        enemyMovement.PauseMovement(laserDuration + laserDamageDuration);
+        enemyMovement.PauseMovement(laserSO.laserDuration + laserSO.laserDamageDuration);
 
         var spriteRenderer = laserPrefab.GetComponent<SpriteRenderer>();
         var adjustedBulletSpawnPoint = bulletSpawnPoint.position + bulletSpawnPoint.right * spriteRenderer.bounds.size.x / 2; 
