@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e64a9c82afe0e4bab89d0038ee29fe, type: 3}
   m_Name: LaserSO
   m_EditorClassIdentifier: 
-  laserDamage: 0
-  laserDuration: 0
-  laserDamageDuration: 0
+  laserDamage: 1
+  laserDuration: 0.75
+  laserDamageDuration: 0.3
