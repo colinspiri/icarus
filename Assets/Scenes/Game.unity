@@ -143,10 +143,6 @@ PrefabInstance:
       propertyPath: waveSet
       value: 
       objectReference: {fileID: 11400000, guid: 44c3bb52018424ae9af199ec22d5fe0a, type: 2}
-    - target: {fileID: 2011543095127935082, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
-      propertyPath: maxHealth
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 3316929296849622219, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
       propertyPath: m_Name
       value: --BASEGAME--
