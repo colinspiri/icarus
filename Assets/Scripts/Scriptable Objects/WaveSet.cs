@@ -13,6 +13,8 @@ public class WaveSet : ScriptableObject {
 public struct Wave {
     [Header("Wave Parameters")] 
     public List<NumEnemies> enemies;
+    public bool hasTrees;
+    public float treeFrequency;
 }
 
 [Serializable]

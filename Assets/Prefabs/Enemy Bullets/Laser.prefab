@@ -145,3 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserSO: {fileID: 11400000, guid: 6b0f2c4fb13c074418a555b2d86a3952, type: 2}
   laserDestroyed: {fileID: 11400000, guid: a001856d9091afc40b744631e8392c3e, type: 2}
+  endingOpacity: 0.2
