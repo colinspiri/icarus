@@ -91,6 +91,7 @@ public class EnemyGun : MonoBehaviour
 
     private void FireBullet()
     {
+        if (!bulletPrefab) return;
         Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation).GetComponent<Bullet>();
         bullet.originObject = bulletOriginObject;
 
@@ -99,6 +100,7 @@ public class EnemyGun : MonoBehaviour
 
     private void FirePattern()
     {
+        if (!patternPrefab) return;
         Instantiate(patternPrefab, bulletSpawnPoint.position,
             relativeToEnemyRotation ? bulletSpawnPoint.rotation : Quaternion.identity);
 

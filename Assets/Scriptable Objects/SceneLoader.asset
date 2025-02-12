@@ -39,3 +39,6 @@ MonoBehaviour:
   machineGunEnemyScene:
     sceneAsset: {fileID: 102900000, guid: 106d307088f6fee42827143a494059b8, type: 3}
     scenePath: Assets/Scenes/Test Scenes/MachineGunEnemy WaveSet.unity
+  laserGunEnemyScene:
+    sceneAsset: {fileID: 102900000, guid: 7c74d6d7be80dc84a9b8229f97fc58a0, type: 3}
+    scenePath: Assets/Scenes/Test Scenes/LaserEnemy WaveSet.unity

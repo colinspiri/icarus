@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour {
     private Vector2 _screenBounds; // 8.5, 4.5
     
     // state 
-    private enum MoveState { MoveToOrigin, MoveRandomly }
+    private enum MoveState { MoveToOrigin, MoveRandomly, MovePaused }
     private MoveState _currentMoveState;
     private Vector3 _anchorPosition;
     private Vector2 _perlinSamplePoint; 
@@ -32,6 +32,7 @@ public class EnemyMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (_currentMoveState == MoveState.MovePaused) return;
         if (_currentMoveState == MoveState.MoveToOrigin) UpdateMoveToOrigin();
         else UpdateMoveRandomly();
     }
@@ -141,5 +142,15 @@ public class EnemyMovement : MonoBehaviour {
     private void OnDrawGizmos() {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(_anchorPosition, new Vector3(2*randomMoveArea.x, 2*randomMoveArea.y, 1));
+    }
+
+    public void PauseMovement(float duration) => StartCoroutine(PauseMovementCoroutine(duration));
+
+    private IEnumerator PauseMovementCoroutine(float duration)
+    {
+        MoveState previousState = _currentMoveState;
+        _currentMoveState = MoveState.MovePaused;
+        yield return new WaitForSeconds(duration);
+        _currentMoveState = previousState;
     }
 }

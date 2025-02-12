@@ -15,6 +15,7 @@ public class SceneLoader : ScriptableObject {
     public SceneReference fighterScene;
     public SceneReference eliteEnemyScene;
     public SceneReference machineGunEnemyScene;
+    public SceneReference laserGunEnemyScene;
 
     public void DebugTest(string testString) {
         Debug.Log("test " + testString + " at " + Time.time);
@@ -82,5 +83,11 @@ public class SceneLoader : ScriptableObject {
     {
         ResetTime();
         SceneManager.LoadScene(machineGunEnemyScene.ScenePath);
+    }
+
+    public void LoadLaserGunEnemyScene()
+    {
+        ResetTime();
+        SceneManager.LoadScene(laserGunEnemyScene.ScenePath);
     }
 }
