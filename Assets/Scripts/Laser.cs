@@ -61,6 +61,10 @@ public class Laser : MonoBehaviour
             if (_canDamagePlayer) collision.GetComponent<Health>().TakeDamage(laserSO.laserDamage);
             _playerIsInLaser = true;
         }
+        else if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<Health>().TakeDamage(laserSO.laserDamage);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
