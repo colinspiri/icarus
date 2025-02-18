@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cad010a39fe641d4f894842823785cbe, type: 3}
-  m_Name: PowerUp_SP
+  m_Name: Laser_SP
   m_EditorClassIdentifier: 
-  sfx: {fileID: 8300000, guid: 14e362c889f003248ba9043244a31b1c, type: 3}
-  mixer: {fileID: -2147951666727506783, guid: 928424b963164b3499c5387e026a0a7a, type: 2}
+  sfx: {fileID: 8300000, guid: 9a9bc41ac56c22046b8ba65551144168, type: 3}
+  mixer: {fileID: 6123277417342519540, guid: 928424b963164b3499c5387e026a0a7a, type: 2}
   volume: 1
   pitchMin: 1
   pitchMax: 1

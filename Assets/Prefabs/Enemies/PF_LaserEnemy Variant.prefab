@@ -150,7 +150,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   patternPrefab: {fileID: 0}
   relativeToEnemyRotation: 1
-  enemyShoot: {fileID: 11400000, guid: d32db322b5014ed4495d628feed0435e, type: 2}
+  enemyShoot: {fileID: 11400000, guid: 1a72c1e608714fc4f80183d4fe8608d2, type: 2}
   laserPrefab: {fileID: 7361992325912451180, guid: 0b1e31345e3f3744bb48f735832af199, type: 3}
   laserSO: {fileID: 11400000, guid: 6b0f2c4fb13c074418a555b2d86a3952, type: 2}
 --- !u!4 &3973440488145669333 stripped

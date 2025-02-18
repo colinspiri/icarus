@@ -28,6 +28,8 @@ public class LaserEnemyGun : EnemyGun
         var spriteRenderer = laserPrefab.GetComponent<SpriteRenderer>();
         var adjustedBulletSpawnPoint = bulletSpawnPoint.position + bulletSpawnPoint.right * spriteRenderer.bounds.size.x / 2; 
         laser = Instantiate(laserPrefab, adjustedBulletSpawnPoint, bulletSpawnPoint.rotation).GetComponent<Laser>();
+
+        enemyShoot.PlaySFX();
     }
 
     public void SetCanFire(bool canFire)
