@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class StaticObjectSpawner : MonoBehaviour
 {
+    [SerializeField] private GameObject warningSymbol;
     [SerializeField] private WaveSet waveSet;
     [Tooltip("Represents the amount of vertical padding on top and bottom of the screen")]
     [SerializeField] private float verticalSpawnPadding = 5f;
     [SerializeField] private float defaultStaticObjectSpawnFrequency = 3f;
     [SerializeField] private float defaultSpawnTimerVariance = 0.5f;
+    [Tooltip("Represents the amount of time the warning symbol will be displayed before the object is spawned")]
+    [SerializeField] private float waitTimeBeforeSpawn = 2f;
 
     private float spawnTimer = 0f;
 
@@ -23,12 +26,12 @@ public class StaticObjectSpawner : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0)
         {
-            SpawnObject();
+            StartCoroutine(SpawnObject());
             ResetSpawnTimer();
         }
     }
 
-    private void SpawnObject()
+    private IEnumerator SpawnObject()
     {
         Wave wave = waveSet.waves[EnemySpawner.Instance.CurrentWave];
         int randomIndex = Random.Range(0, wave.staticObjectPrefabs.Count);
@@ -38,6 +41,9 @@ public class StaticObjectSpawner : MonoBehaviour
         float verticalSpawnPosition = Random.Range(-verticalSpawnPadding, verticalSpawnPadding);
         Vector3 spawnPosition = new(screenRightBounds.x + 1, verticalSpawnPosition, 0);
 
+        var warning = Instantiate(warningSymbol, new Vector3(spawnPosition.x - 3.5f, spawnPosition.y, spawnPosition.z), Quaternion.identity);
+        yield return new WaitForSeconds(waitTimeBeforeSpawn);
+        Destroy(warning);
         Instantiate(staticObject, spawnPosition, Quaternion.identity);
     }
 

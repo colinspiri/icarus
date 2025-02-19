@@ -19,7 +19,7 @@ MonoBehaviour:
     - enemyType: 12
       count: 1
     hasStaticObjectObstacles: 1
-    staticObjectSpawnFrequency: 3
+    staticObjectSpawnFrequency: 5
     spawnTimerVariance: 0.5
     staticObjectPrefabs:
     - {fileID: 3859998184380601381, guid: 636593cf8c727304ca8444eb891af9c9, type: 3}
@@ -40,7 +40,7 @@ MonoBehaviour:
     - enemyType: 12
       count: 2
     hasStaticObjectObstacles: 1
-    staticObjectSpawnFrequency: 3
+    staticObjectSpawnFrequency: 5
     spawnTimerVariance: 0.5
     staticObjectPrefabs:
     - {fileID: 3859998184380601381, guid: 636593cf8c727304ca8444eb891af9c9, type: 3}
@@ -70,7 +70,7 @@ MonoBehaviour:
     - enemyType: 2
       count: 1
     hasStaticObjectObstacles: 1
-    staticObjectSpawnFrequency: 3
+    staticObjectSpawnFrequency: 5
     spawnTimerVariance: 0.5
     staticObjectPrefabs:
     - {fileID: 3859998184380601381, guid: 636593cf8c727304ca8444eb891af9c9, type: 3}
@@ -97,7 +97,7 @@ MonoBehaviour:
     - enemyType: 4
       count: 1
     hasStaticObjectObstacles: 1
-    staticObjectSpawnFrequency: 3
+    staticObjectSpawnFrequency: 5
     spawnTimerVariance: 0.5
     staticObjectPrefabs:
     - {fileID: 3859998184380601381, guid: 636593cf8c727304ca8444eb891af9c9, type: 3}
