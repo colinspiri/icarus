@@ -18,11 +18,20 @@ MonoBehaviour:
       count: 1
     - enemyType: 12
       count: 1
+    hasStaticObjectObstacles: 1
+    staticObjectSpawnFrequency: 3
+    spawnTimerVariance: 0.5
+    staticObjectPrefabs:
+    - {fileID: 3859998184380601381, guid: 636593cf8c727304ca8444eb891af9c9, type: 3}
   - enemies:
     - enemyType: 0
       count: 2
     - enemyType: 12
       count: 2
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
   - enemies:
     - enemyType: 0
       count: 2
@@ -30,6 +39,14 @@ MonoBehaviour:
       count: 1
     - enemyType: 12
       count: 2
+    hasStaticObjectObstacles: 1
+    staticObjectSpawnFrequency: 3
+    spawnTimerVariance: 0.5
+    staticObjectPrefabs:
+    - {fileID: 3859998184380601381, guid: 636593cf8c727304ca8444eb891af9c9, type: 3}
+    - {fileID: 3859998184380601381, guid: 17c6cc030652c6d40984f734529a6901, type: 3}
+    - {fileID: 3859998184380601381, guid: 17c6cc030652c6d40984f734529a6901, type: 3}
+    - {fileID: 3859998184380601381, guid: 17c6cc030652c6d40984f734529a6901, type: 3}
   - enemies:
     - enemyType: 0
       count: 2
@@ -39,6 +56,10 @@ MonoBehaviour:
       count: 2
     - enemyType: 10
       count: 1
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
   - enemies:
     - enemyType: 0
       count: 3
@@ -48,6 +69,11 @@ MonoBehaviour:
       count: 1
     - enemyType: 2
       count: 1
+    hasStaticObjectObstacles: 1
+    staticObjectSpawnFrequency: 3
+    spawnTimerVariance: 0.5
+    staticObjectPrefabs:
+    - {fileID: 3859998184380601381, guid: 636593cf8c727304ca8444eb891af9c9, type: 3}
   - enemies:
     - enemyType: 0
       count: 3
@@ -57,6 +83,10 @@ MonoBehaviour:
       count: 2
     - enemyType: 10
       count: 1
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
   - enemies:
     - enemyType: 0
       count: 3
@@ -66,6 +96,11 @@ MonoBehaviour:
       count: 2
     - enemyType: 4
       count: 1
+    hasStaticObjectObstacles: 1
+    staticObjectSpawnFrequency: 3
+    spawnTimerVariance: 0.5
+    staticObjectPrefabs:
+    - {fileID: 3859998184380601381, guid: 636593cf8c727304ca8444eb891af9c9, type: 3}
   - enemies:
     - enemyType: 0
       count: 4
@@ -75,3 +110,7 @@ MonoBehaviour:
       count: 1
     - enemyType: 10
       count: 2
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []

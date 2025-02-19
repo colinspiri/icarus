@@ -13,8 +13,11 @@ public class WaveSet : ScriptableObject {
 public struct Wave {
     [Header("Wave Parameters")] 
     public List<NumEnemies> enemies;
-    public bool hasTrees;
-    public float treeFrequency;
+    public bool hasStaticObjectObstacles;
+    public float staticObjectSpawnFrequency;
+    public float spawnTimerVariance;
+    [Tooltip("Add more of the same prefab to increase its chance of spawning")]
+    public List<GameObject> staticObjectPrefabs;
 }
 
 [Serializable]

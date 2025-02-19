@@ -48,6 +48,8 @@ public class EnemySpawner : MonoBehaviour {
     private float _waveDelayTimer;
     private int _currentWave;
     private float _randomSpawnTimer;
+
+    public int CurrentWave => _currentWave;
     
     // events 
     public event Action OnCompleteWaves;
