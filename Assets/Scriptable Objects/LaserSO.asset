@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LaserSO
   m_EditorClassIdentifier: 
   laserDamage: 1
-  laserDuration: 0.75
-  laserDamageDuration: 0.3
+  laserDuration: 0.5
+  laserDamageDuration: 0.2
