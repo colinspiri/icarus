@@ -1,10 +1,11 @@
+using ScriptableObjectArchitecture;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StaticObjectSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject warningSymbol;
+    [SerializeField] private FloatGameEvent displayWarningSymbol;
     [SerializeField] private WaveSet waveSet;
     [Tooltip("Represents the amount of vertical padding on top and bottom of the screen")]
     [SerializeField] private float verticalSpawnPadding = 5f;
@@ -12,12 +13,14 @@ public class StaticObjectSpawner : MonoBehaviour
     [SerializeField] private float defaultSpawnTimerVariance = 0.5f;
     [Tooltip("Represents the amount of time the warning symbol will be displayed before the object is spawned")]
     [SerializeField] private float waitTimeBeforeSpawn = 2f;
+    [SerializeField] private BoolVariable isReadyToSpawnStaticObject;
 
     private float spawnTimer = 0f;
 
     private void Start()
     {
         ResetSpawnTimer();
+        isReadyToSpawnStaticObject.Value = false;
     }
     void Update()
     {
@@ -41,10 +44,11 @@ public class StaticObjectSpawner : MonoBehaviour
         float verticalSpawnPosition = Random.Range(-verticalSpawnPadding, verticalSpawnPadding);
         Vector3 spawnPosition = new(screenRightBounds.x + 1, verticalSpawnPosition, 0);
 
-        var warning = Instantiate(warningSymbol, new Vector3(spawnPosition.x - 3.5f, spawnPosition.y, spawnPosition.z), Quaternion.identity);
-        yield return new WaitForSeconds(waitTimeBeforeSpawn);
-        Destroy(warning);
+        displayWarningSymbol.Raise(spawnPosition.y);
+
+        yield return new WaitUntil(()=> isReadyToSpawnStaticObject.Value == true);
         Instantiate(staticObject, spawnPosition, Quaternion.identity);
+        isReadyToSpawnStaticObject.Value = false;
     }
 
     private void ResetSpawnTimer()

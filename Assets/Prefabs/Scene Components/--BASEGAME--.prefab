@@ -1064,12 +1064,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4535a8766de2b824f9a2959daaf84b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warningSymbol: {fileID: 3859998184380601381, guid: 973c1ff60fe20da41a983f6939c04830, type: 3}
+  displayWarningSymbol: {fileID: 11400000, guid: db2ce349356446a44878e379a161fdd4, type: 2}
   waveSet: {fileID: 11400000, guid: 36523fa113f84cb4d8f6b3eda0b4a159, type: 2}
   verticalSpawnPadding: 5
   defaultStaticObjectSpawnFrequency: 3
   defaultSpawnTimerVariance: 0.5
   waitTimeBeforeSpawn: 2
+  isReadyToSpawnStaticObject: {fileID: 11400000, guid: 3e0c6c6965ec692469a84b5acd563bc4, type: 2}
 --- !u!1 &7711482487487825909
 GameObject:
   m_ObjectHideFlags: 0
