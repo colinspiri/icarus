@@ -26,13 +26,22 @@ public class DeathFromAbove : MonoBehaviour
     public Color newColor = Color.white;
     private bool isMoving;
     private bool hasFired;
+    public bool alwaysOn;
+    public bool freezeOnHit;
 
     // Start is called before the first frame update
     void Start()
     {
         isMoving = true;
         objectRenderer = GetComponent<Renderer>();
-        Invoke("StopMoving", moveDuration);
+        if (alwaysOn == false)
+        {
+            Invoke("StopMoving", moveDuration);
+        }
+        else
+        {
+            Invoke("ConstantFire", 0.1f);
+        }
     }
 
     // Update is called once per frame
@@ -55,8 +64,16 @@ public class DeathFromAbove : MonoBehaviour
     {
         objectRenderer.material.color = newColor;
         hasFired = true;
-        AudioManager.Instance.Play(fireSFX, 0.5f);
+        //AudioManager.Instance.Play(fireSFX, 0.5f);
         Invoke("Despawn", 0.1f);
+    }
+
+    private void ConstantFire()
+    {
+        objectRenderer.material.color = newColor;
+        hasFired = true;
+        //AudioManager.Instance.Play(fireSFX, 0.5f);
+        Invoke("Despawn", moveDuration);
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -67,6 +84,17 @@ public class DeathFromAbove : MonoBehaviour
         {
             var health = other.GetComponent<Health>();
             health.TakeDamage(damage);
+            if(freezeOnHit == true)
+            {
+                //var speed = other.GetComponent<PlayerMovement>();
+                //speed = 0f;
+            }
+        }
+        if(hasFired == true && other.CompareTag("Enemy"))
+        {
+            var enemyHealth = other.GetComponent<EnemyHealth>();
+            enemyHealth.TakeDamage(10f);
+               
         }
     }
 
