@@ -31,10 +31,12 @@ public class Bullet : MonoBehaviour {
     private float Damage => useValueFromGunConstants ? gunConstants.DamageFromTier(tier) : damage;
 
     [Header("Piercing")]
-    [Tooltip("Number of bullets to pierce through. -1 for infinite.")]
-    [SerializeField] private int bulletPierceMax;
     [Tooltip("Number of entities to pierce through. -1 for infinite.")] 
     [SerializeField] private int entityPierceMax;
+
+    [Header("Enemy Bullets")] 
+    [SerializeField] private bool destroySelfOnCollision;
+    [SerializeField] private bool destroyPlayerBulletOnCollision;
     
     [Header("Life Time")]
     [SerializeField] private float lifeTime = 30f;
@@ -113,13 +115,6 @@ public class Bullet : MonoBehaviour {
         return speed;
     }
 
-    private void HitBullet() {
-        _bulletPierceCount++;
-        if (bulletPierceMax != -1 && _bulletPierceCount > bulletPierceMax) {
-            Die();
-        }
-    }
-
     private void HitEntity() {
         _entityPierceCount++;
         if (entityPierceMax != -1 && _entityPierceCount > entityPierceMax) {
@@ -136,10 +131,24 @@ public class Bullet : MonoBehaviour {
         if (col.CompareTag("Bullet")) {
             var otherBullet = col.GetComponent<Bullet>();
             if (this.fromPlayer != otherBullet.fromPlayer) {
-                collideSFX.PlaySFX();
-                HitBullet();
+                var playerBullet = (this.fromPlayer) ? this : otherBullet;
+                var enemyBullet = (this.fromPlayer) ? otherBullet : this;
+
+                bool collisionHappened = false;
+                if (enemyBullet.destroyPlayerBulletOnCollision) {
+                    playerBullet.Die();
+                    collisionHappened = true;
+                }
+                if (enemyBullet.destroySelfOnCollision) {
+                    enemyBullet.Die();
+                    collisionHappened = true;
+                }
+
+                if (collisionHappened) {
+                    collideSFX.PlaySFX();
+                }
+                
                 _ignoreCollisionsWithObjects.Add(otherBullet.gameObject);
-                otherBullet.HitBullet();
                 otherBullet._ignoreCollisionsWithObjects.Add(this.gameObject);
             }
         }

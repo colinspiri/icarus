@@ -85,6 +85,10 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
+      propertyPath: entityPierceMax
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782853312307826893, guid: 26b93c82901eb614889511444b092410, type: 3}
       propertyPath: staticBulletSpeed
       value: 30
       objectReference: {fileID: 0}

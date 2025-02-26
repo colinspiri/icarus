@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: useRandomBulletSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1296414503447608500, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
+      propertyPath: destroySelfOnCollision
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296414503447608500, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
+      propertyPath: destroyPlayerBulletOnCollision
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1375235889724826888, guid: a61634ad3e71340ffa8cab7493e43615, type: 3}
       propertyPath: m_Color.g
       value: 0.029988142
