@@ -1,0 +1,21 @@
+﻿title: DeathFromAbove_Level1_Before
+tags:
+---
+<<enter Silvia left>>
+<<enter Bellini right>>
+Silvia: This is level 1.
+Chief Bellini: Good luck.
+<<exit Bellini>>
+<<exit Silvia>>
+===
+
+title: DeathFromAbove_Level1_After
+tags:
+---
+<<enter Silvia left>>
+<<enter Bellini right>>
+Silvia: This is level 1.
+Chief Bellini: Good luck.
+<<exit Bellini>>
+<<exit Silvia>>
+===

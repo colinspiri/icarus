@@ -7,6 +7,9 @@ using Yarn.Unity;
 public class PlayDialogueInDialogueScene : MonoBehaviour {
     [SerializeField] private DialogueRunner dialogueRunner;
     [SerializeField] private MissionState missionState;
+    
+    [Header("If No Current Mission")]
+    [SerializeField] private string yarnNode;
         
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,9 @@ public class PlayDialogueInDialogueScene : MonoBehaviour {
             
             dialogueRunner.StartDialogue(dialogueScene.yarnNode);
             dialogueRunner.onDialogueComplete.AddListener(missionState.LoadNextScene);
+        }
+        else {
+            dialogueRunner.StartDialogue(yarnNode);
         }
     }
 }

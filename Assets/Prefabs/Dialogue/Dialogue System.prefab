@@ -1758,6 +1758,21 @@ MonoBehaviour:
   belliniRight: {fileID: 3651604566638715836}
   leLeft: {fileID: 8282692307852934203}
   leRight: {fileID: 7910199130273219986}
+  possibleSpeakers:
+  - validNames:
+    - Silvia
+    portraitLeft: {fileID: 2970795077525000097}
+    portraitRight: {fileID: 332484780521209244}
+  - validNames:
+    - Bellini
+    - Engel
+    portraitLeft: {fileID: 7913416211338326954}
+    portraitRight: {fileID: 3651604566638715836}
+  - validNames:
+    - Karina
+    - Le
+    portraitLeft: {fileID: 8282692307852934203}
+    portraitRight: {fileID: 7910199130273219986}
 --- !u!1 &7510437847210861718
 GameObject:
   m_ObjectHideFlags: 0

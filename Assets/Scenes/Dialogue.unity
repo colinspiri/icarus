@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 3756283491341358363}
   missionState: {fileID: 11400000, guid: acd815a19d3acaf4883fa1a86ebb8b11, type: 2}
+  yarnNode: DeathFromAbove_Prologue
 --- !u!1 &303138022
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 468665449849266590, guid: 0bad01bac186e354587c9324d3568c45, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1520
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 468665449849266590, guid: 0bad01bac186e354587c9324d3568c45, type: 3}
       propertyPath: m_SizeDelta.y
@@ -637,7 +638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 468665449849266590, guid: 0bad01bac186e354587c9324d3568c45, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 760
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 468665449849266590, guid: 0bad01bac186e354587c9324d3568c45, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -653,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 788707394993102480, guid: 0bad01bac186e354587c9324d3568c45, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1520
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 788707394993102480, guid: 0bad01bac186e354587c9324d3568c45, type: 3}
       propertyPath: m_SizeDelta.y
@@ -661,7 +662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 788707394993102480, guid: 0bad01bac186e354587c9324d3568c45, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 760
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 788707394993102480, guid: 0bad01bac186e354587c9324d3568c45, type: 3}
       propertyPath: m_AnchoredPosition.y
