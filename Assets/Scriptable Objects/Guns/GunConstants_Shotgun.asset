@@ -31,3 +31,6 @@ MonoBehaviour:
   spreadTier3: 0
   ownedOnStart: 1
   cost: 0
+  Tier1Fire: {fileID: 11400000, guid: 3c10f8dbead87f34cb4fdb6582a244b0, type: 2}
+  Tier2Fire: {fileID: 11400000, guid: 004fe8b443ae97e418f68bdc1d8d07fa, type: 2}
+  Tier3Fire: {fileID: 11400000, guid: a5338cabfe16faa49ab0061f2e55b589, type: 2}
