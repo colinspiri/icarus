@@ -20,7 +20,6 @@ public class PlayerGun : MonoBehaviour {
     [SerializeField] private FloatVariable reloadProgress;
 
     [Header("Audio")]
-    [SerializeField] private SoundProfile fireSound;
     [SerializeField] private SoundProfile reloadSound;
     
     // state
@@ -138,6 +137,6 @@ public class PlayerGun : MonoBehaviour {
             bullet.transform.Rotate(0, 0, randomRotation);
         }
 
-        fireSound.PlaySFX(); 
+        CurrentGun.CurrentFireSFX.PlaySFX(); 
     }
 }

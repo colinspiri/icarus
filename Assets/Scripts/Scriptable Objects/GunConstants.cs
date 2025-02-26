@@ -117,4 +117,16 @@ public class GunConstants : ScriptableObject {
             _ => true
         };
     }
+
+    [Header("Audio")]
+    public SoundProfile Tier1Fire;
+    public SoundProfile Tier2Fire;
+    public SoundProfile Tier3Fire;
+    public SoundProfile CurrentFireSFX => heatConstants.CurrentHeatValue switch
+    {
+        HeatValue.Low => Tier1Fire,
+        HeatValue.Medium => Tier2Fire,
+        HeatValue.High => Tier3Fire,
+        _ => throw new ArgumentOutOfRangeException()
+    };
 }

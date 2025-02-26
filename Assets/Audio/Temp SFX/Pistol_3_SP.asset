@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cad010a39fe641d4f894842823785cbe, type: 3}
-  m_Name: PlayerShoot_SP
+  m_Name: Pistol_3_SP
   m_EditorClassIdentifier: 
-  sfx: {fileID: 8300000, guid: cb071b61c5f6ef5409a8b16f6c4a429d, type: 3}
+  sfx: {fileID: 8300000, guid: 37ff93adc3b0c4a43b9384e03f5a56b9, type: 3}
   mixer: {fileID: -2147951666727506783, guid: 928424b963164b3499c5387e026a0a7a, type: 2}
-  volume: 0.66
+  volume: 1
   pitchMin: 1
   pitchMax: 1
