@@ -1752,15 +1752,11 @@ MonoBehaviour:
   dialogueRunner: {fileID: 3614627949693181454}
   speakerText: {fileID: 4806753847436221412}
   nonSpeakerColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
-  silviaLeft: {fileID: 2970795077525000097}
-  silviaRight: {fileID: 332484780521209244}
-  belliniLeft: {fileID: 7913416211338326954}
-  belliniRight: {fileID: 3651604566638715836}
-  leLeft: {fileID: 8282692307852934203}
-  leRight: {fileID: 7910199130273219986}
+  speakerColor: {r: 1, g: 1, b: 1, a: 1}
   possibleSpeakers:
   - validNames:
     - Silvia
+    - Haddad
     portraitLeft: {fileID: 2970795077525000097}
     portraitRight: {fileID: 332484780521209244}
   - validNames:

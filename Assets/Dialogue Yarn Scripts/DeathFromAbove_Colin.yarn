@@ -19,6 +19,47 @@ Computer:
 title: DeathFromAbove_Briefing
 tags:
 ---
+<<enter Silvia right>>
+DI Silvia Haddad: You asked for me?
+<<enter Engel left>>
+DCS Engel Bellini: Close the door behind you, Inspector.
+DI Haddad: Yep.
+DCS Bellini: You speak to your senior officers like that in the Air & Space Force?
+DI Haddad: No, sir.
+DCS Bellini: Let's keep it professional, then.
+DI Haddad: Yes, sir.
+<<wait 0.5>>
+DCS Bellini: Got a suspect yet on the Blackbird case?
+DI Haddad: Two likely's, but no witnesses, and they've got alibis. Still grinding through the housing records, but it's a long shot. I'm staying late tonight.
+DCS Bellini: Hm.
+DI Haddad: I can handle it. I know it's slow, but-
+DCS Bellini: It's your first case, but it's been a week with nothing.
+DI Haddad: I'm aware of that.
+<<wait 0.5>>
+DI Haddad: Sir.
+<<wait 1>>
+DCS Bellini: Alright, I'm giving the Blackbird case to DI Haskins. I don't like slow.
+DI Haddad: Neither do I, sir.
+DCS Bellini: Lucky for you, I'm giving you a new case. Highest priority.
+DCS Bellini: Some maniac called Serverus hacked Constantine.
+DI Haddad: The Constantine Orbital Defense System? 
+DCS Bellini: Yes. The laser's hot, and SDF is locked out of the system, all admin access revoked. 
+DCS Bellini: The hacker's threatening to fire it if the SDF doesn't comply with his demands. 
+DI Haddad: What are their demands? 
+DCS Bellini: Fuck his demands, we're gonna kill him. We don't negotiate with terrorists.
+DCS Bellini: If he's crazy enough to hack an orbital laser and make demands of the Solar Defense Force, he's too crazy to talk sense.
+DCS Bellini: Luckily, Trade Authority traced the location of this guy. He's on Earth, Helsinki.
+DCS Bellini: And you're the only one with an X30 Lancer from your time at Air & Space, so we might as well use it.
+DI Haddad: You want me to take him in? 
+DCS Bellini: I want you to eliminate him. No negotiating.
+DI Haddad: What if I can talk him down?
+DCS Bellini: Look, Silvia. You're new here, maybe you don't get it. We're not therapists.
+DCS Bellini: Our job is to get the bad guys, and put them away for a very long time. Preferably in the ground.
+DCS Bellini: Got it? 
+DI Haddad: Yes, sir.
+DCS Bellini: And appreciate that I gave you a case in the first place after your fuck-up on Blackbird.
+DI Haddad: Thank you, sir.
+DCS Bellini: Now go get your ship.
 ===
 
 title: DeathFromAbove_Shop1
