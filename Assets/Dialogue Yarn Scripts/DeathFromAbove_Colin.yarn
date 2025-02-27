@@ -1,11 +1,19 @@
 ﻿title: DeathFromAbove_Prologue
 tags:
 ---
-<<enter Silvia right>>
-Silvia: hello
-SDF Technician: some random thing 
-<<enter Bellini left>>
-Bellini: what about this?
+Supervisor: ~Radio in~ Hey, Earl! What the fuck are you doing? Why's the engine on? ~Radio out~
+Earl: Hold on, lemme see. I didn't turn on no engine.
+Supervisor:  
+SDF Technician: Shit. Disable, disable.
+Computer: Input not accepted. 
+SDF Technician: Huh. Okay, how bout admin override...
+Computer: Administration access denied.
+Computer: 
+// constantine turns on.
+// engineer says it's getting hot, engine turning on 
+// technician tries to turn it off and can't, engineer is like bro stop
+// then engineer gets burnt. technician is stressing.
+// they get the demands from Serverus
 ===
 
 title: DeathFromAbove_Briefing
