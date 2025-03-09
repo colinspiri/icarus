@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb1b87331934014ca4fce5819eebec7, type: 3}
+  m_Name: LaserGunConstants_PlayerLaserGun
+  m_EditorClassIdentifier: 
+  heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
+  equippedGun: {fileID: 11400000, guid: 0beef16471c9ae14dbcd8a1c50f11078, type: 2}
+  bulletPrefabTier1: {fileID: 7361992325912451180, guid: 28c77d08eb5d75848938415301ac7520, type: 3}
+  bulletPrefabTier2: {fileID: 7361992325912451180, guid: df79d4b427b5d3343a2e62f861cde522, type: 3}
+  bulletPrefabTier3: {fileID: 7361992325912451180, guid: e865d5d62278de848a803117f7354ba6, type: 3}
+  damageTier1: 3
+  damageTier2: 4
+  damageTier3: 5
+  firingRateTier1: 0.8
+  firingRateTier2: 0.8
+  firingRateTier3: 0.8
+  ammoCostTier1: 1
+  ammoCostTier2: 1
+  ammoCostTier3: 1
+  spreadTier1: 0
+  spreadTier2: 0
+  spreadTier3: 0
+  ownedOnStart: 0
+  cost: 0
+  Tier1Fire: {fileID: 0}
+  Tier2Fire: {fileID: 0}
+  Tier3Fire: {fileID: 0}
+  laserDamagePerSecond: 1

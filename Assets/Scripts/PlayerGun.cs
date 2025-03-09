@@ -21,14 +21,24 @@ public class PlayerGun : MonoBehaviour {
 
     [Header("Audio")]
     [SerializeField] private SoundProfile reloadSound;
+
     
     // state
     private bool _reloading;
     private float _fireCooldownProgress;
+    private bool _previousFireHeld;
+
+    public LaserState laserState;
+    public enum LaserState
+    {
+        Charging,
+        Fired
+    }
 
     private void Start() {
         currentAmmo.Value = maxAmmo.Value;
         reloadProgress.Value = 0;
+        laserState = LaserState.Fired;
     }
 
     // Update is called once per frame
@@ -37,6 +47,15 @@ public class PlayerGun : MonoBehaviour {
         HandleInput();
         UpdateReload();
         UpdateFireCooldown();
+
+        // Detects if player releases the fire button while using the laser gun
+        // When released, we can then start the cooldown for the laser gun
+        if (CurrentGun is LaserGunConstants && _previousFireHeld && !InputManager.Instance.fireHeld)
+        {
+            laserState = LaserState.Fired;
+        }
+
+        _previousFireHeld = InputManager.Instance.fireHeld;
     }
 
     private void HandleInput() {
@@ -46,14 +65,29 @@ public class PlayerGun : MonoBehaviour {
 
         // fire bullets
         float fireCooldown = 1.0f / CurrentGun.CurrentFiringRate;
-        if (InputManager.Instance.fireHeld && currentAmmo.Value > 0 && _fireCooldownProgress >= fireCooldown) {
+        if (CurrentGun is LaserGunConstants && InputManager.Instance.fireHeld && currentAmmo.Value > 0
+            && _fireCooldownProgress >= fireCooldown && laserState == LaserState.Fired){
+            FireLaser();
+            _fireCooldownProgress = 0;
+
+            currentAmmo.Value -= CurrentGun.CurrentAmmoCost;
+            if (currentAmmo.Value < 0) currentAmmo.Value = 0;
+
+            heatConstants.CalculateCurrentHeat(-heatConstants.CurrentHeatCostPerShot);
+
+            /* setting the laser state to charging will keep the laser from continuing to
+               fire and prevent the cooldown from starting until the laser has been fired */
+            laserState = LaserState.Charging;
+        }
+        else if (CurrentGun is not LaserGunConstants && InputManager.Instance.fireHeld && currentAmmo.Value > 0 
+            && _fireCooldownProgress >= fireCooldown){
             FireBullet();
 
             _fireCooldownProgress = 0;
 
             currentAmmo.Value -= CurrentGun.CurrentAmmoCost;
             if (currentAmmo.Value < 0) currentAmmo.Value = 0;
-            
+
             heatConstants.CalculateCurrentHeat(-heatConstants.CurrentHeatCostPerShot);
             //heat.Value -= heatConstants.CurrentHeatCostPerShot;
         }
@@ -81,11 +115,14 @@ public class PlayerGun : MonoBehaviour {
     }
 
     private void UpdateFireCooldown() {
-        float minFiringRate = Mathf.Min(CurrentGun.firingRateTier1, CurrentGun.firingRateTier2,
-            CurrentGun.firingRateTier3);
-        float maxFireCooldown = 1.0f / minFiringRate;
-        if (_fireCooldownProgress < maxFireCooldown) {
-            _fireCooldownProgress += Time.deltaTime;
+        if (CurrentGun is not LaserGunConstants || laserState == LaserState.Fired)
+        {
+            float minFiringRate = Mathf.Min(CurrentGun.firingRateTier1, CurrentGun.firingRateTier2,
+                CurrentGun.firingRateTier3);
+            float maxFireCooldown = 1.0f / minFiringRate;
+            if (_fireCooldownProgress < maxFireCooldown) {
+                _fireCooldownProgress += Time.deltaTime;
+            }
         }
     }
     
@@ -138,5 +175,16 @@ public class PlayerGun : MonoBehaviour {
         }
 
         CurrentGun.CurrentFireSFX.PlaySFX(); 
+    }
+
+    private void FireLaser()
+    {
+        GameObject laserPrefab = CurrentGun.CurrentBulletPrefab;
+        var spriteRenderer = laserPrefab.GetComponent<SpriteRenderer>();
+        var spawnPoint = bulletSpawnPoint.position + bulletSpawnPoint.right * spriteRenderer.bounds.size.x / 2;
+
+        Instantiate(laserPrefab, spawnPoint, bulletSpawnPoint.rotation, gameObject.transform);
+
+        //CurrentGun.CurrentFireSFX.PlaySFX();
     }
 }
