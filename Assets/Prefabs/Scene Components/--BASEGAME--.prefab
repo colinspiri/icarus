@@ -1064,6 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4535a8766de2b824f9a2959daaf84b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionState: {fileID: 11400000, guid: acd815a19d3acaf4883fa1a86ebb8b11, type: 2}
   displayWarningSymbol: {fileID: 11400000, guid: db2ce349356446a44878e379a161fdd4, type: 2}
   waveSet: {fileID: 11400000, guid: 36523fa113f84cb4d8f6b3eda0b4a159, type: 2}
   verticalSpawnPadding: 5

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class StaticObjectSpawner : MonoBehaviour
 {
+    [SerializeField] private MissionState missionState;
     [SerializeField] private FloatGameEvent displayWarningSymbol;
     [SerializeField] private WaveSet waveSet;
     [Tooltip("Represents the amount of vertical padding on top and bottom of the screen")]
@@ -21,6 +22,10 @@ public class StaticObjectSpawner : MonoBehaviour
     {
         ResetSpawnTimer();
         isReadyToSpawnStaticObject.Value = false;
+
+        if (missionState.CurrentScene != null && missionState.CurrentScene is LevelScene levelScene){
+            waveSet = levelScene.waveSet;
+        }
     }
     void Update()
     {
