@@ -2,9 +2,21 @@
 tags:
 ---
 <<enter Silvia left>>
-<<enter Bellini right>>
-Silvia: This is level 1.
-Chief Bellini: Good luck.
+Silvia: Mission control, this is ship Tango One Foxtrot. I'm approaching mission site now.
+Silvia: ...
+Silvia: Mission control, awaiting orders.
+Silvia: ...
+Silvia: Fuck this.
+<<enter Engel right>>
+DCS Bellini: We read you DI Haddad.
+Silvia: Is there a reason for the delay, sir?
+DCS Bellini: We are having some... difficulty with the radio.
+DCS Bellini: In any case, the mission site is a city ruined in a nuclear attack.
+DCS Bellini: A perfect hideout for lowlifes and criminals. 
+DCS Bellini: We don't know much about Serverus or what he wants. This guy is a lunatic, got it?
+Silvia: As you say, sir.
+DCS Bellini: Watch your back.
+Silvia: Yes, sir.
 <<exit Bellini>>
 <<exit Silvia>>
 ===
@@ -12,10 +24,144 @@ Chief Bellini: Good luck.
 title: DeathFromAbove_Level1_After
 tags:
 ---
+<<enter Serverus right>>
+Serverus: Curious, a new fly caught in my web.
+Serverus: I'm certain you and I shall be fast friends.
+<<enter Silvia left>>
+Silvia: Friends know each other's names, care to share your real one?
+Serverus: Of course. I am Serverus, the arbiter of justice, the lion amongst mice, the-
+Silvia: Asshole who's blowing people up with a giant laser?
+Serverus: I-
+<<wait 0.5>>
+Serverus: So you are a small minded fool. Very well.
+Serverus: The SDF wishes to stop me? Bring me Joseph Horrigan.
+Silvia: Who?
+Serverus: I will consider his release into my custody an olive branch.
+Silvia: I've no idea what you're on about.
+Serverus: I couldn't be clearer. Bring me Joseph Horrigan or I will use Constantine to its fullest potential.
+Silvia: If you surrender, the SDF might-
+Serverus: No. If the SDF will not cooperate, I entrust this task to you.
+Serverus: The fate of Constantine, and all the lives at stake, are on your shoulders now.
+Silvia: I don't have the jurisdiction-
+Serverus: You're the pride of the SDF, aren't you?
+Serverus: Figure it out.
+<<exit Serverus>>
+<<exit Silvia>>
+===
+
+title: DeathFromAbove_Argument
+tags:
+---
 <<enter Silvia left>>
 <<enter Bellini right>>
-Silvia: This is level 1.
-Chief Bellini: Good luck.
+DCS Bellini: You've returned in one piece. Good.
+DCS Bellini: Mission report.
+Silvia: The mission site was empty aside from a small army of hacked drones.
+Silvia: I dispatched the drones but there was no sign of the hacker.
+DCS Bellini: Damn it, the bastard's playing with us.
+<<wait 0.5>>
+Silvia: If I may, sir, there was one other thing.
+DCS Bellini: Go on.
+Silvia: I made contact with the hacker. He requested the SDF bring him a 'Joseph Hoirrigan'.
+DCS Bellini: Did he now?
+Silvia: He claimed it would be a peace offering.
+DCS Bellini: A peace offering? Don't tell me you believed him?
+Silvia: I-
+DCS Bellini: This guy is a maniac. Your task is to put him in the ground, not listen to his ravings.
+DCS Bellini: If he wasn't at this site, he'll be at another one. 
+Silvia: Sir, if I may, could we not use Horrigan as a way to draw him out?
+DCS Bellini: And what? Risk a civilian's life in the process?
+DCS Bellini: Did he happen to mention what he wanted Horrigan for?
+<<wait 1>>
+DCS Bellini: No, of course he didn't. 
+Silvia: Sir, all I meant was if we investigate this lead-
+DCS Bellini: Godammit Inspector, don't you get it? There is no lead!
+DCS Bellini: We don't negotiate with terrorists.
+DCS Bellini: The only concern the SDF has is stopping a maniac from killing more people.
+DCS Bellini: Now, I don't know who Joseph Horrigan is, and I don't care.
+DCS Bellini: I'm not some city detective, and neither are you.
+DCS Bellini: Am I understood?
+Silvia: Yes, sir.
+DCS Bellini: Good.
+<<wait 1>>
+DCS Bellini: (sigh)
+DCS Bellini: Look, Haddad, you dispatched the drones. You did your job.
+DCS Bellini: We give you orders for a reason. 
+DCS Bellini: You don't get a medal for taking unnecessary risks.
+DCS Bellini: And negotiating with Serverus? That's an unnecessary risk.
+<<wait 0.5>>
+DCS Bellini: We have a new task for you. 
+DCS Bellini: Constantine is controlled through a network of satellites located at various field sites on Earth.
+DCS Bellini: You are being tasked with destroying these satellites.
+DCS Bellini: Think you can handle it?
+Silvia: Yes, sir. 
+DCS Bellini: Good. The coordinates will be sent to your ship. Wheels up in two hours.
+DCS Bellini: Dismissed.
+<<exit Silvia>>
 <<exit Bellini>>
+===
+
+title: DeathFromAbove_Shop2
+tags:
+---
+===
+
+title: DeathFromAbove_Level2_Before
+tags:
+---
+<<enter Silvia>>
+Silvia: Ship Tango-One-Foxtrot to Mission Control, approaching first mission site.
+<<enter Bellini>>
+DCS Bellini: Mission control to Tango-One-Foxtrot, you're clear to engage.
+DCS Bellini: Report back after-
+<<exit Bellini>>
+<<wait 1>>
+Silvia: Sir?
+<<enter Serverus>>
+Serverus: No need for such formalities. We're friends, remember?
+Serverus: Although friends don't go breaking each other's toys.
+Silvia: We aren't friends.
+Serverus: No?
+Serverus: Then I suppose I don't have to feel bad for blowing you and your ship to bloody bits.
+Silvia: You can't scare me.
+Serverus: Maybe not. 
+Serverus: But I can kill you, Silvia.
+Serverus: Fly fast, little bird.
+<<exit Serverus>>
+Silvia: This fucking guy...
+<<exit Silvia>>
+===
+
+title: DeathFromAbove_Level2_After
+tags:
+---
+<<enter Silvia>>
+<<enter Serverus>>
+Serverus: You've disappointed me, Silvia.
+Silvia: You've left me no choice. The world is better off without Constantine.
+Serverus: The world or the SDF?
+Serverus: If Constantine was meant to protect people, it wouldn't be capable of harming them.
+Serverus: No, I think this is exactly what the SDF wanted for it.
+Serverus: After all, this is exactly what the SDF wanted for me.
+Silvia: What are you on about now?
+Serverus: Oh look! Daddy's calling.
+<<exit Serverus>>
+<<enter Bellini>>
+DCS Bellini: -DI Haddad come in!
+Silvia: Sir?
+DCS Bellini: DI Haddad what's the hold up? The laser is getting ready to fire again!
+Silvia: What? I destroyed the last of the satellites!
+DCS Bellini: That's not possible, I swear if you fucked this-
+<<exit Bellini>>
+Silvia: Sir?
+<<wait 1>>
+<<enter Serverus>>
+Silvia: How-
+Serverus: Oh poor, ignorant Silvia. 
+Serverus: Some of us were good enough for the Icarus Project.
+Serverus: Such a pity you weren't among them. 
+Serverus: Let's take a raincheck on all the killing, yes?
+Serverus: I have more important business, and you have another failed mission to report.
+<<exit Serverus>>
 <<exit Silvia>>
 ===
