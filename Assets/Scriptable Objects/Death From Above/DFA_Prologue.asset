@@ -15,4 +15,4 @@ MonoBehaviour:
   unityScene:
     sceneAsset: {fileID: 102900000, guid: d239beff4b6c59a4f8726937ce92c43c, type: 3}
     scenePath: Assets/Scenes/Dialogue.unity
-  yarnNode: 
+  yarnNode: DeathFromAbove_Prologue

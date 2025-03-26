@@ -17,7 +17,7 @@ MonoBehaviour:
     scenePath: Assets/Scenes/Game.unity
   moneyOnComplete: -1
   waveSet: {fileID: 11400000, guid: 44c3bb52018424ae9af199ec22d5fe0a, type: 2}
-  dialogueBeforeWaves: PrototypeMission_Level1_Before
+  dialogueBeforeWaves: DeathFromAbove_Level1_Before
   delayOnDialogueBeforeWaves: 0.5
-  dialogueAfterWaves: PrototypeMission_Level1_After
+  dialogueAfterWaves: DeathFromAbove_Level1_After
   delayOnDialogueAfterWaves: 0.5
