@@ -20,9 +20,9 @@ MonoBehaviour:
   damageTier1: 3
   damageTier2: 4
   damageTier3: 5
-  firingRateTier1: 0.8
-  firingRateTier2: 0.8
-  firingRateTier3: 0.8
+  firingRateTier1: 2
+  firingRateTier2: 2
+  firingRateTier3: 2
   ammoCostTier1: 1
   ammoCostTier2: 1
   ammoCostTier3: 1

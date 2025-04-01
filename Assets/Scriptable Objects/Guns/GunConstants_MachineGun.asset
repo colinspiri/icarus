@@ -26,8 +26,11 @@ MonoBehaviour:
   ammoCostTier1: 1
   ammoCostTier2: 1
   ammoCostTier3: 1
-  spreadTier1: 10
-  spreadTier2: 15
+  spreadTier1: 5
+  spreadTier2: 10
   spreadTier3: 20
   ownedOnStart: 0
   cost: 75
+  Tier1Fire: {fileID: 0}
+  Tier2Fire: {fileID: 0}
+  Tier3Fire: {fileID: 0}

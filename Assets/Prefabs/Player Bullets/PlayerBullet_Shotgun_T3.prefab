@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4345100824387068536, guid: ce9f8783a95ec2e43814ec134fb106ef, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4345100824387068536, guid: ce9f8783a95ec2e43814ec134fb106ef, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4345100824387068536, guid: ce9f8783a95ec2e43814ec134fb106ef, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4345100824387068536, guid: ce9f8783a95ec2e43814ec134fb106ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8546104759786265089, guid: ce9f8783a95ec2e43814ec134fb106ef, type: 3}
       propertyPath: staticBulletSpeed
-      value: 25
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 8546104759786265089, guid: ce9f8783a95ec2e43814ec134fb106ef, type: 3}
       propertyPath: useRandomBulletSpeed

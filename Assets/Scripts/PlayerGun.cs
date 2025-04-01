@@ -174,7 +174,9 @@ public class PlayerGun : MonoBehaviour {
             bullet.transform.Rotate(0, 0, randomRotation);
         }
 
-        CurrentGun.CurrentFireSFX.PlaySFX(); 
+        if (CurrentGun.CurrentFireSFX != null) {
+            CurrentGun.CurrentFireSFX.PlaySFX();
+        }
     }
 
     private void FireLaser()

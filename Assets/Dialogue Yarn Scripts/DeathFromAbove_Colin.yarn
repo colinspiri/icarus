@@ -1,19 +1,34 @@
 ﻿title: DeathFromAbove_Prologue
 tags:
 ---
-Supervisor: ~Radio in~ Hey, Earl! What the fuck are you doing? Why's the engine on? ~Radio out~
-Earl: Hold on, lemme see. I didn't turn on no engine.
-Supervisor:  
-SDF Technician: Shit. Disable, disable.
-Computer: Input not accepted. 
-SDF Technician: Huh. Okay, how bout admin override...
-Computer: Administration access denied.
-Computer: 
-// constantine turns on.
-// engineer says it's getting hot, engine turning on 
-// technician tries to turn it off and can't, engineer is like bro stop
-// then engineer gets burnt. technician is stressing.
-// they get the demands from Serverus
+Radio: ~KSSHH~ Earl! The fuck you doing? Why'd you turn on the engine while we're doin' repairs? ~KSSHH~
+Earl: What? I didn't turn it on.
+Radio: ~KSSHH~ Stop fuckin' with me, just turn it off! It's heatin' up and we're all in here! ~KSSHH~
+Earl: Shit. Hey computer? 
+Computer: Listening...
+Earl: Uh, disable it. Disable Constantine orbital cannon. 
+Computer: Verbal command not recognized. 
+Radio: ~KSSHH~ Earl, unlock the doors! This ain't funny! ~KSSHH~
+Earl: Computer, admin override! Password is blue green seven two three. 
+Computer: Administration access denied. 
+Earl: Ray, I'm locked out. Did you change the admin password?
+Earl: Ray?
+Computer: Outgoing communication access restricted. Firing in thirty seconds.
+Radio: ~KSSHH~ Earl, we're all in here, you're gonna kill us! ~KSSHH~
+Earl: Computer, what's going on? Cut power now.
+Computer: <i>My name is Serverus.</i>
+Serverus: <i>Listen to me closely while you watch your friends die.</i> 
+Computer: Displaying engine room camera feed.
+Serverus: <i>Tell your boss that the legendary hacker Serverus has complete control over Constantine.</i>
+Radio: ~KSSHH~ Earl, turn that shit off! ~KSSHHHHHH~
+Serverus: <i>I am the justiciar overthrowing the emperor.</i>
+Serverus: <i>I am the destroyer of the old world order.</i>
+Serverus: <i>I am the herald of a new empire.</i>
+Radio: ~KSSHH~ EARLLLL!!! AGGGHHHHH!
+Computer: Cut engine room camera feed.
+Earl: ...
+Earl: Who are you?
+Serverus: <i>Now bring me Joseph Horrigan.</i>
 ===
 
 title: DeathFromAbove_Briefing
