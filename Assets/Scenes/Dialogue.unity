@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 3756283491341358363}
   missionState: {fileID: 11400000, guid: acd815a19d3acaf4883fa1a86ebb8b11, type: 2}
-  yarnNode: DeathFromAbove_Prologue
+  yarnNode: DeathFromAbove_Briefing
 --- !u!1 &303138022
 GameObject:
   m_ObjectHideFlags: 0
