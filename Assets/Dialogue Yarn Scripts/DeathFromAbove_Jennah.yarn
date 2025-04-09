@@ -2,7 +2,7 @@
 tags:
 ---
 <<enter Silvia left>>
-Silvia: Mission control, this is ship Tango One Foxtrot. I'm approaching mission site now.
+Silvia: Mission control, this is Tango-One-Foxtrot. I'm approaching mission site now.
 Silvia: ...
 Silvia: Mission control, awaiting orders.
 Silvia: ...
@@ -33,7 +33,7 @@ Serverus: Of course. I am Serverus, the arbiter of justice, the lion amongst mic
 Silvia: Asshole who's blowing people up with a giant laser?
 Serverus: I-
 <<wait 0.5>>
-Serverus: So you are a small minded fool. Very well.
+Serverus: So you are a small-minded fool. Very well.
 Serverus: The SDF wishes to stop me? Bring me Joseph Horrigan.
 Silvia: Who?
 Serverus: I will consider his release into my custody an olive branch.
@@ -62,7 +62,7 @@ DCS Bellini: Damn it, the bastard's playing with us.
 <<wait 0.5>>
 Silvia: If I may, sir, there was one other thing.
 DCS Bellini: Go on.
-Silvia: I made contact with the hacker. He requested the SDF bring him a 'Joseph Hoirrigan'.
+Silvia: I made contact with the hacker. He requested the SDF bring him a 'Joseph Horrigan'.
 DCS Bellini: Did he now?
 Silvia: He claimed it would be a peace offering.
 DCS Bellini: A peace offering? Don't tell me you believed him?
@@ -109,15 +109,15 @@ tags:
 title: DeathFromAbove_Level2_Before
 tags:
 ---
-<<enter Silvia>>
-Silvia: Ship Tango-One-Foxtrot to Mission Control, approaching first mission site.
-<<enter Bellini>>
-DCS Bellini: Mission control to Tango-One-Foxtrot, you're clear to engage.
+<<enter Silvia left>>
+Silvia: Tango-One-Foxtrot to Mission Control, approaching first mission site.
+<<enter Bellini right>>
+DCS Bellini: Mission Control to Tango-One-Foxtrot, you're clear to engage.
 DCS Bellini: Report back after-
 <<exit Bellini>>
 <<wait 1>>
 Silvia: Sir?
-<<enter Serverus>>
+<<enter Serverus right>>
 Serverus: No need for such formalities. We're friends, remember?
 Serverus: Although friends don't go breaking each other's toys.
 Silvia: We aren't friends.
@@ -135,8 +135,8 @@ Silvia: This fucking guy...
 title: DeathFromAbove_Level2_After
 tags:
 ---
-<<enter Silvia>>
-<<enter Serverus>>
+<<enter Silvia left>>
+<<enter Serverus right>>
 Serverus: You've disappointed me, Silvia.
 Silvia: You've left me no choice. The world is better off without Constantine.
 Serverus: The world or the SDF?
@@ -146,7 +146,7 @@ Serverus: After all, this is exactly what the SDF wanted for me.
 Silvia: What are you on about now?
 Serverus: Oh look! Daddy's calling.
 <<exit Serverus>>
-<<enter Bellini>>
+<<enter Bellini right>>
 DCS Bellini: -DI Haddad come in!
 Silvia: Sir?
 DCS Bellini: DI Haddad what's the hold up? The laser is getting ready to fire again!
@@ -155,7 +155,7 @@ DCS Bellini: That's not possible, I swear if you fucked this-
 <<exit Bellini>>
 Silvia: Sir?
 <<wait 1>>
-<<enter Serverus>>
+<<enter Serverus right>>
 Silvia: How-
 Serverus: Oh poor, ignorant Silvia. 
 Serverus: Some of us were good enough for the Icarus Project.
