@@ -37,7 +37,7 @@ public class PlayerLaser : MonoBehaviour
         float initialDamage = laserGunConstants.CurrentDamage;
         finalLaserDamage = initialDamage;
 
-        while (InputManager.Instance.fireHeld)
+        while (InputManager.Instance.fireHeld && finalLaserDamage < laserGunConstants.maxDamage)
         {
             _laserDuration += Time.deltaTime;
             finalLaserDamage = initialDamage + (laserGunConstants.laserDamagePerSecond * _laserDuration);

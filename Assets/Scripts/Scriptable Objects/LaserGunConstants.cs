@@ -7,4 +7,6 @@ public class LaserGunConstants : GunConstants
 {
     [Header("Laser")]
     public float laserDamagePerSecond;
+    [Tooltip("Laser will automatically fire if it reaches max damage while charging")]
+    public float maxDamage;
 }
