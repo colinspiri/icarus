@@ -77,7 +77,41 @@ DI Haddad: Thank you, sir.
 DCS Bellini: Now go get your ship.
 ===
 
-title: DeathFromAbove_Shop1
+title: DeathFromAbove_Shop1_Before
 tags:
 ---
+<<enter Silvia right>>
+Silvia: Hey Karina.
+<<wait 0.5>>
+<<enter Karina left>>
+Dr. Karina Le: He gave you a dressing-down, huh?
+Silvia: It's that obvious? 
+Dr. Le: No, but every DI who's come to me for repairs today was talking about how mad he is. At you. 
+Silvia: Fuck that guy. 
+Dr. Le: I've certainly heard a lot about him. I get all the gossip here, you know.
+Silvia: Didn't know you were a gossip.
+Dr. Le: Just a good listener. A fly on the wall.
+Dr. Le: Your ship's ready. Just gotta swap in the gun. Your choice. 
+===
+
+title: DeathFromAbove_Shop1_After
+tags:
+---
+<<enter Silvia right>>
+<<enter Karina left>>
+Silvia: You and Ed hitting the bars after work again tonight? 
+Dr. Le: If he finishes his system scans early, yeah.
+Silvia: Poor guy. Well, I'll meet you after I get this Serverus guy.
+Dr. Le: Good luck, Silvia. Be safe.
+Silvia: Super safe. As always.
+===
+
+title: DeathFromAbove_Shop2_Before
+tags:
+---
+<<enter Silvia right>>
+<<enter Karina left>>
+Karina: With the parts you brought back, and some help from a friend at Air & Space, I think I figured out how to recreate those laser weapons Serverus was using on his drones.
+Karina: So when you have the credits for it, I can hook it up to your XC-30 Lancer. Shouldn't be too hard. Just expensive.
+Silvia: Just the usual repairs for now, but I'll consider it, thanks.
 ===
