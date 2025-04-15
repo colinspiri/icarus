@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d7d4e8b3ee142ed9f7ac9c8fb4dddd0, type: 3}
-  m_Name: DFA_Shop1
+  m_Name: DFA_Shop2
   m_EditorClassIdentifier: 
   unityScene:
     sceneAsset: {fileID: 102900000, guid: 3a1aa6f6ec61a48de919d23ef7ff267d, type: 3}
