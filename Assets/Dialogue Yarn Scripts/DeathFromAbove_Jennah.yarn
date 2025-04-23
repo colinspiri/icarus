@@ -115,7 +115,7 @@ Silvia: Tango-One-Foxtrot to Mission Control, approaching first mission site.
 DCS Bellini: Mission Control to Tango-One-Foxtrot, you're clear to engage.
 DCS Bellini: Report back after-
 <<exit Bellini>>
-<<wait 1>>
+<<wait 1>> 
 Silvia: Sir?
 <<enter Serverus right>>
 Serverus: No need for such formalities. We're friends, remember?
@@ -165,3 +165,108 @@ Serverus: I have more important business, and you have another failed mission to
 <<exit Serverus>>
 <<exit Silvia>>
 ===
+
+
+title: DeathFromAbove_Level3_Before
+tags:
+---
+<<enter Silvia left>>
+<<enter Serverus right>>
+Serverus: And so we meet again, Silvia. 
+Serverus: I must thank you for finding Joseph for me, but you needn't worry yourself so.
+Serverus: I can handle things from here.
+Silvia: You're a pathetic man-child whose manifesto is posted on an outdated internet forum where you use the word "females" 26 times.
+Silvia: You can't handle anything, not even your own daddy issues.
+Serverus: How dare-
+Serverus: (breathes deeply)
+Serverus: You're not the only one capable of doing research. I've read your file.
+Serverus: The trigger happy agent always looking for a thrill.
+Serverus: Let me give you a real challenge. 
+SHIP: FLIGHT COMPUTER DISABLED
+Silvia: What-
+Serverus: Good luck, little bird.
+<<exit Serverus>>
+SHIP: ALTITUDE DROPPING
+Silvia: Fuck!
+<<exit Silvia>>
+===
+
+title: DeathFromAbove_Level3_After
+tags:
+---
+<<enter Silvia left>>
+Silvia: Fuck! Come on...
+SHIP: FLIGHT COMPUTER REINSTATED
+Silvia: Fucking finally!
+Silvia: Come in mission control, this is DI Haddad.
+<<enter Bellini right>>
+DCS Bellini: We read you, DI Haddad.
+Silvia: Serverus intercepted our comms, he knows where Horrigan is.
+DCS Bellini: Shit. Well, you're already en route. You should get there faster than he can.
+DCS Bellini: Don't fuck this up, Haddad.
+Silvia: Yes, sir.
+<<exit Bellini>>
+<<exit Silvia>>
+===
+
+title: DeathFromAbove_Level4_Before
+tags:
+---
+<<enter Silvia>>
+Silvia: Hey Bill! We're here, just like you asked.
+<<enter Serverus right>>
+Serverus: So I see.
+<<exit Silvia>>
+<<enter Joseph left>>
+Joseph: My boy... what have they done to you?
+Serverus: You did this! You did! 
+Joseph: If I had known what would happen I never would have let them take you.
+Joseph: I'm your father. I thought I was doing what was best for you. I was wrong.
+Joseph: They told me you died. But we have another chance now. We can make this right.
+Serverus: Ha... ha...
+Serverus: HAHAHAHAHAHAHAHA!
+Serverus: Make this right? This is right! I am exactly what I was always meant to be.
+Serverus: You gave me to them father. Now you get to see me at my greatest potential.
+Serverus: And Silvia? Thank you.
+<<exit Serverus>>
+<<exit Joseph>>
+===
+
+title: DeathFromAbove_Level4_After
+tags:
+---
+<<enter Silvia left>>
+Silvia: Give it up, Bill. You've lost.
+<<enter Serverus right>>
+Serverus: Lost... lost... no, no I don't lose. I can't lose. Failure is not an option.
+Silvia: Well, there's a first time for everything.
+Serverus: No... Silvia, darling Silvia. Don't you get it? I didn't do this. I never wanted to do this.
+Serverus: It's THEIR fault!
+Silvia: Who? Your father's?
+Serverus: My father... yes... yes it's him isn't it? It always was. Well not anymore.
+Silvia: Bill stand down! It's over.
+Serverus: No, not yet. But it will be.
+<<exit Serverus>>
+Silvia: Shit, he's getting away. Joseph stay here, an evac team can come collect you. I have to follow him.
+<<enter Joseph right>>
+Joseph: No, no he is my son! I can get through to him. I know I can. I'm coming with you.
+Silvia: Joseph-
+Joseph: I'm. Coming. With. You.
+Silvia: (groans) Fine! It's your funeral.
+<<exit Silvia>>
+<<exit Joseph>>
+===
+
+title: DeathFromAbove_Level5_Before
+tags:
+---
+<<enter Serverus right>>
+Serverus: It'll end, it will all end...
+<<enter Joseph left>>
+Joseph: Bill! Bill please, stop this. 
+Serverus: No! You can't tell me what to do anymore. Nobody can tell me what to do anymore. I have the power here!
+Joseph: Yes, yes you do. You have the power to stop now, Bill. 
+Serverus: You did this!
+Joseph: I didn't! If you want to blame someone blame the SDF. They did this, Bill, but we can undo it. 
+<<wait 1>>
+Serverus: Well then, let's hear what our resident hero has to say, hm? 
