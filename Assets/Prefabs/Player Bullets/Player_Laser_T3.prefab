@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserGunConstants: {fileID: 11400000, guid: d9ef363c593794c4db88fff5cedd648c, type: 2}
   heatConstants: {fileID: 11400000, guid: e9f6781dcf43f46bd83749eae154d188, type: 2}
+  playerLaserFired: {fileID: 11400000, guid: e8ec386bcbf36af4f83eb13a2f299134, type: 2}
   damage: 1
   useValueFromGunConstants: 1
   gunConstants: {fileID: 11400000, guid: d9ef363c593794c4db88fff5cedd648c, type: 2}

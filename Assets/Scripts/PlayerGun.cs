@@ -52,7 +52,7 @@ public class PlayerGun : MonoBehaviour {
         // When released, we can then start the cooldown for the laser gun
         if (CurrentGun is LaserGunConstants && _previousFireHeld && !InputManager.Instance.fireHeld)
         {
-            laserState = LaserState.Fired;
+            SetLaserFired();
         }
 
         _previousFireHeld = InputManager.Instance.fireHeld;
@@ -109,7 +109,7 @@ public class PlayerGun : MonoBehaviour {
             }
         }
         // check to start reload 
-        else if (currentAmmo.Value <= 0) {
+        else if (currentAmmo.Value <= 0 && laserState == LaserState.Fired) {
             StartReload();
         }
     }
@@ -189,4 +189,6 @@ public class PlayerGun : MonoBehaviour {
 
         //CurrentGun.CurrentFireSFX.PlaySFX();
     }
+
+    public void SetLaserFired() => laserState = LaserState.Fired;
 }

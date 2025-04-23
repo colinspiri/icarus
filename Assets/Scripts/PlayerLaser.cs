@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using ScriptableObjectArchitecture;
 
 public class PlayerLaser : MonoBehaviour
 {
     [SerializeField] private LaserGunConstants laserGunConstants;
     [SerializeField] private HeatConstants heatConstants;
+    [SerializeField] private GameEvent playerLaserFired;
 
     private SpriteRenderer _spriteRenderer;
     private float _laserDuration;
@@ -52,6 +54,7 @@ public class PlayerLaser : MonoBehaviour
         _canDamage = true;
         GetComponent<Collider2D>().enabled = true;
         _spriteRenderer.DOFade(1f, 0.1f).OnComplete(()=> Destroy(gameObject));
+        playerLaserFired.Raise();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
