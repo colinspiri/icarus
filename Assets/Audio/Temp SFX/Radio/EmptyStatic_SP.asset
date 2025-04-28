@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad010a39fe641d4f894842823785cbe, type: 3}
+  m_Name: EmptyStatic_SP
+  m_EditorClassIdentifier: 
+  sfx: {fileID: 8300000, guid: 2d3b0722741ca9646b1200da4b805da3, type: 3}
+  sfxList: []
+  mixer: {fileID: 3280190429164091755, guid: 928424b963164b3499c5387e026a0a7a, type: 2}
+  volume: 1
+  pitchMin: 1
+  pitchMax: 1

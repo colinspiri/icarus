@@ -7,7 +7,9 @@ using UnityEngine.Audio;
 public class SoundProfile : ScriptableObject
 {
     public AudioClip sfx;
+    public AudioClip[] sfxList = null;
     public AudioMixerGroup mixer;
+    public bool looping = false;
 
     [Range(0.0f, 1.0f)]
     public float volume = 1.0f;
@@ -23,6 +25,19 @@ public class SoundProfile : ScriptableObject
 
     public void PlaySFX()
     {
-        AudioManager.Instance.Play(sfx, volume, getPitch(), mixer);
+        if (sfxList != null)
+        {
+            AudioManager.Instance.Play(sfxList[Random.Range(0, sfxList.Length)], volume, getPitch(), mixer, looping);
+        }
+        else
+        {
+            AudioManager.Instance.Play(sfx, volume, getPitch(), mixer, looping);
+        }
+        
+    }
+
+    public void StopSFX()
+    {
+        AudioManager.Instance.StopSFX(sfx);
     }
 }
