@@ -9,6 +9,8 @@ public class PlayerLaser : MonoBehaviour
     [SerializeField] private LaserGunConstants laserGunConstants;
     [SerializeField] private HeatConstants heatConstants;
     [SerializeField] private GameEvent playerLaserFired;
+    [SerializeField] private IntVariable extraAmmoCost;
+    [SerializeField] private IntVariable currentAmmo;
 
     private SpriteRenderer _spriteRenderer;
     private float _laserDuration;
@@ -31,6 +33,7 @@ public class PlayerLaser : MonoBehaviour
         Color color = new(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 0.1f);
         transform.GetComponent<SpriteRenderer>().color = color;
         StartCoroutine(ChargeLaser());
+        extraAmmoCost.Value = 0;
     }
 
     private IEnumerator ChargeLaser()
@@ -38,15 +41,28 @@ public class PlayerLaser : MonoBehaviour
         _laserDuration = 0f;
         float initialDamage = laserGunConstants.CurrentDamage;
         finalLaserDamage = initialDamage;
+        float elapsedTime = 0f;
 
         while (InputManager.Instance.fireHeld && finalLaserDamage < laserGunConstants.maxDamage)
         {
             _laserDuration += Time.deltaTime;
+            elapsedTime += Time.deltaTime;
+
+            if (elapsedTime >= 1f)
+            {
+                extraAmmoCost.Value++;
+                elapsedTime = 0f;
+            }
+
             finalLaserDamage = initialDamage + (laserGunConstants.laserDamagePerSecond * _laserDuration);
             yield return null;
         }
 
         FireLaser();
+        int ammoCost = laserGunConstants.CurrentAmmoCost + extraAmmoCost.Value;
+        currentAmmo.Value -= ammoCost;
+        if (currentAmmo.Value < 0) currentAmmo.Value = 0;
+        extraAmmoCost.Value = 0;
     }
 
     private void FireLaser()

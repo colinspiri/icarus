@@ -69,10 +69,6 @@ public class PlayerGun : MonoBehaviour {
             && _fireCooldownProgress >= fireCooldown && laserState == LaserState.Fired){
             FireLaser();
             _fireCooldownProgress = 0;
-
-            currentAmmo.Value -= CurrentGun.CurrentAmmoCost;
-            if (currentAmmo.Value < 0) currentAmmo.Value = 0;
-
             heatConstants.CalculateCurrentHeat(-heatConstants.CurrentHeatCostPerShot);
 
             /* setting the laser state to charging will keep the laser from continuing to

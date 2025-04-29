@@ -5707,6 +5707,7 @@ MonoBehaviour:
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 646ed575bd251db41809296ae42a2fbe, type: 2}
   currentAmmo: {fileID: 11400000, guid: c5eb8bae15f5b0a4a87dbe6ab1e6d3e9, type: 2}
+  extraAmmoCost: {fileID: 11400000, guid: 1df9c4205d635af4bacedc75937dcc3e, type: 2}
   reloadProgress: {fileID: 11400000, guid: 36c36f72136b3af4fb063919e3184a08, type: 2}
   reloadSound: {fileID: 11400000, guid: 8e7bef3fe9f20df42a793ec795e827d1, type: 2}
   laserState: 0
