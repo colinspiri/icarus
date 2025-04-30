@@ -209,6 +209,9 @@ public class EnemySpawner : MonoBehaviour {
             EnemyType.MachineGunEnemy => machineGunEnemyPrefab,
             EnemyType.ArcEnemy => arcEnemyPrefab,
             EnemyType.OrbitalLaser => orbitalLaserPrefab,
+            EnemyType.OrbitalLaserAlwaysOn => orbitalLaserPrefabAlwaysOn,
+            EnemyType.OrbitalLaserFast => orbitalLaserPrefabFast,
+            EnemyType.OrbitalLaserSlow => orbitalLaserPrefabSlow,
             EnemyType.LaserGunEnemy => laserGunEnemyPrefab,
             _ => null
         };
