@@ -46,6 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSettings: {fileID: 11400000, guid: 64c64a1be1583224580f8c2f7cdeb937, type: 2}
+  audioMixer: {fileID: 24100000, guid: 928424b963164b3499c5387e026a0a7a, type: 2}
+  staticLoop: {fileID: 11400000, guid: 0312aa4bdc45fb047b75cef40b02909b, type: 2}
+  radioStart: {fileID: 11400000, guid: 230466bd96455ab4ea5ab8ec10ffdad4, type: 2}
+  radioStop: {fileID: 11400000, guid: 0a7e55473473b3944ae8256bb5c5dc71, type: 2}
 --- !u!1001 &2129654020203754230
 PrefabInstance:
   m_ObjectHideFlags: 0
