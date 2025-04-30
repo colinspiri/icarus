@@ -23,6 +23,9 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] private GameObject machineGunEnemyPrefab;
     [SerializeField] private GameObject arcEnemyPrefab;
     [SerializeField] private GameObject orbitalLaserPrefab;
+    [SerializeField] private GameObject orbitalLaserPrefabAlwaysOn;
+    [SerializeField] private GameObject orbitalLaserPrefabFast;
+    [SerializeField] private GameObject orbitalLaserPrefabSlow;
     [SerializeField] private GameObject laserGunEnemyPrefab;
 
     [Header("Anchor Points")] 

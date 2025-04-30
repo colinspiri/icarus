@@ -22,8 +22,12 @@ public class DeathFromAbove : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioClip fireSFX;
 
+    [Header("Visuals")]
+    //public Color newColor = Color.white;
+    public Sprite firedSprite;
+
+
     private Renderer objectRenderer;
-    public Color newColor = Color.white;
     private bool isMoving;
     private bool hasFired;
     public bool alwaysOn;
@@ -62,7 +66,10 @@ public class DeathFromAbove : MonoBehaviour
 
     private void Fire()
     {
-        objectRenderer.material.color = newColor;
+        if (firedSprite != null)
+        {
+            spriteRenderer.sprite = firedSprite;
+        }
         hasFired = true;
         //AudioManager.Instance.Play(fireSFX, 0.5f);
         Invoke("Despawn", 0.1f);
@@ -70,7 +77,10 @@ public class DeathFromAbove : MonoBehaviour
 
     private void ConstantFire()
     {
-        objectRenderer.material.color = newColor;
+        if (firedSprite != null)
+        {
+            spriteRenderer.sprite = firedSprite;
+        }
         hasFired = true;
         //AudioManager.Instance.Play(fireSFX, 0.5f);
         Invoke("Despawn", moveDuration);

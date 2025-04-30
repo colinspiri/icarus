@@ -40,5 +40,8 @@ public enum EnemyType
     MachineGunEnemy,
     ArcEnemy,
     OrbitalLaser,
+    OrbitalLaserAlwaysOn,
+    OrbitalLaserFast,
+    OrbitalLaserSlow,
     LaserGunEnemy,
 }
