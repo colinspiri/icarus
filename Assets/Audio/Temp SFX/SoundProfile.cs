@@ -25,7 +25,7 @@ public class SoundProfile : ScriptableObject
 
     public void PlaySFX()
     {
-        if (sfxList != null)
+        if (sfxList != null && sfxList.Length > 0)
         {
             AudioManager.Instance.Play(sfxList[Random.Range(0, sfxList.Length)], volume, getPitch(), mixer, looping);
         }
