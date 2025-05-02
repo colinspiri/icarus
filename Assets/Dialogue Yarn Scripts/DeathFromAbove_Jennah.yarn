@@ -2,14 +2,14 @@
 tags:
 ---
 <<enter Silvia left>>
-<<BeginRadio>>
+<<BeginRadio AudioManager>>
 Silvia: Mission control, this is Tango-One-Foxtrot. I'm approaching mission site now.
 Silvia: ...
 Silvia: Mission control, awaiting orders.
 Silvia: ...
 Silvia: Fuck this.
 <<enter Engel right>>
-<<BeginRadio>>
+<<BeginRadio AudioManager>>
 DCS Bellini: We read you DI Haddad.
 Silvia: Is there a reason for the delay, sir?
 DCS Bellini: We are having some... difficulty with the radio.
@@ -20,7 +20,7 @@ Silvia: As you say, sir.
 DCS Bellini: Watch your back.
 Silvia: Yes, sir.
 <<exit Bellini>>
-<<EndRadio>>
+<<EndRadio AudioManager>>
 <<exit Silvia>>
 ===
 
@@ -28,7 +28,7 @@ title: DeathFromAbove_Level1_After
 tags:
 ---
 <<enter Serverus right>>
-<<BeginRadio>>
+<<BeginRadio AudioManager>>
 Serverus: Curious, a new fly caught in my web.
 Serverus: I'm certain you and I shall be fast friends.
 <<enter Silvia left>>
