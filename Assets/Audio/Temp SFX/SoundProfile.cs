@@ -27,10 +27,12 @@ public class SoundProfile : ScriptableObject
     {
         if (sfxList != null && sfxList.Length > 0)
         {
+            Debug.Log("Playing random sfx");
             AudioManager.Instance.Play(sfxList[Random.Range(0, sfxList.Length)], volume, getPitch(), mixer, looping);
         }
         else
         {
+            Debug.Log("Playing normal sfx");
             AudioManager.Instance.Play(sfx, volume, getPitch(), mixer, looping);
         }
         

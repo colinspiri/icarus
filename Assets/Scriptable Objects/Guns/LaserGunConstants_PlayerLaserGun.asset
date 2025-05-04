@@ -31,7 +31,8 @@ MonoBehaviour:
   spreadTier3: 0
   ownedOnStart: 0
   cost: 0
-  Tier1Fire: {fileID: 0}
-  Tier2Fire: {fileID: 0}
-  Tier3Fire: {fileID: 0}
+  Tier1Fire: {fileID: 11400000, guid: a1ec6c6c2db3cba44bdc23cc0840d928, type: 2}
+  Tier2Fire: {fileID: 11400000, guid: b5d6ccfd43bc33942b89fa9a66350afc, type: 2}
+  Tier3Fire: {fileID: 11400000, guid: f6d07720c4c41224cb14c3002581dacd, type: 2}
   laserDamagePerSecond: 1
+  maxDamage: 0
