@@ -56,53 +56,29 @@ Serverus: Figure it out.
 title: DeathFromAbove_Argument
 tags:
 ---
-<<enter Silvia left>>
-<<enter Bellini right>>
-DCS Bellini: You've returned in one piece. Good.
-DCS Bellini: Mission report.
-Silvia: The mission site was empty aside from a small army of hacked drones.
-Silvia: I dispatched the drones but there was no sign of the hacker.
+<<enter Bellini left>>
+<<enter Silvia right>>
 DCS Bellini: Damn it, the bastard's playing with us.
+Silvia: If I may, sir, there was one more thing.
 <<wait 0.5>>
-Silvia: If I may, sir, there was one other thing.
-DCS Bellini: Go on.
-Silvia: I made contact with the hacker. He requested the SDF bring him a 'Joseph Horrigan'.
-DCS Bellini: Did he now?
-Silvia: He claimed it would be a peace offering.
-DCS Bellini: A peace offering? Don't tell me you believed him?
-Silvia: I-
-DCS Bellini: This guy is a maniac. Your task is to put him in the ground, not listen to his ravings.
-DCS Bellini: If he wasn't at this site, he'll be at another one. 
-Silvia: Sir, if I may, could we not use Horrigan as a way to draw him out?
-DCS Bellini: And what? Risk a civilian's life in the process?
-DCS Bellini: Did he happen to mention what he wanted Horrigan for?
+Silvia: I made contact with the hacker. He requested the SDF bring him a 'Joseph Horrigan'. As a peace offering.
+DCS Bellini: Don't tell me you believed him. Your task is to put him in the ground, not listen to his ravings. We just have to find him.
+Silvia: Sir, we could use Horrigan as a way to draw him out.
+DCS Bellini: And did he say what he wants Horrigan for?
 <<wait 1>>
-DCS Bellini: No, of course he didn't. 
-Silvia: Sir, all I meant was if we investigate this lead-
-DCS Bellini: Godammit Inspector, don't you get it? There is no lead!
-DCS Bellini: We don't negotiate with terrorists.
-DCS Bellini: The only concern the SDF has is stopping a maniac from killing more people.
-DCS Bellini: Now, I don't know who Joseph Horrigan is, and I don't care.
-DCS Bellini: I'm not some city detective, and neither are you.
-DCS Bellini: Am I understood?
+DCS Bellini: No, of course he didn't.
+Silvia: Sir, if we investigate this lead-
+DCS Bellini: Goddammit Inspector, don't you get it? There is no lead! We don't negotiate with terrorists. 
+DCS Bellini: I don't know who Joseph Horrigan is, and I don't care. Am I understood? 
 Silvia: Yes, sir.
-DCS Bellini: Good.
 <<wait 1>>
-DCS Bellini: (sigh)
-DCS Bellini: Look, Haddad, you dispatched the drones. You did your job.
-DCS Bellini: We give you orders for a reason. 
-DCS Bellini: You don't get a medal for taking unnecessary risks.
-DCS Bellini: And negotiating with Serverus? That's an unnecessary risk.
+DCS Bellini: Alright, you dispatched the drones. If we can't find the terrorist, then we have to disable Constantine.
+DCS Bellini: Constantine is controlled through a network of satellites on Earth. I want you to destroy them. Think you can handle it?
+Silvia: Yes, sir.
 <<wait 0.5>>
-DCS Bellini: We have a new task for you. 
-DCS Bellini: Constantine is controlled through a network of satellites located at various field sites on Earth.
-DCS Bellini: You are being tasked with destroying these satellites.
-DCS Bellini: Think you can handle it?
-Silvia: Yes, sir. 
-DCS Bellini: Good. The coordinates will be sent to your ship. Wheels up in two hours.
-DCS Bellini: Dismissed.
+DCS Bellini: You don't get a medal for taking unnecessary risks. You won't last another week in this office unless you understand that.
+DCS Bellini: Wheels up in two hours. Dismissed.
 <<exit Silvia>>
-<<exit Bellini>>
 ===
 
 title: DeathFromAbove_Shop2

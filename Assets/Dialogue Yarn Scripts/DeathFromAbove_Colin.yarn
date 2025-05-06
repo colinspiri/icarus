@@ -36,7 +36,7 @@ tags:
 ---
 <<enter Silvia right>>
 DI Silvia Haddad: You asked for me?
-<<enter Engel left>>
+<<enter Bellini left>>
 DCS Engel Bellini: Close the door behind you, Inspector.
 DI Haddad: Yep.
 DCS Bellini: You speak to your senior officers like that in the Air & Space Force?
@@ -114,4 +114,62 @@ tags:
 Karina: With the parts you brought back, and some help from a friend at Air & Space, I think I figured out how to recreate those laser weapons Serverus was using on his drones.
 Karina: So when you have the credits for it, I can hook it up to your XC-30 Lancer. Shouldn't be too hard. Just expensive.
 Silvia: Just the usual repairs for now, but I'll consider it, thanks.
+===
+
+title: DeathFromAbove_NewDirection
+tags:
+---
+<<enter Bellini left>>
+<<enter Silvia right>>
+Silvia: Are you withholding information relevant to this investigation?
+DCS Bellini: You should be very careful with what you say, Haddad. 
+Silvia: How can this guy control Constantine without a signal? What is this hacker's connection to the SDF?
+Silvia: And what was the Icarus Project?
+DCS Bellini: I don't know what that psycho told you, but it would be in your best interest to just forget about it.
+Silvia: You're just gonna sit here and let people die to this maniac because of a little office politics?
+DCS Bellini: This isn't just some "office politics," Silvia. I suggest you shut the fuck up.
+<<wait 0.5>>
+Silvia: Sir, who is Serverus?
+<<wait 0.5>>
+DCS Bellini: His name is Bill Horrigan. Cybersecurity traced his signal a couple hours ago. Son of-
+Silvia: Joseph Horrigan. We need to go after him. He's obviously connected somehow. He might know why Serverus- Bill- is doing this. And what we can do to stop him.
+Silvia: You have to let me do this, Sir. It's our only option.
+<<wait 1>>
+DCS Bellini: Don't make me regret this. And don't ask any questions you don't want the answers to.
+===
+
+title: DeathFromAbove_VisitJoseph
+tags:
+---
+<<enter Silvia left>>
+Silvia: Mr. Horrigan? May I come in?
+???: I don't want your shitty life insurance!
+Silvia: Joseph, I'm Detective Inspector Silvia Haddad from the Solar Police. I'm just here to ask you a couple questions. Can I come in?
+<<enter Joseph right>>
+Joseph: Be my guest. Don't want you breakin' down my door again.
+Silvia: You live with anyone else? Wife, husband, kids?
+Joseph: ... No.
+Silvia: No kids?
+Joseph: You came all this way to ask me these questions?
+Silvia: Do you know a Bill Horrigan?
+<<wait 1>>
+Joseph: That's why you're here? To taunt an old man about his dead son before he wastes away. Well you can go fuck yourself.
+Joseph: And you can tell your boss that his pension sucks.
+Silvia: Um, Sir, your son is alive. And I need your help to find him.
+<<wait 0.5>>
+Joseph: That's absurd. Last I know, you guys killed him.
+Silvia: Okay, whatever happened or didn't happen to your son, he's alive right now, and he's threatening to use Constantine to kill thousands until we give him what he wants.
+Joseph: My baby...
+Silvia: Do you know anything about the Icarus Project?
+Joseph: They didn't tell you, huh? I agreed to never talk about that shit again, and now you come into my house asking me questions about it?
+Joseph: If you wanna know, I'll tell you. But once I do, you can't un-hear it. 
+Silvia: I really need your help, Sir.
+Joseph: It's your funeral.
+Joseph: I recommended my son to the Icarus Project. Shipped off to Phobos for the program. After a month, they told me he was dead. No body, killed in action.
+Joseph: Nobody could give me a real answer, it really broke me. A year later, I put in for retirement, but I had to sign something first. Some non-disclosure shit. I said no, fuck you.
+Joseph: Then SDF suits come to my house, break down my fuckin' door. Beat up an old man.
+Silvia: You worked for the SDF?
+Joseph: Lead Engineer for Constantine Orbital Defense System.
+Silvia: Will you come with me, Joseph?
+Joseph: I don't think have a choice.
 ===
