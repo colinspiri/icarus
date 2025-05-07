@@ -35,7 +35,7 @@ public enum EnemyType
     Bomber,
     HomingMissile,
     EliteEnemy,
-    LaserEnemy,
+    SniperEnemy,
     ShotgunEnemy,
     MachineGunEnemy,
     ArcEnemy,

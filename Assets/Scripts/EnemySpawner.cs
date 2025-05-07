@@ -90,7 +90,7 @@ public class EnemySpawner : MonoBehaviour {
         var randomSpawnTime = randomSpawnTimeMinMax.LerpValue(t);
 
         if (_randomSpawnTimer >= randomSpawnTime) {
-            List<EnemyType> allEnemyTypes = new List<EnemyType>() { EnemyType.Fighter1 , EnemyType.Fighter2, EnemyType.Fighter3, EnemyType.Bomber, EnemyType.HomingMissile, EnemyType.EliteEnemy, EnemyType.LaserEnemy, EnemyType.ShotgunEnemy};
+            List<EnemyType> allEnemyTypes = new List<EnemyType>() { EnemyType.Fighter1 , EnemyType.Fighter2, EnemyType.Fighter3, EnemyType.Bomber, EnemyType.HomingMissile, EnemyType.EliteEnemy, EnemyType.SniperEnemy, EnemyType.ShotgunEnemy};
             var enemyType = allEnemyTypes[Random.Range(0, allEnemyTypes.Count)];
             
             int randomIndex = Random.Range(0, anchorPoints.Count);
@@ -204,7 +204,7 @@ public class EnemySpawner : MonoBehaviour {
             EnemyType.Bomber => bomberPrefab,
             EnemyType.HomingMissile => homingMissilePrefab,
             EnemyType.EliteEnemy => eliteEnemyPrefab,
-            EnemyType.LaserEnemy => laserEnemyPrefab,
+            EnemyType.SniperEnemy => laserEnemyPrefab,
             EnemyType.ShotgunEnemy => shotgunEnemyPrefab,
             EnemyType.MachineGunEnemy => machineGunEnemyPrefab,
             EnemyType.ArcEnemy => arcEnemyPrefab,
