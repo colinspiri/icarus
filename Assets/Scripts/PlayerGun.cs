@@ -177,14 +177,25 @@ public class PlayerGun : MonoBehaviour {
 
     private void FireLaser()
     {
+        Debug.Log("FireLaser");
         GameObject laserPrefab = CurrentGun.CurrentBulletPrefab;
         var spriteRenderer = laserPrefab.GetComponent<SpriteRenderer>();
         var spawnPoint = bulletSpawnPoint.position + bulletSpawnPoint.right * spriteRenderer.bounds.size.x / 2;
 
         Instantiate(laserPrefab, spawnPoint, bulletSpawnPoint.rotation, gameObject.transform);
 
+        CurrentGun.LaserCharge.PlaySFX();
+
         //CurrentGun.CurrentFireSFX.PlaySFX();
     }
 
-    public void SetLaserFired() => laserState = LaserState.Fired;
+    public void SetLaserFired()
+    {
+        CurrentGun.LaserCharge.StopSFX();
+        if (CurrentGun.CurrentFireSFX != null)
+        {
+            CurrentGun.CurrentFireSFX.PlaySFX();
+        }
+        laserState = LaserState.Fired; 
+    }
 }

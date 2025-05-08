@@ -122,6 +122,7 @@ public class GunConstants : ScriptableObject {
     public SoundProfile Tier1Fire;
     public SoundProfile Tier2Fire;
     public SoundProfile Tier3Fire;
+    public SoundProfile LaserCharge;
     public SoundProfile CurrentFireSFX => heatConstants.CurrentHeatValue switch
     {
         HeatValue.Low => Tier1Fire,

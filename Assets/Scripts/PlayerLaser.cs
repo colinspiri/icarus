@@ -11,6 +11,7 @@ public class PlayerLaser : MonoBehaviour
     [SerializeField] private GameEvent playerLaserFired;
     [SerializeField] private IntVariable extraAmmoCost;
     [SerializeField] private IntVariable currentAmmo;
+    [SerializeField] private SoundProfile EnemyDamaged;
 
     private SpriteRenderer _spriteRenderer;
     private float _laserDuration;
@@ -77,6 +78,7 @@ public class PlayerLaser : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") && _canDamage)
         {
+            EnemyDamaged.PlaySFX();
             collision.GetComponent<Health>().TakeDamage(finalLaserDamage);
             heatConstants.CalculateCurrentHeat(heatConstants.heatGainPerDamage * finalLaserDamage);
         }
