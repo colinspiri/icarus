@@ -6,13 +6,13 @@ using UnityEngine.InputSystem;
 public class PauseMenuManager : MonoBehaviour {
     private PlayerInputActions _inputActions;
 
-    [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private HUDManager hud;
-    [SerializeField] private List<GameObject> objectsToDisableOnPause;
-    private List<bool> _wereObjectsActiveBeforePause = new List<bool>();
+    [SerializeField] protected GameObject pauseMenu;
+    [SerializeField] protected HUDManager hud;
+    [SerializeField] protected List<GameObject> objectsToDisableOnPause;
+    protected List<bool> _wereObjectsActiveBeforePause = new List<bool>();
 
     // state
-    private bool _gamePausedBeforePause;
+    protected bool _gamePausedBeforePause;
     private bool _hudEnabledBeforePause;
 
     private void Start()
@@ -34,7 +34,7 @@ public class PauseMenuManager : MonoBehaviour {
         }
     }
 
-    private void OpenPauseMenu()
+    protected virtual void OpenPauseMenu()
     {
         pauseMenu.SetActive(true);
 
@@ -52,7 +52,7 @@ public class PauseMenuManager : MonoBehaviour {
         CustomCursor.Instance.SetMenuCursor();
     }
 
-    public void ClosePauseMenu()
+    public virtual void ClosePauseMenu()
     {
         pauseMenu.SetActive(false);
         

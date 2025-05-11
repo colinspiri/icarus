@@ -31,7 +31,9 @@ public class CustomCursor : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.path == sceneLoader.mainMenuScene.ScenePath)
+/*        if (scene.path == sceneLoader.mainMenuScene.ScenePath || scene.path == 
+            sceneLoader.dialogueScene.ScenePath)*/
+        if (scene.path != sceneLoader.gameScene.ScenePath)
         {
             SetMenuCursor();
         }

@@ -7,6 +7,7 @@ public class SceneLoader : ScriptableObject {
     public SceneReference mainMenuScene;
     public SceneReference gameScene;
     public SceneReference shopScene;
+    public SceneReference dialogueScene;
 
     [Header("Wave Set Scenes")] 
     public SceneReference bomberScene;

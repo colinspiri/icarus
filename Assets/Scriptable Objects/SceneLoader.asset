@@ -21,6 +21,9 @@ MonoBehaviour:
   shopScene:
     sceneAsset: {fileID: 102900000, guid: 3a1aa6f6ec61a48de919d23ef7ff267d, type: 3}
     scenePath: Assets/Scenes/Shop.unity
+  dialogueScene:
+    sceneAsset: {fileID: 0}
+    scenePath: 
   bomberScene:
     sceneAsset: {fileID: 102900000, guid: 7727c79dc0e5644df9390d8d93f6df5f, type: 3}
     scenePath: Assets/Scenes/Test Scenes/Bomber WaveSet.unity
