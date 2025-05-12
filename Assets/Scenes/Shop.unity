@@ -928,7 +928,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1250860970275800862, guid: 8e844c1495596914fa55c52d327b0dfa, type: 3}
       propertyPath: m_text
-      value: laser gun
+      value: laser
       objectReference: {fileID: 0}
     - target: {fileID: 1250860970275800862, guid: 8e844c1495596914fa55c52d327b0dfa, type: 3}
       propertyPath: m_fontSize
@@ -1982,7 +1982,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 256790077898099434, guid: 212526418ac6143febf9d0842cd066c5, type: 3}
       propertyPath: m_text
-      value: laser gun (000 SOL)
+      value: laser (000 SOL)
       objectReference: {fileID: 0}
     - target: {fileID: 1370467821313210236, guid: 212526418ac6143febf9d0842cd066c5, type: 3}
       propertyPath: m_Pivot.x
@@ -2168,7 +2168,7 @@ MonoBehaviour:
   text: {fileID: 953913628}
   currentMoney: {fileID: 11400000, guid: 3d3fcf90972df4b299411a2c65bb08b7, type: 2}
   gunConstants: {fileID: 11400000, guid: d9ef363c593794c4db88fff5cedd648c, type: 2}
-  gunNameText: laser gun
+  gunNameText: laser
 --- !u!1001 &1243377039
 PrefabInstance:
   m_ObjectHideFlags: 0

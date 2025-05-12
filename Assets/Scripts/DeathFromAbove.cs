@@ -15,6 +15,7 @@ public class DeathFromAbove : MonoBehaviour
     [Header("Speed")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float moveDuration = 2f;
+    [SerializeField] private float fireDelay = 0.1f;
 
     [Header("Damage")]
     [SerializeField] private float damage = 1f;
@@ -60,7 +61,7 @@ public class DeathFromAbove : MonoBehaviour
     private void StopMoving()
     {
         isMoving = false;
-        Invoke("Fire", 0.1f);
+        Invoke("Fire", fireDelay);
 
     }
 

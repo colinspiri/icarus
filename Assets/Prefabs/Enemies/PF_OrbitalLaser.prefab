@@ -51,6 +51,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 7074876768199088470}
   speed: 8
   moveDuration: 2
+  fireDelay: 0.5
   damage: 1
   fireSFX: {fileID: 8300000, guid: 4736b2226d9ba2d47b80f514211cb279, type: 3}
   firedSprite: {fileID: 21300000, guid: 3edac81b5dd046945b4ae804c720a37e, type: 3}
