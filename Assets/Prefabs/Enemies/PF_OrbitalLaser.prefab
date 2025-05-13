@@ -54,6 +54,8 @@ MonoBehaviour:
   fireDelay: 0.5
   damage: 1
   fireSP: {fileID: 11400000, guid: d5e8a8e0eae369041970924555eb65ae, type: 2}
+  continuousFireSP: {fileID: 11400000, guid: 57eb952141575b3468211089400ac576, type: 2}
+  beepingSP: {fileID: 11400000, guid: 1eb2de6b8e013c54fae7a11d4e90b319, type: 2}
   firedSprite: {fileID: 21300000, guid: 3edac81b5dd046945b4ae804c720a37e, type: 3}
   alwaysOn: 0
   freezeOnHit: 0

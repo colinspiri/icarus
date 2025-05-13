@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemies:
-    - enemyType: 14
+    - enemyType: 2
       count: 1
     hasStaticObjectObstacles: 0
     staticObjectSpawnFrequency: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
     - enemyType: 2
       count: 1
     - enemyType: 1
-      count: 1
+      count: 2
     - enemyType: 14
       count: 1
     hasStaticObjectObstacles: 0
@@ -51,31 +51,42 @@ MonoBehaviour:
     staticObjectPrefabs: []
   - enemies:
     - enemyType: 3
-      count: 1
-    - enemyType: 1
-      count: 3
-    - enemyType: 14
-      count: 1
-    hasStaticObjectObstacles: 0
-    staticObjectSpawnFrequency: 0
-    spawnTimerVariance: 0
-    staticObjectPrefabs: []
-  - enemies:
-    - enemyType: 4
-      count: 1
-    - enemyType: 11
-      count: 1
-    hasStaticObjectObstacles: 0
-    staticObjectSpawnFrequency: 0
-    spawnTimerVariance: 0
-    staticObjectPrefabs: []
-  - enemies:
-    - enemyType: 4
-      count: 1
-    - enemyType: 14
-      count: 1
+      count: 2
     - enemyType: 1
       count: 2
+    - enemyType: 14
+      count: 1
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
+  - enemies:
+    - enemyType: 4
+      count: 1
+    - enemyType: 11
+      count: 1
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
+  - enemies:
+    - enemyType: 4
+      count: 2
+    - enemyType: 14
+      count: 1
+    - enemyType: 1
+      count: 1
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
+  - enemies:
+    - enemyType: 4
+      count: 1
+    - enemyType: 3
+      count: 2
+    - enemyType: 14
+      count: 1
     hasStaticObjectObstacles: 0
     staticObjectSpawnFrequency: 0
     spawnTimerVariance: 0

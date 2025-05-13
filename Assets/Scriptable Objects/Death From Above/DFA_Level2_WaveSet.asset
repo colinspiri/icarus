@@ -23,7 +23,7 @@ MonoBehaviour:
   - enemies:
     - enemyType: 15
       count: 2
-    - enemyType: 2
+    - enemyType: 3
       count: 1
     hasStaticObjectObstacles: 0
     staticObjectSpawnFrequency: 0
@@ -43,6 +43,8 @@ MonoBehaviour:
       count: 1
     - enemyType: 13
       count: 1
+    - enemyType: 5
+      count: 1
     hasStaticObjectObstacles: 0
     staticObjectSpawnFrequency: 0
     spawnTimerVariance: 0
@@ -50,6 +52,10 @@ MonoBehaviour:
   - enemies:
     - enemyType: 13
       count: 1
+    - enemyType: 5
+      count: 4
+    - enemyType: 14
+      count: 1
     hasStaticObjectObstacles: 0
     staticObjectSpawnFrequency: 0
     spawnTimerVariance: 0
@@ -62,24 +68,18 @@ MonoBehaviour:
     spawnTimerVariance: 0
     staticObjectPrefabs: []
   - enemies:
-    - enemyType: 3
-      count: 1
-    - enemyType: 2
-      count: 2
-    - enemyType: 12
+    - enemyType: 6
       count: 1
     hasStaticObjectObstacles: 0
     staticObjectSpawnFrequency: 0
     spawnTimerVariance: 0
     staticObjectPrefabs: []
   - enemies:
+    - enemyType: 6
+      count: 1
     - enemyType: 15
       count: 2
-    - enemyType: 12
-      count: 1
     - enemyType: 13
-      count: 1
-    - enemyType: 2
       count: 1
     hasStaticObjectObstacles: 0
     staticObjectSpawnFrequency: 0

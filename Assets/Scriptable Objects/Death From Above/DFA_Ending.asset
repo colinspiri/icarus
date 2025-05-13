@@ -9,15 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a56a9b97a78f01f4b97f217c74f00246, type: 3}
-  m_Name: CurrentMoney
+  m_Script: {fileID: 11500000, guid: c6eb92e923ab461dbcdbe0574dd65d98, type: 3}
+  m_Name: DFA_Ending
   m_EditorClassIdentifier: 
-  _value: 850
-  _readOnly: 0
-  _raiseWarning: 1
-  _isClamped: 0
-  _minClampedValue: 0
-  _maxClampedValue: 0
-  _event:
-    m_PersistentCalls:
-      m_Calls: []
+  unityScene:
+    sceneAsset: {fileID: 102900000, guid: d239beff4b6c59a4f8726937ce92c43c, type: 3}
+    scenePath: Assets/Scenes/Dialogue.unity
+  yarnNode: DeathFromAbove_Ending
