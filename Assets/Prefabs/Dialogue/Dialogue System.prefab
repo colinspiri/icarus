@@ -598,7 +598,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768382581104067244}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1797,6 +1797,7 @@ GameObject:
   - component: {fileID: 5100081314193418322}
   - component: {fileID: 8049659123930390602}
   - component: {fileID: 6552937496405249846}
+  - component: {fileID: 8756468994114109400}
   m_Layer: 5
   m_Name: Skip Dialogue Slider
   m_TagString: Untagged
@@ -1821,10 +1822,10 @@ RectTransform:
   - {fileID: 587151125519434065}
   m_Father: {fileID: 5606360401996804522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: -10}
+  m_SizeDelta: {x: 227.8, y: 107.6117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8049659123930390602
 MonoBehaviour:
@@ -1839,7 +1840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1903,6 +1904,26 @@ MonoBehaviour:
     sceneAsset: {fileID: 0}
     scenePath: 
   useYarnCallback: 1
+--- !u!114 &8756468994114109400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743024001620275367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &6756022358593162711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2087,8 +2108,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 760, y: 0}
-  m_SizeDelta: {x: 1520, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &6602056988906717476
 CanvasRenderer:
@@ -2176,8 +2197,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 760, y: 0}
-  m_SizeDelta: {x: 1520, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5258560890484038016
 CanvasRenderer:
@@ -3015,7 +3036,7 @@ MonoBehaviour:
   dialogueViews:
   - {fileID: 4604701337396423946}
   - {fileID: 3567968665939066484}
-  startNode: TestDialogue
+  startNode: TestBeforeWaves
   startAutomatically: 0
   runSelectedOptionAsLine: 1
   lineProvider: {fileID: 0}

@@ -48,10 +48,12 @@ public class MenuOptionAnimator : MonoBehaviour {
     }
     
     public void Deselect() {
-        if(EventSystem.current != null) EventSystem.current.SetSelectedGameObject(null);
+        //if(EventSystem.current != null) EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void PlayDeselectAnimation() {
+        Debug.Log(name + " playing select animation");
+
         if (selectionBox != null) {
             selectionBox.SetActive(false);
         }
@@ -61,6 +63,7 @@ public class MenuOptionAnimator : MonoBehaviour {
     }
 
     public void PlaySelectAnimation() {
+        Debug.Log(name + " playing select animation");
         if (selectionBox != null) {
             selectionBox.SetActive(true);
         }

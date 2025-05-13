@@ -30,7 +30,8 @@ MonoBehaviour:
   spreadTier2: 10
   spreadTier3: 20
   ownedOnStart: 0
-  cost: 75
+  cost: 50
   Tier1Fire: {fileID: 11400000, guid: 49e5652b0ea66e241972aa7790bba515, type: 2}
   Tier2Fire: {fileID: 11400000, guid: 037aacb70eee9784286fbb4692e93a30, type: 2}
   Tier3Fire: {fileID: 11400000, guid: e4743d0517ef6224fb54f56f0a1cfffe, type: 2}
+  LaserCharge: {fileID: 0}
