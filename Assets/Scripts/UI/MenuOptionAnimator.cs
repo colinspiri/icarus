@@ -58,7 +58,7 @@ public class MenuOptionAnimator : MonoBehaviour {
             selectionBox.SetActive(false);
         }
         if (text != null) {
-            text.DOColor(_normalTextColor, uiConstants.selectTime).SetUpdate(true);
+            text.color = _normalTextColor;
         }
     }
 
