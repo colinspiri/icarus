@@ -177,5 +177,17 @@ Joseph: I don't think have a choice.
 title: DeathFromAbove_Ending
 tags:
 ---
-Silvia: test
+DCS Bellini: Glad you made it out. And he's dead?
+Silvia: Body burnt to a crisp, saw it with my own eyes. 
+DCS Bellini: One less asshole. You did good, Silvia. 
+Silvia: Thank you, sir. Did-
+DCS Bellini: Dismissed. 
+<<wait 1>>
+Silvia: Last thing, um..
+<<wait 0.25>> 
+Silvia: What was the Icarus Project exactly?
+<<wait 0.5>>
+DCS Bellini: Go to documents, ask for file 80E5.
+Silvia: Thank you, sir.
+DCS Bellini: And don't mention this again to me, or anyone, ever again. 
 ===

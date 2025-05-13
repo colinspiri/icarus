@@ -254,3 +254,15 @@ Bill: Don't tell me what to do. The SDF will pay for their sins. For my pain. Fo
 Silvia: What happened to you isn't your dad's fault.
 Bill: IT IS! IT IS! HE DID THIS TO ME!! And I'll kill him and you and every last one of you for it!
 ===
+
+title: DeathFromAbove_Level5_After
+tags:
+---
+<<enter Silvia left>>
+Silvia: It's over, Bill. I'm taking you in.
+<<enter Bill right>>
+Bill: f-f-f... r-r.. do it...
+Silvia: What's that?
+Bill: Fire... now... On us both... Let me... die.
+Silvia: No, wait! Constantine still-
+===
