@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55b48acdb5245ffbb2a442f6421f70e, type: 3}
   m_Name: EquippedGun
   m_EditorClassIdentifier: 
-  currentGun: {fileID: 11400000, guid: d9ef363c593794c4db88fff5cedd648c, type: 2}
-  defaultGun: {fileID: 11400000, guid: d9ef363c593794c4db88fff5cedd648c, type: 2}
+  currentGun: {fileID: 11400000, guid: 5bc19424000f2a74c8706fbde9149b9a, type: 2}
+  defaultGun: {fileID: 11400000, guid: 5bc19424000f2a74c8706fbde9149b9a, type: 2}
