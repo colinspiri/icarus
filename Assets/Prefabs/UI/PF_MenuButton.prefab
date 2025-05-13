@@ -65,10 +65,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: menu button
+  m_text: DEATH FROM ABOVE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 872c591dcb55043a0927aa0a66c11d79, type: 2}
-  m_sharedMaterial: {fileID: -4017712730146596094, guid: 872c591dcb55043a0927aa0a66c11d79, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 738621492d2c74b3a836fa803c9651e9, type: 2}
+  m_sharedMaterial: {fileID: -2020059027680898261, guid: 738621492d2c74b3a836fa803c9651e9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -225,7 +225,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: acd815a19d3acaf4883fa1a86ebb8b11, type: 2}
+        m_TargetAssemblyTypeName: CurrentMission, Assembly-CSharp
+        m_MethodName: SetCurrentMission
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: e937a804480422c45badef3d227b20b3, type: 2}
+          m_ObjectArgumentAssemblyTypeName: MissionData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: acd815a19d3acaf4883fa1a86ebb8b11, type: 2}
+        m_TargetAssemblyTypeName: CurrentMission, Assembly-CSharp
+        m_MethodName: LoadCurrentScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6703562329472235110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,9 +351,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c24a6ff220434cbc08576f80469b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiConstants: {fileID: 11400000, guid: 9a2369ef415ba49399fb7f2571c1f61f, type: 2}
   selectionBox: {fileID: 0}
   text: {fileID: 256790077898099434}
   toggle: {fileID: 0}
   whenOn: {fileID: 0}
   whenOff: {fileID: 0}
-  uiConstants: {fileID: 11400000, guid: 9a2369ef415ba49399fb7f2571c1f61f, type: 2}

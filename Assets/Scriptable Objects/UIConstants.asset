@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleOnSelect: 1.2
   selectTime: 0.15
-  selectedColor: {r: 1, g: 0.1745283, b: 0.78421086, a: 1}
+  selectedColor: {r: 1, g: 0.7413987, b: 0.17647058, a: 1}
   selectedFontSize: 60
   offscreenDistance: 600
   menuScreenTransitionTime: 0.3
