@@ -192,27 +192,33 @@ Silvia: Yes, sir.
 title: DeathFromAbove_Level4_Before
 tags:
 ---
-<<enter Silvia>>
-Silvia: Hey Bill! We're here, just like you asked.
+<<enter Silvia left>>
+Silvia: I brought Joseph, just like you asked.
 <<enter Serverus right>>
 Serverus: So I see.
 <<exit Silvia>>
 <<enter Joseph left>>
-Joseph: My boy... what have they done to you?
-Serverus: You did this! You did! 
-Joseph: If I had known what would happen I never would have let them take you.
-Joseph: I'm your father. I thought I was doing what was best for you. I was wrong.
-Joseph: They told me you died. But we have another chance now. We can make this right.
-Serverus: Ha... ha...
-Serverus: HAHAHAHAHAHAHAHA!
-Serverus: Make this right? This is right! I am exactly what I was always meant to be.
-Serverus: You gave me to them father. Now you get to see me at my greatest potential.
-Serverus: And Silvia? Thank you.
+Joseph: They told me you were dead... my boy... who did this to you?
+Serverus: This is your fault. I only ever did what you wanted for me.
+Joseph: I'm sorry, I can make this right.
+Serverus: Ha! Make this right? You gave me away, father. Now you get to see me at my greatest potential.
+Serverus: Watch as I use your greatest creation to make the SDF beg at my feet.
 <<exit Serverus>>
 <<exit Joseph>>
 ===
 
 title: DeathFromAbove_Level4_After
+tags:
+---
+<<enter Silvia left>>
+Silvia: Joseph, stay here. An evac team will come get you. I have to follow him.
+Joseph: Please don't kill my boy.
+Silvia: ...
+<<wait 1>>
+Silvia: I'll do my best.
+===
+
+title: DeathFromAbove_Level4_After_Old
 tags:
 ---
 <<enter Silvia left>>
@@ -240,14 +246,11 @@ Silvia: (groans) Fine! It's your funeral.
 title: DeathFromAbove_Level5_Before
 tags:
 ---
-<<enter Serverus right>>
-Serverus: It'll end, it will all end...
-<<enter Joseph left>>
-Joseph: Bill! Bill please, stop this. 
-Serverus: No! You can't tell me what to do anymore. Nobody can tell me what to do anymore. I have the power here!
-Joseph: Yes, yes you do. You have the power to stop now, Bill. 
-Serverus: You did this!
-Joseph: I didn't! If you want to blame someone blame the SDF. They did this, Bill, but we can undo it. 
-<<wait 1>>
-Serverus: Well then, let's hear what our resident hero has to say, hm? 
+<<enter Bill right>>
+Bill: Where's my dad?
+<<enter Silvia left>>
+Silvia: Give it up, Bill. This won't end well for you.
+Bill: Don't tell me what to do. The SDF will pay for their sins. For my pain. For the pain my dad caused.
+Silvia: What happened to you isn't your dad's fault.
+Bill: IT IS! IT IS! HE DID THIS TO ME!! And I'll kill him and you and every last one of you for it!
 ===

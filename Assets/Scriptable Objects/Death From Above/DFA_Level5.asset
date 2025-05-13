@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef775a6e5b6744a6b8d3cb83657aec73, type: 3}
-  m_Name: DFA_Level4
+  m_Name: DFA_Level5
   m_EditorClassIdentifier: 
   unityScene:
     sceneAsset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
     scenePath: Assets/Scenes/Game.unity
   moneyOnComplete: -1
-  waveSet: {fileID: 11400000, guid: ed9a2b981deab3643bd53f422830700d, type: 2}
-  dialogueBeforeWaves: DeathFromAbove_Level4_Before
-  delayOnDialogueBeforeWaves: 0.5
-  dialogueAfterWaves: DeathFromAbove_Level4_After
+  waveSet: {fileID: 11400000, guid: d0068e32e12c00a4ca9b55d4bc011d3b, type: 2}
+  dialogueBeforeWaves: DeathFromAbove_Level5_Before
+  delayOnDialogueBeforeWaves: 0.1
+  dialogueAfterWaves: 
   delayOnDialogueAfterWaves: 0.5

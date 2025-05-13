@@ -12,4 +12,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585acc9dd46149498e7fcb5fd95e8d3d, type: 3}
   m_Name: DFA_Level4_WaveSet
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - enemies:
+    - enemyType: 10
+      count: 2
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
+  - enemies:
+    - enemyType: 10
+      count: 3
+    - enemyType: 11
+      count: 1
+    - enemyType: 15
+      count: 1
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
+  - enemies:
+    - enemyType: 9
+      count: 2
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
+  - enemies:
+    - enemyType: 9
+      count: 3
+    - enemyType: 8
+      count: 2
+    - enemyType: 13
+      count: 1
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
+  - enemies:
+    - enemyType: 15
+      count: 3
+    - enemyType: 10
+      count: 3
+    - enemyType: 14
+      count: 1
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
+  - enemies:
+    - enemyType: 7
+      count: 1
+    - enemyType: 9
+      count: 3
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
+  - enemies:
+    - enemyType: 7
+      count: 2
+    - enemyType: 10
+      count: 3
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
+  - enemies:
+    - enemyType: 7
+      count: 2
+    - enemyType: 6
+      count: 1
+    - enemyType: 9
+      count: 2
+    hasStaticObjectObstacles: 0
+    staticObjectSpawnFrequency: 0
+    spawnTimerVariance: 0
+    staticObjectPrefabs: []
