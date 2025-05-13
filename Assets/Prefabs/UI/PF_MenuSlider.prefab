@@ -228,12 +228,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c24a6ff220434cbc08576f80469b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiConstants: {fileID: 11400000, guid: 9a2369ef415ba49399fb7f2571c1f61f, type: 2}
   selectionBox: {fileID: 0}
   text: {fileID: 7482448761514595462}
   toggle: {fileID: 0}
   whenOn: {fileID: 0}
   whenOff: {fileID: 0}
-  uiConstants: {fileID: 11400000, guid: 9a2369ef415ba49399fb7f2571c1f61f, type: 2}
 --- !u!1 &938040896888716318
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,8 +413,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: volume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 872c591dcb55043a0927aa0a66c11d79, type: 2}
-  m_sharedMaterial: {fileID: -4017712730146596094, guid: 872c591dcb55043a0927aa0a66c11d79, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 738621492d2c74b3a836fa803c9651e9, type: 2}
+  m_sharedMaterial: {fileID: -2020059027680898261, guid: 738621492d2c74b3a836fa803c9651e9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

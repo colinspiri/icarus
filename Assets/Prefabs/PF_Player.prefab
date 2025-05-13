@@ -5429,7 +5429,7 @@ MonoBehaviour:
   damagedColor: {r: 1, g: 0.3, b: 0, a: 1}
   damagedTime: 0.15
   invulnerableFlashColor: {r: 1, g: 1, b: 1, a: 0.4}
-  invulnerableFlashPeriod: 0.25
+  invulnerableFlashPeriod: 0.15
   dashColor: {r: 1, g: 0.99475527, b: 0.75, a: 1}
 --- !u!96 &1152492618713594093
 TrailRenderer:
@@ -5707,7 +5707,6 @@ MonoBehaviour:
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 646ed575bd251db41809296ae42a2fbe, type: 2}
   currentAmmo: {fileID: 11400000, guid: c5eb8bae15f5b0a4a87dbe6ab1e6d3e9, type: 2}
-  extraAmmoCost: {fileID: 11400000, guid: 1df9c4205d635af4bacedc75937dcc3e, type: 2}
   reloadProgress: {fileID: 11400000, guid: 36c36f72136b3af4fb063919e3184a08, type: 2}
   reloadSound: {fileID: 11400000, guid: 8e7bef3fe9f20df42a793ec795e827d1, type: 2}
   laserState: 0
@@ -5726,7 +5725,7 @@ MonoBehaviour:
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: e8ec386bcbf36af4f83eb13a2f299134, type: 2}
   _event: {fileID: 11400000, guid: e8ec386bcbf36af4f83eb13a2f299134, type: 2}
   _response:
     m_PersistentCalls:
@@ -16253,7 +16252,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   damageInvulnerableTime: 1.5
-  afterDashInvulnerableTime: 0.3
+  afterDashInvulnerableTime: 0.2
   hitSound: {fileID: 11400000, guid: d1786941dd103064f802fefeccde6f2f, type: 2}
   playerInfo: {fileID: 11400000, guid: d94ee856f6c916942983a1ca90e84d98, type: 2}
   playerTookDamage: {fileID: 11400000, guid: f5e4b489ef976c54e98389201231b4a0, type: 2}

@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: toggle
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 872c591dcb55043a0927aa0a66c11d79, type: 2}
-  m_sharedMaterial: {fileID: -4017712730146596094, guid: 872c591dcb55043a0927aa0a66c11d79, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 738621492d2c74b3a836fa803c9651e9, type: 2}
+  m_sharedMaterial: {fileID: -2020059027680898261, guid: 738621492d2c74b3a836fa803c9651e9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -474,9 +474,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c24a6ff220434cbc08576f80469b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiConstants: {fileID: 11400000, guid: 9a2369ef415ba49399fb7f2571c1f61f, type: 2}
   selectionBox: {fileID: 0}
   text: {fileID: 1250860970275800862}
   toggle: {fileID: 9032494261659107965}
   whenOn: {fileID: 0}
   whenOff: {fileID: 0}
-  uiConstants: {fileID: 11400000, guid: 9a2369ef415ba49399fb7f2571c1f61f, type: 2}

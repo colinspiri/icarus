@@ -32,7 +32,7 @@ public class ScrollingTexture : MonoBehaviour {
             speed = Mathf.Lerp(minHeatSpeed, maxHeatSpeed, heat.Value);
         }
         
-        Vector2 position = rawImage.uvRect.position + new Vector2(0, -speed * Time.deltaTime);
+        Vector2 position = rawImage.uvRect.position + new Vector2(speed * Time.deltaTime, 0);
         rawImage.uvRect = new Rect(position, rawImage.uvRect.size);
     }
 }
