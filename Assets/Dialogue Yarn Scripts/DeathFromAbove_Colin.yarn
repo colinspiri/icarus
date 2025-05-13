@@ -1,12 +1,10 @@
 ﻿title: DeathFromAbove_Prologue
 tags:
 ---
-Radio: ~KSSHH~ Earl! The fuck you doing? Why'd you turn on the engine while we're doin' repairs? ~KSSHH~
+Radio: ~KSSHH~ Earl! The fuck you doing? Why'd you turn the engine on? We're doin' repairs in here! ~KSSHH~
 Earl: What? I didn't turn it on.
-Radio: ~KSSHH~ Stop fuckin' with me, just turn it off! It's heatin' up and we're all in here! ~KSSHH~
-Earl: Shit. Hey computer? 
-Computer: Listening...
-Earl: Uh, disable it. Disable Constantine orbital cannon. 
+Radio: ~KSSHH~ Stop fuckin' with me, just turn it off! It's heatin' up! ~KSSHH~
+Earl: Shit. Hey computer? Uh, disable it. Disable Constantine orbital cannon. 
 Computer: Verbal command not recognized. 
 Radio: ~KSSHH~ Earl, unlock the doors! This ain't funny! ~KSSHH~
 Earl: Computer, admin override! Password is blue green seven two three. 
@@ -18,17 +16,15 @@ Radio: ~KSSHH~ Earl, we're all in here, you're gonna kill us! ~KSSHH~
 Earl: Computer, what's going on? Cut power now.
 Computer: <i>My name is Serverus.</i>
 Serverus: <i>Listen to me closely while you watch your friends die.</i> 
-Computer: Displaying engine room camera feed.
 Serverus: <i>Tell your boss that the legendary hacker Serverus has complete control over Constantine.</i>
 Radio: ~KSSHH~ Earl, turn that shit off! ~KSSHHHHHH~
 Serverus: <i>I am the justiciar overthrowing the emperor.</i>
 Serverus: <i>I am the destroyer of the old world order.</i>
 Serverus: <i>I am the herald of a new empire.</i>
 Radio: ~KSSHH~ EARLLLL!!! AGGGHHHHH!
-Computer: Cut engine room camera feed.
 Earl: ...
-Earl: Who are you?
-Serverus: <i>Now bring me Joseph Horrigan.</i>
+Earl: What do you want?
+Serverus: <i>Bring me Joseph Horrigan.</i>
 ===
 
 title: DeathFromAbove_Briefing
@@ -81,15 +77,11 @@ title: DeathFromAbove_Shop1_Before
 tags:
 ---
 <<enter Silvia right>>
-Silvia: Hey Karina.
-<<wait 0.5>>
 <<enter Karina left>>
 Dr. Karina Le: He gave you a dressing-down, huh?
 Silvia: It's that obvious? 
 Dr. Le: No, but every DI who's come to me for repairs today was talking about how mad he is. At you. 
-Silvia: Fuck that guy. 
-Dr. Le: I've certainly heard a lot about him. I get all the gossip here, you know.
-Silvia: Didn't know you were a gossip.
+Silvia: Fuck that guy. I didn't know you were a gossip.
 Dr. Le: Just a good listener. Your ship's ready. Just gotta swap in the gun - your choice. 
 ===
 
