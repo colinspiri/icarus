@@ -80,7 +80,6 @@ public class AudioManager : MonoBehaviour
     [YarnCommand("BeginRadio")]
     public void BeginRadio()
     {
-        Debug.Log("BeginRadio");
         radioStart.PlaySFX();
     }
 

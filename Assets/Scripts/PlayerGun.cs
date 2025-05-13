@@ -177,7 +177,6 @@ public class PlayerGun : MonoBehaviour {
 
     private void FireLaser()
     {
-        Debug.Log("FireLaser");
         GameObject laserPrefab = CurrentGun.CurrentBulletPrefab;
         var spriteRenderer = laserPrefab.GetComponent<SpriteRenderer>();
         var spawnPoint = bulletSpawnPoint.position + bulletSpawnPoint.right * spriteRenderer.bounds.size.x / 2;
