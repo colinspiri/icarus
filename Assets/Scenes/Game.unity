@@ -142,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 1640487094205917266, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
       propertyPath: waveSet
       value: 
-      objectReference: {fileID: 11400000, guid: ed9a2b981deab3643bd53f422830700d, type: 2}
+      objectReference: {fileID: 11400000, guid: d0068e32e12c00a4ca9b55d4bc011d3b, type: 2}
     - target: {fileID: 3316929296849622219, guid: 6cfae6421dc35f24e8c77d90272e363c, type: 3}
       propertyPath: m_Name
       value: --BASEGAME--
